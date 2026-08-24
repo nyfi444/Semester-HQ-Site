@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Semester HQ</title>
+<meta name="description" content="How Semester HQ collects, stores, and uses your data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .legal { padding: 160px 0 100px; }
+  .legal .wrap { max-width: 760px; }
+  .legal h1 { font-size: 42px; margin-bottom: 8px; }
+  .legal .updated { color: var(--slate); font-size: 14px; margin-bottom: 48px; }
+  .legal h2 { font-size: 24px; margin: 40px 0 14px; }
+  .legal p, .legal li { color: var(--black); font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; }
+  .legal ul { padding-left: 22px; margin-bottom: 14px; }
+  .legal a { color: var(--rose-deep); text-decoration: underline; }
+  .legal strong { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html#top" class="logo">Semester HQ <span class="spark">✦</span></a>
+    <div class="nav-links">
+      <a href="index.html#product">Product</a>
+      <a href="index.html#features">Features</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="index.html#pricing">Pricing</a>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html#pricing" class="btn btn-primary">Founding Access — $19</a>
+    </div>
+  </div>
+</nav>
+
+<main class="legal">
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: August 21, 2026</p>
+
+    <p>This policy explains what Semester HQ ("we," "us") collects when you use the planner, and what we do with it. We built this to be as boring and predictable as possible — we're not in the business of your data.</p>
+
+    <h2>The short version</h2>
+    <ul>
+      <li>You can use Semester HQ entirely on your own device with no account at all — nothing about that usage ever leaves your browser.</li>
+      <li>Creating an account (Google sign-in) is required to sync across devices, and stores your planner data (courses, assignments, grades, notes, etc.) in our database, tied to your account.</li>
+      <li>If you use AI syllabus/assignment upload, the document you upload is sent to Anthropic (the maker of Claude) to extract structured info — we don't store that document ourselves beyond processing the request.</li>
+      <li>Payment is handled entirely by Stripe — we never see or store your full card number.</li>
+      <li>We don't sell your data, and we don't run third-party ads or ad-tracking on the planner itself.</li>
+    </ul>
+
+    <h2>What we collect</h2>
+    <p><strong>Account info.</strong> If you sign in, we receive your name, email address, and profile photo from Google via Firebase Authentication.</p>
+    <p><strong>Planner content.</strong> Courses, assignments, grades, notes, calendar events, study sessions, projects, and flashcards you create. If you're signed in, this is stored in our database (Firebase/Firestore) so it can sync across your devices. If you're not signed in, it stays only in your browser's local storage on that device.</p>
+    <p><strong>Documents you upload for AI parsing.</strong> Syllabi or assignment sheets you upload (PDF, photo, or pasted text) are sent through our server to Anthropic's Claude API to extract course/assignment details. We don't retain a copy of the uploaded document after the request completes.</p>
+    <p><strong>Payment info.</strong> When you purchase Founding Access, Stripe collects your payment details directly — we receive only your email and confirmation that payment succeeded, which we use to unlock your account.</p>
+    <p><strong>Study group data.</strong> If you create or join a study group, other members with the group's code can see items you choose to share into that group.</p>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>We don't sell or rent your personal data to anyone.</li>
+      <li>We don't use your uploaded documents or planner content to train AI models.</li>
+      <li>We don't run third-party advertising trackers inside the planner.</li>
+    </ul>
+
+    <h2>Who we share data with</h2>
+    <p>Only the service providers required to run Semester HQ: <strong>Google Firebase</strong> (authentication and database), <strong>Anthropic</strong> (AI document parsing, only when you use that feature), <strong>Stripe</strong> (payment processing), and <strong>Cloudflare</strong> (hosting our backend server). Each handles data under their own privacy policies and only receives what's needed to do their part.</p>
+
+    <h2>Your controls</h2>
+    <ul>
+      <li><strong>Export</strong> — Settings → Data → Export backup downloads everything as a JSON file, any time.</li>
+      <li><strong>Delete</strong> — Settings → Data → Erase all data wipes your local copy. To delete your account and synced data entirely, email us and we'll remove it.</li>
+      <li><strong>Recently Deleted</strong> — items you delete are recoverable for 30 days before being permanently removed.</li>
+    </ul>
+
+    <h2>Children's privacy</h2>
+    <p>Semester HQ is intended for students aged 13 and older. We don't knowingly collect data from children under 13.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes in a meaningful way, we'll update the date at the top and, for material changes, let you know in the app.</p>
+
+    <h2>Contact</h2>
+    <p>Questions or data requests: <a href="mailto:hello@semesterhq.com">hello@semesterhq.com</a></p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 Semester HQ. All rights reserved.</span>
+      <span><a href="privacy.html" style="color:inherit">Privacy</a> · <a href="terms.html" style="color:inherit">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
