@@ -493,7 +493,7 @@ section { position: relative; }
 /* Calendar mockup */
 .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: 16px; }
 .cal-dow { font-size: 9.5px; text-align: center; color: var(--slate); letter-spacing: 0.08em; padding-bottom: 6px; }
-.cal-cell { aspect-ratio: 1; border: 1px solid var(--line-soft); border-radius: 8px; padding: 6px; font-size: 10px; color: var(--slate); position: relative; }
+.cal-cell { aspect-ratio: 1; border: 1px solid var(--line-soft); border-radius: 8px; padding: 6px; font-size: 10px; color: var(--slate); position: relative; min-width: 0; overflow: hidden; }
 .cal-cell.today { border-color: var(--black); }
 .cal-pill { margin-top: 4px; font-size: 8px; padding: 2px 5px; border-radius: 5px; background: var(--sandstone-dim); color: var(--black); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cal-pill.rose { background: var(--rose); color: #fff; }
@@ -838,4 +838,7 @@ section { position: relative; }
 @media (max-width: 560px) {
   .hero-actions { flex-direction: column; }
   .section-pad { padding: 90px 0; }
+  .nav-cta .hero-link { display: none; }
+  .nav .btn-primary { padding: 10px 14px; font-size: 11px; }
+  .logo { font-size: 17px; white-space: nowrap; }
 }
