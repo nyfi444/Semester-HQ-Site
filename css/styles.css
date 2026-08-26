@@ -654,7 +654,7 @@ section { position: relative; }
   display: flex;
   flex-direction: column;
 }
-.price-card--founding {
+.price-card--plus {
   background: rgba(248,246,242,0.07);
   border-color: rgba(212,184,158,0.55);
   box-shadow: 0 30px 70px -30px rgba(180,159,144,0.35);
@@ -683,6 +683,7 @@ section { position: relative; }
 }
 .price-amount .cur { font-family: var(--f-serif); font-size: 30px; align-self: flex-start; margin-top: 10px; }
 .price-amount .num { font-family: var(--f-serif); font-size: 76px; font-weight: 500; line-height: 1; }
+.price-amount .per { font-size: 15px; align-self: flex-end; margin-bottom: 16px; color: rgba(248,246,242,0.5); }
 .price-note { margin-top: 14px; font-size: 13px; color: rgba(248,246,242,0.5); min-height: 34px; }
 
 .price-list {

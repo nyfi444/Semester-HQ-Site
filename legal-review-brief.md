@@ -1,6 +1,6 @@
 # Legal Review Brief — Semester HQ Privacy Policy & Terms of Service
 
-**Purpose:** Semester HQ is about to start charging $19 one-time "Founding Access" via Stripe. The attached `privacy.html` and `terms.html` were drafted by AI (not an attorney) based on the actual product behavior. This brief summarizes what's in them and flags the specific areas most likely to need professional review before real money changes hands.
+**Purpose:** Semester HQ charges $7.99/month for "Semester HQ Plus" via Stripe (recurring subscription, cancel anytime — not a one-time purchase). The attached `privacy.html` and `terms.html` were drafted by AI (not an attorney) based on the actual product behavior. This brief summarizes what's in them and flags the specific areas most likely to need professional review before real money changes hands.
 
 ---
 
@@ -20,8 +20,8 @@
 - Contact: single email address, no physical address
 
 **Terms of Service** (`terms.html`)
-- Describes the service and $19 one-time Founding Access pricing (locked in for existing purchasers)
-- 14-day, no-questions-asked refund policy
+- Describes the service and $7.99/month Semester HQ Plus subscription pricing (auto-renews monthly until canceled; price changes apply going forward with notice, not retroactively)
+- Cancel anytime, no refund for the current period; 14-day, no-questions-asked refund on the first charge only
 - Account security responsibility on the user
 - Acceptable use clause (no illegal use, no reverse-engineering, no resale)
 - AI feature disclaimer (output can be wrong, user must review before it's added to the planner)
@@ -37,7 +37,7 @@
 ## Areas most likely to need a lawyer's eye
 
 **1. Refund policy enforceability**
-The "14 days, no questions asked" language is a strong, buyer-friendly commitment, but it's not tied to how refunds are actually issued through Stripe (timing, partial vs. full, what happens if Founding Access was already used to process AI uploads). A lawyer can confirm this reads as binding and doesn't conflict with card network / Stripe dispute rules, and whether any state requires additional refund-related disclosures at the point of sale (several states, e.g. California, have specific requirements for consumer refund policies to be enforceable as stated).
+The "14 days, no questions asked" language (scoped to the first charge only, per current terms) is a strong, buyer-friendly commitment, but it's not tied to how refunds are actually issued through Stripe (timing, partial vs. full, what happens if Plus was already used to process AI uploads). Because this is now a recurring subscription, several US states have specific auto-renewal disclosure and cancellation-ease requirements (e.g., California's Automatic Renewal Law, similar statutes in NY/several other states) that apply to subscriptions in a way they didn't to a one-time purchase — worth explicit confirmation that the current terms satisfy them. A lawyer can also confirm the refund language doesn't conflict with card network / Stripe dispute rules.
 
 **2. Liability limitation language**
 The "as is" / limitation of liability clause disclaims indirect and consequential damages but:
