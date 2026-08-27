@@ -5,7 +5,7 @@
 ## Product
 
 - Free to use forever, fully in the browser, no account or card required, on one device.
-- Semester HQ Plus is $7.99/month, billed monthly, cancel anytime, and unlocks signing in, cross-device sync, AI syllabus upload, and study groups.
+- Signing in to Semester HQ is $7.99/month, billed monthly, cancel anytime, and unlocks cross-device sync, AI syllabus upload, and study groups.
 - Group/university pricing is available for departments, clubs, or student organizations — contact hello@semesterhq.com.
 - AI syllabus upload: drop in a PDF, photo, or pasted text of a syllabus and the app automatically fills in the course, schedule, assignments, and exam dates — fully editable afterward.
 - Live app (also usable directly, no marketing site required): https://nyfi444.github.io/student-dashboard/
