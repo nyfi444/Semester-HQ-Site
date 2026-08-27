@@ -1,4 +1,4 @@
-/* ── Semester HQ Plus checkout — same backend Worker as the app's AI proxy.
+/* ── Checkout — same backend Worker as the app's AI proxy.
    Update WORKER_URL if you redeploy the Worker under a different URL
    (see /worker/README.md in the student-planner repo). ──────────────── */
 const WORKER_URL = 'https://student-planner-ai-proxy.semesterhq.workers.dev';

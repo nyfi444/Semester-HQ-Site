@@ -34,4 +34,5 @@
 
 - Marketing site: https://nyfi444.github.io/Semester-HQ-Site/
 - Live app: https://nyfi444.github.io/student-dashboard/
+- Contact form: https://nyfi444.github.io/Semester-HQ-Site/contact.html
 - Contact: hello@semesterhq.com

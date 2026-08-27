@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Semester HQ</title>
+<meta name="description" content="Questions, bugs, feature requests, or feedback — send them straight to Semester HQ.">
+<link rel="canonical" href="https://nyfi444.github.io/Semester-HQ-Site/contact.html">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#121212">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html#top" class="logo">Semester HQ <span class="spark">✦</span></a>
+    <div class="nav-links">
+      <a href="index.html#try">Product</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#privacy">Privacy</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html#pricing" class="btn btn-primary">Upgrade — $7.99/mo</a>
+    </div>
+  </div>
+</nav>
+
+<main class="contact-main section-pad">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <div class="eyebrow"><span class="dot"></span>Contact</div>
+        <h1>Get in touch.</h1>
+        <p>Found a bug? Have an idea? Stuck on something? Send it over — a real person reads every message.</p>
+
+        <div class="contact-side-list">
+          <div class="contact-side-item">
+            <div class="contact-side-label">Email directly</div>
+            <a href="mailto:hello@semesterhq.com">hello@semesterhq.com</a>
+          </div>
+          <div class="contact-side-item">
+            <div class="contact-side-label">Response time</div>
+            <p>We read every message and usually reply within a day or two.</p>
+          </div>
+          <div class="contact-side-item">
+            <div class="contact-side-label">Looking for answers now?</div>
+            <a href="index.html#faq">Check the FAQ →</a>
+          </div>
+          <div class="contact-side-item">
+            <div class="contact-side-label">Group or university pricing?</div>
+            <p>Select "Billing / account" below, or email us directly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <form id="contact-form" onsubmit="submitContactForm(event)">
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-name">Name <span class="optional">(optional)</span></label>
+              <input class="input" type="text" id="cf-name" name="name" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input class="input" type="email" id="cf-email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="cf-category">What's this about?</label>
+            <select class="input" id="cf-category" name="category">
+              <option value="bug">Bug report</option>
+              <option value="feature">Feature request</option>
+              <option value="billing">Billing / account</option>
+              <option value="feedback" selected>General feedback</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea class="input" id="cf-message" name="message" rows="6" required placeholder="Tell us what's going on…"></textarea>
+          </div>
+
+          <!-- Honeypot — hidden from real visitors, bots fill it in and get silently ignored. -->
+          <div class="contact-hp" aria-hidden="true">
+            <label for="cf-website">Leave this field empty</label>
+            <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn btn-primary contact-submit">Send message</button>
+        </form>
+        <div id="contact-status" class="contact-status" role="status"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand reveal in">
+        <div class="logo">Semester HQ <span class="spark">✦</span></div>
+        <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <a href="index.html#product">Overview</a>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#try">Try it live</a>
+          <a href="index.html#privacy">Privacy</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h5>Access</h5>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="index.html#pricing">What's included</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Semester HQ. All rights reserved.</span>
+      <span>Made for the semester you're actually having.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/contact.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
