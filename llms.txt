@@ -1,6 +1,6 @@
 # Semester HQ
 
-> Semester HQ is an all-in-one academic planner for college students. It combines a calendar, assignment and to-do tracking, GPA calculation, note-taking, a study timer, an exam countdown tracker, a project hub, flashcards, and study groups into one connected app — replacing the separate tools (LMS, calendar app, group chat, notes app) students normally juggle each semester.
+> Semester HQ is an all-in-one academic planner for college students. It combines a calendar, assignment and to-do tracking, note-taking, a study timer, an exam countdown tracker, a project hub, flashcards, and study groups into one connected app — replacing the separate tools (LMS, calendar app, group chat, notes app) students normally juggle each semester.
 
 ## Product
 
@@ -14,7 +14,6 @@
 
 - Calendar with month, week, day, and year views
 - Assignments and to-do list synced to the calendar
-- Grades and GPA, recalculated live as scores are logged, weighted by each course's real grading breakdown
 - Notebook with rich-text formatting, highlights, checklists, and folder-level sharing
 - Study timer with per-course, per-week tracking
 - Exam tracker with live countdowns
