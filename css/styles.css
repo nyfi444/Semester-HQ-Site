@@ -631,6 +631,10 @@ section { position: relative; }
   gap: 24px;
   max-width: 880px;
   margin: 70px auto 0;
+}
+.price-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 420px;
   align-items: stretch;
 }
 
@@ -667,7 +671,6 @@ section { position: relative; }
   font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--rose); margin-bottom: 22px;
 }
-.price-card--free .price-tag { color: rgba(248,246,242,0.55); }
 .price-amount {
   display: flex; align-items: baseline; justify-content: center; gap: 10px;
 }
@@ -713,12 +716,6 @@ section { position: relative; }
   color: var(--black);
 }
 .mission-quote .rose { color: var(--rose-deep); font-style: normal; }
-.mission-sub {
-  margin-top: 22px;
-  font-size: 14px;
-  color: var(--slate);
-  letter-spacing: 0.02em;
-}
 
 /* ── FAQ ──────────────────────────────────────────────────────── */
 
