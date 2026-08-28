@@ -19,6 +19,6 @@ async function startCheckout(btn) {
   } catch (e) {
     btn.textContent = original;
     btn.removeAttribute('aria-disabled');
-    alert('Could not start checkout: ' + e.message + '\n\nIf this keeps happening, email hello@semesterhq.com.');
+    alert('Could not start checkout: ' + e.message + '\n\nIf this keeps happening, email hello@semester-hq.com.');
   }
 }

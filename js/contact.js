@@ -44,7 +44,7 @@ async function submitContactForm(event) {
     statusEl.textContent = 'Message sent — thanks! We read every one and usually reply within a day or two.';
     statusEl.className = 'contact-status success';
   } catch (e) {
-    statusEl.textContent = `Could not send: ${e.message}. Email hello@semesterhq.com instead?`;
+    statusEl.textContent = `Could not send: ${e.message}. Email hello@semester-hq.com instead?`;
     statusEl.className = 'contact-status error';
   } finally {
     btn.textContent = original;
