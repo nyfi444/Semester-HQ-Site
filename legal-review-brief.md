@@ -48,7 +48,7 @@ The "as is" / limitation of liability clause disclaims indirect and consequentia
 **3. Data processor list completeness**
 The privacy policy lists Firebase, Anthropic, Stripe, and Cloudflare. Worth double-checking against what's *actually* wired up in the product before a lawyer reviews it, e.g.:
 - Any analytics or crash-reporting tool (even privacy-friendly ones like Plausible) isn't mentioned — should be listed if present.
-- Email delivery for account/refund correspondence (whatever sends mail from `hello@semesterhq.com`) isn't named.
+- Email delivery for account/refund correspondence (whatever sends mail from `hello@semester-hq.com`) isn't named.
 - If Firebase Firestore/Auth data is hosted in a specific region, that's relevant for the jurisdiction question below.
 
 **4. Jurisdiction — the big open item**
