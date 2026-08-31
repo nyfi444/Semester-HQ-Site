@@ -40,4 +40,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://nyfi444.github.io/Semester-HQ-Site/sitemap.xml
+Sitemap: https://semester-hq.com/sitemap.xml
