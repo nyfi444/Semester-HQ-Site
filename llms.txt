@@ -8,7 +8,7 @@
 - Signing in to Semester HQ is $7.99/month, billed monthly, cancel anytime, and unlocks cross-device sync, AI syllabus upload, and study groups.
 - Group/university pricing is available for departments, clubs, or student organizations: contact hello@semester-hq.com.
 - AI syllabus upload: drop in a PDF, photo, or pasted text of a syllabus and the app automatically fills in the course, schedule, assignments, and exam dates, fully editable afterward.
-- Live app (also usable directly, no marketing site required): https://nyfi444.github.io/student-dashboard/
+- Live app (also usable directly, no marketing site required): https://app.semester-hq.com/
 
 ## Features
 
@@ -28,11 +28,11 @@
 - If signed in, planner data syncs to a database tied to the account.
 - Documents uploaded for AI parsing are sent to Anthropic's Claude API to extract structured data and are not retained afterward or used for model training.
 - No data is sold, and no third-party ad trackers run inside the app.
-- Full policy: https://nyfi444.github.io/Semester-HQ-Site/privacy.html
+- Full policy: https://semester-hq.com/privacy.html
 
 ## Links
 
-- Marketing site: https://nyfi444.github.io/Semester-HQ-Site/
-- Live app: https://nyfi444.github.io/student-dashboard/
-- Contact form: https://nyfi444.github.io/Semester-HQ-Site/contact.html
+- Marketing site: https://semester-hq.com/
+- Live app: https://app.semester-hq.com/
+- Contact form: https://semester-hq.com/contact.html
 - Contact: hello@semester-hq.com
