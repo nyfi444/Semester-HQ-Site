@@ -119,6 +119,13 @@ h1, h2, h3, h4 {
 }
 .btn-ghost:hover { border-color: var(--black); }
 
+.nav-login {
+  background: var(--sandstone-dim);
+  border-color: var(--sandstone);
+  font-weight: 700;
+}
+.nav-login:hover { background: var(--sandstone); border-color: var(--rose); }
+
 .btn-light {
   background: var(--bone);
   color: var(--black);
