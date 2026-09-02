@@ -195,6 +195,30 @@
           <a href="https://app.semester-hq.com/" target="_blank" rel="noopener" class="hero-link">Open in full screen ↗</a>
         </div>
       </div>
+
+      <div class="try-live-shots reveal reveal-delay-3">
+        <p class="try-live-shots-label">Prefer to just look? Here's the dashboard and calendar, signed in.</p>
+        <div class="shots-grid">
+          <div class="device device-shot">
+            <div class="device-bar">
+              <div class="device-dots"><span></span><span></span><span></span></div>
+              <div class="device-url">app.semester-hq.com</div>
+            </div>
+            <div class="device-body">
+              <img src="assets/screenshot-dashboard.png" alt="Semester HQ dashboard with this week's workload, degree progress, and a quick note" loading="lazy">
+            </div>
+          </div>
+          <div class="device device-shot">
+            <div class="device-bar">
+              <div class="device-dots"><span></span><span></span><span></span></div>
+              <div class="device-url">app.semester-hq.com</div>
+            </div>
+            <div class="device-body">
+              <img src="assets/screenshot-calendar.png" alt="Semester HQ calendar month view with assignments color-coded by class" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -435,7 +459,14 @@
           </div>
 
           <button class="btn btn-primary" style="width:100%;border:none" onclick="startCheckout(this)">Subscribe</button>
-          <div class="price-guarantee"><span class="check">✓</span>14-day money-back guarantee on your first charge</div>
+          <div class="checkout-status" id="checkout-status"></div>
+          <div class="price-trust">
+            <div class="price-guarantee"><span class="check">✓</span>14-day money-back guarantee on your first charge</div>
+            <div class="price-guarantee price-guarantee--stripe">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+              Secure checkout, powered by Stripe
+            </div>
+          </div>
         </div>
       </div>
 
@@ -549,6 +580,7 @@
 </main>
 
 <script src="js/errortracking.js"></script>
+<script src="js/track.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/main.js"></script>
 </body>

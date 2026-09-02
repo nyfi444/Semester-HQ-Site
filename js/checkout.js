@@ -5,8 +5,11 @@ const WORKER_URL = 'https://student-planner-ai-proxy.semesterhq.workers.dev';
 
 async function startCheckout(btn) {
   const original = btn.textContent;
+  const statusEl = document.getElementById('checkout-status');
   btn.textContent = 'Redirecting…';
   btn.setAttribute('aria-disabled', 'true');
+  if (statusEl) { statusEl.textContent = ''; statusEl.className = 'checkout-status'; }
+  if (typeof trackEvent === 'function') trackEvent('checkout_started');
   try {
     const res = await fetch(`${WORKER_URL}/create-checkout-session`, {
       method: 'POST',
@@ -19,6 +22,12 @@ async function startCheckout(btn) {
   } catch (e) {
     btn.textContent = original;
     btn.removeAttribute('aria-disabled');
-    alert('Could not start checkout: ' + e.message + '\n\nIf this keeps happening, email hello@semester-hq.com.');
+    if (typeof trackEvent === 'function') trackEvent('checkout_error');
+    if (statusEl) {
+      statusEl.textContent = `Could not start checkout: ${e.message}. Email hello@semester-hq.com if this keeps happening.`;
+      statusEl.className = 'checkout-status error';
+    } else {
+      alert('Could not start checkout: ' + e.message + '\n\nIf this keeps happening, email hello@semester-hq.com.');
+    }
   }
 }
