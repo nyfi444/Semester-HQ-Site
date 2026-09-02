@@ -889,8 +889,14 @@ section { position: relative; }
 @media (max-width: 560px) {
   .hero-actions { flex-direction: column; }
   .section-pad { padding: 90px 0; }
+  .nav-cta { gap: 10px; }
   .nav-cta .hero-link { display: none; }
-  .nav .btn-primary { padding: 10px 14px; font-size: 11px; }
+  /* The sticky bottom bar already covers "Try it free" on phones, so the top
+     nav only needs to fit the logo + "Log in" — dropping Upgrade here keeps
+     "Log in" from getting squeezed out (it's otherwise unreachable without
+     scrolling all the way to pricing, which is what customers were hitting). */
+  .nav .btn-primary { display: none; }
+  .nav .btn-ghost.nav-login { padding: 9px 16px; font-size: 12px; }
   .logo { font-size: 17px; white-space: nowrap; }
   .sticky-cta { display: block; }
   body { padding-bottom: 64px; }
