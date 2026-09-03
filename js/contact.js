@@ -41,7 +41,7 @@ async function submitContactForm(event) {
 
     form.reset();
     form.style.display = 'none';
-    statusEl.textContent = 'Message sent — thanks! We read every one and usually reply within a day or two.';
+    statusEl.textContent = 'Message sent — thanks! We read every one and usually reply within 1–3 business days.';
     statusEl.className = 'contact-status success';
   } catch (e) {
     statusEl.textContent = `Could not send: ${e.message}. Email hello@semester-hq.com instead?`;
