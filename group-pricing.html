@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Semester HQ</title>
-<meta name="description" content="Questions, bugs, feature requests, or feedback: send them straight to Semester HQ.">
-<link rel="canonical" href="https://semester-hq.com/contact.html">
+<title>Group & University Pricing | Semester HQ</title>
+<meta name="description" content="Bring Semester HQ to a class, club, department, or campus. Tell us about your group and we'll send you group rates.">
+<link rel="canonical" href="https://semester-hq.com/group-pricing.html">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#121212">
@@ -47,67 +47,82 @@
   <div class="wrap">
     <div class="contact-grid">
       <div class="contact-intro">
-        <div class="eyebrow"><span class="dot"></span>Contact</div>
-        <h1>Get in touch.</h1>
-        <p>Found a bug? Have an idea? Stuck on something? Send it over. A real person reads every message.</p>
+        <div class="eyebrow"><span class="dot"></span>Group &amp; university pricing</div>
+        <h1>Semester HQ for your whole group.</h1>
+        <p>Covering it for a class, club, department, or campus? Tell us a bit about your group and we'll send you group rates — usually a flat per-student rate well under $7.99/mo once you're past a handful of people.</p>
 
         <div class="contact-side-list">
+          <div class="contact-side-item">
+            <div class="contact-side-label">Who this is for</div>
+            <p>Academic departments, professors covering a course, clubs and student orgs, tutoring centers, or anyone buying more than one seat.</p>
+          </div>
           <div class="contact-side-item">
             <div class="contact-side-label">Email directly</div>
             <a href="mailto:hello@semester-hq.com">hello@semester-hq.com</a>
           </div>
           <div class="contact-side-item">
             <div class="contact-side-label">Response time</div>
-            <p>We read every message and usually reply within 1–3 business days.</p>
+            <p>We read every request and usually reply within 1–3 business days.</p>
           </div>
           <div class="contact-side-item">
-            <div class="contact-side-label">Looking for answers now?</div>
-            <a href="index.html#faq">Check the FAQ →</a>
+            <div class="contact-side-label">Just need it for yourself?</div>
+            <a href="index.html#pricing">See individual pricing →</a>
           </div>
           <div class="contact-side-item">
-            <div class="contact-side-label">Group or university pricing?</div>
-            <a href="group-pricing.html">Go to group pricing →</a>
+            <div class="contact-side-label">Something else entirely?</div>
+            <a href="contact.html">Go to general contact →</a>
           </div>
         </div>
       </div>
 
       <div class="contact-form-wrap">
-        <form id="contact-form" onsubmit="submitContactForm(event)">
+        <form id="group-contact-form" onsubmit="submitGroupContactForm(event)">
           <div class="field-row">
             <div class="field">
-              <label for="cf-name">Name <span class="optional">(optional)</span></label>
-              <input class="input" type="text" id="cf-name" name="name" autocomplete="name">
+              <label for="gf-name">Your name <span class="optional">(optional)</span></label>
+              <input class="input" type="text" id="gf-name" name="name" autocomplete="name">
             </div>
             <div class="field">
-              <label for="cf-email">Email</label>
-              <input class="input" type="email" id="cf-email" name="email" autocomplete="email" required>
+              <label for="gf-email">Email</label>
+              <input class="input" type="email" id="gf-email" name="email" autocomplete="email" required>
             </div>
           </div>
 
           <div class="field">
-            <label for="cf-category">What's this about?</label>
-            <select class="input" id="cf-category" name="category">
-              <option value="bug">Bug report</option>
-              <option value="feature">Feature request</option>
-              <option value="billing">Billing / account</option>
-              <option value="group">Group / university pricing</option>
-              <option value="feedback" selected>General feedback</option>
-              <option value="other">Something else</option>
-            </select>
+            <label for="gf-org">School, department, or group name</label>
+            <input class="input" type="text" id="gf-org" name="org" autocomplete="organization" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="gf-org-type">Type of group</label>
+              <select class="input" id="gf-org-type" name="orgType">
+                <option value="Class or course section" selected>Class or course section</option>
+                <option value="Academic department">Academic department</option>
+                <option value="Student club or organization">Student club or organization</option>
+                <option value="Tutoring or advising center">Tutoring or advising center</option>
+                <option value="Whole campus / district">Whole campus / district</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="gf-size">Estimated number of students</label>
+              <input class="input" type="text" id="gf-size" name="size" placeholder="e.g. 30, 150, 2000+">
+            </div>
           </div>
 
           <div class="field">
-            <label for="cf-message">Message</label>
-            <textarea class="input" id="cf-message" name="message" rows="6" required placeholder="Tell us what's going on…"></textarea>
+            <label for="gf-message">Anything else we should know? <span class="optional">(optional)</span></label>
+            <textarea class="input" id="gf-message" name="message" rows="5" placeholder="Timeline, budget, how you'd want to roll it out…"></textarea>
           </div>
 
           <!-- Honeypot: hidden from real visitors, bots fill it in and get silently ignored. -->
           <div class="contact-hp" aria-hidden="true">
-            <label for="cf-website">Leave this field empty</label>
-            <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off">
+            <label for="gf-website">Leave this field empty</label>
+            <input type="text" id="gf-website" name="website" tabindex="-1" autocomplete="off">
           </div>
 
-          <button type="submit" class="btn btn-primary contact-submit">Send message</button>
+          <button type="submit" class="btn btn-primary contact-submit">Request group pricing</button>
         </form>
         <div id="contact-status" class="contact-status" role="status"></div>
       </div>
