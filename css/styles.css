@@ -355,20 +355,6 @@ h1, h2, h3, h4 {
   display: block;
   background: #fff;
 }
-.try-live-shots { max-width: 1120px; margin: 40px auto 0; }
-.try-live-shots-label {
-  text-align: center;
-  font-size: 13px;
-  color: var(--slate);
-  margin-bottom: 18px;
-}
-.shots-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.device-shot .device-body { min-height: 0; }
-.device-shot img { width: 100%; height: auto; display: block; }
 
 .try-live-open {
   display: flex;
@@ -714,6 +700,8 @@ section { position: relative; }
 
 .pricing .btn-primary { background: var(--bone); color: var(--black); width: 100%; justify-content: center; padding: 17px; }
 .pricing .btn-primary:hover { background: #fff; }
+.pricing .btn-ghost { color: var(--bone); border-color: rgba(248,246,242,0.3); padding: 17px; }
+.pricing .btn-ghost:hover { border-color: var(--bone); }
 
 .checkout-status { font-size: 12.5px; line-height: 1.5; }
 .checkout-status.error { margin-top: 14px; color: #e39b9b; font-weight: 600; }
@@ -891,8 +879,6 @@ section { position: relative; }
   .hero { padding-top: 150px; }
   .device-body { flex-direction: column; }
   .try-live-stage { padding: 0 18px; }
-  .try-live-shots { padding: 0 18px; }
-  .shots-grid { grid-template-columns: 1fr; }
   .try-live-prompts { grid-template-columns: 1fr 1fr; padding: 0 18px; }
   .feature-overview { grid-template-columns: 1fr 1fr; }
   .fo-divider { margin: 50px 0 10px; }
