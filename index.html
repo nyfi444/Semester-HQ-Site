@@ -250,22 +250,24 @@
       </div>
 
       <div class="feature-overview reveal reveal-delay-1">
-        <div class="fo-item"><div class="fo-title">Calendar</div><p>Month, week, day, and year views. Drag anything to replan it.</p></div>
-        <div class="fo-item"><div class="fo-title">Assignments &amp; To-Do</div><p>Every task in one list, synced straight to your calendar.</p></div>
-        <div class="fo-item"><div class="fo-title">Notebook</div><p>Rich notes with highlights, checklists, and folder-wide sharing.</p></div>
-        <div class="fo-item"><div class="fo-title">Study Timer</div><p>Focus sessions tracked by course, by week.</p></div>
-        <div class="fo-item"><div class="fo-title">Syllabus Upload</div><p>Drop in a PDF and your semester fills itself in.</p></div>
-        <div class="fo-item"><div class="fo-title">Study Groups</div><p>Share notes and tasks with classmates, kept in sync.</p></div>
-        <div class="fo-item"><div class="fo-title">Exam Tracker</div><p>Every exam with a live countdown, pulled from your syllabus.</p></div>
-        <div class="fo-item"><div class="fo-title">Project Hub</div><p>Break big projects into milestones that actually track progress.</p></div>
-        <div class="fo-item"><div class="fo-title">Flashcards</div><p>Build decks by course, drill what you're about to be tested on.</p></div>
+        <a href="#feat-calendar" class="fo-item"><div class="fo-title">Calendar</div><p>Month, week, day, and year views. Drag anything to replan it.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-todos" class="fo-item"><div class="fo-title">To-Do List</div><p>Quick tasks and reminders that don't belong on a syllabus.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-courses" class="fo-item"><div class="fo-title">Courses</div><p>Every class, instructor, and meeting time in one roster.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-assignments" class="fo-item"><div class="fo-title">Assignments</div><p>Every graded thing you owe, tracked by class and due date.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-notebook" class="fo-item"><div class="fo-title">Notebook</div><p>Rich notes with highlights, checklists, and folder-wide sharing.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-timer" class="fo-item"><div class="fo-title">Study Timer</div><p>Focus sessions tracked by course, by week.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-upload" class="fo-item"><div class="fo-title">Syllabus Upload</div><p>Drop in a PDF and your semester fills itself in.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-groups" class="fo-item"><div class="fo-title">Study Groups</div><p>Share notes and tasks with classmates, kept in sync.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-exams" class="fo-item"><div class="fo-title">Exam Tracker</div><p>Every exam with a live countdown, pulled from your syllabus.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-projects" class="fo-item"><div class="fo-title">Project Hub</div><p>Break big projects into milestones that actually track progress.</p><span class="fo-see">See it →</span></a>
+        <a href="#feat-flashcards" class="fo-item"><div class="fo-title">Flashcards</div><p>Build decks by course, drill what you're about to be tested on.</p><span class="fo-see">See it →</span></a>
       </div>
 
       <div class="fo-divider reveal reveal-delay-2"><span>A closer look</span></div>
 
-      <div class="feature-row reveal">
+      <div class="feature-row reveal" id="feat-calendar">
         <div class="feature-copy">
-          <div class="feature-num">01. Calendar &amp; Assignments</div>
+          <div class="feature-num">01. Calendar</div>
           <h3>Never miss a deadline because it lived in the wrong app.</h3>
           <p>Every assignment, reading, and exam lands on one calendar, color-coded by class. Switch between month, week, day, or a full year view, and drag anything onto a new day to reschedule it.</p>
         </div>
@@ -281,9 +283,62 @@
         </div>
       </div>
 
-      <div class="feature-row reverse reveal">
+      <div class="feature-row reverse reveal" id="feat-todos">
         <div class="feature-copy">
-          <div class="feature-num">02. Notebook</div>
+          <div class="feature-num">02. To-Do List</div>
+          <h3>Everything you need to do, not just what's due for a class.</h3>
+          <p>Quick tasks and reminders that don't belong on a syllabus, emailing a professor, printing a handout, errands before an exam, live right alongside your coursework as their own separate list, so nothing falls through the cracks.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-card todo-mock">
+            <div class="todo-row"><span class="todo-check"></span><div class="todo-name">Email professor about extension</div><span class="todo-tag">General</span></div>
+            <div class="todo-row"><span class="todo-check"></span><div class="todo-name">Print handout for study group</div><span class="todo-tag">Marketing Strategy</span></div>
+            <div class="todo-row done"><span class="todo-check">✓</span><div class="todo-name">Buy a new notebook</div><span class="todo-tag">General</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reveal" id="feat-courses">
+        <div class="feature-copy">
+          <div class="feature-num">03. Courses</div>
+          <h3>Every class in one place, exactly the way your semester is structured.</h3>
+          <p>Add each course once, with instructor, meeting times, credits, and a color that carries through your calendar and notes automatically, or skip the typing and upload your syllabus instead.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-card courses-mock">
+            <div class="course-mini" style="border-top-color:#B49F90">
+              <div class="course-mini-name">Marketing Strategy</div>
+              <div class="course-mini-meta">MKT 301 · Prof. Alvarez</div>
+              <div class="course-mini-sub">MWF 10:00am · 3 credits</div>
+            </div>
+            <div class="course-mini" style="border-top-color:#7E736C">
+              <div class="course-mini-name">Econ 201</div>
+              <div class="course-mini-meta">ECON 201 · Prof. Diaz</div>
+              <div class="course-mini-sub">TTh 2:00pm · 4 credits</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse reveal" id="feat-assignments">
+        <div class="feature-copy">
+          <div class="feature-num">04. Assignments</div>
+          <h3>Every graded thing you owe a professor, tracked by class and due date.</h3>
+          <p>Problem sets, readings, and papers, each tied to its course, due date, and point value, and checked off the moment it's done. Add one here and it lands on your calendar automatically.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-card task-mock">
+            <div class="task-row"><span class="task-check"></span><div class="task-info"><div class="task-name">Problem Set 4</div><div class="task-meta">Econ 201 · Due Thu</div></div></div>
+            <div class="task-row"><span class="task-check"></span><div class="task-info"><div class="task-name">Read Ch. 9</div><div class="task-meta">Marketing Strategy · Due Fri</div></div></div>
+            <div class="task-row done"><span class="task-check">✓</span><div class="task-info"><div class="task-name">Lab Report Draft</div><div class="task-meta">Chem 110 · Due Mon</div></div></div>
+            <div class="task-row done"><span class="task-check">✓</span><div class="task-info"><div class="task-name">Discussion Post</div><div class="task-meta">Marketing Strategy · Due Mon</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reveal" id="feat-notebook">
+        <div class="feature-copy">
+          <div class="feature-num">05. Notebook</div>
           <h3>Find any note in seconds, not the night before the exam.</h3>
           <p>Every note lives inside its course automatically, so nothing gets buried. Start writing right away, then search across everything you've ever written.</p>
         </div>
@@ -301,9 +356,9 @@
         </div>
       </div>
 
-      <div class="feature-row reveal">
+      <div class="feature-row reverse reveal" id="feat-timer">
         <div class="feature-copy">
-          <div class="feature-num">03. Study Timer</div>
+          <div class="feature-num">06. Study Timer</div>
           <h3>See the work you're actually putting in.</h3>
           <p>Run a focus session against a specific class and watch your study time add up somewhere real: by course, by week, by what's paying off before the exam.</p>
         </div>
@@ -317,9 +372,9 @@
         </div>
       </div>
 
-      <div class="feature-row reverse reveal">
+      <div class="feature-row reveal" id="feat-upload">
         <div class="feature-copy">
-          <div class="feature-num">04. Syllabus Upload</div>
+          <div class="feature-num">07. Syllabus Upload</div>
           <h3>Your whole semester set up before your first class.</h3>
           <p>Drop in a PDF, photo, or pasted text and your course, schedule, assignments, and exams appear, ready to edit, never locked in. What used to take an evening of manual entry takes a minute.</p>
         </div>
@@ -338,18 +393,88 @@
         </div>
       </div>
 
-      <div class="feature-row reveal">
+      <div class="feature-row reverse reveal" id="feat-groups">
         <div class="feature-copy">
-          <div class="feature-num">05. Study Groups</div>
-          <h3>Never do group work across five different group chats.</h3>
-          <p>Share a folder of notes or a task list with your group in one click, and everyone sees the same live version, plus a roster and activity feed so you always know who did what.</p>
+          <div class="feature-num">08. Study Groups</div>
+          <h3>Built for a whole class, not just two roommates splitting notes.</h3>
+          <p>Share a folder of notes or a task list with your study group in one click, and everyone sees the same live version, plus a roster and activity feed so you always know who did what. Works just as well for a two-person study pair as it does for a whole lecture section or club.</p>
+          <a href="group-pricing.html" class="hero-link feature-cta">Running this for a whole class or club? See group pricing →</a>
         </div>
         <div class="feature-visual">
           <div class="feature-card group-mock">
-            <div class="group-head">Marketing Strategy: Study Group</div>
+            <div class="group-head-row">
+              <div class="group-head">Marketing Strategy: Study Group</div>
+              <div class="group-size">12 members</div>
+            </div>
             <div class="group-row"><span class="group-avatar">A</span>Ashley shared "Week 6 Notes"<span class="group-when">2m ago</span></div>
             <div class="group-row"><span class="group-avatar">J</span>Jordan assigned "Slide deck" to you<span class="group-when">1h ago</span></div>
             <div class="group-row"><span class="group-avatar">M</span>Maya completed "Read Ch. 9"<span class="group-when">Yesterday</span></div>
+            <div class="group-row"><span class="group-avatar more">+9</span>9 more classmates in this group<span class="group-when"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reveal" id="feat-exams">
+        <div class="feature-copy">
+          <div class="feature-num">09. Exam Tracker</div>
+          <h3>Watch the countdown instead of losing track of it.</h3>
+          <p>Every exam pulled straight from your syllabus, ranked by how soon it's coming, so you always know exactly what to study next and how many days you have left to do it.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-card exam-mock">
+            <div class="exam-row">
+              <div class="exam-info"><div class="exam-course">Econ 201</div><div class="exam-name">Midterm 2</div></div>
+              <div class="exam-count urgent"><span class="n">4</span><span class="u">days</span></div>
+            </div>
+            <div class="exam-row">
+              <div class="exam-info"><div class="exam-course">Marketing Strategy</div><div class="exam-name">Final Exam</div></div>
+              <div class="exam-count"><span class="n">19</span><span class="u">days</span></div>
+            </div>
+            <div class="exam-row">
+              <div class="exam-info"><div class="exam-course">Chem 110</div><div class="exam-name">Lab Practical</div></div>
+              <div class="exam-count"><span class="n">27</span><span class="u">days</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reverse reveal" id="feat-projects">
+        <div class="feature-copy">
+          <div class="feature-num">10. Project Hub</div>
+          <h3>Break the big scary project into pieces you can actually finish.</h3>
+          <p>Split any project into milestones with their own due dates, and watch real progress bars fill in as you go, instead of one looming deadline sitting untouched until the week before.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-card project-mock">
+            <div class="project-head">Senior Capstone</div>
+            <div class="project-milestone done"><span class="pm-check">✓</span>Research &amp; outline</div>
+            <div class="project-milestone done"><span class="pm-check">✓</span>First draft</div>
+            <div class="project-milestone">
+              <div class="pm-top"><span>Revisions</span><span class="pm-pct">60%</span></div>
+              <div class="pm-bar"><div class="pm-bar-fill" style="width:60%"></div></div>
+            </div>
+            <div class="project-milestone upcoming"><span class="pm-dot"></span>Final submission</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row reveal" id="feat-flashcards">
+        <div class="feature-copy">
+          <div class="feature-num">11. Flashcards</div>
+          <h3>Drill what you're actually about to be tested on.</h3>
+          <p>Build a deck by course in minutes, then flip through it wherever you've got five spare minutes: between classes, in line, anywhere your notes aren't.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-card flashcard-mock">
+            <div class="fc-stack">
+              <div class="fc-card fc-back2"></div>
+              <div class="fc-card fc-back1"></div>
+              <div class="fc-card fc-front">
+                <div class="fc-label">Term</div>
+                <div class="fc-term">Marginal Utility</div>
+              </div>
+            </div>
+            <div class="fc-deck-name">Econ 201 · Chapter 4 · 18 cards</div>
           </div>
         </div>
       </div>
