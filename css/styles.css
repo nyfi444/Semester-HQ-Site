@@ -419,6 +419,36 @@ section { position: relative; }
   margin-top: 80px;
 }
 
+.problem-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.problem-card { display: flex; flex-direction: column; gap: 16px; }
+.problem-copy h3 {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--black);
+}
+.problem-copy p {
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--slate);
+}
+.feature-card.problem-visual { padding: 18px; flex: 1; display: flex; align-items: center; }
+.problem-visual > * { width: 100%; }
+
+@media (max-width: 900px) {
+  .problem-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .problem-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Feature overview grid ────────────────────────────────────── */
 
 .feature-overview {
