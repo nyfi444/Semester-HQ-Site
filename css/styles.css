@@ -778,6 +778,33 @@ section { position: relative; }
 .pricing .eyebrow { color: var(--sandstone); justify-content: center; display: flex; }
 .pricing .section-head p { color: rgba(248,246,242,0.62); }
 
+.trust-strip {
+  max-width: 720px;
+  margin: 40px auto 0;
+  text-align: center;
+}
+.trust-strip-head {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--bone);
+  margin-bottom: 16px;
+}
+.trust-strip-points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.trust-strip-points span {
+  font-size: 12px;
+  color: rgba(248,246,242,0.7);
+  background: rgba(248,246,242,0.06);
+  border: 1px solid rgba(248,246,242,0.14);
+  border-radius: 999px;
+  padding: 7px 14px;
+}
+
 .price-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -876,6 +903,25 @@ section { position: relative; }
   color: var(--black);
 }
 .mission-quote .rose { color: var(--rose-deep); font-style: normal; }
+
+/* ── Founder ──────────────────────────────────────────────────── */
+
+.founder-card {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.founder-card h2 {
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.35;
+  margin-top: 14px;
+}
+.founder-card p {
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--slate);
+}
 
 /* ── FAQ ──────────────────────────────────────────────────────── */
 
