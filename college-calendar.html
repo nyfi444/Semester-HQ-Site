@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Calendar App | Semester HQ</title>
+<meta name="description" content="A college calendar built around your actual class schedule: month, week, day, and year views, color-coded by class, synced with assignments and exams automatically.">
+<link rel="canonical" href="https://semester-hq.com/college-calendar.html">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#121212">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://semester-hq.com/college-calendar.html">
+<meta property="og:title" content="College Calendar App | Semester HQ">
+<meta property="og:description" content="A college calendar built around your actual class schedule, synced with assignments and exams automatically.">
+<meta property="og:image" content="https://semester-hq.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Does the calendar show my recurring classes automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Add a course with its meeting days and times once, and every class session appears on your calendar for the rest of the semester without re-entering it."}},
+    {"@type": "Question", "name": "Can I see the whole year, not just one month?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, there's a year view alongside month, week, and day, so you can see the whole semester's shape at a glance or zoom into one day's schedule."}},
+    {"@type": "Question", "name": "Does the calendar work on my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It runs in your phone's browser with no app download needed, and every view works the same on a laptop, phone, or library computer."}}
+  ]
+}
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "78e77abf3a0d4bfbac8638a1ff1ffdd3"}'></script><!-- End Cloudflare Web Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WHLES754RL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WHLES754RL');
+</script>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html#top" class="logo">Semester HQ <span class="spark">✦</span></a>
+    <div class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#try">Demo</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Sign In</a>
+      <a href="index.html#try" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <header class="hero" style="padding-top:140px">
+    <div class="wrap hero-inner">
+      <div class="eyebrow"><span class="dot"></span>COLLEGE CALENDAR</div>
+      <h1 style="font-size:clamp(36px,5.2vw,68px)">A calendar that already knows<br>your class schedule.</h1>
+      <p class="hero-sub">Google Calendar has half your deadlines. Canvas has the other half. Semester HQ's calendar pulls in your class meetings, assignments, and exams automatically, color-coded by course, so one glance actually tells you what your week looks like.</p>
+      <div class="hero-actions">
+        <a href="index.html#try" class="btn btn-primary">Try the Demo <span class="btn-arrow">→</span></a>
+        <a href="index.html#pricing" class="hero-link">See pricing</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-pad-sm">
+    <div class="wrap" style="max-width:720px">
+      <h2>Four views, one calendar</h2>
+      <p style="margin-top:18px;font-size:15.5px;line-height:1.8;color:var(--slate)">Switch between month, week, day, or a full year view depending on what you need: the month view for planning around a big deadline, the day view for the morning of, the year view for seeing the whole semester's shape at once. Every assignment, reading, and exam lands here color-coded by class, and dragging something onto a new day reschedules it instantly.</p>
+      <p style="margin-top:18px;font-size:15.5px;line-height:1.8;color:var(--slate)">Add a course once, with its meeting days and times, and every class session for the rest of the semester shows up automatically, no re-entering a recurring event every week. It's the calendar a student's actual schedule deserves, not a generic one built for meetings and offices.</p>
+    </div>
+  </section>
+
+  <section class="section-pad-sm" style="background:var(--bone-dim)">
+    <div class="wrap">
+      <div class="section-head center reveal in">
+        <div class="eyebrow"><span class="dot"></span>See it in action</div>
+        <h2>Everything, color-coded by class.</h2>
+      </div>
+      <div style="max-width:520px;margin:50px auto 0">
+        <div class="feature-card">
+          <div class="cal-grid">
+            <div class="cal-dow">S</div><div class="cal-dow">M</div><div class="cal-dow">T</div><div class="cal-dow">W</div><div class="cal-dow">T</div><div class="cal-dow">F</div><div class="cal-dow">S</div>
+            <div class="cal-cell">16</div><div class="cal-cell">17<span class="cal-pill">Writeup</span></div><div class="cal-cell">18</div><div class="cal-cell">19</div><div class="cal-cell">20<span class="cal-pill sand">Quiz 5</span></div><div class="cal-cell today">21</div><div class="cal-cell">22<span class="cal-pill">Reading</span></div>
+            <div class="cal-cell">23<span class="cal-pill">Problem Set</span></div><div class="cal-cell">24<span class="cal-pill rose">Deck due</span></div><div class="cal-cell">25<span class="cal-pill">Discussion</span></div><div class="cal-cell">26<span class="cal-pill">Homework 4</span></div><div class="cal-cell">27</div><div class="cal-cell">28</div><div class="cal-cell">29</div>
+            <div class="cal-cell">30</div><div class="cal-cell">31<span class="cal-pill dark">Midterm</span></div><div class="cal-cell">1</div><div class="cal-cell">2</div><div class="cal-cell">3</div><div class="cal-cell">4<span class="cal-pill">Exam 2</span></div><div class="cal-cell">5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad-sm">
+    <div class="wrap" style="max-width:700px">
+      <div class="section-head reveal in">
+        <div class="eyebrow"><span class="dot"></span>Questions</div>
+        <h2>About the college calendar.</h2>
+      </div>
+      <div class="faq-list" style="margin-top:40px">
+        <details class="faq-item">
+          <summary>Does it show my recurring classes automatically?<span class="plus"></span></summary>
+          <p class="faq-a">Yes. Add a course with its meeting days and times once, and every class session appears on your calendar for the rest of the semester without re-entering it.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I see the whole year, not just one month?<span class="plus"></span></summary>
+          <p class="faq-a">Yes, there's a year view alongside month, week, and day, so you can see the whole semester's shape at a glance or zoom into one day's schedule.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it work on my phone?<span class="plus"></span></summary>
+          <p class="faq-a">Yes. It runs in your phone's browser with no app download needed, and every view works the same on a laptop, phone, or library computer.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta section-pad-sm">
+    <div class="wrap">
+      <div class="final-cta-inner reveal in">
+        <h2>See your semester on one calendar.</h2>
+        <p>Try the live demo free, right in your browser, no account needed.</p>
+        <div class="final-cta-actions">
+          <a href="index.html#try" class="btn btn-primary">Try the Demo <span class="btn-arrow">→</span></a>
+          <a href="index.html#pricing" class="hero-link">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand reveal in">
+        <div class="logo">Semester HQ <span class="spark">✦</span></div>
+        <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <a href="index.html#try">Overview</a>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#try">Try it live</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h5>Access</h5>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="index.html#pricing">What's included</a>
+          <a href="group-pricing.html">Group / university pricing</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Semester HQ. All rights reserved.</span>
+      <span>Made for the semester you're actually having.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/errortracking.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
