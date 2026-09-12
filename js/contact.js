@@ -1,10 +1,10 @@
-/* ── Contact form — same backend Worker as checkout/AI proxy.
+/* ── Contact form: same backend Worker as checkout/AI proxy.
    Writes to Firestore's `feedback` collection server-side; nothing here
    ever touches Firestore directly. See /worker/README.md in the
    student-planner repo (WORKER_URL matches js/checkout.js). ──────────── */
 const CONTACT_WORKER_URL = 'https://student-planner-ai-proxy.semesterhq.workers.dev';
 
-// Shared by the general contact form and the group/university pricing form —
+// Shared by the general contact form and the group/university pricing form:
 // same Worker endpoint and honeypot/loading/error handling either way.
 async function postContactMessage(payload, { form, btn, statusEl, successMsg }) {
   if (!payload.email.trim() || !payload.message.trim()) {
@@ -52,12 +52,12 @@ async function submitContactForm(event) {
     email: form.email.value,
     category: form.category.value,
     message: form.message.value,
-    website: form.website.value, // honeypot — always empty for real people
+    website: form.website.value, // honeypot, always empty for real people
   };
 
   await postContactMessage(payload, {
     form, btn, statusEl,
-    successMsg: 'Message sent — thanks! We read every one and usually reply within 1–3 business days.',
+    successMsg: 'Message sent. Thanks! We read every one and usually reply within 1–3 business days.',
   });
 }
 
@@ -92,6 +92,6 @@ async function submitGroupContactForm(event) {
 
   await postContactMessage(payload, {
     form, btn, statusEl,
-    successMsg: 'Request sent — thanks! We usually get back to you about group pricing within 1–3 business days.',
+    successMsg: 'Request sent. Thanks! We usually get back to you about group pricing within 1–3 business days.',
   });
 }

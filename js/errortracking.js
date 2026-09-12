@@ -2,7 +2,7 @@
    Catches uncaught errors and unhandled promise rejections and reports
    them to the Worker's /log-error route, which is the only writer of
    Firestore's `errors` collection (see student-planner repo's
-   firestore.rules). Same Worker URL as js/checkout.js / js/contact.js —
+   firestore.rules). Same Worker URL as js/checkout.js / js/contact.js;
    update WORKER_URL there if it ever changes.
    Throttled client-side so a loop of repeated errors doesn't spam the
    endpoint; the Worker also rate-limits per IP as a backstop.
