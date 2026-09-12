@@ -1,6 +1,6 @@
 /* ── Lightweight CTA click tracking ────────────────────────────
    Reports which buttons people actually click (Log in, Try it free,
-   Upgrade) to the same Worker as checkout/contact — see
+   Upgrade) to the same Worker as checkout/contact, see
    worker/src/index.js's "7. Event tracking" in the student-planner repo.
    No cookies, no per-user identity: just event name + page path, so we
    can tell which CTA is converting instead of guessing.

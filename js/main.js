@@ -9,7 +9,7 @@ onScroll();
 
 // Reveal on scroll. Elements start with pointer-events:none (see .reveal in
 // styles.css) so a not-yet-visible CTA can't intercept a click before it's
-// actually in place — this observer is what turns clicking back on.
+// actually in place. This observer is what turns clicking back on.
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
