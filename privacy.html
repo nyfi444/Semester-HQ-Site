@@ -55,46 +55,87 @@
 <main class="legal">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: September 2, 2026</p>
+    <p class="updated">Last updated: September 15, 2026</p>
 
-    <p>This policy explains what Semester HQ ("we," "us") collects when you use the planner, and what we do with it. We built this to be as boring and predictable as possible. We're not in the business of your data.</p>
+    <p>This policy explains what Semester HQ ("we," "us") collects when you use the planner, who can see it, and what we do with it. We built this to be as boring and predictable as possible. We're not in the business of your data.</p>
 
     <h2>The short version</h2>
     <ul>
-      <li>You can try Semester HQ without an account at all. Nothing about that usage ever leaves your browser, and nothing is saved: it's gone once you close or reload the tab.</li>
-      <li>Creating an account (Google sign-in) is required to sync across devices, and stores your planner data (courses, assignments, notes, etc.) in our database, tied to your account.</li>
-      <li>If you use AI syllabus/assignment upload, the document you upload is sent to Anthropic (the maker of Claude) to extract structured info. We don't store that document ourselves beyond processing the request.</li>
+      <li>You can try Semester HQ without an account. Nothing you enter in the demo leaves your browser or gets saved: it's gone once you close or reload the tab.</li>
+      <li>With an account, your planner is stored in our database so it syncs across your devices. It's private to you unless you choose to share something.</li>
+      <li>When you share with other people (a study group, a shared class, or a club or team), the people with that group's code can see what's shared there, including your display name. Your progress, notes, and absences are never shared.</li>
+      <li>If you turn on reminders, we store your device's push subscription and your upcoming reminder schedule so we can notify you when the app is closed.</li>
+      <li>When you use a feature that reads a document, photo, or pasted text (like syllabus upload or quick capture), that content is sent to Anthropic (the maker of Claude) to pull out the details. We don't keep a copy of the file.</li>
       <li>Payment is handled entirely by Stripe. We never see or store your full card number.</li>
-      <li>We don't sell your data, and we don't run third-party ads or ad-tracking on the planner itself.</li>
+      <li>We don't sell your data, we don't use it to train AI models, and there are no ads or ad trackers in the planner.</li>
     </ul>
 
     <h2>What we collect</h2>
-    <p><strong>Account info.</strong> If you sign in, we receive your name, email address, and profile photo from Google via Firebase Authentication.</p>
-    <p><strong>Planner content.</strong> Courses, assignments, notes, calendar events, study sessions, projects, and flashcards you create. If you're signed in, this is stored in our database (Firebase/Firestore) so it can sync across your devices. If you're not signed in, nothing you create is saved: it exists only for that browser session and is lost when you close or reload the tab.</p>
-    <p><strong>Documents you upload for AI parsing.</strong> Syllabi or assignment sheets you upload (PDF, photo, or pasted text) are sent through our server to Anthropic's Claude API to extract course/assignment details. We don't retain a copy of the uploaded document after the request completes.</p>
-    <p><strong>Payment info.</strong> When you subscribe to Semester HQ, Stripe collects your payment details directly. We receive only your email and confirmation of your subscription status (active, renewed, or canceled), which we use to unlock or lock your account accordingly.</p>
-    <p><strong>Study group data.</strong> If you create or join a study group, other members with the group's code can see items you choose to share into that group.</p>
+    <p><strong>Account info.</strong> If you sign in with Google, we receive your name, email address, and profile photo through Firebase Authentication. If you sign in with an email link, we receive your email address. You can set a display name in Settings.</p>
+
+    <p><strong>Your planner.</strong> What you create in Semester HQ: classes and meeting times, assignments and to-dos, calendar time blocks, notes and attachments, flashcards and review history, study timer sessions, projects, exam topics and study plans, applications you're tracking, syllabus details (like office hours and course policies), the absences you log, and your settings. With an account, this is stored in our database (Google Firebase) so it syncs across your devices, and a copy is kept in your browser on each signed-in device so the app works offline. Files you attach may be stored in Firebase Storage. Your absence log, progress, and notes are private to you.</p>
+
+    <p><strong>Things you share with other people.</strong> Semester HQ has three ways to plan with others. In each, a 6-character code (or an invite link containing it) is how people join, and anyone signed in who has the code can view the group's basic information.</p>
+    <ul>
+      <li><strong>Study groups.</strong> Members can see the group's name and member list (display names and chosen colors), the weekly availability each member adds, study sessions and RSVPs, shared tasks, chat messages, and notes, flashcard decks, files, and links that members share into the group.</li>
+      <li><strong>Shared classes.</strong> When you share a class, anyone with its code can see the course name and code, instructor, location, class meeting times, the titles, types, and due dates of its assignments and exams, the syllabus details you've added (such as the professor's contact information, office hours, TAs, and course policies), the school, section, and term, and your display name as the person who shared it. If you let classmates find it by searching, other signed-in students can find it by school and course code. When classmates join, we record that they joined so you can see how many have. Your completion status, notes, files, and absences are never part of a shared class.</li>
+      <li><strong>Clubs &amp; Teams.</strong> Members can see the club's name, description, and member list (display names, officer roles, and titles), events (including dates, times, locations, and details), announcements and who posted them, and each member's RSVPs. Officers use RSVPs to see who's attending.</li>
+    </ul>
+    <p>Only share what you're comfortable with the other members seeing. Don't post other people's private information.</p>
+
+    <p><strong>Reminders and push notifications.</strong> If you turn on reminders, your browser creates a push subscription (a device-specific address and encryption keys), which we store with your time zone and a schedule of your reminders for the next 10 days: for example, the names and due times of assignments, exams, study sessions, and club events. Our server uses it to send notifications through your browser's push service (Apple, Google, Mozilla, or Microsoft, depending on your device). Notification content is encrypted so the push service can't read it. Turning reminders off in Settings removes this device's subscription.</p>
+
+    <p><strong>Documents, photos, and text you send to our AI features.</strong> These features send content through our server to Anthropic's Claude API to extract details:</p>
+    <ul>
+      <li>Syllabus and assignment upload (PDFs, photos, or pasted text)</li>
+      <li>Quick capture (a photo of a whiteboard or assignment sheet, a PDF, or text, including files shared into the app from your phone)</li>
+      <li>Pasting a job, internship, or scholarship posting into the applications tracker</li>
+      <li>Planning a project, pulling exam topics from a study guide, and making flashcards from a note</li>
+    </ul>
+    <p>We don't retain a copy of what you send after the request completes. What's extracted is shown to you to review, and whatever you choose to keep is saved in your planner like anything else. On Android, a file you share into Semester HQ is held briefly in your browser's storage on your device until the app opens it.</p>
+
+    <p><strong>Payment info.</strong> When you subscribe, Stripe collects your payment details directly. We receive your email and your subscription status (active, renewed, past due, or canceled), which we use to unlock or lock your account.</p>
+
+    <p><strong>Crash reports and security.</strong> If the app hits an error, it sends a report with the error message, the page it happened on, and your browser type, so we can fix it. Our server uses your IP address briefly to limit repeated requests and protect against abuse.</p>
+
+    <p><strong>Messages you send us.</strong> If you use our contact or group pricing form, we receive what you enter (like your name, email, and message) and get an email notification so we can reply.</p>
 
     <h2>What we don't do</h2>
     <ul>
       <li>We don't sell or rent your personal data to anyone.</li>
       <li>We don't use your uploaded documents or planner content to train AI models.</li>
-      <li>We don't run third-party advertising trackers inside the planner.</li>
+      <li>We don't run third-party advertising or ad trackers inside the planner.</li>
+      <li>We don't share your progress, notes, or absences with classmates, group members, or club officers.</li>
+      <li>We don't track grades or GPA.</li>
     </ul>
 
     <h2>Who we share data with</h2>
-    <p>Only the service providers required to run Semester HQ: <strong>Google Firebase</strong> (authentication and database), <strong>Anthropic</strong> (AI document parsing, only when you use that feature), <strong>Stripe</strong> (payment processing), and <strong>Cloudflare</strong> (hosting our backend server). Each handles data under their own privacy policies and only receives what's needed to do their part.</p>
-    <p>Our marketing website (semester-hq.com, not the planner app itself) also uses <strong>Google Analytics</strong> and Cloudflare Web Analytics to see aggregate traffic, like which pages get visited and roughly how many people click a given button. Google Analytics uses cookies to do this. Neither is used for advertising, and neither has access to anything you do inside the planner.</p>
+    <p>Only the service providers required to run Semester HQ, each receiving only what it needs:</p>
+    <ul>
+      <li><strong>Google Firebase</strong>: sign-in, database, and file storage</li>
+      <li><strong>Cloudflare</strong>: our backend server, which handles AI requests, reminders, payments, and forms</li>
+      <li><strong>GitHub</strong>: hosting for the website and app files</li>
+      <li><strong>Anthropic</strong>: reading documents, photos, and text when you use an AI feature</li>
+      <li><strong>Stripe</strong>: payment processing</li>
+      <li><strong>Apple, Google, Mozilla, or Microsoft push services</strong>: delivering notifications to your device, if you turn reminders on</li>
+      <li><strong>Resend and Google Workspace</strong>: emailing us your form submissions and handling our email</li>
+    </ul>
+    <p>We may also disclose information if required by law.</p>
+    <p>Our marketing website (semester-hq.com, not the planner app) uses <strong>Google Analytics</strong> and <strong>Cloudflare Web Analytics</strong> to see aggregate traffic, and records anonymous counts of clicks on buttons like "Try the Demo" and "Get Started." Google Analytics uses cookies. None of this is used for advertising, and none of it can see anything you do inside the planner.</p>
 
     <h2>Your controls</h2>
     <ul>
-      <li><strong>Export:</strong> Settings → Data → Export backup downloads everything as a JSON file, any time.</li>
-      <li><strong>Delete:</strong> Settings → Data → Erase all data wipes your local copy. Settings → Account & Sync → Delete account cancels your subscription and permanently deletes your synced data and account.</li>
+      <li><strong>Export:</strong> Settings → Data → Export backup downloads your planner as a JSON file, any time.</li>
+      <li><strong>Reminders:</strong> turn them off in Settings → Reminders, or block notifications in your browser or device settings.</li>
+      <li><strong>Sharing:</strong> stop sharing a class, leave a study group or club, or delete your own messages and shared items at any time. Group owners and club officers can remove members and content in their groups.</li>
       <li><strong>Recently Deleted:</strong> items you delete are recoverable for 30 days before being permanently removed.</li>
+      <li><strong>Erase this device:</strong> Settings → Data → Erase all data wipes the copy on that device.</li>
+      <li><strong>Delete your account:</strong> Settings → Account &amp; Sync → Delete account cancels your subscription and permanently deletes your planner, notes, reminder schedule and push subscriptions, and your sign-in. It doesn't automatically remove things you've shared with other people, like messages in a study group, a class you shared, or your membership in a club. Leave those or stop sharing first, or email us and we'll remove them for you. Stripe keeps payment records as required by law.</li>
+      <li><strong>Other requests:</strong> to access, correct, or delete your information, email us.</li>
     </ul>
 
     <h2>Children's privacy</h2>
-    <p>Semester HQ is intended for students aged 13 and older. We don't knowingly collect data from children under 13.</p>
+    <p>Semester HQ is intended for students aged 13 and older, and everyone confirms they're at least 13 when signing in. We don't knowingly collect data from children under 13. If you believe a child under 13 has an account, email us and we'll delete it.</p>
 
     <h2>Changes to this policy</h2>
     <p>If this policy changes in a meaningful way, we'll update the date at the top and, for material changes, let you know in the app.</p>
