@@ -1334,3 +1334,14 @@ section { position: relative; }
 @media (max-width: 480px) {
   .group-rsvp { display: none; }
 }
+
+/* Group pricing: buy seats yourself, without waiting on a quote. */
+.gp-selfserve { margin-top: 26px; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--bone-dim); max-width: 420px; }
+.gp-price { display: flex; align-items: baseline; gap: 8px; }
+.gp-amount { font-family: var(--f-serif); font-size: 40px; line-height: 1; }
+.gp-per { font-size: 13.5px; color: var(--slate); }
+.gp-note { margin: 10px 0 16px; font-size: 13.5px; line-height: 1.65; color: var(--slate); }
+.gp-selfserve .btn { width: 100%; justify-content: center; }
+.gp-manage { display: inline-block; margin-top: 12px; font-size: 13px; color: var(--slate); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.gp-manage:hover { color: var(--black); border-color: var(--black); }
+.gp-custom { margin-top: 22px; font-size: 14.5px; line-height: 1.7; color: var(--slate); max-width: 420px; }

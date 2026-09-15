@@ -6,7 +6,7 @@
 
 - Live demo: the full interface runs in the browser with no account, including a sample semester, study group, and club. Nothing is saved; it resets on reload.
 - Semester HQ Plus: $7.99/month, billed monthly, cancel anytime, 14-day money-back guarantee on the first charge. Saves the semester and syncs across devices, and unlocks syllabus upload, reminders when the app is closed, shared classes, study groups, and club and team calendars.
-- Group pricing for clubs, sports teams, sorority and fraternity chapters, classes, departments, and campuses: https://semester-hq.com/group-pricing.html or hello@semester-hq.com.
+- Group plans for clubs, sports teams, sorority and fraternity chapters, classes, and departments: $5.99 per member per month (5 member minimum), bought and managed at https://app.semester-hq.com/group-admin.html. Details: https://semester-hq.com/group-pricing.html. Whole departments or campuses: hello@semester-hq.com.
 
 ## Features
 
