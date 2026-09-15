@@ -1,32 +1,41 @@
 # Semester HQ
 
-> Semester HQ is an all-in-one academic planner for college students. It combines a calendar, assignment and to-do tracking, note-taking, a study timer, an exam countdown tracker, a project hub, flashcards, and study groups into one connected app, replacing the separate tools (LMS, calendar app, group chat, notes app) students normally juggle each semester.
+> Semester HQ is an all-in-one planner for college students. It puts classes, deadlines, exam prep, projects, flashcards, notes, study groups, club and team calendars, and internship applications into one connected app, replacing the separate tools students normally juggle each semester (LMS, calendar app, syllabus PDFs, group chats, notes apps, spreadsheets).
 
-## Product
+## Pricing
 
-- Free to use forever, fully in the browser, no account or card required, on one device.
-- Signing in to Semester HQ is $7.99/month, billed monthly, cancel anytime, and unlocks cross-device sync, AI syllabus upload, and study groups.
-- Group/university pricing is available for departments, clubs, or student organizations: contact hello@semester-hq.com.
-- AI syllabus upload: drop in a PDF, photo, or pasted text of a syllabus and the app automatically fills in the course, schedule, assignments, and exam dates, fully editable afterward.
-- Live app (also usable directly, no marketing site required): https://app.semester-hq.com/
+- Live demo: the full interface runs in the browser with no account, including a sample semester, study group, and club. Nothing is saved; it resets on reload.
+- Semester HQ Plus: $7.99/month, billed monthly, cancel anytime, 14-day money-back guarantee on the first charge. Saves the semester and syncs across devices, and unlocks syllabus upload, reminders when the app is closed, shared classes, study groups, and club and team calendars.
+- Group pricing for clubs, sports teams, sorority and fraternity chapters, classes, departments, and campuses: https://semester-hq.com/group-pricing.html or hello@semester-hq.com.
 
 ## Features
 
-- Calendar with month, week, day, and year views
-- Assignments and to-do list synced to the calendar
-- Notebook with rich-text formatting, highlights, checklists, and folder-level sharing
-- Study timer with per-course, per-week tracking
-- Exam tracker with live countdowns
-- Project hub for breaking large projects into milestones and tasks
-- Flashcard decks organized by course
-- Study groups: share notes and tasks with classmates via a join code, with a shared roster and activity feed
-- Dark mode with a per-color tint, and per-class color coding throughout
+- Quick add in plain English: "bio lab report fri 5pm" becomes a lab for that class due Friday at 5 PM.
+- Calendar with month, week, day, and year views, color-coded by class, including class meetings, deadlines, study sessions, project milestones, and club events.
+- Syllabus upload (PDF, photo, or text): fills in class times, assignments, exam dates, professor contact info, office hours, TAs, and attendance and late work policies. Everything is editable.
+- Class pages: one page per class with what's due, the next exam, office hours, policies, notes, flashcards, and a private absence tracker against the attendance limit.
+- Shared classes: one student shares a class; classmates join by code, link, or school search and get every deadline, and updates follow. Only the schedule is shared, never progress, notes, or absences.
+- Assignments grouped by overdue, today, tomorrow, and this week; to-do lists by date or custom lists, with repeating to-dos.
+- Exam prep: live countdowns, a topic checklist rated not yet, shaky, or got it, study sessions placed on the calendar, and topics pulled from a study guide.
+- Projects: templates (research paper, group presentation, lab report, case study, portfolio, capstone) with milestones spaced to the due date, tasks, team, links, notes, and a timeline.
+- Flashcards with spaced repetition.
+- Study timer with focus blocks, a session goal, and a weekly study goal.
+- Notebook with rich text, organized by class.
+- Study groups: find-a-time availability heatmap, sessions with RSVPs, shared tasks, shared notes and decks, and group chat.
+- Clubs & Teams: officers post events (including weekly repeats and required events) and announcements; members RSVP and get events on their own calendar with reminders.
+- Applications tracker for internships, jobs, scholarships, and research positions, with deadlines on the calendar.
+- Reminders: morning and evening summaries, alerts before timed deadlines, exams, study sessions, and club events, delivered as push notifications even when the app is closed.
+- Quick capture: photograph a whiteboard or assignment sheet to turn it into tasks; Android share target for PDFs and links.
+- Works offline and installs to the phone home screen as a web app.
+- Themes with matching dark modes, seasonal limited editions, and alternate app icons.
+- Semester Wrapped: an end-of-term recap as shareable story cards.
+- Semester HQ does not track grades or GPA.
 
 ## Privacy
 
-- Local-only usage never leaves the browser; no account required.
-- If signed in, planner data syncs to a database tied to the account.
-- Documents uploaded for AI parsing are sent to Anthropic's Claude API to extract structured data and are not retained afterward or used for model training.
+- The live demo keeps nothing after the tab closes.
+- Signed-in planner data is stored in a database tied to the account so it syncs across devices.
+- Documents uploaded for syllabus reading or quick capture are sent to Anthropic's Claude API to extract details and are not retained afterward or used for model training.
 - No data is sold, and no third-party ad trackers run inside the app.
 - Full policy: https://semester-hq.com/privacy.html
 
@@ -34,5 +43,5 @@
 
 - Marketing site: https://semester-hq.com/
 - Live app: https://app.semester-hq.com/
-- Contact form: https://semester-hq.com/contact.html
-- Contact: hello@semester-hq.com
+- Group pricing: https://semester-hq.com/group-pricing.html
+- Contact: https://semester-hq.com/contact.html · hello@semester-hq.com
