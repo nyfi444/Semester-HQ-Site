@@ -802,6 +802,11 @@ section { position: relative; }
 .phone-title { font-size: 12.5px; font-weight: 600; }
 .phone-body { font-size: 11.5px; opacity: 0.78; }
 .phone-when { font-size: 10px; opacity: 0.6; white-space: nowrap; }
+/* The Heads Up variant of the phone mock: the app's own panel, not a lock
+   screen, so no oversized clock and the rows are grouped by urgency. */
+.phone-mock.phone-panel { padding: 26px 22px 24px; gap: 7px; }
+.phone-panel-head { font-family: var(--f-serif); font-size: 27px; line-height: 1.1; text-align: center; font-weight: 400; }
+.phone-group { font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: 0.55; margin-top: 5px; }
 
 /* Applications mockup */
 .career-mock { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: var(--bone-dim); }

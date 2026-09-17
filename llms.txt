@@ -5,7 +5,7 @@
 ## Pricing
 
 - Live demo: the full interface runs in the browser with no account, including a sample semester, study group, and club. Nothing is saved; it resets on reload.
-- Semester HQ Plus: $7.99/month, billed monthly, cancel anytime, 14-day money-back guarantee on the first charge. Saves the semester and syncs across devices, and unlocks syllabus upload, reminders when the app is closed, shared classes, study groups, and club and team calendars.
+- Semester HQ Plus: $7.99/month, billed monthly, cancel anytime, 14-day money-back guarantee on the first charge. Saves the semester and syncs across devices, and unlocks syllabus upload, shared classes, study groups, and club and team calendars.
 - Group plans for clubs, sports teams, sorority and fraternity chapters, classes, and departments: $5.99 per member per month (5 member minimum), bought and managed at https://app.semester-hq.com/group-admin.html. Details: https://semester-hq.com/group-pricing.html. Whole departments or campuses: hello@semester-hq.com.
 
 ## Features
@@ -22,9 +22,9 @@
 - Study timer with focus blocks, a session goal, and a weekly study goal.
 - Notebook with rich text, organized by class.
 - Study groups: find-a-time availability heatmap, sessions with RSVPs, shared tasks, shared notes and decks, and group chat.
-- Clubs & Teams: officers post events (including weekly repeats and required events) and announcements; members RSVP and get events on their own calendar with reminders.
+- Clubs & Teams: officers post events (including weekly repeats and required events) and announcements; members RSVP and get events on their own calendar.
 - Applications tracker for internships, jobs, scholarships, and research positions, with deadlines on the calendar.
-- Reminders: morning and evening summaries, alerts before timed deadlines, exams, study sessions, and club events, delivered as push notifications even when the app is closed.
+- Heads Up: an in-app panel behind the bell listing what's overdue, due today and tomorrow, exams coming up, study sessions, club events, project milestones, and flashcards due. Semester HQ sends no notifications of any kind: no push, no browser permission prompt, nothing on a lock screen.
 - Quick capture: photograph a whiteboard or assignment sheet to turn it into tasks; Android share target for PDFs and links.
 - Works offline and installs to the phone home screen as a web app.
 - Themes with matching dark modes, seasonal limited editions, and alternate app icons.

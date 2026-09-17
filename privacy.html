@@ -64,7 +64,7 @@
       <li>You can try Semester HQ without an account. Nothing you enter in the demo leaves your browser or gets saved: it's gone once you close or reload the tab.</li>
       <li>With an account, your planner is stored in our database so it syncs across your devices. It's private to you unless you choose to share something.</li>
       <li>When you share with other people (a study group, a shared class, or a club or team), the people with that group's code can see what's shared there, including your display name. Your progress, notes, and absences are never shared.</li>
-      <li>If you turn on reminders, we store your device's push subscription and your upcoming reminder schedule so we can notify you when the app is closed.</li>
+      <li>Semester HQ never sends notifications. There is no push subscription, no browser permission prompt, and nothing about your schedule is stored anywhere in order to alert you.</li>
       <li>When you use a feature that reads a document, photo, or pasted text (like syllabus upload or quick capture), that content is sent to Anthropic (the maker of Claude) to pull out the details. We don't keep a copy of the file.</li>
       <li>Payment is handled entirely by Stripe. We never see or store your full card number.</li>
       <li>We don't sell your data, we don't use it to train AI models, and there are no ads or ad trackers in the planner.</li>
@@ -84,7 +84,7 @@
     </ul>
     <p>Only share what you're comfortable with the other members seeing. Don't post other people's private information.</p>
 
-    <p><strong>Reminders and push notifications.</strong> If you turn on reminders, your browser creates a push subscription (a device-specific address and encryption keys), which we store with your time zone and a schedule of your reminders for the next 10 days: for example, the names and due times of assignments, exams, study sessions, and club events. Our server uses it to send notifications through your browser's push service (Apple, Google, Mozilla, or Microsoft, depending on your device). Notification content is encrypted so the push service can't read it. Turning reminders off in Settings removes this device's subscription.</p>
+    <p><strong>Notifications.</strong> Semester HQ doesn't send any. We never ask your browser for notification permission, never create a push subscription, and never upload a schedule of what's coming up. Nothing about your deadlines is copied anywhere to make an alert possible. What needs your attention is shown inside the app, behind the bell, and only when you open it. Earlier versions of Semester HQ did offer reminders; if you used them, that subscription and schedule are deleted, and deleting your account removes any remaining copy.</p>
 
     <p><strong>Documents, photos, and text you send to our AI features.</strong> These features send content through our server to Anthropic's Claude API to extract details:</p>
     <ul>
@@ -114,11 +114,10 @@
     <p>Only the service providers required to run Semester HQ, each receiving only what it needs:</p>
     <ul>
       <li><strong>Google Firebase</strong>: sign-in, database, and file storage</li>
-      <li><strong>Cloudflare</strong>: our backend server, which handles AI requests, reminders, payments, and forms</li>
+      <li><strong>Cloudflare</strong>: our backend server, which handles AI requests, payments, and forms</li>
       <li><strong>GitHub</strong>: hosting for the website and app files</li>
       <li><strong>Anthropic</strong>: reading documents, photos, and text when you use an AI feature</li>
       <li><strong>Stripe</strong>: payment processing</li>
-      <li><strong>Apple, Google, Mozilla, or Microsoft push services</strong>: delivering notifications to your device, if you turn reminders on</li>
       <li><strong>Resend and Google Workspace</strong>: emailing us your form submissions and handling our email</li>
     </ul>
     <p>We may also disclose information if required by law.</p>
@@ -127,11 +126,10 @@
     <h2>Your controls</h2>
     <ul>
       <li><strong>Export:</strong> Settings → Data → Export backup downloads your planner as a JSON file, any time.</li>
-      <li><strong>Reminders:</strong> turn them off in Settings → Reminders, or block notifications in your browser or device settings.</li>
       <li><strong>Sharing:</strong> stop sharing a class, leave a study group or club, or delete your own messages and shared items at any time. Group owners and club officers can remove members and content in their groups.</li>
       <li><strong>Recently Deleted:</strong> items you delete are recoverable for 30 days before being permanently removed.</li>
       <li><strong>Erase this device:</strong> Settings → Data → Erase all data wipes the copy on that device.</li>
-      <li><strong>Delete your account:</strong> Settings → Account &amp; Sync → Delete account cancels your subscription and permanently deletes your planner, notes, reminder schedule and push subscriptions, and your sign-in. It doesn't automatically remove things you've shared with other people, like messages in a study group, a class you shared, or your membership in a club. Leave those or stop sharing first, or email us and we'll remove them for you. Stripe keeps payment records as required by law.</li>
+      <li><strong>Delete your account:</strong> Settings → Account &amp; Sync → Delete account cancels your subscription and permanently deletes your planner, notes, any leftover reminder data from earlier versions, and your sign-in. It doesn't automatically remove things you've shared with other people, like messages in a study group, a class you shared, or your membership in a club. Leave those or stop sharing first, or email us and we'll remove them for you. Stripe keeps payment records as required by law.</li>
       <li><strong>Other requests:</strong> to access, correct, or delete your information, email us.</li>
     </ul>
 
