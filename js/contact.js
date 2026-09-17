@@ -1,8 +1,6 @@
-/* ── Contact form: same backend Worker as checkout/AI proxy.
+/* ── Contact form: same backend Worker as checkout (WORKER_URL, js/diagnostics.js).
    Writes to Firestore's `feedback` collection server-side; nothing here
-   ever touches Firestore directly. See /worker/README.md in the
-   student-planner repo (WORKER_URL matches js/checkout.js). ──────────── */
-const CONTACT_WORKER_URL = 'https://student-planner-ai-proxy.semesterhq.workers.dev';
+   ever touches Firestore directly. ──────────────────────────────────── */
 
 // Shared by the general contact form and the group/university pricing form:
 // same Worker endpoint and honeypot/loading/error handling either way.
@@ -20,19 +18,20 @@ async function postContactMessage(payload, { form, btn, statusEl, successMsg }) 
   statusEl.className = 'contact-status';
 
   try {
-    const res = await fetch(`${CONTACT_WORKER_URL}/contact-message`, {
+    const res = await fetch(`${WORKER_URL}/contact-message`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(payload),
     });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Something went wrong sending that.');
+    if (!res.ok) throw Object.assign(new Error(data.error || 'Something went wrong sending that.'), { status: res.status });
 
     form.reset();
     form.style.display = 'none';
     statusEl.textContent = successMsg;
     statusEl.className = 'contact-status success';
   } catch (e) {
+    if (!(e.status < 500)) diag.error('contact', 'Could not send a contact message', e); // a 4xx is the form's answer, not a bug
     statusEl.textContent = `Could not send: ${e.message}. Email hello@semester-hq.com instead?`;
     statusEl.className = 'contact-status error';
   } finally {
