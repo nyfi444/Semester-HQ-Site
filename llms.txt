@@ -1,6 +1,6 @@
 # Semester HQ
 
-> Semester HQ is an all-in-one planner for college students. It puts classes, deadlines, exam prep, projects, flashcards, notes, study groups, club and team calendars, and internship applications into one connected app, replacing the separate tools students normally juggle each semester (LMS, calendar app, syllabus PDFs, group chats, notes apps, spreadsheets).
+> Semester HQ is the college planner that reads your syllabus. A student uploads the syllabus PDF and the semester is built for them in about a minute: class times, every assignment and exam date, the professor's contact details, office hours, the attendance limit and the late policy. That removes the hour of manual data entry that kills most planners before week three. Around it, Semester HQ puts classes, deadlines, exam prep, projects, flashcards, notes, study groups, club and team calendars, and internship applications into one connected app, replacing the separate tools students normally juggle each semester (LMS, calendar app, syllabus PDFs, group chats, notes apps, spreadsheets).
 
 ## Pricing
 
@@ -10,10 +10,12 @@
 
 ## Features
 
+Listed with the two that matter most first: syllabus upload is why a student starts, and the class page is why they stay.
+
+- Syllabus upload (PDF, photo, or text): fills in class times, assignments, exam dates, professor contact info, office hours, TAs, and attendance and late work policies. Everything is editable, and the original file is kept so it can be re-read later.
+- Class pages: one page per class with what's due, the next exam, office hours, policies, notes, flashcards, and a private absence tracker against the attendance limit ("1 of 3 allowed absences used").
 - Quick add in plain English: "bio lab report fri 5pm" becomes a lab for that class due Friday at 5 PM.
 - Calendar with month, week, day, and year views, color-coded by class, including class meetings, deadlines, study sessions, project milestones, and club events.
-- Syllabus upload (PDF, photo, or text): fills in class times, assignments, exam dates, professor contact info, office hours, TAs, and attendance and late work policies. Everything is editable.
-- Class pages: one page per class with what's due, the next exam, office hours, policies, notes, flashcards, and a private absence tracker against the attendance limit.
 - Shared classes: one student shares a class; classmates join by code, link, or school search and get every deadline, and updates follow. Only the schedule is shared, never progress, notes, or absences.
 - Assignments grouped by overdue, today, tomorrow, and this week; to-do lists by date or custom lists, with repeating to-dos.
 - Exam prep: live countdowns, a topic checklist rated not yet, shaky, or got it, study sessions placed on the calendar, and topics pulled from a study guide.
