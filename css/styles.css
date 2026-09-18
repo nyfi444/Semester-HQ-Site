@@ -1099,6 +1099,18 @@ section { position: relative; }
 .contact-form-wrap select.input { cursor: pointer; }
 .contact-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .contact-submit { width: 100%; justify-content: center; padding: 16px; margin-top: 6px; }
+/* Review mode on the contact form (see js/contact.js). */
+.cf-stars { display: flex; align-items: center; gap: 4px; margin-top: 6px; }
+.cf-star {
+  background: none; border: 0; padding: 2px; cursor: pointer;
+  font-size: 24px; line-height: 1; color: var(--ink-soft, #8a8279);
+}
+.cf-star.on { color: var(--rose-deep, #a8553f); }
+.cf-star:focus-visible { outline: 2px solid var(--rose-deep, #a8553f); outline-offset: 2px; border-radius: 4px; }
+.cf-star-read { font-size: 13px; margin-left: 8px; opacity: .7; }
+.cf-quote { display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; font-size: 13.5px; line-height: 1.5; }
+.cf-quote input { margin-top: 3px; }
+
 .contact-status { margin-top: 16px; font-size: 13.5px; line-height: 1.6; }
 .contact-status.success { color: var(--rose-deep); font-weight: 600; }
 .contact-status.error { color: #b23b3b; font-weight: 600; }
@@ -1180,3 +1192,15 @@ section { position: relative; }
 .gp-manage { display: inline-block; margin-top: 12px; font-size: 13px; color: var(--slate); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
 .gp-manage:hover { color: var(--black); border-color: var(--black); }
 .gp-custom { margin-top: 22px; font-size: 14.5px; line-height: 1.7; color: var(--slate); max-width: 420px; }
+
+/* Which path a group takes: self-serve up to 50 seats, the form for the cases
+   that need a person. Published so nobody has to ask. */
+.gp-routes { margin-top: 30px; max-width: 520px; }
+.gp-routes-title { font-size: 19px; margin: 0 0 12px; }
+.gp-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.gp-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.6; }
+.gp-table th, .gp-table td { text-align: left; padding: 11px 14px 11px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.gp-table th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); font-weight: 600; }
+.gp-table td:first-child { padding-right: 20px; min-width: 170px; }
+.gp-table tbody tr:last-child td { border-bottom: 0; }
+.gp-routes .gp-custom { margin-top: 16px; max-width: none; }

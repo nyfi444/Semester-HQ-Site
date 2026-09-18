@@ -93,8 +93,23 @@
               <option value="billing">Billing / account</option>
               <option value="group">Group / university pricing</option>
               <option value="feedback" selected>General feedback</option>
+              <option value="review">Leaving a review</option>
               <option value="other">Something else</option>
             </select>
+          </div>
+
+          <!-- Shown only when the category is a review (see js/contact.js). -->
+          <div class="field" id="cf-review-fields" hidden>
+            <label id="cf-rating-label">How many stars?</label>
+            <div class="cf-stars" role="radiogroup" aria-labelledby="cf-rating-label">
+              <button type="button" class="cf-star" data-star="1" role="radio" aria-checked="false" aria-label="1 star">☆</button>
+              <button type="button" class="cf-star" data-star="2" role="radio" aria-checked="false" aria-label="2 stars">☆</button>
+              <button type="button" class="cf-star" data-star="3" role="radio" aria-checked="false" aria-label="3 stars">☆</button>
+              <button type="button" class="cf-star" data-star="4" role="radio" aria-checked="false" aria-label="4 stars">☆</button>
+              <button type="button" class="cf-star" data-star="5" role="radio" aria-checked="false" aria-label="5 stars">☆</button>
+              <span class="cf-star-read" id="cf-rating-read">Tap to rate</span>
+            </div>
+            <label class="cf-quote"><input type="checkbox" id="cf-quotable"> <span>You can quote this on semester-hq.com (first name only)</span></label>
           </div>
 
           <div class="field">
@@ -141,6 +156,7 @@
         <div class="footer-col">
           <h5>Company</h5>
           <a href="contact.html">Contact</a>
+          <a href="contact.html?review=1">Leave a review</a>
           <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Service</a>
         </div>
