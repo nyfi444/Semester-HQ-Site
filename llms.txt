@@ -1,6 +1,6 @@
 # Semester HQ
 
-> Semester HQ is the college planner that reads your syllabus. A student uploads the syllabus PDF and the semester is built for them in about a minute: class times, every assignment and exam date, the professor's contact details, office hours, the attendance limit and the late policy. That removes the hour of manual data entry that kills most planners before week three. Around it, Semester HQ puts classes, deadlines, exam prep, projects, flashcards, notes, study groups, club and team calendars, and internship applications into one connected app, replacing the separate tools students normally juggle each semester (LMS, calendar app, syllabus PDFs, group chats, notes apps, spreadsheets).
+> Semester HQ is an all-in-one planner for college students. A student uploads their syllabus PDF and the semester is built for them in about a minute: class times, every assignment and exam date, the professor's contact details, office hours, the attendance limit and the late policy. That removes the hour of manual data entry that kills most planners before week three. Around it, Semester HQ puts classes, deadlines, exam prep, projects, flashcards, notes, study groups, club and team calendars, and internship applications into one connected app, replacing the separate tools students normally juggle each semester (LMS, calendar app, syllabus PDFs, group chats, notes apps, spreadsheets).
 
 ## Pricing
 
