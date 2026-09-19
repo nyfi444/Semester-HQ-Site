@@ -29,7 +29,7 @@
   "mainEntity": [
     {"@type": "Question", "name": "Does the syllabus planner work with any syllabus format?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Upload a PDF, take a photo of a printed syllabus, or paste in the text directly. Semester HQ reads whichever format you give it and pulls out the same details either way."}},
     {"@type": "Question", "name": "What if it gets something wrong?", "acceptedAnswer": {"@type": "Answer", "text": "Everything it adds is fully editable before it's final. Nothing is locked in, so you can fix a wrong date or add something it missed in a few seconds."}},
-    {"@type": "Question", "name": "Is my syllabus stored anywhere after I upload it?", "acceptedAnswer": {"@type": "Answer", "text": "No. The file is sent to Anthropic's AI, read once to extract the details, then discarded. It is never stored afterward and never used to train any model."}}
+    {"@type": "Question", "name": "Is my syllabus stored anywhere after I upload it?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, in your class page. Semester HQ keeps the original file there so it can be re-read later, until you delete the file or your account. To extract the details, the file is sent to Anthropic's Claude API. Anthropic does not use it to train models and does not keep it beyond its API data retention policy."}}
   ]
 }
 </script>
@@ -115,7 +115,7 @@
         </details>
         <details class="faq-item">
           <summary>Is my syllabus stored anywhere after I upload it?<span class="plus"></span></summary>
-          <p class="faq-a">No. The file is sent to Anthropic's AI, read once to extract the details, then discarded. It's never stored afterward and never used to train any model.</p>
+          <p class="faq-a">Yes, in your class page. Semester HQ keeps the original file there so you can re-read it later, until you delete the file or your account. To extract the details, the file is sent to Anthropic's Claude API. Anthropic doesn't use it to train models and doesn't keep it beyond its API data retention policy.</p>
         </details>
       </div>
     </div>

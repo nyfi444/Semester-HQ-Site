@@ -37,7 +37,7 @@ Listed with the two that matter most first: syllabus upload is why a student sta
 
 - The live demo keeps nothing after the tab closes.
 - Signed-in planner data is stored in a database tied to the account so it syncs across devices.
-- Documents uploaded for syllabus reading or quick capture are sent to Anthropic's Claude API to extract details and are not retained afterward or used for model training.
+- Documents uploaded for syllabus reading or quick capture are sent to Anthropic's Claude API to extract details. Anthropic does not use them to train models and does not keep them beyond its API data retention policy. The original syllabus file is kept in the student's class page until the student deletes it or their account.
 - No data is sold, and no third-party ad trackers run inside the app.
 - Full policy: https://semester-hq.com/privacy.html
 
