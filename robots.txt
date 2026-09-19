@@ -1,9 +1,9 @@
-# Semester HQ — robots.txt
+# Semester HQ robots.txt
 
 User-agent: *
 Allow: /
 
-# Search engine AI-answer crawlers — explicitly welcomed
+# Search engine AI-answer crawlers, explicitly welcomed
 User-agent: GPTBot
 Allow: /
 
