@@ -2,6 +2,30 @@
    Writes to Firestore's `feedback` collection server-side; nothing here
    ever touches Firestore directly. ──────────────────────────────────── */
 
+// Cloudflare Turnstile, switched on only when a page carries
+// <meta name="turnstile-sitekey" content="..."> (added once the widget exists
+// in the Cloudflare dashboard). The Worker checks the token only once its
+// TURNSTILE_SECRET is set, so the two sides switch on together; until then
+// the forms work exactly as before, behind their rate limits.
+const TURNSTILE_SITEKEY = document.querySelector('meta[name="turnstile-sitekey"]')?.content || '';
+let _turnstileWidget = null;
+function turnstileToken() {
+  try { return TURNSTILE_SITEKEY && window.turnstile && _turnstileWidget !== null ? window.turnstile.getResponse(_turnstileWidget) : ''; }
+  catch { return ''; }
+}
+function resetTurnstile() { try { if (window.turnstile && _turnstileWidget !== null) window.turnstile.reset(_turnstileWidget); } catch {} }
+function mountTurnstile() {
+  const slot = document.querySelector('[data-turnstile]');
+  if (!TURNSTILE_SITEKEY || !slot) return;
+  const s = document.createElement('script');
+  s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+  s.async = true;
+  s.defer = true;
+  s.onload = () => { _turnstileWidget = window.turnstile.render(slot, { sitekey: TURNSTILE_SITEKEY, theme: 'light' }); };
+  document.head.appendChild(s);
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountTurnstile); else mountTurnstile();
+
 // Shared by the general contact form and the group/university pricing form:
 // same Worker endpoint and honeypot/loading/error handling either way.
 async function postContactMessage(payload, { form, btn, statusEl, successMsg }) {
@@ -21,10 +45,10 @@ async function postContactMessage(payload, { form, btn, statusEl, successMsg }) 
     const res = await fetch(`${WORKER_URL}/contact-message`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ ...payload, turnstileToken: turnstileToken() }),
     });
     const data = await res.json();
-    if (!res.ok) throw Object.assign(new Error(data.error || 'Something went wrong sending that.'), { status: res.status });
+    if (!res.ok) { resetTurnstile(); throw Object.assign(new Error(data.error || 'Something went wrong sending that.'), { status: res.status }); }
 
     form.reset();
     form.style.display = 'none';
