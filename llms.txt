@@ -6,13 +6,13 @@
 
 - Live demo: the full interface runs in the browser with no account, including a sample semester, study group, and club. Nothing is saved; it resets on reload.
 - Semester HQ Plus: $7.99/month, billed monthly, cancel anytime, 14-day money-back guarantee on the first charge. Saves the semester and syncs across devices, and unlocks syllabus upload, shared classes, study groups, and club and team calendars.
-- Group plans for clubs, sports teams, sorority and fraternity chapters, classes, and departments: $5.99 per member per month (5 member minimum), bought and managed at https://app.semester-hq.com/group-admin.html. Details: https://semester-hq.com/group-pricing.html. Whole departments or campuses: hello@semester-hq.com.
+- Group plans for clubs, sports teams, sorority and fraternity chapters, and class sections: $5.99 per member per month. Self-serve for 5 to 50 seats, bought and managed at https://app.semester-hq.com/group-admin.html. Above 50 seats, or for anyone who needs an invoice, PO or W-9, or is buying for a department, campus or district, use the quote form at https://semester-hq.com/group-pricing.html.
 
 ## Features
 
 Listed with the two that matter most first: syllabus upload is why a student starts, and the class page is why they stay.
 
-- Syllabus upload (PDF, photo, or text): fills in class times, assignments, exam dates, professor contact info, office hours, TAs, and attendance and late work policies. Everything is editable, and the original file is kept so it can be re-read later.
+- Syllabus upload (a PDF, Word or PowerPoint file, a photo, or pasted text): fills in class times, assignments, exam dates, professor contact info, office hours, TAs, and attendance and late work policies. Everything is editable, and the original file is kept so it can be re-read later.
 - Class pages: one page per class with what's due, the next exam, office hours, policies, notes, flashcards, and a private absence tracker against the attendance limit ("1 of 3 allowed absences used").
 - Quick add in plain English: "bio lab report fri 5pm" becomes a lab for that class due Friday at 5 PM.
 - Calendar with month, week, day, and year views, color-coded by class, including class meetings, deadlines, study sessions, project milestones, and club events.
