@@ -42,18 +42,36 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "Live Demo",
-          "price": "0",
-          "priceCurrency": "USD",
-          "description": "Explore the live interface before you sign up. It's a demo to see how Semester HQ works, not a saved account, so nothing carries over until you sign in."
-        },
-        {
-          "@type": "Offer",
           "name": "Semester HQ Plus",
           "price": "7.99",
           "priceCurrency": "USD",
-          "billingDuration": "P1M",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": 7.99,
+            "priceCurrency": "USD",
+            "billingIncrement": 1,
+            "unitCode": "MON"
+          },
           "description": "Monthly subscription that saves your semester and syncs it across devices, with syllabus upload, shared classes, study groups, and club and team calendars. Cancel anytime."
+        },
+        {
+          "@type": "Offer",
+          "name": "Group plan",
+          "price": "5.99",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": 5.99,
+            "priceCurrency": "USD",
+            "billingIncrement": 1,
+            "unitCode": "MON"
+          },
+          "eligibleQuantity": {
+            "@type": "QuantitativeValue",
+            "minValue": 5,
+            "maxValue": 50
+          },
+          "description": "Per member per month for clubs, teams, chapters, and class sections. Self-serve for 5 to 50 seats. Above that, or for an invoice, PO or W-9, ask for a quote."
         }
       ]
     },
