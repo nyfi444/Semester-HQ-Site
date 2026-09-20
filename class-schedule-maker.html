@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>if (location.hostname.endsWith('.github.io')) { var p = location.pathname.split('/').slice(2).join('/'); location.replace('https://semester-hq.com/' + p + location.search + location.hash); }</script>
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Schedule Maker from Your Syllabus | Semester HQ</title>
+<meta name="description" content="Turn your syllabi into a weekly class schedule with office hours, exam dates, and an absence tally, in about a minute per class. A six-step guide for college students.">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#121212">
+
+<link rel="canonical" href="https://semester-hq.com/class-schedule-maker.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://semester-hq.com/class-schedule-maker.html">
+<meta property="og:title" content="Class Schedule Maker from Your Syllabus | Semester HQ">
+<meta property="og:description" content="Turn your syllabi into a weekly class schedule with office hours, exam dates, and an absence tally, in about a minute per class. A six-step guide for college students.">
+<meta property="og:image" content="https://semester-hq.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Semester HQ. Everything your semester needs. One HQ. The Semester HQ dashboard with today’s schedule, what is due this week, and the next exams.">
+<meta property="og:site_name" content="Semester HQ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Class Schedule Maker from Your Syllabus | Semester HQ">
+<meta name="twitter:description" content="Turn your syllabi into a weekly class schedule with office hours, exam dates, and an absence tally, in about a minute per class. A six-step guide for college students.">
+<meta name="twitter:image" content="https://semester-hq.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="Semester HQ. Everything your semester needs. One HQ. The Semester HQ dashboard with today’s schedule, what is due this week, and the next exams.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://semester-hq.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://semester-hq.com/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Class schedule maker",
+          "item": "https://semester-hq.com/class-schedule-maker.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can it make my schedule from the syllabus alone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mostly, yes. Upload the syllabus and the meeting days and times, exam dates, office hours, and attendance rule are read out and laid onto the week view and the class page in about a minute, ready to check. If a syllabus does not list the times, add them by hand once and everything else still comes from the document."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it show office hours on the schedule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Office hours live on each class page, with the next one highlighted and a one-tap email to the professor. They are not added to the calendar grid automatically, so the week view stays your class meetings and your own plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the absence tracker work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The attendance limit is read from the syllabus, or you type it in. Mark a day missed on the class page and the tracker shows where you stand, for example 1 of 3 allowed absences used. It is private, even in a shared class."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export the schedule to Google Calendar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Semester HQ keeps its own calendar, on the web and installed on your phone, and does not export to Google Calendar or Apple Calendar. If a feed is what you need, Google Calendar with repeating events is the honest answer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I add or drop a class mid-semester?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add the new class and its meetings appear on the week view at once. Archive the one you dropped and its meetings and deadlines leave the calendar."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "78e77abf3a0d4bfbac8638a1ff1ffdd3"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="wrap">
+    <a href="index.html#top" class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#try">Demo</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Log in</a>
+      <a href="index.html#try" class="btn btn-primary nav-demo">Try the demo</a>
+    </div>
+  </div>
+</nav>
+
+<div class="sticky-cta">
+  <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
+</div>
+
+<main id="top">
+  <header class="guide-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#guides">Guides</a></li>
+          <li aria-current="page">Class schedule maker</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot"></span>Class schedule maker</div>
+      <h1>Turn a stack of syllabi into a weekly schedule in a few minutes.</h1>
+      <p class="lede">A class schedule maker should not start with an empty grid. Semester HQ starts with the syllabus: upload it and the meeting times, office hours, exam dates, and attendance rule are read out for you, so the weekly schedule, the class pages, and the calendar are built at once.</p>
+      <div class="hero-actions">
+        <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <a href="index.html#pricing" class="hero-link">See pricing</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="guide-body">
+    <section class="guide-section">
+      <div class="wrap">
+        <h2>A schedule is more than the blocks on a grid</h2>
+      <p>The colorful timetable you make in week one answers one question: where am I at 10:00 on Tuesday. It goes quiet the moment you need anything else. When are Dr. Patel’s office hours. How many absences are allowed in Calculus II before it costs you. Is Midterm 1 the week before or the week after fall break. A schedule maker that stops at the grid sends you back to the PDF for all of it.</p>
+      <p>Semester HQ builds the grid and keeps the rest. Add a class, or upload its syllabus, and every meeting appears in the week view for the whole term. The class page holds the office hours with the next one highlighted, a one-tap email to the professor, the TA, the late policy, and an absence tracker that counts against the limit in the syllabus. Exam dates get a countdown and a prep page. It is one schedule that knows what the blocks are for.</p>
+      </div>
+    </section>
+
+    <section class="guide-section" id="how-to">
+      <div class="wrap">
+        <h2>How to make your class schedule in six steps</h2>
+        <p>Do this once in week one. Steps four to six are the ones a paper timetable cannot do.</p>
+        <ol class="steps-list">
+        <li>
+          <h3>Gather the syllabi</h3>
+          <p>One file per class: a PDF, Word, PowerPoint, or Excel file, a photo of a printed copy, or the text pasted from an email. If a class has no syllabus yet, add it by hand and attach the document later.</p>
+        </li>
+        <li>
+          <h3>Add each class, or upload its syllabus</h3>
+          <p>In Courses, add a class with its meeting days, times, and room, and every session appears in the week view through the end of the term. With Semester HQ Plus, upload the syllabus instead and the times come from the document, along with everything in the next four steps.</p>
+        </li>
+        <li>
+          <h3>Check the week view</h3>
+          <p>Open Calendar and switch to Week. Each class has its color. Look for the collisions you would not spot on paper: a lab that runs into a seminar, a Friday with nothing until 3:00 PM, the Monday that starts at 8:00 AM. Fix a misread time on the class page and it updates everywhere.</p>
+        </li>
+        <li>
+          <h3>Put office hours where you can find them</h3>
+          <p>Each class page lists the professor’s office hours with the next one highlighted, and the TA’s hours below. A one-tap Email button sits next to the name. This is the part of a schedule most students lose by week three, and the reason to keep it on the class page instead of a sticky note.</p>
+        </li>
+        <li>
+          <h3>Know the attendance rule before you need it</h3>
+          <p>The syllabus says how many absences are allowed. Semester HQ reads it and keeps a private tracker on the class page: 1 of 3 allowed absences used. Mark a day missed and the count moves. Classmates never see it, even when the class is shared.</p>
+        </li>
+        <li>
+          <h3>Mark the exam dates and plan around them</h3>
+          <p>Every exam from the syllabus gets a live countdown and its own prep page. List the topics, rate each one not yet, shaky, or got it, and place study sessions on the calendar in the weeks before. Open the year view once to see where the exams cluster before you say yes to anything in that week.</p>
+        </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="wrap">
+        <h2>What one class looks like when it is done</h2>
+        <p>A class page from the sample semester. The schedule is the top half; the syllabus panel on the right is what a timetable leaves out.</p>
+        <figure class="guide-figure">
+          <div class="device device--shot">
+          <div class="device-bar" aria-hidden="true"><div class="device-dots"><span></span><span></span><span></span></div><div class="device-url">app.semester-hq.com</div></div>
+          <div class="device-body"><img src="assets/product/class-page-desktop.webp" width="1440" height="900" alt="The Organic Chemistry class page in Semester HQ: a ring showing 44% finished, five open assignments, a coming-up list with Homework 2, Lab report 3, and Midterm 1, a next-exam card counting 9 days, and the syllabus panel with the professor, office hours, TA, and attendance." loading="lazy" decoding="async"></div>
+        </div>
+          <figcaption>A class page: what is due, the next exam counting down, and the syllabus panel with office hours, the TA, and attendance.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="guide-section" id="compare">
+      <div class="wrap">
+        <h2>Paper planner, Google Calendar, Notion, or Semester HQ</h2>
+        <p>Any of these can draw the grid. The rows below are the parts of a schedule you need after the grid is drawn.</p>
+        <div class="compare-scroll">
+          <table class="compare">
+            <caption class="sr-only">How a paper planner, Google Calendar, Notion, and Semester HQ compare as a class schedule maker</caption>
+            <thead>
+              <tr><th scope="col">What matters</th><th scope="col">Paper planner</th><th scope="col">Google Calendar</th><th scope="col">Notion</th><th scope="col">Semester HQ</th></tr>
+            </thead>
+            <tbody>
+          <tr>
+            <th scope="row">Building the weekly grid</th>
+            <td>Draw it.</td>
+            <td>Repeating events per class.</td>
+            <td>A calendar view over a table you build.</td>
+            <td class="hq">Added with the class; every session appears.</td>
+          </tr>
+          <tr>
+            <th scope="row">From a syllabus</th>
+            <td>By hand.</td>
+            <td>By hand.</td>
+            <td>By hand.</td>
+            <td class="hq">Upload it; times, dates, and policies are read out.</td>
+          </tr>
+          <tr>
+            <th scope="row">Office hours</th>
+            <td>In the margin.</td>
+            <td>As an event, if you add it.</td>
+            <td>A note.</td>
+            <td class="hq">On the class page, next one highlighted, with a one-tap email.</td>
+          </tr>
+          <tr>
+            <th scope="row">Absences</th>
+            <td>Tally marks.</td>
+            <td>No.</td>
+            <td>A counter you maintain.</td>
+            <td class="hq">A private tracker against the syllabus limit.</td>
+          </tr>
+          <tr>
+            <th scope="row">Exam dates</th>
+            <td>Circled.</td>
+            <td>All-day events.</td>
+            <td>A date property.</td>
+            <td class="hq">A countdown and a prep page per exam.</td>
+          </tr>
+          <tr>
+            <th scope="row">Sharing with a section</th>
+            <td>No.</td>
+            <td>Share a calendar.</td>
+            <td>Share a page.</td>
+            <td class="hq">Share the class; classmates join with a code or link.</td>
+          </tr>
+          <tr>
+            <th scope="row">Cost</th>
+            <td>The notebook.</td>
+            <td>Free.</td>
+            <td>Free plan, with paid tiers.</td>
+            <td class="hq">$7.99 a month for Plus.</td>
+          </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare-note">For a pretty printable timetable, a paper template still wins. Semester HQ is for the version of the schedule you actually use in week nine.</p>
+      </div>
+    </section>
+
+    <section class="guide-section guide-faq" id="faq">
+      <div class="wrap">
+        <h2>Questions about the class schedule maker</h2>
+        <div class="faq-list">
+        <details class="faq-item">
+          <summary>Can it make my schedule from the syllabus alone?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Mostly, yes. Upload the syllabus and the meeting days and times, exam dates, office hours, and attendance rule are read out and laid onto the week view and the class page in about a minute, ready to check. If a syllabus does not list the times, add them by hand once and everything else still comes from the document.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it show office hours on the schedule?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Office hours live on each class page, with the next one highlighted and a one-tap email to the professor. They are not added to the calendar grid automatically, so the week view stays your class meetings and your own plans.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How does the absence tracker work?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">The attendance limit is read from the syllabus, or you type it in. Mark a day missed on the class page and the tracker shows where you stand, for example 1 of 3 allowed absences used. It is private, even in a shared class.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I export the schedule to Google Calendar?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">No. Semester HQ keeps its own calendar, on the web and installed on your phone, and does not export to Google Calendar or Apple Calendar. If a feed is what you need, Google Calendar with repeating events is the honest answer.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if I add or drop a class mid-semester?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Add the new class and its meetings appear on the week view at once. Archive the one you dropped and its meetings and deadlines leave the calendar.</p>
+        </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta section-pad-sm">
+      <div class="wrap">
+        <div class="final-cta-inner">
+          <h2>See your week before it starts.</h2>
+          <p>Try the live demo in your browser, no account needed. Semester HQ Plus is $7.99 a month when you want your own schedule kept and synced.</p>
+          <div class="final-cta-actions">
+            <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a href="index.html#pricing" class="hero-link">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section guide-related" id="related">
+      <div class="wrap">
+        <h2>Related guides</h2>
+        <p>The other guides in this series, each with its own step-by-step setup.</p>
+        <div class="related-grid">
+        <a href="college-planner.html"><div class="fo-title">College planner</div><p>Everything a semester needs, in one place.</p></a>
+        <a href="student-planner.html"><div class="fo-title">Student planner app</div><p>A planner that bends to your major.</p></a>
+        <a href="syllabus-planner.html"><div class="fo-title">Syllabus planner</div><p>Upload the file; get the class built.</p></a>
+        <a href="assignment-tracker.html"><div class="fo-title">Assignment tracker</div><p>Every deadline by class and due date.</p></a>
+        <a href="college-calendar.html"><div class="fo-title">College calendar</div><p>Class meetings, deadlines, and exams on one grid.</p></a>
+        <a href="study-group-scheduler.html"><div class="fo-title">Study group scheduler</div><p>Find the hour everyone is free.</p></a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></div>
+        <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h2 class="footer-heading">Product</h2>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#try">Try the demo</a>
+          <a href="index.html#feat-clubs">Clubs &amp; Teams</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="group-pricing.html">Group pricing</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col" id="guides">
+          <h2 class="footer-heading">Guides</h2>
+          <a href="college-planner.html">College planner</a>
+          <a href="student-planner.html">Student planner app</a>
+          <a href="syllabus-planner.html">Syllabus planner</a>
+          <a href="assignment-tracker.html">Assignment tracker</a>
+          <a href="college-calendar.html">College calendar</a>
+          <a href="study-group-scheduler.html">Study group scheduler</a>
+          <a href="class-schedule-maker.html">Class schedule maker</a>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-heading">Company</h2>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html?review=1">Leave a review</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Semester HQ. All rights reserved.</span>
+      <span>Made for the semester you're actually having.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/diagnostics.js"></script>
+<script src="js/track.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
