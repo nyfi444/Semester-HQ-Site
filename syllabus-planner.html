@@ -3,36 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <script>if (location.hostname.endsWith('.github.io')) { var p = location.pathname.split('/').slice(2).join('/'); location.replace('https://semester-hq.com/' + p + location.search + location.hash); }</script>
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syllabus Planner: Upload a PDF, Get Your Semester | Semester HQ</title>
-<meta name="description" content="Upload your syllabus and Semester HQ pulls out your assignments, exam dates, and course details automatically. No manual entry, no AI framing, just your semester set up in a minute.">
-<link rel="canonical" href="https://semester-hq.com/syllabus-planner.html">
+<title>Syllabus Planner for College Classes | Semester HQ</title>
+<meta name="description" content="Upload a syllabus as a PDF, Word, PowerPoint, or Excel file, a photo, or pasted text, and get class times, deadlines, exam dates, office hours, and the attendance rule. How it works.">
+
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#121212">
-<meta property="og:type" content="website">
+
+<link rel="canonical" href="https://semester-hq.com/syllabus-planner.html">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://semester-hq.com/syllabus-planner.html">
-<meta property="og:title" content="Syllabus Planner: Upload a PDF, Get Your Semester | Semester HQ">
-<meta property="og:description" content="Upload your syllabus and Semester HQ pulls out your assignments, exam dates, and course details automatically.">
+<meta property="og:title" content="Syllabus Planner for College Classes | Semester HQ">
+<meta property="og:description" content="Upload a syllabus as a PDF, Word, PowerPoint, or Excel file, a photo, or pasted text, and get class times, deadlines, exam dates, office hours, and the attendance rule. How it works.">
 <meta property="og:image" content="https://semester-hq.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Semester HQ. Everything your semester needs. One HQ. The Semester HQ dashboard with today’s schedule, what is due this week, and the next exams.">
 <meta property="og:site_name" content="Semester HQ">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Syllabus Planner for College Classes | Semester HQ">
+<meta name="twitter:description" content="Upload a syllabus as a PDF, Word, PowerPoint, or Excel file, a photo, or pasted text, and get class times, deadlines, exam dates, office hours, and the attendance rule. How it works.">
+<meta name="twitter:image" content="https://semester-hq.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="Semester HQ. Everything your semester needs. One HQ. The Semester HQ dashboard with today’s schedule, what is due this week, and the next exams.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Does the syllabus planner work with any syllabus format?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Upload a PDF, Word or PowerPoint file, take a photo of a printed syllabus, or paste in the text directly. Semester HQ reads whichever format you give it and pulls out the same details either way."}},
-    {"@type": "Question", "name": "What if it gets something wrong?", "acceptedAnswer": {"@type": "Answer", "text": "Everything it adds is fully editable before it's final. Nothing is locked in, so you can fix a wrong date or add something it missed in a few seconds."}},
-    {"@type": "Question", "name": "Is my syllabus stored anywhere after I upload it?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, in your class page. Semester HQ keeps the original file there so it can be re-read later, until you delete the file or your account. To extract the details, the file is sent to Anthropic's Claude API. Anthropic does not use it to train models and does not keep it beyond its API data retention policy."}}
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://semester-hq.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://semester-hq.com/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Syllabus planner",
+          "item": "https://semester-hq.com/syllabus-planner.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does it work with any syllabus format?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Upload a PDF, Word, PowerPoint, or Excel file, take a photo of a printed syllabus, or paste the text. It reads whichever you give it and pulls out the same details either way. A syllabus with no dates in it, only “see Canvas”, will give you the class details and policies, and you add the dates by typing them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if it gets something wrong?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Everything it adds is shown for review before it is final, and everything stays editable afterwards. Fix a wrong date or add something it missed in a few seconds, the same as anything you typed yourself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my syllabus stored anywhere after I upload it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in your class page, so you can open it again later. It stays until you delete the file or your account. To extract the details, the file is sent to Anthropic’s Claude API. Anthropic does not use it to train models and does not keep it beyond its API data retention policy. Semester HQ never sells your data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I upload a syllabus in the demo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The demo runs the full interface with a sample semester and saves nothing, but reading a file needs an account. Syllabus upload is part of Semester HQ Plus at $7.99 a month, with a full refund on the first charge if you email within 14 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it read the attendance policy too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The attendance limit and the late-work policy land on the class page, and a private absence tracker counts against that limit as you mark days missed. Classmates never see it, even in a shared class."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -40,127 +114,250 @@
 </head>
 <body>
 
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
-    <a href="index.html#top" class="logo">Semester HQ <span class="spark">✦</span></a>
-    <div class="nav-links">
+    <a href="index.html#top" class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
+    <div class="nav-links" id="nav-links">
       <a href="index.html#features">Features</a>
       <a href="index.html#try">Demo</a>
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Sign In</a>
-      <button class="btn btn-primary" onclick="startCheckout(this)">Get Started</button>
+      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Log in</a>
+      <a href="index.html#try" class="btn btn-primary nav-demo">Try the demo</a>
     </div>
   </div>
 </nav>
 
-<main>
-  <header class="hero" style="padding-top:140px">
-    <div class="wrap hero-inner">
-      <div class="eyebrow"><span class="dot"></span>SYLLABUS PLANNER</div>
-      <h1 style="font-size:clamp(36px,5.2vw,68px)">Upload your syllabus.<br>Get your whole semester back.</h1>
-      <p class="hero-sub">Every professor hands you a PDF in week one with everything that matters: due dates, exam dates, office hours, the attendance rule, the late policy. Semester HQ reads it and builds your semester automatically, so you're not the one retyping it into a spreadsheet.</p>
+<div class="sticky-cta">
+  <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
+</div>
+
+<main id="top">
+  <header class="guide-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#guides">Guides</a></li>
+          <li aria-current="page">Syllabus planner</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot"></span>Syllabus planner</div>
+      <h1>Upload your syllabus. Get your whole semester back.</h1>
+      <p class="lede">Every professor hands you a document in week one with everything that matters: due dates, exam dates, office hours, the attendance rule, the late policy. Semester HQ reads it and builds the class for you in about a minute, so you are not the one retyping it into a calendar.</p>
       <div class="hero-actions">
-        <a href="index.html#try" class="btn btn-primary">Try the Demo <span class="btn-arrow">→</span></a>
+        <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
         <a href="index.html#pricing" class="hero-link">See pricing</a>
       </div>
     </div>
   </header>
 
-  <section class="section-pad-sm">
-    <div class="wrap" style="max-width:720px">
-      <h2>What actually happens when you upload one</h2>
-      <p style="margin-top:18px;font-size:15.5px;line-height:1.8;color:var(--slate)">Drop in a PDF, Word or PowerPoint file, a photo of a printed syllabus, or pasted text. Semester HQ reads it and pulls out the course details, class times, the assignment schedule, and every exam date it can find, plus your professor’s contact info, office hours, TAs, and the attendance and late work policies, then lays them into your planner ready to edit. The dates go on your calendar; the details go on the class’s own page, with a private tracker for your absences. Nothing is locked in: if it gets a date wrong or misses something, you fix it in a few seconds, the same as you would with anything you typed by hand.</p>
-      <p style="margin-top:18px;font-size:15.5px;line-height:1.8;color:var(--slate)">What used to take an evening of manual entry (typing every due date into a calendar, setting up the course, digging back through the PDF every time you need office hours) takes a minute instead. And it's not marketed as some flashy AI feature: it's just what happens when you upload a syllabus, the way it should have worked the whole time.</p>
-    </div>
-  </section>
-
-  <section class="section-pad-sm" style="background:var(--bone-dim)">
-    <div class="wrap">
-      <div class="section-head center reveal in">
-        <div class="eyebrow"><span class="dot"></span>See it in action</div>
-        <h2>One upload, a full course set up.</h2>
+  <div class="guide-body">
+    <section class="guide-section">
+      <div class="wrap">
+        <h2>What actually happens when you upload one</h2>
+      <p>Hand over the syllabus as a PDF, a Word, PowerPoint, or Excel file, a photo of a printed copy, or pasted text. Semester HQ reads it and pulls out the course details, the meeting days and times, the assignment schedule, and every exam date it can find, plus the professor’s contact details, office hours, the TA, and the attendance and late-work policies. The dates go on your calendar and into the assignments list. The details go on the class’s own page, with a private tally of your absences against the limit.</p>
+      <p>Nothing is locked in. Everything it read sits in front of you to check and edit, the same as anything you typed by hand, and the original file stays in the class page so you can open it again in week twelve. To do the reading, the file is sent to Anthropic’s Claude API; Anthropic does not use it to train models and does not keep it beyond its API data retention policy. It is not a flashy feature. It is what should have happened the whole time.</p>
       </div>
-      <div style="max-width:360px;margin:50px auto 0">
-        <div class="feature-card upload-mock">
-          <div class="upload-icon">📄</div>
-          <div class="upload-file">ECON201_Syllabus.pdf</div>
-          <div class="upload-sub">Uploaded just now</div>
-          <div class="upload-arrow">↓</div>
-          <div class="upload-result">
-            <span class="upload-chip">14 deadlines added</span>
-            <span class="upload-chip">2 exams scheduled</span>
-            <span class="upload-chip">Office hours · Tue &amp; Thu</span>
-            <span class="upload-chip">3 absences allowed</span>
-            <span class="upload-chip">Late policy saved</span>
+    </section>
+
+    <section class="guide-section" id="how-to">
+      <div class="wrap">
+        <h2>How to turn a syllabus into a plan in five steps</h2>
+        <p>About a minute per class once you have the file. The checking step is the one worth slowing down for.</p>
+        <ol class="steps-list">
+        <li>
+          <h3>Get the file, in whatever form it exists</h3>
+          <p>Download the PDF from your LMS, take a photo of the printed copy, or copy the text out of an email. Word, PowerPoint, and Excel files work too, which matters for the professor who keeps the schedule in a spreadsheet.</p>
+        </li>
+        <li>
+          <h3>Upload it from Courses</h3>
+          <p>Open Courses, choose Upload syllabus, and pick the file or paste the text. Syllabus upload is part of Semester HQ Plus; the demo shows the interface but cannot read a file.</p>
+        </li>
+        <li>
+          <h3>Check what it found</h3>
+          <p>In about a minute you see the class times, every assignment and exam date, the professor’s email, office hours, the TA, the attendance limit, and the late policy laid out for review. Fix a misread date, rename an assignment, delete a row that was only a suggested reading. Then save.</p>
+        </li>
+        <li>
+          <h3>Open the class page</h3>
+          <p>The dates are now on your calendar and in Assignments, color-coded. The class page holds the rest: a one-tap email to the professor, the next office hours highlighted, and an absence tracker that reads, for example, 1 of 3 allowed absences used. The syllabus itself sits there too.</p>
+        </li>
+        <li>
+          <h3>Share it with your section</h3>
+          <p>One person uploads. Share the class and classmates join with a code, a link, or by searching your school, and get every date in one tap. When a deadline moves, everyone’s copy follows. Only the schedule is shared, never your progress, notes, or absences.</p>
+        </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="wrap">
+        <h2>What comes out the other side</h2>
+        <p>The syllabus panel on a class page, filled in from one uploaded file.</p>
+        <figure class="guide-figure">
+          <div class="feature-shot feature-shot--tall"><img src="assets/product/syllabus-panel.webp" width="600" height="792" alt="The syllabus panel of a class page in Semester HQ, filled in from an uploaded syllabus: Dr. Patel’s email with a one-tap Email button, office hours on Tuesday and Thursday with the next one highlighted, the TA’s hours, and an attendance tracker reading 1 of 3 allowed absences used." loading="lazy" decoding="async"></div>
+          <figcaption>The syllabus panel: professor, office hours with the next one highlighted, the TA, and the attendance tracker, all read from the uploaded file.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="guide-section" id="compare">
+      <div class="wrap">
+        <h2>Paper planner, Google Calendar, Notion, or Semester HQ</h2>
+        <p>The question for each tool is the same: how much of the syllabus do you have to retype, and where does it live afterwards?</p>
+        <div class="compare-scroll">
+          <table class="compare">
+            <caption class="sr-only">How a paper planner, Google Calendar, Notion, and Semester HQ compare for planning a semester from a syllabus</caption>
+            <thead>
+              <tr><th scope="col">What matters</th><th scope="col">Paper planner</th><th scope="col">Google Calendar</th><th scope="col">Notion</th><th scope="col">Semester HQ</th></tr>
+            </thead>
+            <tbody>
+          <tr>
+            <th scope="row">Getting dates out of a syllabus</th>
+            <td>Read and copy each one.</td>
+            <td>Type each one as an event.</td>
+            <td>Type each one into a table.</td>
+            <td class="hq">Upload the file; about a minute, then edit.</td>
+          </tr>
+          <tr>
+            <th scope="row">Office hours and policies</th>
+            <td>Flip back to the PDF.</td>
+            <td>Not built for it.</td>
+            <td>Paste them into a page.</td>
+            <td class="hq">On the class page, with the next office hours highlighted.</td>
+          </tr>
+          <tr>
+            <th scope="row">Attendance</th>
+            <td>A tally in the margin.</td>
+            <td>No.</td>
+            <td>A counter you maintain.</td>
+            <td class="hq">A private tracker against the limit from the syllabus.</td>
+          </tr>
+          <tr>
+            <th scope="row">When a date changes</th>
+            <td>Cross it out.</td>
+            <td>Edit the event.</td>
+            <td>Edit the row.</td>
+            <td class="hq">Edit once; a shared class updates every classmate.</td>
+          </tr>
+          <tr>
+            <th scope="row">The original document</th>
+            <td>In a folder, if you kept it.</td>
+            <td>Not stored.</td>
+            <td>Attach it to a page.</td>
+            <td class="hq">Kept in the class page until you delete it.</td>
+          </tr>
+          <tr>
+            <th scope="row">Formats accepted</th>
+            <td>Anything you can read.</td>
+            <td>Calendar feeds and manual entry.</td>
+            <td>Manual entry; PDFs as attachments.</td>
+            <td class="hq">PDF, Word, PowerPoint, Excel, photos, pasted text.</td>
+          </tr>
+          <tr>
+            <th scope="row">Cost</th>
+            <td>The notebook.</td>
+            <td>Free.</td>
+            <td>Free plan, with paid tiers.</td>
+            <td class="hq">$7.99 a month for Plus.</td>
+          </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare-note">If a professor publishes a live calendar feed, subscribe to it in Google Calendar and save yourself the upload. Most do not.</p>
+      </div>
+    </section>
+
+    <section class="guide-section guide-faq" id="faq">
+      <div class="wrap">
+        <h2>Questions about the syllabus planner</h2>
+        <div class="faq-list">
+        <details class="faq-item">
+          <summary>Does it work with any syllabus format?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Yes. Upload a PDF, Word, PowerPoint, or Excel file, take a photo of a printed syllabus, or paste the text. It reads whichever you give it and pulls out the same details either way. A syllabus with no dates in it, only “see Canvas”, will give you the class details and policies, and you add the dates by typing them.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if it gets something wrong?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Everything it adds is shown for review before it is final, and everything stays editable afterwards. Fix a wrong date or add something it missed in a few seconds, the same as anything you typed yourself.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is my syllabus stored anywhere after I upload it?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Yes, in your class page, so you can open it again later. It stays until you delete the file or your account. To extract the details, the file is sent to Anthropic’s Claude API. Anthropic does not use it to train models and does not keep it beyond its API data retention policy. Semester HQ never sells your data.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I upload a syllabus in the demo?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">No. The demo runs the full interface with a sample semester and saves nothing, but reading a file needs an account. Syllabus upload is part of Semester HQ Plus at $7.99 a month, with a full refund on the first charge if you email within 14 days.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it read the attendance policy too?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Yes. The attendance limit and the late-work policy land on the class page, and a private absence tracker counts against that limit as you mark days missed. Classmates never see it, even in a shared class.</p>
+        </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta section-pad-sm">
+      <div class="wrap">
+        <div class="final-cta-inner">
+          <h2>Try it with your own syllabus.</h2>
+          <p>The live demo shows the interface with no account. Semester HQ Plus, $7.99 a month, is where a real upload happens, with a 14-day refund on the first charge.</p>
+          <div class="final-cta-actions">
+            <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a href="index.html#pricing" class="hero-link">See pricing</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section-pad-sm">
-    <div class="wrap" style="max-width:700px">
-      <div class="section-head reveal in">
-        <div class="eyebrow"><span class="dot"></span>Questions</div>
-        <h2>About the syllabus planner.</h2>
-      </div>
-      <div class="faq-list" style="margin-top:40px">
-        <details class="faq-item">
-          <summary>Does it work with any syllabus format?<span class="plus"></span></summary>
-          <p class="faq-a">Yes. Upload a PDF, Word or PowerPoint file, take a photo of a printed syllabus, or paste in the text directly. Semester HQ reads whichever format you give it and pulls out the same details either way.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What if it gets something wrong?<span class="plus"></span></summary>
-          <p class="faq-a">Everything it adds is fully editable before it's final. Nothing is locked in, so you can fix a wrong date or add something it missed in a few seconds.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Is my syllabus stored anywhere after I upload it?<span class="plus"></span></summary>
-          <p class="faq-a">Yes, in your class page. Semester HQ keeps the original file there so you can re-read it later, until you delete the file or your account. To extract the details, the file is sent to Anthropic's Claude API. Anthropic doesn't use it to train models and doesn't keep it beyond its API data retention policy.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="final-cta section-pad-sm">
-    <div class="wrap">
-      <div class="final-cta-inner reveal in">
-        <h2>Try it with your own syllabus.</h2>
-        <p>The live demo is right in your browser, no account needed. See what a real upload looks like in under a minute.</p>
-        <div class="final-cta-actions">
-          <a href="index.html#try" class="btn btn-primary">Try the Demo <span class="btn-arrow">→</span></a>
-          <a href="index.html#pricing" class="hero-link">See pricing</a>
+    <section class="guide-section guide-related" id="related">
+      <div class="wrap">
+        <h2>Related guides</h2>
+        <p>The other guides in this series, each with its own step-by-step setup.</p>
+        <div class="related-grid">
+        <a href="college-planner.html"><div class="fo-title">College planner</div><p>Everything a semester needs, in one place.</p></a>
+        <a href="student-planner.html"><div class="fo-title">Student planner app</div><p>A planner that bends to your major.</p></a>
+        <a href="assignment-tracker.html"><div class="fo-title">Assignment tracker</div><p>Every deadline by class and due date.</p></a>
+        <a href="college-calendar.html"><div class="fo-title">College calendar</div><p>Class meetings, deadlines, and exams on one grid.</p></a>
+        <a href="study-group-scheduler.html"><div class="fo-title">Study group scheduler</div><p>Find the hour everyone is free.</p></a>
+        <a href="class-schedule-maker.html"><div class="fo-title">Class schedule maker</div><p>Syllabi into a weekly schedule.</p></a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </main>
 
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
-      <div class="footer-brand reveal in">
-        <div class="logo">Semester HQ <span class="spark">✦</span></div>
+      <div class="footer-brand">
+        <div class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></div>
         <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h5>Product</h5>
-          <a href="index.html#try">Overview</a>
+          <h2 class="footer-heading">Product</h2>
           <a href="index.html#features">Features</a>
-          <a href="index.html#try">Try it live</a>
+          <a href="index.html#try">Try the demo</a>
+          <a href="index.html#feat-clubs">Clubs &amp; Teams</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="group-pricing.html">Group pricing</a>
           <a href="index.html#faq">FAQ</a>
         </div>
-        <div class="footer-col">
-          <h5>Access</h5>
-          <a href="index.html#pricing">Pricing</a>
-          <a href="index.html#pricing">What's included</a>
-          <a href="group-pricing.html">Group / university pricing</a>
+        <div class="footer-col" id="guides">
+          <h2 class="footer-heading">Guides</h2>
+          <a href="college-planner.html">College planner</a>
+          <a href="student-planner.html">Student planner app</a>
+          <a href="syllabus-planner.html">Syllabus planner</a>
+          <a href="assignment-tracker.html">Assignment tracker</a>
+          <a href="college-calendar.html">College calendar</a>
+          <a href="study-group-scheduler.html">Study group scheduler</a>
+          <a href="class-schedule-maker.html">Class schedule maker</a>
         </div>
         <div class="footer-col">
-          <h5>Company</h5>
+          <h2 class="footer-heading">Company</h2>
           <a href="contact.html">Contact</a>
           <a href="contact.html?review=1">Leave a review</a>
           <a href="privacy.html">Privacy Policy</a>
@@ -176,6 +373,7 @@
 </footer>
 
 <script src="js/diagnostics.js"></script>
+<script src="js/track.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/main.js"></script>
 </body>
