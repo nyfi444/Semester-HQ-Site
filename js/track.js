@@ -1,9 +1,10 @@
 /* ── Lightweight CTA click tracking ────────────────────────────
-   Reports which buttons people actually click (Log in, Try it free,
-   Upgrade) to the same Worker as checkout/contact (WORKER_URL), see
+   Reports which buttons people actually click (Log in, Try the demo,
+   Subscribe) to the same Worker as checkout/contact (WORKER_URL), see
    worker/src/index.js's "7. Event tracking" in the student-planner repo.
    No cookies, no per-user identity: just event name + page path, so we
-   can tell which CTA is converting instead of guessing.
+   can tell which CTA is converting instead of guessing. The Worker only
+   accepts the names in its TRACKED_EVENTS list, so add a name there first.
 ──────────────────────────────────────────────────────────────── */
 function trackEvent(event) {
   try {
@@ -20,6 +21,9 @@ document.addEventListener('click', (e) => {
   const link = e.target.closest('a, button');
   if (!link) return;
   if (link.matches('.nav-login')) trackEvent('nav_login_click');
-  else if (link.matches('.nav .btn-primary')) trackEvent('nav_upgrade_click');
-  else if (link.matches('a[href="#try"]')) trackEvent('try_it_free_click');
+  // Every "Try the demo" link, in the nav, the hero, the sticky bar, and on
+  // the guide pages (where it points at index.html#try). The event keeps its
+  // original name so the counts stay comparable over time.
+  else if (link.matches('a[href$="#try"]')) trackEvent('try_it_free_click');
+  else if (link.matches('.nav button.btn-primary')) trackEvent('nav_upgrade_click');
 });
