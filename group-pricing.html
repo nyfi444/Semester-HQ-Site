@@ -5,6 +5,9 @@
 <script>if (location.hostname.endsWith('.github.io')) { var p = location.pathname.split('/').slice(2).join('/'); location.replace('https://semester-hq.com/' + p + location.search + location.hash); }</script>
 <script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Cloudflare Turnstile. The Worker only checks the token once its
+     TURNSTILE_SECRET is set, so the two sides switch on together. -->
+<meta name="turnstile-sitekey" content="0x4AAAAAAE-MikzYTD2NWIO8">
 <title>Group & University Pricing | Semester HQ</title>
 <meta name="description" content="Semester HQ for your club, team or class: $5.99 per member each month for 5 to 50 seats, or a quote for larger groups.">
 <link rel="canonical" href="https://semester-hq.com/group-pricing.html">
