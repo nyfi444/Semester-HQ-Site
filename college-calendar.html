@@ -3,36 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <script>if (location.hostname.endsWith('.github.io')) { var p = location.pathname.split('/').slice(2).join('/'); location.replace('https://semester-hq.com/' + p + location.search + location.hash); }</script>
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>College Calendar App | Semester HQ</title>
-<meta name="description" content="A college calendar built around your actual class schedule: month, week, day, and year views, color-coded by class, synced with assignments and exams automatically.">
-<link rel="canonical" href="https://semester-hq.com/college-calendar.html">
+<title>College Calendar Built for Class Schedules | Semester HQ</title>
+<meta name="description" content="A college calendar that already holds your class meetings, deadlines, and exams, color-coded by class. How to set it up from a syllabus, with month, week, day, and year views.">
+
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#121212">
-<meta property="og:type" content="website">
+
+<link rel="canonical" href="https://semester-hq.com/college-calendar.html">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://semester-hq.com/college-calendar.html">
-<meta property="og:title" content="College Calendar App | Semester HQ">
-<meta property="og:description" content="A college calendar built around your actual class schedule, synced with assignments and exams automatically.">
+<meta property="og:title" content="College Calendar Built for Class Schedules | Semester HQ">
+<meta property="og:description" content="A college calendar that already holds your class meetings, deadlines, and exams, color-coded by class. How to set it up from a syllabus, with month, week, day, and year views.">
 <meta property="og:image" content="https://semester-hq.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Semester HQ. Everything your semester needs. One HQ. The Semester HQ dashboard with today’s schedule, what is due this week, and the next exams.">
 <meta property="og:site_name" content="Semester HQ">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="College Calendar Built for Class Schedules | Semester HQ">
+<meta name="twitter:description" content="A college calendar that already holds your class meetings, deadlines, and exams, color-coded by class. How to set it up from a syllabus, with month, week, day, and year views.">
+<meta name="twitter:image" content="https://semester-hq.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="Semester HQ. Everything your semester needs. One HQ. The Semester HQ dashboard with today’s schedule, what is due this week, and the next exams.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Does the calendar show my recurring classes automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Add a course with its meeting days and times once, and every class session appears on your calendar for the rest of the semester without re-entering it."}},
-    {"@type": "Question", "name": "Can I see the whole year, not just one month?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, there's a year view alongside month, week, and day, so you can see the whole semester's shape at a glance or zoom into one day's schedule."}},
-    {"@type": "Question", "name": "Does the calendar work on my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It runs in your phone's browser with no app download needed, and every view works the same on a laptop, phone, or library computer."}}
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://semester-hq.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://semester-hq.com/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "College calendar",
+          "item": "https://semester-hq.com/college-calendar.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does it show my recurring classes automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Add a class with its meeting days and times once, and every session appears on the calendar for the rest of the semester. Upload the syllabus and the class times come from there instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I see the whole semester, not just one month?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. There is a year view alongside month, week, and day. It is the fastest way to see where the exams cluster and which weeks are quiet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the calendar sync with Google Calendar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Semester HQ keeps its own calendar and does not push events into Google Calendar or Apple Calendar. Everything it holds is in one place, on the web and on your phone. If you live in Google Calendar and your professors publish feeds, that may honestly be enough for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work on my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It runs in the phone’s browser with no app store download, and you can add it to your home screen so it opens like an app and works offline. The month, week, day, and year views work the same on a laptop, a phone, or a library computer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will it send me reminders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Semester HQ sends no notifications of any kind: no push, no permission prompt, nothing on a lock screen. The Heads Up bell in the corner gathers what is overdue, due today and tomorrow, and coming up, for whenever you open it."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -40,122 +114,260 @@
 </head>
 <body>
 
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
-    <a href="index.html#top" class="logo">Semester HQ <span class="spark">✦</span></a>
-    <div class="nav-links">
+    <a href="index.html#top" class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
+    <div class="nav-links" id="nav-links">
       <a href="index.html#features">Features</a>
       <a href="index.html#try">Demo</a>
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Sign In</a>
-      <button class="btn btn-primary" onclick="startCheckout(this)">Get Started</button>
+      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Log in</a>
+      <a href="index.html#try" class="btn btn-primary nav-demo">Try the demo</a>
     </div>
   </div>
 </nav>
 
-<main>
-  <header class="hero" style="padding-top:140px">
-    <div class="wrap hero-inner">
-      <div class="eyebrow"><span class="dot"></span>COLLEGE CALENDAR</div>
-      <h1 style="font-size:clamp(36px,5.2vw,68px)">A calendar that already knows<br>your class schedule.</h1>
-      <p class="hero-sub">Google Calendar has half your deadlines. Canvas has the other half. Semester HQ's calendar pulls in your class meetings, assignments, and exams automatically, color-coded by course, so one glance actually tells you what your week looks like.</p>
+<div class="sticky-cta">
+  <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
+</div>
+
+<main id="top">
+  <header class="guide-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#guides">Guides</a></li>
+          <li aria-current="page">College calendar</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot"></span>College calendar</div>
+      <h1>A college calendar that already knows your class schedule.</h1>
+      <p class="lede">Google Calendar has half your deadlines. Canvas has the other half. The exam date is in a PDF. Semester HQ’s calendar holds class meetings, assignments, exams, study sessions, and club events on one grid, color-coded by class, in month, week, day, and year views.</p>
       <div class="hero-actions">
-        <a href="index.html#try" class="btn btn-primary">Try the Demo <span class="btn-arrow">→</span></a>
+        <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
         <a href="index.html#pricing" class="hero-link">See pricing</a>
       </div>
     </div>
   </header>
 
-  <section class="section-pad-sm">
-    <div class="wrap" style="max-width:720px">
-      <h2>Four views, one calendar</h2>
-      <p style="margin-top:18px;font-size:15.5px;line-height:1.8;color:var(--slate)">Switch between month, week, day, or a full year view depending on what you need: the month view for planning around a big deadline, the day view for the morning of, the year view for seeing the whole semester's shape at once. Every assignment, reading, and exam lands here color-coded by class, and dragging something onto a new day reschedules it instantly.</p>
-      <p style="margin-top:18px;font-size:15.5px;line-height:1.8;color:var(--slate)">Add a course once, with its meeting days and times, and every class session for the rest of the semester shows up automatically, no re-entering a recurring event every week. It's the calendar a student's actual schedule deserves, not a generic one built for meetings and offices.</p>
-    </div>
-  </section>
-
-  <section class="section-pad-sm" style="background:var(--bone-dim)">
-    <div class="wrap">
-      <div class="section-head center reveal in">
-        <div class="eyebrow"><span class="dot"></span>See it in action</div>
-        <h2>Everything, color-coded by class.</h2>
+  <div class="guide-body">
+    <section class="guide-section">
+      <div class="wrap">
+        <h2>What a college calendar has to do that a work calendar does not</h2>
+      <p>An office calendar is built around meetings other people send you. A semester is built around a fixed timetable plus a long tail of deadlines, most of which were decided in week one and written down in five different documents. The calendar that works for a student is the one that starts full: every class meeting for the term, every due date from every syllabus, every exam, before you have added a single thing yourself.</p>
+      <p>That is how Semester HQ’s calendar starts. Add a class with its meeting days and times and every session appears through the end of the semester. Upload the syllabus and the deadlines and exam dates join them. From there it behaves the way you would hope: four views, one color per class, and dragging anything to a new day moves it. Study sessions, project milestones, and your club’s practices land on the same grid, because they take the same hours.</p>
       </div>
-      <div style="max-width:520px;margin:50px auto 0">
-        <div class="feature-card">
-          <div class="cal-grid">
-            <div class="cal-dow">S</div><div class="cal-dow">M</div><div class="cal-dow">T</div><div class="cal-dow">W</div><div class="cal-dow">T</div><div class="cal-dow">F</div><div class="cal-dow">S</div>
-            <div class="cal-cell">16</div><div class="cal-cell">17<span class="cal-pill">Writeup</span></div><div class="cal-cell">18</div><div class="cal-cell">19</div><div class="cal-cell">20<span class="cal-pill sand">Quiz 5</span></div><div class="cal-cell today">21</div><div class="cal-cell">22<span class="cal-pill">Reading</span></div>
-            <div class="cal-cell">23<span class="cal-pill">Problem Set</span></div><div class="cal-cell">24<span class="cal-pill rose">Deck due</span></div><div class="cal-cell">25<span class="cal-pill">Discussion</span></div><div class="cal-cell">26<span class="cal-pill">Homework 4</span></div><div class="cal-cell">27</div><div class="cal-cell">28</div><div class="cal-cell">29</div>
-            <div class="cal-cell">30</div><div class="cal-cell">31<span class="cal-pill dark">Midterm</span></div><div class="cal-cell">1</div><div class="cal-cell">2</div><div class="cal-cell">3</div><div class="cal-cell">4<span class="cal-pill">Exam 2</span></div><div class="cal-cell">5</div>
+    </section>
+
+    <section class="guide-section" id="how-to">
+      <div class="wrap">
+        <h2>How to build your college calendar in five steps</h2>
+        <p>The first two steps fill the calendar. The last three are how you keep using it in week nine.</p>
+        <ol class="steps-list">
+        <li>
+          <h3>Add each class once</h3>
+          <p>In Courses, add a class with its meeting days, times, and room. Every meeting appears on the calendar for the rest of the term. Pick a color for the class and it follows the class everywhere: the calendar, the assignments list, the class page.</p>
+        </li>
+        <li>
+          <h3>Let the syllabus fill in the dates</h3>
+          <p>With Semester HQ Plus, upload the syllabus for each class as a PDF, Word, PowerPoint, or Excel file, a photo, or pasted text. Assignments and exam dates land on the calendar in about a minute, and the professor’s office hours and the attendance rule land on the class page. Check the dates, fix anything it misread, and move on.</p>
+        </li>
+        <li>
+          <h3>Choose the view for the job</h3>
+          <p>Month for planning around a heavy week. Week for the shape of the next seven days. Day for the morning of. Year for seeing the whole semester at once, which is the view to open before you agree to anything in November.</p>
+        </li>
+        <li>
+          <h3>Plan work, not just deadlines</h3>
+          <p>Drag an assignment or to-do from the dashboard, the To-Do List, or Assignments onto a day to reschedule it, or onto a time slot to decide when you will actually do it. Use Time block for a study session with a start and an end. Study sessions you plan from an exam’s prep page land here too.</p>
+        </li>
+        <li>
+          <h3>Bring in the rest of the term</h3>
+          <p>Join a study group and its sessions appear with RSVPs. Join a club and every practice, meeting, and dues deadline an officer posts shows up next to your classes. Project milestones and application deadlines do the same. One grid, every color, and nothing you have to copy across by hand.</p>
+        </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="wrap">
+        <h2>What a full month looks like</h2>
+        <p>The month view from the sample semester: four classes, their deadlines, two exams, and a few to-dos dragged onto the days they will get done.</p>
+        <figure class="guide-figure">
+          <div class="device device--shot">
+          <div class="device-bar" aria-hidden="true"><div class="device-dots"><span></span><span></span><span></span></div><div class="device-url">app.semester-hq.com</div></div>
+          <div class="device-body"><img src="assets/product/calendar-desktop.webp" width="1440" height="900" alt="The Semester HQ calendar in month view for September 2026, with year, month, week, and day toggles, class meetings for Organic Chemistry, Intro to Psychology, Calculus II, and Marketing Strategy color-coded across the weeks, and deadlines such as Lab report 1, Webwork 4, Quiz 1, and Midterm 1 on their due dates." loading="lazy" decoding="async"></div>
+        </div>
+          <figcaption>Month view. Class meetings, deadlines, and exams share one grid, one color per class, with a hint at the top about dragging work onto a day or a time slot.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="guide-section" id="compare">
+      <div class="wrap">
+        <h2>Paper planner, Google Calendar, Notion, or Semester HQ</h2>
+        <p>All four can hold a semester. The difference is how it gets in, and what it can show you once it is there.</p>
+        <div class="compare-scroll">
+          <table class="compare">
+            <caption class="sr-only">How a paper planner, Google Calendar, Notion, and Semester HQ compare as a college calendar</caption>
+            <thead>
+              <tr><th scope="col">What matters</th><th scope="col">Paper planner</th><th scope="col">Google Calendar</th><th scope="col">Notion</th><th scope="col">Semester HQ</th></tr>
+            </thead>
+            <tbody>
+          <tr>
+            <th scope="row">Class meetings</th>
+            <td>Write them into each week.</td>
+            <td>Set up a repeating event per class.</td>
+            <td>A calendar view over a database you build.</td>
+            <td class="hq">Added once with the class; every session appears.</td>
+          </tr>
+          <tr>
+            <th scope="row">Deadlines from a syllabus</th>
+            <td>Copy them in by hand.</td>
+            <td>Type them, or import a file if one is provided.</td>
+            <td>Type each one into a database.</td>
+            <td class="hq">Upload the syllabus; the dates land in about a minute.</td>
+          </tr>
+          <tr>
+            <th scope="row">Views</th>
+            <td>Whatever the layout printed.</td>
+            <td>Day, week, month, year, schedule.</td>
+            <td>Month and week.</td>
+            <td class="hq">Month, week, day, and year.</td>
+          </tr>
+          <tr>
+            <th scope="row">Color by class</th>
+            <td>Your pens.</td>
+            <td>One calendar per class, or event colors.</td>
+            <td>A property, if you set one.</td>
+            <td class="hq">One color per class, everywhere.</td>
+          </tr>
+          <tr>
+            <th scope="row">Planning when to do the work</th>
+            <td>Write it in.</td>
+            <td>Create an event.</td>
+            <td>Add a date.</td>
+            <td class="hq">Drag the task onto a day or a time slot; add a time block.</td>
+          </tr>
+          <tr>
+            <th scope="row">Sharing</th>
+            <td>Show someone the page.</td>
+            <td>Share a calendar.</td>
+            <td>Share a page.</td>
+            <td class="hq">Share a class; classmates join with a code or link and get every date.</td>
+          </tr>
+          <tr>
+            <th scope="row">Notifications</th>
+            <td>None.</td>
+            <td>Push and email.</td>
+            <td>Reminders.</td>
+            <td class="hq">None. The Heads Up bell instead.</td>
+          </tr>
+          <tr>
+            <th scope="row">Cost</th>
+            <td>The notebook.</td>
+            <td>Free.</td>
+            <td>Free plan, with paid tiers.</td>
+            <td class="hq">$7.99 a month for Plus.</td>
+          </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare-note">If your professor already publishes a calendar feed, Google Calendar is hard to beat on price. Semester HQ is for the far more common case where the dates only exist inside a PDF.</p>
+      </div>
+    </section>
+
+    <section class="guide-section guide-faq" id="faq">
+      <div class="wrap">
+        <h2>Questions about the college calendar</h2>
+        <div class="faq-list">
+        <details class="faq-item">
+          <summary>Does it show my recurring classes automatically?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Yes. Add a class with its meeting days and times once, and every session appears on the calendar for the rest of the semester. Upload the syllabus and the class times come from there instead.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I see the whole semester, not just one month?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Yes. There is a year view alongside month, week, and day. It is the fastest way to see where the exams cluster and which weeks are quiet.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does the calendar sync with Google Calendar?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">No. Semester HQ keeps its own calendar and does not push events into Google Calendar or Apple Calendar. Everything it holds is in one place, on the web and on your phone. If you live in Google Calendar and your professors publish feeds, that may honestly be enough for you.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it work on my phone?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Yes. It runs in the phone’s browser with no app store download, and you can add it to your home screen so it opens like an app and works offline. The month, week, day, and year views work the same on a laptop, a phone, or a library computer.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Will it send me reminders?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">No. Semester HQ sends no notifications of any kind: no push, no permission prompt, nothing on a lock screen. The Heads Up bell in the corner gathers what is overdue, due today and tomorrow, and coming up, for whenever you open it.</p>
+        </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta section-pad-sm">
+      <div class="wrap">
+        <div class="final-cta-inner">
+          <h2>See your semester on one calendar.</h2>
+          <p>Try the live demo in your browser, no account needed. It saves nothing. Semester HQ Plus is $7.99 a month when you want the real thing.</p>
+          <div class="final-cta-actions">
+            <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a href="index.html#pricing" class="hero-link">See pricing</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section-pad-sm">
-    <div class="wrap" style="max-width:700px">
-      <div class="section-head reveal in">
-        <div class="eyebrow"><span class="dot"></span>Questions</div>
-        <h2>About the college calendar.</h2>
-      </div>
-      <div class="faq-list" style="margin-top:40px">
-        <details class="faq-item">
-          <summary>Does it show my recurring classes automatically?<span class="plus"></span></summary>
-          <p class="faq-a">Yes. Add a course with its meeting days and times once, and every class session appears on your calendar for the rest of the semester without re-entering it.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Can I see the whole year, not just one month?<span class="plus"></span></summary>
-          <p class="faq-a">Yes, there's a year view alongside month, week, and day, so you can see the whole semester's shape at a glance or zoom into one day's schedule.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Does it work on my phone?<span class="plus"></span></summary>
-          <p class="faq-a">Yes. It runs in your phone's browser with no app download needed, and every view works the same on a laptop, phone, or library computer.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="final-cta section-pad-sm">
-    <div class="wrap">
-      <div class="final-cta-inner reveal in">
-        <h2>See your semester on one calendar.</h2>
-        <p>Try the live demo, right in your browser, no account needed.</p>
-        <div class="final-cta-actions">
-          <a href="index.html#try" class="btn btn-primary">Try the Demo <span class="btn-arrow">→</span></a>
-          <a href="index.html#pricing" class="hero-link">See pricing</a>
+    <section class="guide-section guide-related" id="related">
+      <div class="wrap">
+        <h2>Related guides</h2>
+        <p>The other guides in this series, each with its own step-by-step setup.</p>
+        <div class="related-grid">
+        <a href="college-planner.html"><div class="fo-title">College planner</div><p>Everything a semester needs, in one place.</p></a>
+        <a href="student-planner.html"><div class="fo-title">Student planner app</div><p>A planner that bends to your major.</p></a>
+        <a href="syllabus-planner.html"><div class="fo-title">Syllabus planner</div><p>Upload the file; get the class built.</p></a>
+        <a href="assignment-tracker.html"><div class="fo-title">Assignment tracker</div><p>Every deadline by class and due date.</p></a>
+        <a href="study-group-scheduler.html"><div class="fo-title">Study group scheduler</div><p>Find the hour everyone is free.</p></a>
+        <a href="class-schedule-maker.html"><div class="fo-title">Class schedule maker</div><p>Syllabi into a weekly schedule.</p></a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </main>
 
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
-      <div class="footer-brand reveal in">
-        <div class="logo">Semester HQ <span class="spark">✦</span></div>
+      <div class="footer-brand">
+        <div class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></div>
         <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h5>Product</h5>
-          <a href="index.html#try">Overview</a>
+          <h2 class="footer-heading">Product</h2>
           <a href="index.html#features">Features</a>
-          <a href="index.html#try">Try it live</a>
+          <a href="index.html#try">Try the demo</a>
+          <a href="index.html#feat-clubs">Clubs &amp; Teams</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="group-pricing.html">Group pricing</a>
           <a href="index.html#faq">FAQ</a>
         </div>
-        <div class="footer-col">
-          <h5>Access</h5>
-          <a href="index.html#pricing">Pricing</a>
-          <a href="index.html#pricing">What's included</a>
-          <a href="group-pricing.html">Group / university pricing</a>
+        <div class="footer-col" id="guides">
+          <h2 class="footer-heading">Guides</h2>
+          <a href="college-planner.html">College planner</a>
+          <a href="student-planner.html">Student planner app</a>
+          <a href="syllabus-planner.html">Syllabus planner</a>
+          <a href="assignment-tracker.html">Assignment tracker</a>
+          <a href="college-calendar.html">College calendar</a>
+          <a href="study-group-scheduler.html">Study group scheduler</a>
+          <a href="class-schedule-maker.html">Class schedule maker</a>
         </div>
         <div class="footer-col">
-          <h5>Company</h5>
+          <h2 class="footer-heading">Company</h2>
           <a href="contact.html">Contact</a>
           <a href="contact.html?review=1">Leave a review</a>
           <a href="privacy.html">Privacy Policy</a>
@@ -171,6 +383,7 @@
 </footer>
 
 <script src="js/diagnostics.js"></script>
+<script src="js/track.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/main.js"></script>
 </body>
