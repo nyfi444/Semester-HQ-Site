@@ -1,6 +1,6 @@
 # Semester HQ
 
-> Semester HQ is an all-in-one planner for college students. A student uploads their syllabus PDF and the semester is built for them in about a minute: class times, every assignment and exam date, the professor's contact details, office hours, the attendance limit and the late policy. That removes the hour of manual data entry that kills most planners before week three. Around it, Semester HQ puts classes, deadlines, exam prep, projects, flashcards, notes, study groups, club and team calendars, and internship applications into one connected app, replacing the separate tools students normally juggle each semester (LMS, calendar app, syllabus PDFs, group chats, notes apps, spreadsheets).
+> Semester HQ is an all-in-one planner for college students. A student uploads their syllabus (PDF, Word, PowerPoint, Excel, a photo, or pasted text) and the semester is built for them in about a minute: class times, every assignment and exam date, the professor's contact details, office hours, the attendance limit and the late policy. That removes the hour of manual data entry that kills most planners before week three. Around it, Semester HQ puts classes, deadlines, exam prep, projects, flashcards, notes, study groups, club and team calendars, and internship applications into one connected app, replacing the separate tools students normally juggle each semester (LMS, calendar app, syllabus PDFs, group chats, notes apps, spreadsheets).
 
 ## Pricing
 
@@ -12,7 +12,7 @@
 
 Listed with the two that matter most first: syllabus upload is why a student starts, and the class page is why they stay.
 
-- Syllabus upload (a PDF, Word or PowerPoint file, a photo, or pasted text): fills in class times, assignments, exam dates, professor contact info, office hours, TAs, and attendance and late work policies. Everything is editable, and the original file is kept so it can be re-read later.
+- Syllabus upload (a PDF, Word, PowerPoint or Excel file, a photo, or pasted text): fills in class times, assignments, exam dates, professor contact info, office hours, TAs, and attendance and late work policies. Everything is editable, and the original file is kept so it can be re-read later.
 - Class pages: one page per class with what's due, the next exam, office hours, policies, notes, flashcards, and a private absence tracker against the attendance limit ("1 of 3 allowed absences used").
 - Quick add in plain English: "bio lab report fri 5pm" becomes a lab for that class due Friday at 5 PM.
 - Calendar with month, week, day, and year views, color-coded by class, including class meetings, deadlines, study sessions, project milestones, and club events.
@@ -41,9 +41,22 @@ Listed with the two that matter most first: syllabus upload is why a student sta
 - No data is sold, and no third-party ad trackers run inside the app.
 - Full policy: https://semester-hq.com/privacy.html
 
+## Guides
+
+Longer, step-by-step pages on the marketing site. Each one has a numbered how-to, a real product screenshot, a comparison with a paper planner, Google Calendar and Notion, and a short FAQ.
+
+- College planner (https://semester-hq.com/college-planner.html): running a whole semester from one place; classes, deadlines, exams, office hours, notes, study groups and clubs; a seven-step setup.
+- Student planner app (https://semester-hq.com/student-planner.html): a planner organized by class and due date that fits any major, program or schedule; setup in an afternoon.
+- Syllabus planner (https://semester-hq.com/syllabus-planner.html): what happens when a syllabus is uploaded, which formats work, what is extracted, where the original file is kept, and how a shared class passes the dates to a section.
+- Assignment tracker (https://semester-hq.com/assignment-tracker.html): tracking assignments, readings, labs and exams by class and due date, grouped into overdue, today, tomorrow and this week; repeating series; projects with milestones.
+- College calendar (https://semester-hq.com/college-calendar.html): month, week, day and year views, one color per class, dragging work onto days and time slots, time blocks; the calendar does not sync with Google Calendar.
+- Study group scheduler (https://semester-hq.com/study-group-scheduler.html): finding a time everyone is free with the availability grid, scheduling sessions with RSVPs, splitting tasks with owners and due dates, sharing notes, decks, files and chat.
+- Class schedule maker (https://semester-hq.com/class-schedule-maker.html): turning syllabi into a weekly schedule, where office hours live, the private absence tracker, and exam dates with countdowns and prep pages.
+
 ## Links
 
 - Marketing site: https://semester-hq.com/
 - Live app: https://app.semester-hq.com/
 - Group pricing: https://semester-hq.com/group-pricing.html
 - Contact: https://semester-hq.com/contact.html · hello@semester-hq.com
+- Sitemap: https://semester-hq.com/sitemap.xml
