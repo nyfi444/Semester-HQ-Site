@@ -45,7 +45,7 @@ Listed with the two that matter most first: syllabus upload is why a student sta
 
 Longer, step-by-step pages on the marketing site. Each one has a numbered how-to, a real product screenshot, a comparison with a paper planner, Google Calendar and Notion, and a short FAQ.
 
-- College planner (https://semester-hq.com/college-planner.html): running a whole semester from one place; classes, deadlines, exams, office hours, notes, study groups and clubs; a seven-step setup.
+- College planner (https://semester-hq.com/college-planner.html): running a whole semester from one place; classes, deadlines, exams, office hours, notes, study groups and clubs; a five-step setup.
 - Student planner app (https://semester-hq.com/student-planner.html): a planner organized by class and due date that fits any major, program or schedule; setup in an afternoon.
 - Syllabus planner (https://semester-hq.com/syllabus-planner.html): what happens when a syllabus is uploaded, which formats work, what is extracted, where the original file is kept, and how a shared class passes the dates to a section.
 - Assignment tracker (https://semester-hq.com/assignment-tracker.html): tracking assignments, readings, labs and exams by class and due date, grouped into overdue, today, tomorrow and this week; repeating series; projects with milestones.
