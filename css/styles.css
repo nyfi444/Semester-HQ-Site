@@ -988,12 +988,13 @@ section { position: relative; }
 
 .price-grid {
   display: grid;
-  /* Three cards: the demo, Plus, and groups. Groups is a card rather than a
-     footnote on purpose: one club officer buying thirty seats is worth
-     about as much as thirty separate people deciding one at a time. */
-  grid-template-columns: repeat(3, 1fr);
+  /* Two cards: Plus and groups. The demo is not a tier and no longer sits
+     here as one; it is offered under the cards instead. Groups stays a card
+     rather than a footnote on purpose: one club officer buying thirty seats
+     is worth about as much as thirty separate people deciding one at a time. */
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  max-width: 1120px;
+  max-width: 860px;
   margin: 70px auto 0;
 }
 @media (max-width: 1000px) { .price-grid { grid-template-columns: 1fr; max-width: 520px; } }
@@ -1056,6 +1057,15 @@ section { position: relative; }
 .price-footer { margin-top: 34px; text-align: center; }
 .price-scarcity { margin-top: 10px; font-size: 12px; color: rgba(248,246,242,0.66); letter-spacing: 0.02em; }
 .price-scarcity:first-child { margin-top: 0; }
+/* The demo offer sits with the fine print but is not fine print: it is the
+   one alternative to paying, so it reads a step brighter than its neighbours. */
+.price-scarcity--demo {
+  font-size: 13.5px;
+  color: rgba(248,246,242,0.86);
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(248,246,242,0.12);
+}
 
 /* ── Founder ──────────────────────────────────────────────────── */
 
