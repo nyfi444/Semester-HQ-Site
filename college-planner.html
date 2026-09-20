@@ -3,36 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <script>if (location.hostname.endsWith('.github.io')) { var p = location.pathname.split('/').slice(2).join('/'); location.replace('https://semester-hq.com/' + p + location.search + location.hash); }</script>
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>College Planner | Semester HQ</title>
-<meta name="description" content="The all-in-one college planner: classes, assignments, notes, exams, and deadlines in one connected place instead of six different apps. Try the live demo.">
-<link rel="canonical" href="https://semester-hq.com/college-planner.html">
+<title>College Planner: Classes, Deadlines, Exams | Semester HQ</title>
+<meta name="description" content="How to run a semester from one college planner: classes, deadlines, exams, office hours, notes, and study groups in one place. A seven-step setup and an honest comparison.">
+
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#121212">
-<meta property="og:type" content="website">
+
+<link rel="canonical" href="https://semester-hq.com/college-planner.html">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://semester-hq.com/college-planner.html">
-<meta property="og:title" content="College Planner | Semester HQ">
-<meta property="og:description" content="The all-in-one college planner: classes, assignments, notes, exams, and deadlines in one connected place.">
+<meta property="og:title" content="College Planner: Classes, Deadlines, Exams | Semester HQ">
+<meta property="og:description" content="How to run a semester from one college planner: classes, deadlines, exams, office hours, notes, and study groups in one place. A seven-step setup and an honest comparison.">
 <meta property="og:image" content="https://semester-hq.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Semester HQ. Everything your semester needs. One HQ. The Semester HQ dashboard with today’s schedule, what is due this week, and the next exams.">
 <meta property="og:site_name" content="Semester HQ">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="College Planner: Classes, Deadlines, Exams | Semester HQ">
+<meta name="twitter:description" content="How to run a semester from one college planner: classes, deadlines, exams, office hours, notes, and study groups in one place. A seven-step setup and an honest comparison.">
+<meta name="twitter:image" content="https://semester-hq.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="Semester HQ. Everything your semester needs. One HQ. The Semester HQ dashboard with today’s schedule, what is due this week, and the next exams.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "How is this different from Canvas or my school's LMS?", "acceptedAnswer": {"@type": "Answer", "text": "Canvas is run by your school and only covers what your professors put in it. Semester HQ is yours: it also holds your own notes, personal to-dos, study sessions, and anything from classes or systems Canvas doesn't touch."}},
-    {"@type": "Question", "name": "Do I need a school email to use the college planner?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sign in with any Google account or any email address at all. No school affiliation or campus login is required."}},
-    {"@type": "Question", "name": "Do I need to pay to try the college planner?", "acceptedAnswer": {"@type": "Answer", "text": "No. The live demo lets you click through the full interface with no account: calendar, assignments, notebook, study timer, exam tracker, project hub, and flashcards. It resets on reload since nothing is saved without an account. Semester HQ Plus is $7.99/month for cross-device sync, syllabus upload, and study groups."}}
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://semester-hq.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://semester-hq.com/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "College planner",
+          "item": "https://semester-hq.com/college-planner.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is this different from Canvas or my school’s LMS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Canvas is run by your school and holds only what each professor puts in it. Semester HQ is yours: it also holds your own notes, to-dos, study sessions, study groups, club events, and anything from a class that never touched the LMS. It also carries across every semester."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a school email to use it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Sign in with any Google account or any email address. No school affiliation, campus login, or IT approval is needed, and it works the same at a four-year college, a community college, or in grad school."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is a live demo of the full interface that needs no account and saves nothing, so you can see everything before you pay. Semester HQ Plus is $7.99 a month, cancel anytime, with a full refund on the first charge if you email within 14 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it track grades or GPA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, by design. Semester HQ tracks what is due, when classes meet, when exams are, and how prepared you are. Grades live wherever your school keeps them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work on my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It runs in the phone’s browser, installs to the home screen, and works offline. Your semester is the same on a laptop, a phone, or a library computer once you sign in."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -40,166 +114,268 @@
 </head>
 <body>
 
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
-    <a href="index.html#top" class="logo">Semester HQ <span class="spark">✦</span></a>
-    <div class="nav-links">
+    <a href="index.html#top" class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
+    <div class="nav-links" id="nav-links">
       <a href="index.html#features">Features</a>
       <a href="index.html#try">Demo</a>
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Sign In</a>
-      <button class="btn btn-primary" onclick="startCheckout(this)">Get Started</button>
+      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Log in</a>
+      <a href="index.html#try" class="btn btn-primary nav-demo">Try the demo</a>
     </div>
   </div>
 </nav>
 
-<main>
-  <header class="hero" style="padding-top:140px">
-    <div class="wrap hero-inner">
-      <div class="eyebrow"><span class="dot"></span>COLLEGE PLANNER</div>
-      <h1 style="font-size:clamp(36px,5.2vw,68px)">The college planner that replaces<br>the other six apps.</h1>
-      <p class="hero-sub">Canvas has your assignments. A group chat has half your deadlines. Notes are split across apps you forgot the passwords to. Semester HQ pulls classes, assignments, notes, and deadlines into one connected place, organized by class, built to make sense the moment you open it.</p>
+<div class="sticky-cta">
+  <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
+</div>
+
+<main id="top">
+  <header class="guide-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#guides">Guides</a></li>
+          <li aria-current="page">College planner</li>
+        </ol>
+      </nav>
+      <div class="eyebrow"><span class="dot"></span>College planner</div>
+      <h1>The college planner that replaces the other six apps.</h1>
+      <p class="lede">Canvas has the assignments. A group chat has the real deadlines. Notes are split across three apps, and the syllabus PDFs are in Downloads. Semester HQ puts classes, deadlines, exams, office hours, notes, study groups, and your club’s calendar in one place, organized by class.</p>
       <div class="hero-actions">
-        <a href="index.html#try" class="btn btn-primary">Try the Demo <span class="btn-arrow">→</span></a>
+        <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
         <a href="index.html#pricing" class="hero-link">See pricing</a>
       </div>
     </div>
   </header>
 
-  <section class="section-pad-sm">
-    <div class="wrap" style="max-width:720px">
-      <h2>What a college planner should actually do</h2>
-      <p style="margin-top:18px;font-size:15.5px;line-height:1.8;color:var(--slate)">A paper planner or a generic to-do app doesn't know your classes exist. Semester HQ is built specifically for a college semester: a calendar that already knows your class schedule, an assignment and exam tracker organized by course, a notebook that keeps every note filed under the right class automatically, and syllabus upload that sets up a whole course from one PDF instead of an evening of manual entry.</p>
-      <p style="margin-top:18px;font-size:15.5px;line-height:1.8;color:var(--slate)">It's priced like a student budget ($7.99/mo, not the $12–20/mo tools built for offices and teams), works for any major, and needs no school account or IT approval: sign in with Google or any email in seconds and it's there on your phone, laptop, or a library computer.</p>
-    </div>
-  </section>
+  <div class="guide-body">
+    <section class="guide-section">
+      <div class="wrap">
+        <h2>What a college planner should actually do</h2>
+      <p>Most planner apps were built for offices and relabeled for students. They do not know that classes exist, that a semester has a shape, or that the most important document you own is a PDF a professor handed you in week one. So the setup is an evening of retyping, and the planner is abandoned by week three.</p>
+      <p>Semester HQ is built around the semester itself. Each class has a page. Each page holds what is due next, the next exam with a countdown, the office hours, the attendance rule and how many absences you have used, your notes, and your flashcards. Above the classes sit one calendar and one Assignments list. Around them: exam prep, projects, a study timer, study groups, clubs and teams, and an applications tracker for internships and scholarships. It does not track grades. It tracks the work, the dates, and the people.</p>
+      </div>
+    </section>
 
-  <section class="section-pad-sm" style="background:var(--bone-dim)">
-    <div class="wrap">
-      <div class="section-head center reveal in">
-        <div class="eyebrow"><span class="dot"></span>What it actually does</div>
-        <h2>Everything your semester needs, not a list of features.</h2>
+    <section class="guide-section" id="how-to">
+      <div class="wrap">
+        <h2>How to set up a college planner in seven steps</h2>
+        <p>One sitting, ideally in the first week, with every syllabus you have been given so far.</p>
+        <ol class="steps-list">
+        <li>
+          <h3>Start with semester setup</h3>
+          <p>Sign in with Google or any email. Semester setup asks for your term dates and your classes. Add each class with its meeting days and times, or skip ahead to the syllabus.</p>
+        </li>
+        <li>
+          <h3>Upload every syllabus you have</h3>
+          <p>With Semester HQ Plus, hand over each syllabus as a PDF, Word, PowerPoint, or Excel file, a photo of a printed copy, or pasted text. In about a minute per class you get class times, every assignment and exam date, the professor’s contact details, office hours, the TA, the attendance limit, and the late policy, all editable. The original file stays in the class page.</p>
+        </li>
+        <li>
+          <h3>Check the class pages</h3>
+          <p>Open each class page once. Confirm the dates, fix anything the syllabus stated strangely, and read the policies while they are fresh. From now on this page answers the questions you used to reopen the PDF for: when are office hours, what is the late penalty, how many absences are left.</p>
+        </li>
+        <li>
+          <h3>Add the rest by typing it like a text</h3>
+          <p>“psych quiz 2 thursday 11am” becomes a quiz for PSY 101 due Thursday at 11:00 AM. Quick add picks out the class, day, time, and type while you type. Repeating work becomes a series. A paper becomes a project with milestones.</p>
+        </li>
+        <li>
+          <h3>Make the calendar yours</h3>
+          <p>Everything now sits on one calendar in month, week, day, or year view, color-coded by class. Drag assignments onto the day you will do them. Add time blocks for study sessions. Open an exam’s prep page to plan sessions in the weeks before it.</p>
+        </li>
+        <li>
+          <h3>Bring in your people</h3>
+          <p>Share a class so your section gets every deadline in one tap; only the schedule is shared, never your progress or notes. Start a study group for a hard class, find the hour everyone is free, and split the work. Join your club or team and its events land on your calendar too.</p>
+        </li>
+        <li>
+          <h3>Run the week from the dashboard</h3>
+          <p>Each day the dashboard shows which week of the term you are in, what is up next, today’s schedule, what is due this week, the next exams, and your weekly focus goal. The Heads Up bell holds anything that needs attention. Nothing notifies you; you come to it.</p>
+        </li>
+        </ol>
       </div>
-      <div class="problem-grid reveal in">
-        <div class="problem-card">
-          <div class="problem-copy">
-            <h3>Know what's due.</h3>
-            <p>Assignments, exams, and deadlines in one view.</p>
-          </div>
-          <div class="feature-card problem-visual">
-            <div class="task-mock">
-              <div class="task-row"><span class="task-check"></span><div class="task-info"><div class="task-name">Problem Set 4</div><div class="task-meta">Econ 201 · Due Thu</div></div></div>
-              <div class="task-row done"><span class="task-check">✓</span><div class="task-info"><div class="task-name">Lab Report Draft</div><div class="task-meta">Chem 110 · Due Mon</div></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="problem-card">
-          <div class="problem-copy">
-            <h3>Know what's happening.</h3>
-            <p>Your class schedule, calendar, and important dates, all connected.</p>
-          </div>
-          <div class="feature-card problem-visual">
-            <div class="cal-grid" style="margin-top:0">
-              <div class="cal-dow">S</div><div class="cal-dow">M</div><div class="cal-dow">T</div><div class="cal-dow">W</div><div class="cal-dow">T</div><div class="cal-dow">F</div><div class="cal-dow">S</div>
-              <div class="cal-cell">16</div><div class="cal-cell">17<span class="cal-pill">Writeup</span></div><div class="cal-cell">18</div><div class="cal-cell today">19</div><div class="cal-cell">20<span class="cal-pill sand">Quiz 5</span></div><div class="cal-cell">21</div><div class="cal-cell">22</div>
-            </div>
-          </div>
-        </div>
-        <div class="problem-card">
-          <div class="problem-copy">
-            <h3>Never start from scratch.</h3>
-            <p>Upload your syllabus and Semester HQ organizes the rest.</p>
-          </div>
-          <div class="feature-card problem-visual">
-            <div class="upload-mock" style="padding:16px 12px">
-              <div class="upload-icon">📄</div>
-              <div class="upload-file">ECON201_Syllabus.pdf</div>
-              <div class="upload-arrow">↓</div>
-              <div class="upload-result"><span class="upload-chip">4 assignments added</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="problem-card">
-          <div class="problem-copy">
-            <h3>Keep everything together.</h3>
-            <p>Courses, notes, assignments, and study information live in the same workspace.</p>
-          </div>
-          <div class="feature-card problem-visual">
-            <div class="courses-mock" style="grid-template-columns:1fr">
-              <div class="course-mini" style="border-top-color:#B49F90">
-                <div class="course-mini-name">Marketing Strategy</div>
-                <div class="course-mini-meta">MKT 301 · Prof. Alvarez</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section-pad-sm">
-    <div class="wrap" style="max-width:700px">
-      <div class="section-head reveal in">
-        <div class="eyebrow"><span class="dot"></span>Questions</div>
-        <h2>About Semester HQ as a college planner.</h2>
+    <section class="guide-section">
+      <div class="wrap">
+        <h2>What the planner looks like on a normal Saturday</h2>
+        <p>The dashboard from the sample semester in week four. This is the screen most people open first each day.</p>
+        <figure class="guide-figure">
+          <div class="device device--shot">
+          <div class="device-bar" aria-hidden="true"><div class="device-dots"><span></span><span></span><span></span></div><div class="device-url">app.semester-hq.com</div></div>
+          <div class="device-body"><img src="assets/product/dashboard-desktop.webp" width="1440" height="900" alt="The Semester HQ dashboard on a laptop: Saturday of week 4 of 16, Webwork 6 up next at 10 PM, today’s schedule, a due-this-week list grouped into overdue, today, and tomorrow, three upcoming exams with day counts, and a weekly focus goal." loading="lazy" decoding="async"></div>
+        </div>
+          <figcaption>The dashboard: one screen for the week you are in.</figcaption>
+        </figure>
       </div>
-      <div class="faq-list" style="margin-top:40px">
+    </section>
+
+    <section class="guide-section" id="compare">
+      <div class="wrap">
+        <h2>Paper planner, Google Calendar, Notion, or Semester HQ</h2>
+        <p>Each of these is a fine planner for someone. Here is where each one does the work for you and where it hands the work back.</p>
+        <div class="compare-scroll">
+          <table class="compare">
+            <caption class="sr-only">How a paper planner, Google Calendar, Notion, and Semester HQ compare as a college planner</caption>
+            <thead>
+              <tr><th scope="col">What matters</th><th scope="col">Paper planner</th><th scope="col">Google Calendar</th><th scope="col">Notion</th><th scope="col">Semester HQ</th></tr>
+            </thead>
+            <tbody>
+          <tr>
+            <th scope="row">Setup for a new semester</th>
+            <td>An evening with each syllabus and a pen.</td>
+            <td>Type every class meeting and deadline.</td>
+            <td>Build or copy a template, then type everything.</td>
+            <td class="hq">Upload the syllabi; about a minute per class.</td>
+          </tr>
+          <tr>
+            <th scope="row">Organized by class</th>
+            <td>If you keep it that way.</td>
+            <td>Separate calendars per class.</td>
+            <td>Whatever structure you build.</td>
+            <td class="hq">Built in: one page per class.</td>
+          </tr>
+          <tr>
+            <th scope="row">Office hours, policies, absences</th>
+            <td>Back to the PDF.</td>
+            <td>Not really.</td>
+            <td>If you typed them in.</td>
+            <td class="hq">On the class page, with a private absence tally.</td>
+          </tr>
+          <tr>
+            <th scope="row">Exam prep and projects</th>
+            <td>A circled date.</td>
+            <td>An event.</td>
+            <td>Pages you design.</td>
+            <td class="hq">A countdown and topic checklist per exam; milestone templates per project.</td>
+          </tr>
+          <tr>
+            <th scope="row">Notes and flashcards</th>
+            <td>In the notebook.</td>
+            <td>No.</td>
+            <td>Notes, yes; flashcards with effort.</td>
+            <td class="hq">Notes filed by class; flashcards with spaced repetition.</td>
+          </tr>
+          <tr>
+            <th scope="row">Study groups and clubs</th>
+            <td>No.</td>
+            <td>Shared calendars.</td>
+            <td>Shared pages.</td>
+            <td class="hq">Find-a-time, sessions with RSVPs, shared tasks, chat; club events on every member’s calendar.</td>
+          </tr>
+          <tr>
+            <th scope="row">Works offline</th>
+            <td>Always.</td>
+            <td>Mostly, in the app.</td>
+            <td>Partly.</td>
+            <td class="hq">Yes, installed to the home screen.</td>
+          </tr>
+          <tr>
+            <th scope="row">Cost</th>
+            <td>The notebook.</td>
+            <td>Free.</td>
+            <td>Free plan, with paid tiers.</td>
+            <td class="hq">$7.99 a month; groups $5.99 per member.</td>
+          </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare-note">Paper is calmer, Google Calendar is free, and Notion can become anything. Semester HQ’s edge is narrow and specific: it is the only one of the four that reads a syllabus.</p>
+      </div>
+    </section>
+
+    <section class="guide-section guide-faq" id="faq">
+      <div class="wrap">
+        <h2>Questions about Semester HQ as a college planner</h2>
+        <div class="faq-list">
         <details class="faq-item">
-          <summary>How is this different from Canvas or my school's LMS?<span class="plus"></span></summary>
-          <p class="faq-a">Canvas is run by your school and only covers what your professors put in it. Semester HQ is yours: it also holds your own notes, personal to-dos, study sessions, and anything from classes or systems Canvas doesn't touch.</p>
+          <summary>How is this different from Canvas or my school’s LMS?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Canvas is run by your school and holds only what each professor puts in it. Semester HQ is yours: it also holds your own notes, to-dos, study sessions, study groups, club events, and anything from a class that never touched the LMS. It also carries across every semester.</p>
         </details>
         <details class="faq-item">
-          <summary>Do I need a school email to use it?<span class="plus"></span></summary>
-          <p class="faq-a">No. Sign in with any Google account or any email address at all. No school affiliation or campus login is required.</p>
+          <summary>Do I need a school email to use it?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">No. Sign in with any Google account or any email address. No school affiliation, campus login, or IT approval is needed, and it works the same at a four-year college, a community college, or in grad school.</p>
         </details>
         <details class="faq-item">
-          <summary>Do I need to pay to try it?<span class="plus"></span></summary>
-          <p class="faq-a">No. The live demo lets you click through the full interface with no account: calendar, assignments, notebook, study timer, exam tracker, project hub, and flashcards. It resets on reload since nothing is saved without an account. Semester HQ Plus is $7.99/month for cross-device sync, syllabus upload, and study groups.</p>
+          <summary>Is there a free plan?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">No. There is a live demo of the full interface that needs no account and saves nothing, so you can see everything before you pay. Semester HQ Plus is $7.99 a month, cancel anytime, with a full refund on the first charge if you email within 14 days.</p>
         </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="final-cta section-pad-sm">
-    <div class="wrap">
-      <div class="final-cta-inner reveal in">
-        <h2>Stop managing your semester across a dozen tabs.</h2>
-        <p>Try the live demo right in your browser, no account, no card.</p>
-        <div class="final-cta-actions">
-          <a href="index.html#try" class="btn btn-primary">Try the Demo <span class="btn-arrow">→</span></a>
-          <a href="index.html#pricing" class="hero-link">See pricing</a>
+        <details class="faq-item">
+          <summary>Does it track grades or GPA?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">No, by design. Semester HQ tracks what is due, when classes meet, when exams are, and how prepared you are. Grades live wherever your school keeps them.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it work on my phone?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq-a">Yes. It runs in the phone’s browser, installs to the home screen, and works offline. Your semester is the same on a laptop, a phone, or a library computer once you sign in.</p>
+        </details>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="final-cta section-pad-sm">
+      <div class="wrap">
+        <div class="final-cta-inner">
+          <h2>Stop managing your semester across a dozen tabs.</h2>
+          <p>Try the live demo right in your browser, no account, no card. Semester HQ Plus is $7.99 a month when you are ready to keep your semester.</p>
+          <div class="final-cta-actions">
+            <a href="index.html#try" class="btn btn-primary">Try the demo <span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a href="index.html#pricing" class="hero-link">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section guide-related" id="related">
+      <div class="wrap">
+        <h2>Related guides</h2>
+        <p>The other guides in this series, each with its own step-by-step setup.</p>
+        <div class="related-grid">
+        <a href="student-planner.html"><div class="fo-title">Student planner app</div><p>A planner that bends to your major.</p></a>
+        <a href="syllabus-planner.html"><div class="fo-title">Syllabus planner</div><p>Upload the file; get the class built.</p></a>
+        <a href="assignment-tracker.html"><div class="fo-title">Assignment tracker</div><p>Every deadline by class and due date.</p></a>
+        <a href="college-calendar.html"><div class="fo-title">College calendar</div><p>Class meetings, deadlines, and exams on one grid.</p></a>
+        <a href="study-group-scheduler.html"><div class="fo-title">Study group scheduler</div><p>Find the hour everyone is free.</p></a>
+        <a href="class-schedule-maker.html"><div class="fo-title">Class schedule maker</div><p>Syllabi into a weekly schedule.</p></a>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
-      <div class="footer-brand reveal in">
-        <div class="logo">Semester HQ <span class="spark">✦</span></div>
+      <div class="footer-brand">
+        <div class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></div>
         <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h5>Product</h5>
-          <a href="index.html#try">Overview</a>
+          <h2 class="footer-heading">Product</h2>
           <a href="index.html#features">Features</a>
-          <a href="index.html#try">Try it live</a>
+          <a href="index.html#try">Try the demo</a>
+          <a href="index.html#feat-clubs">Clubs &amp; Teams</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="group-pricing.html">Group pricing</a>
           <a href="index.html#faq">FAQ</a>
         </div>
-        <div class="footer-col">
-          <h5>Access</h5>
-          <a href="index.html#pricing">Pricing</a>
-          <a href="index.html#pricing">What's included</a>
-          <a href="group-pricing.html">Group / university pricing</a>
+        <div class="footer-col" id="guides">
+          <h2 class="footer-heading">Guides</h2>
+          <a href="college-planner.html">College planner</a>
+          <a href="student-planner.html">Student planner app</a>
+          <a href="syllabus-planner.html">Syllabus planner</a>
+          <a href="assignment-tracker.html">Assignment tracker</a>
+          <a href="college-calendar.html">College calendar</a>
+          <a href="study-group-scheduler.html">Study group scheduler</a>
+          <a href="class-schedule-maker.html">Class schedule maker</a>
         </div>
         <div class="footer-col">
-          <h5>Company</h5>
+          <h2 class="footer-heading">Company</h2>
           <a href="contact.html">Contact</a>
           <a href="contact.html?review=1">Leave a review</a>
           <a href="privacy.html">Privacy Policy</a>
@@ -215,6 +391,7 @@
 </footer>
 
 <script src="js/diagnostics.js"></script>
+<script src="js/track.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/main.js"></script>
 </body>
