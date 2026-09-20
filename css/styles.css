@@ -1412,3 +1412,9 @@ section { position: relative; }
   .faq-item summary .plus, .related-grid a, .footer-col a { transition: none; }
   .btn:hover .btn-arrow { transform: none; }
 }
+
+/* ── Legal pages: retention table ─────────────────────────────────── */
+.legal table.legal-table { width: 100%; border-collapse: collapse; margin: 14px 0 24px; font-size: 14px; }
+.legal .legal-table th, .legal .legal-table td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+.legal .legal-table th { font-weight: 600; }
+.legal h3 { font-family: var(--f-sans); font-size: 16px; font-weight: 600; margin: 22px 0 8px; }
