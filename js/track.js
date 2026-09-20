@@ -21,8 +21,11 @@ document.addEventListener('click', (e) => {
   const link = e.target.closest('a, button');
   if (!link) return;
   if (link.matches('.nav-login')) trackEvent('nav_login_click');
-  // Every "Try the demo" link, in the nav, the hero, the sticky bar, and on
-  // the guide pages (where it points at index.html#try). The event keeps its
+  // The primary CTA, in the nav, the hero, the sticky bar, and on the guide
+  // pages: it now sends people to sign up rather than to the demo section.
+  else if (link.matches('a[href*="login.html?signup"]')) trackEvent('get_started_click');
+  // What's left pointing at #try is the demo: the nav and footer links, and
+  // the "try the live demo" lines under the CTAs. The event keeps its
   // original name so the counts stay comparable over time.
   else if (link.matches('a[href$="#try"]')) trackEvent('try_it_free_click');
   else if (link.matches('.nav button.btn-primary')) trackEvent('nav_upgrade_click');
