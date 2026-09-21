@@ -1,6 +1,6 @@
 # Semester HQ
 
-> Semester HQ is an all-in-one planner for college students. A student uploads their syllabus (PDF, Word, PowerPoint, Excel, a photo, or pasted text) and the semester is built for them in about a minute: class times, every assignment and exam date, the professor's contact details, office hours, the attendance limit and the late policy. That removes the hour of manual data entry that kills most planners before week three. Around it, Semester HQ puts classes, deadlines, exam prep, projects, flashcards, notes, study groups, club and team calendars, and internship applications into one connected app, replacing the separate tools students normally juggle each semester (LMS, calendar app, syllabus PDFs, group chats, notes apps, spreadsheets).
+> Semester HQ is an all-in-one planner for college students. A student uploads their syllabus (PDF, Word, PowerPoint, Excel, a photo, or pasted text) and the semester is built for them in about a minute: class times, every assignment and exam date, the professor's contact details, office hours, the attendance limit and the late policy. Due dates can also be imported from a Canvas, Blackboard, Brightspace or Moodle calendar feed, which stays connected so a deadline the professor moves follows. That removes the hour of manual data entry that kills most planners before week three. Around it, Semester HQ puts classes, deadlines, exam prep, projects, flashcards, notes, study groups, club and team calendars, and internship applications into one connected app, replacing the separate tools students normally juggle each semester (LMS, calendar app, syllabus PDFs, group chats, notes apps, spreadsheets).
 
 ## Pricing
 
@@ -13,6 +13,7 @@
 Listed with the two that matter most first: syllabus upload is why a student starts, and the class page is why they stay.
 
 - Syllabus upload (a PDF, Word, PowerPoint or Excel file, a photo, or pasted text): fills in class times, assignments, exam dates, professor contact info, office hours, TAs, and attendance and late work policies. Everything is editable, and the original file is kept so it can be re-read later.
+- LMS calendar import: paste the private calendar feed link from Canvas, Blackboard, Brightspace or Moodle and every due date is imported and matched to a class. The feed is re-read whenever the app is opened, so moved dates follow and nothing is duplicated; lectures, recurring meetings and other terms are filtered out. Requires Plus; without an account an exported .ics file can be uploaded once instead. Read-only: nothing is ever written back to the LMS, and Semester HQ is not affiliated with any of these vendors.
 - Class pages: one page per class with what's due, the next exam, office hours, policies, notes, flashcards, and a private absence tracker against the attendance limit ("1 of 3 allowed absences used").
 - Quick add in plain English: "bio lab report fri 5pm" becomes a lab for that class due Friday at 5 PM.
 - Calendar with month, week, day, and year views, color-coded by class, including class meetings, deadlines, study sessions, project milestones, and club events.
@@ -22,9 +23,9 @@ Listed with the two that matter most first: syllabus upload is why a student sta
 - Projects: templates (research paper, group presentation, lab report, case study, portfolio, capstone) with milestones spaced to the due date, tasks, team, links, notes, and a timeline.
 - Flashcards with spaced repetition.
 - Study timer with focus blocks, a session goal, and a weekly study goal.
-- Notebook with rich text, organized by class.
-- Study groups: find-a-time availability heatmap, sessions with RSVPs, shared tasks, shared notes and decks, and group chat.
-- Clubs & Teams: officers post events (including weekly repeats and required events) and announcements; members RSVP and get events on their own calendar.
+- Notebook with rich text, organized by class, with page layouts: a Cornell layout (cue column, ruled notes, summary band, and a cover-the-notes toggle for self-testing) and a lab report layout (eight numbered sections, a data table that grows, and a completion tracker). Notes export to PDF and can be turned into flashcards.
+- Study groups: find-a-time availability heatmap (which can be drafted from the student's class schedule in one tap), sessions that can repeat weekly, per-session RSVP detail showing who is going, maybe, can't, and hasn't answered, shared tasks with one-tap claiming of unassigned ones, shared notes and decks, and group chat.
+- Clubs & Teams: officers post events (including weekly repeats and required events) and announcements; members RSVP and get events on their own calendar. Officers also get an attendance grid across past and upcoming events, a CSV roster export including every RSVP, member search, and club quick links (group chat, social accounts, where dues are sent).
 - Applications tracker for internships, jobs, scholarships, and research positions, with deadlines on the calendar.
 - Heads Up: an in-app panel behind the bell listing what's overdue, due today and tomorrow, exams coming up, study sessions, club events, project milestones, and flashcards due. Semester HQ sends no notifications of any kind: no push, no browser permission prompt, nothing on a lock screen.
 - Quick capture: photograph a whiteboard or assignment sheet to turn it into tasks; Android share target for PDFs and links.
@@ -38,6 +39,7 @@ Listed with the two that matter most first: syllabus upload is why a student sta
 - The live demo keeps nothing after the tab closes.
 - Signed-in planner data is stored in a database tied to the account so it syncs across devices.
 - Documents uploaded for syllabus reading or quick capture are sent to Anthropic's Claude API to extract details. Anthropic does not use them to train models and does not keep them beyond its API data retention policy. The original syllabus file is kept in the student's class page until the student deletes it or their account.
+- A connected LMS calendar feed link is stored with the student's planner and fetched by the Cloudflare Worker on their behalf (a browser cannot read it cross-origin). It is read-only, no copy of the calendar is stored on the server, and removing the feed deletes the link.
 - No data is sold, and no third-party ad trackers run inside the app.
 - Full policy: https://semester-hq.com/privacy.html
 
@@ -49,7 +51,7 @@ Longer, step-by-step pages on the marketing site. Each one has a numbered how-to
 - Student planner app (https://semester-hq.com/student-planner.html): a planner organized by class and due date that fits any major, program or schedule; setup in an afternoon.
 - Syllabus planner (https://semester-hq.com/syllabus-planner.html): what happens when a syllabus is uploaded, which formats work, what is extracted, where the original file is kept, and how a shared class passes the dates to a section.
 - Assignment tracker (https://semester-hq.com/assignment-tracker.html): tracking assignments, readings, labs and exams by class and due date, grouped into overdue, today, tomorrow and this week; repeating series; projects with milestones.
-- College calendar (https://semester-hq.com/college-calendar.html): month, week, day and year views, one color per class, dragging work onto days and time slots, time blocks; the calendar does not sync with Google Calendar.
+- College calendar (https://semester-hq.com/college-calendar.html): month, week, day and year views, one color per class, dragging work onto days and time slots, time blocks; the calendar does not sync with Google Calendar, though due dates can be imported from an LMS calendar feed.
 - Study group scheduler (https://semester-hq.com/study-group-scheduler.html): finding a time everyone is free with the availability grid, scheduling sessions with RSVPs, splitting tasks with owners and due dates, sharing notes, decks, files and chat.
 - Class schedule maker (https://semester-hq.com/class-schedule-maker.html): turning syllabi into a weekly schedule, where office hours live, the private absence tracker, and exam dates with countdowns and prep pages.
 

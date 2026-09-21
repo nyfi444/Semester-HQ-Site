@@ -60,7 +60,7 @@
 <main class="legal">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: September 19, 2026</p>
+    <p class="updated">Last updated: September 20, 2026</p>
 
     <p>This policy explains what Semester HQ ("we," "us") collects when you use the planner, who can see it, and what we do with it. We built this to be as boring and predictable as possible. We're not in the business of your data.</p>
 
@@ -71,6 +71,7 @@
       <li>When you share with other people (a study group, a shared class, or a club or team), the people with that group's code can see what's shared there, including your display name. Your progress, notes, and absences are never shared.</li>
       <li>Semester HQ never sends notifications. There is no push subscription, no browser permission prompt, and nothing about your schedule is stored anywhere in order to alert you.</li>
       <li>When you use a feature that reads a document, photo, or pasted text (like syllabus upload or quick capture), that content is sent to Anthropic (the maker of Claude) to pull out the details. Anthropic doesn't train on it and doesn't keep it beyond its API data retention policy. A syllabus you upload stays in your class page, so it can be re-read, until you delete the file or your account.</li>
+      <li>If you connect a Canvas, Blackboard, Brightspace, or Moodle calendar feed, we store that link in your planner and our server fetches it to read your due dates. We only ever read it, we never write anything back to your LMS, and you can disconnect it at any time.</li>
       <li>Payment is handled entirely by Stripe. We never see or store your full card number.</li>
       <li>We don't sell your data, we don't use it to train AI models, and there are no ads or ad trackers in the planner.</li>
     </ul>
@@ -78,13 +79,13 @@
     <h2>What we collect</h2>
     <p><strong>Account info.</strong> If you sign in with Google, we receive your name, email address, and profile photo through Firebase Authentication. If you sign in with an email link, we receive your email address. You can set a display name in Settings.</p>
 
-    <p><strong>Your planner.</strong> What you create in Semester HQ: classes and meeting times, assignments and to-dos, calendar time blocks, notes and attachments, flashcards and review history, study timer sessions, projects, exam topics and study plans, applications you're tracking, syllabus details (like office hours and course policies), the absences you log, and your settings. With an account, this is stored in our database (Google Firebase) so it syncs across your devices, and a copy is kept in your browser on each signed-in device so the app works offline. Files you attach may be stored in Firebase Storage. Your absence log, progress, and notes are private to you.</p>
+    <p><strong>Your planner.</strong> What you create in Semester HQ: classes and meeting times, assignments and to-dos, calendar time blocks, notes and attachments, flashcards and review history, study timer sessions, projects, exam topics and study plans, applications you're tracking, syllabus details (like office hours and course policies), the absences you log, any calendar feed link you connect, and your settings. With an account, this is stored in our database (Google Firebase) so it syncs across your devices, and a copy is kept in your browser on each signed-in device so the app works offline. Files you attach may be stored in Firebase Storage. Your absence log, progress, and notes are private to you.</p>
 
     <p><strong>Things you share with other people.</strong> Semester HQ has three ways to plan with others. In each, a 6-character code (or an invite link containing it) is how people join, and anyone signed in who has the code can view the group's basic information.</p>
     <ul>
       <li><strong>Study groups.</strong> Members can see the group's name and member list (display names and chosen colors), the weekly availability each member adds, study sessions and RSVPs, shared tasks, chat messages, and notes, flashcard decks, files, and links that members share into the group.</li>
       <li><strong>Shared classes.</strong> When you share a class, anyone with its code can see the course name and code, instructor, location, class meeting times, the titles, types, and due dates of its assignments and exams, the syllabus details you've added (such as the professor's contact information, office hours, TAs, and course policies), the school, section, and term, and your display name as the person who shared it. If you let classmates find it by searching, other signed-in students can find it by school and course code. When classmates join, we record that they joined so you can see how many have. Your completion status, notes, files, and absences are never part of a shared class.</li>
-      <li><strong>Clubs &amp; Teams.</strong> Members can see the club's name, description, and member list (display names, officer roles, and titles), events (including dates, times, locations, and details), announcements and who posted them, and each member's RSVPs. Officers use RSVPs to see who's attending.</li>
+      <li><strong>Clubs &amp; Teams.</strong> Members can see the club's name, description, any links its officers add (such as a group chat, a social account, or where dues are sent), the member list (display names, officer roles, and titles), events (including dates, times, locations, and details), announcements and who posted them, and each member's RSVPs. Officers use RSVPs to see who's attending, including an attendance view across past and upcoming events, and can export the roster and those RSVPs as a spreadsheet.</li>
       <li><strong>Group plans.</strong> If someone covers Semester HQ for you through a group plan, that plan's admins can see your name, the email address you signed in with, and the date you took a seat, so they know who they're paying for. They cannot see anything inside your planner. If you buy a group plan, we process your payment through Stripe the same way as any other subscription.</li>
     </ul>
     <p>Only share what you're comfortable with the other members seeing. Don't post other people's private information.</p>
@@ -99,6 +100,8 @@
       <li>Planning a project, pulling exam topics from a study guide, and making flashcards from a note</li>
     </ul>
     <p>Anthropic reads what you send to extract the details. It doesn't use it to train models, and it doesn't keep it beyond its API data retention policy. A syllabus you upload also stays in your class page (stored in Firebase Storage) so it can be re-read later, until you delete the file or your account. What's extracted is shown to you to review, and whatever you choose to keep is saved in your planner like anything else. On Android, a file you share into Semester HQ is held briefly in your browser's storage on your device until the app opens it.</p>
+
+    <p><strong>Calendar feeds you connect.</strong> If you import from Canvas, Blackboard, Brightspace, Moodle, or any other calendar, you give us the feed link your school issued you. That link is stored with your planner, and it is treated as private, because for most systems the link itself is what grants access to it. Our server (Cloudflare) fetches the link on your behalf, because your browser is not allowed to read it directly, and returns the calendar to your device, where your due dates are matched to your classes. We request it over a secure connection only, we do not store a copy of the calendar on our server, and we never send anything to your LMS or change anything in it. The feed is fetched when you first connect it and again while you have Semester HQ open, so that moved due dates follow. You can remove a feed at any time in Settings, which deletes the link; the assignments it already created stay in your planner until you delete them. If you would rather not connect anything, you can upload an exported calendar file instead, which is read entirely on your device.</p>
 
     <p><strong>Payment info.</strong> When you subscribe, Stripe collects your payment details directly. We receive your email and your subscription status (active, renewed, past due, or canceled), which we use to unlock or lock your account.</p>
 
@@ -119,7 +122,7 @@
     <p>Only the service providers required to run Semester HQ, each receiving only what it needs:</p>
     <ul>
       <li><strong>Google Firebase</strong>: sign-in, database, and file storage</li>
-      <li><strong>Cloudflare</strong>: our backend server, which handles AI requests, payments, and forms</li>
+      <li><strong>Cloudflare</strong>: our backend server, which handles AI requests, payments, forms, and fetching any calendar feed you connect</li>
       <li><strong>GitHub</strong>: hosting for the website and app files</li>
       <li><strong>Anthropic</strong>: reading documents, photos, and text when you use an AI feature</li>
       <li><strong>Stripe</strong>: payment processing</li>
@@ -138,6 +141,7 @@
         <tr><td>Files you upload (syllabi, attachments)</td><td>Until you delete the file or your account. Deleting your account removes them too.</td></tr>
         <tr><td>Things you shared into a study group, class or club</td><td>Until you or the group's owner or officers remove them, or the group is deleted. They stay after you leave or delete your account, with your name shown as "Deleted account" on chat messages. Email us to have them removed.</td></tr>
         <tr><td>Subscription records (email, Stripe customer and subscription ids, paid status)</td><td>For the life of your subscription, then as long as tax and accounting law requires. Stripe keeps its own payment records under its policy.</td></tr>
+        <tr><td>A calendar feed link you connect</td><td>Until you remove the feed or delete your account. We keep the link, not a copy of the calendar it returns.</td></tr>
         <tr><td>Crash reports</td><td>30 days.</td></tr>
         <tr><td>Anonymous button-click counts</td><td>90 days.</td></tr>
         <tr><td>Messages you send through our forms</td><td>24 months, then deleted.</td></tr>
@@ -171,7 +175,7 @@
     <h3>If you live in the European Economic Area, the United Kingdom or Switzerland</h3>
     <ul>
       <li><strong>Controller.</strong> Semester HQ, [legal entity name], [mailing address], California, USA. Contact: hello@semester-hq.com.</li>
-      <li><strong>Legal bases.</strong> Performing our contract with you (your account, sync, billing, group plans); our legitimate interests in keeping the service secure and working (rate limiting, crash reports, abuse prevention); and your consent when you choose to send a document, photo or text to an AI feature, which you give each time by choosing to upload and can stop at any time.</li>
+      <li><strong>Legal bases.</strong> Performing our contract with you (your account, sync, billing, group plans); our legitimate interests in keeping the service secure and working (rate limiting, crash reports, abuse prevention); and your consent when you choose to send a document, photo or text to an AI feature, which you give each time by choosing to upload and can stop at any time. Connecting a calendar feed is consent of the same kind, given once when you paste the link; because it is then re-read while you use the app, you withdraw it by removing the feed in Settings.</li>
       <li><strong>Transfers.</strong> We're in the United States and so are our providers, so your data is processed there. Our providers rely on standard contractual clauses and, where certified, the EU-US Data Privacy Framework.</li>
       <li><strong>Your rights.</strong> Access, rectification, erasure, restriction, portability, objection, and the right to withdraw consent. You can also complain to your local supervisory authority; we'd appreciate the chance to help first.</li>
       <li><strong>Automated decisions.</strong> None. AI features suggest what a document says and you review every suggestion before it's saved; nothing is decided about you.</li>

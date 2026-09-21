@@ -1428,3 +1428,52 @@ section { position: relative; }
 .legal .legal-table th, .legal .legal-table td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--line); }
 .legal .legal-table th { font-weight: 600; }
 .legal h3 { font-family: var(--f-sans); font-size: 16px; font-weight: 600; margin: 22px 0 8px; }
+
+/* ── Import from Canvas (feature row 02) ──────────────────────────── */
+.lms-mock { display: flex; flex-direction: column; }
+.lms-sources { display: flex; flex-wrap: wrap; gap: 5px; }
+.lms-chip { font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: var(--r-pill); background: var(--bone); border: 1px solid var(--line-soft); color: var(--slate); }
+.lms-chip.on { background: var(--black); border-color: var(--black); color: var(--bone); }
+.lms-field { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding: 7px 7px 7px 11px; border-radius: var(--r-tight); background: var(--bone); border: 1px solid var(--line-soft); }
+.lms-link { flex: 1; min-width: 0; font-size: 10.5px; color: var(--slate); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lms-btn { flex-shrink: 0; font-size: 10px; font-weight: 600; padding: 5px 12px; border-radius: var(--r-pill); background: var(--black); color: var(--bone); }
+.lms-found { margin: 16px 0 8px; font-size: 11.5px; font-weight: 600; }
+.lms-rows { display: flex; flex-direction: column; gap: 6px; }
+.lms-row { display: flex; align-items: center; gap: 10px; padding: 9px 11px; border-radius: var(--r-tight); background: var(--bone); border: 1px solid var(--line-soft); }
+.lms-date { flex-shrink: 0; width: 38px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--slate); }
+.lms-title { flex: 1; min-width: 0; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lms-pill { flex-shrink: 0; font-size: 9.5px; font-weight: 600; padding: 3px 8px; border-radius: var(--r-pill); background: var(--sandstone-dim); color: var(--rose-ink); }
+.lms-sync { display: flex; align-items: center; gap: 7px; margin-top: 14px; font-size: 11px; color: var(--slate); }
+.lms-pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--rose); flex-shrink: 0; }
+
+/* ── Availability drafted from the class schedule (feature row 06) ── */
+.group-draft { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 14px; font-size: 10px; color: var(--slate); }
+.group-draft-btn { font-weight: 600; padding: 4px 10px; border-radius: var(--r-pill); background: var(--bone); border: 1px dashed var(--slate-line); color: var(--black); }
+
+/* ── Notebook layouts (feature row 08) ────────────────────────────── */
+.nb-mock { display: flex; flex-direction: column; }
+.nb-mock-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.nb-mock-name { font-size: 12px; font-weight: 600; }
+.nb-mock-btn { flex-shrink: 0; font-size: 9.5px; font-weight: 600; padding: 4px 10px; border-radius: var(--r-pill); background: var(--black); color: var(--bone); }
+.nb-mock-grid { display: grid; grid-template-columns: 34% 1fr; border: 1px solid var(--line-soft); border-radius: var(--r-tight) var(--r-tight) 0 0; overflow: hidden; }
+.nb-mock-cues { padding: 10px 10px 14px; background: var(--bone-dim); border-right: 1px solid var(--line-soft); }
+.nb-mock-notes { padding: 10px 12px 14px; background: var(--surface); }
+.nb-mock-label { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin-bottom: 8px; }
+.nb-mock-cue { font-size: 10px; line-height: 1.45; color: var(--black); margin-bottom: 9px; }
+.nb-mock-rule { height: 5px; border-radius: var(--r-mark); background: var(--sandstone-dim); margin-bottom: 9px; }
+.nb-mock-notes .nb-mock-rule:last-child { margin-bottom: 0; }
+.nb-mock-summary { padding: 10px 12px 12px; background: var(--bone-dim); border: 1px solid var(--line-soft); border-top: none; border-radius: 0 0 var(--r-tight) var(--r-tight); }
+.nb-mock-summary .nb-mock-rule:last-child { margin-bottom: 0; }
+.nb-mock-rule.w45 { width: 45%; } .nb-mock-rule.w60 { width: 60%; } .nb-mock-rule.w70 { width: 70%; }
+.nb-mock-rule.w75 { width: 75%; } .nb-mock-rule.w80 { width: 80%; } .nb-mock-rule.w85 { width: 85%; }
+.nb-mock-rule.w90 { width: 90%; } .nb-mock-rule.w95 { width: 95%; }
+
+@media (max-width: 760px) {
+  /* The cue column is the narrow one by design, but at phone width 34% left
+     "What is a second messenger?" wrapping to three lines. */
+  .nb-mock-grid { grid-template-columns: 42% 1fr; }
+  .nb-mock-cue { font-size: 9.5px; margin-bottom: 7px; }
+  .lms-row { gap: 7px; padding: 8px 9px; }
+  .lms-date { width: 34px; font-size: 9px; }
+  .lms-title { font-size: 11px; }
+}
