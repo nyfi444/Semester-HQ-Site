@@ -11,7 +11,9 @@ async function startCheckout(btn) {
     const res = await fetch(`${WORKER_URL}/create-checkout-session`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({}), // no account yet at this point, Stripe just collects an email
+      // No account yet: Stripe collects the email. A link code rides along
+      // only when link codes are on (js/track.js).
+      body: JSON.stringify(typeof LINK_CODES !== 'undefined' && LINK_CODES && typeof linkCode === 'function' && linkCode() ? { via: linkCode() } : {}),
     });
     const data = await res.json();
     if (!res.ok || !data.url) throw Object.assign(new Error(data.error || 'Something went wrong starting checkout.'), { status: res.status });

@@ -28,5 +28,39 @@ document.addEventListener('click', (e) => {
   // the "try the live demo" lines under the CTAs. The event keeps its
   // original name so the counts stay comparable over time.
   else if (link.matches('a[href$="#try"]')) trackEvent('try_it_free_click');
+  // "Start a group plan" (not "Manage it"): the top of the groups funnel.
+  else if (link.matches('a[href*="group-admin.html"]:not(.gp-manage)')) trackEvent('group_start_click');
   else if (link.matches('.nav button.btn-primary')) trackEvent('nav_upgrade_click');
 });
+
+/* ── Link codes (off until the privacy page describes them) ─────────
+   A campaign link can carry a short neutral code (?via=tt-bio, or a
+   campaign's utm_campaign). When LINK_CODES is on, the code is kept for
+   this visit only (sessionStorage, no cookie) and passed along when the
+   visitor heads to sign-up or checkout, so Stripe can record which link
+   a subscription came from. Codes are validated: 2 to 24 lowercase
+   letters, numbers or dashes, never a name. Turn it on only together
+   with the privacy.html sentence that says so. */
+const LINK_CODES = false;
+const VIA_KEY = 'shq_via';
+function linkCode() {
+  try { return sessionStorage.getItem(VIA_KEY) || ''; } catch { return ''; }
+}
+(function keepLinkCode() {
+  if (!LINK_CODES) return;
+  try {
+    const q = new URLSearchParams(location.search);
+    const raw = (q.get('via') || q.get('utm_campaign') || '').toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+    if (/^[a-z0-9-]{2,24}$/.test(raw)) sessionStorage.setItem(VIA_KEY, raw);
+  } catch { /* storage off: nothing is kept */ }
+})();
+document.addEventListener('click', (e) => {
+  if (!LINK_CODES) return;
+  const a = e.target.closest('a[href*="login.html?signup"], a[href*="group-admin.html"]');
+  const code = linkCode();
+  if (!a || !code) return;
+  try {
+    const u = new URL(a.href, location.href);
+    if (!u.searchParams.has('via')) { u.searchParams.set('via', code); a.href = u.toString(); }
+  } catch { /* leave the link as it is */ }
+}, true);
