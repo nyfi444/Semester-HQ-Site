@@ -1,2 +1,8 @@
 .DS_Store
 .claude/
+
+# Local motion preview (overrides the system reduce-motion setting).
+# Never deploy these.
+_preview-motion.html
+_preview-motion.css
+build-preview.py

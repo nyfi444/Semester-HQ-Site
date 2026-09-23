@@ -1,0 +1,1157 @@
+/* ── Semester HQ: the experience layer ──────────────────────────────
+   Motion and interaction for index.html, on top of css/styles.css.
+   Everything here is additive: no selector in this file restyles an
+   element that styles.css already owns, so removing the <link> leaves
+   a complete, readable page behind.
+
+   Rules inherited from styles.css and kept here:
+   - Radii come from --r-card / --r-pill / --r-tight / --r-mark. No
+     loose pixel values.
+   - Instrument Serif (--f-serif) ships one weight. Never ask for
+     500/600/700 on it; the browser fakes a smeared bold.
+   - Every scroll-driven effect degrades to its finished state, so
+     prefers-reduced-motion and no-JS both get the whole message.
+────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* The app's real class colours (student-planner/js/courses.js
+     COURSE_PALETTE), so a class that is blue on the marketing site is
+     blue in the product. Do not invent new ones here. */
+  --c-blue:   #3b6ea5;
+  --c-brick:  #b5534a;
+  --c-green:  #4f8a5b;
+  --c-violet: #8a6bb5;
+  --c-gold:   #c0892f;
+  --c-teal:   #2f8b8b;
+
+  /* One spring for everything that follows the cursor or settles into
+     place. Slower and heavier than the .reveal curve on purpose. */
+  --ease-settle: cubic-bezier(.16,.84,.26,1);
+}
+
+/* ═══ 0. The space ═══════════════════════════════════════════════════
+   The site is one lit volume rather than a stack of flat bands. Three
+   things do that work, and all three are cheap: a soft pool of light
+   that follows the cursor, a film of grain over everything, and a
+   perspective floor under the hero.
+
+   It is a *bright* space on purpose. The brand is bone and ink, and
+   the app a student lands in next is bone and ink, so the depth comes
+   from light, layering and parallax instead of from a dark ground.
+   Nothing here darkens text: the light layer lightens, the grain sits
+   at 3.5%, and the edge tint is sandstone at a fifth of its strength.
+────────────────────────────────────────────────────────────────── */
+
+.space {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  /* Its own stacking context, so the three layers below never get
+     interleaved with page content. */
+  isolation: isolate;
+}
+.space > * { position: absolute; inset: 0; }
+
+/* The light, done backwards on purpose.
+
+   Bone is already near-white, so there is no headroom to make a bright
+   pool brighter — lightening it changes nothing you can see. Instead
+   this tints *away* from the cursor: the spot you are looking at stays
+   pure bone and the rest of the volume warms toward sandstone. The eye
+   reads that as a light following the cursor, and because it is a
+   multiply toward a warm grey it darkens text very slightly rather
+   than washing it out, so contrast only ever improves.
+
+   It is the vignette as well — one layer doing both jobs. With no JS,
+   a coarse pointer, or reduced motion the centre simply stays put and
+   it is a static one. js/experience.js moves --lx/--ly. */
+.space-light {
+  background: radial-gradient(
+    820px circle at var(--lx, 50%) var(--ly, 34%),
+    rgba(217,206,195,0) 0%,
+    rgba(217,206,195,0.05) 30%,
+    rgba(217,206,195,0.16) 62%,
+    rgba(210,197,185,0.26) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* Grain. One 160px tile of fractal noise, repeated. */
+.space-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+}
+
+/* Page content sits above the light film.
+   NOT .sticky-cta: that is `position: fixed; bottom: 0` (the mobile
+   bottom bar) and already sits at z-index 90. Forcing position:relative
+   on it dropped it out of fixed placement and it rendered in normal flow
+   on top of the nav — a wide black pill across the top of every phone.
+   The nav is likewise left alone; it is already at 100. */
+main, .footer { position: relative; z-index: 3; }
+
+/* ── The hero as the room you walk into ────────────────────────────── */
+
+/* The hero's own contribution is the *edges* of the room, not its
+   light. The centre is left fully transparent on purpose: the light
+   layer sits underneath the page, so anything opaque here would hide
+   the cursor light in the one place people look longest. Vignette
+   from this, luminance from .space-light. */
+.hero::before {
+  content: '';
+  position: absolute;
+  /* Kept inside the hero's own width. Bleeding it sideways pushed the
+     document 288px wider than the viewport, which body's
+     overflow-x:hidden hides but scrollWidth still reports. */
+  inset: -10% 0 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    66% 60% at 50% 44%,
+    rgba(241,237,229,0) 0%,
+    rgba(241,237,229,0) 46%,
+    rgba(233,227,218,0.55) 80%,
+    rgba(217,206,195,0.55) 100%);
+  opacity: 1;
+  transition: opacity 1.5s var(--ease-settle);
+}
+.hero-inner { position: relative; z-index: 1; }
+
+/* The floor. A grid laid flat in perspective and faded out toward the
+   horizon, so the dashboard has something to stand on. Architectural,
+   at 7% ink — a drafting sheet, not a game level.
+
+   Two elements: .hero-grid is a clipping box the width of the hero,
+   and its ::before is the plane, which has to be far wider than the
+   viewport for the near edge to reach both corners once it is tilted.
+   Clipping it here rather than letting it hang off the page is what
+   keeps the document from being 2304px wide. */
+.hero-grid {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -40px;
+  z-index: 0;
+  height: 640px;
+  overflow: hidden;
+  perspective: 520px;
+  pointer-events: none;
+  transition: opacity 1.5s var(--ease-settle);
+}
+.hero-grid::before {
+  content: '';
+  position: absolute;
+  left: -60%; right: -60%;
+  top: 0; bottom: 0;
+  transform: rotateX(70deg);
+  transform-origin: 50% 100%;
+  background-image:
+    repeating-linear-gradient(to right,  rgba(18,18,18,0.10) 0 1px, transparent 1px 78px),
+    repeating-linear-gradient(to bottom, rgba(18,18,18,0.10) 0 1px, transparent 1px 78px);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, rgba(0,0,0,0.42) 50%, transparent 88%);
+          mask-image: linear-gradient(to top, #000 0%, rgba(0,0,0,0.42) 50%, transparent 88%);
+  transition: transform 1.7s var(--ease-settle);
+}
+
+/* ── Arriving ──────────────────────────────────────────────────────────
+   The room assembles for about a second and a half: the floor tilts up
+   into place and the light comes on. The headline is deliberately NOT
+   part of this — it is the page's largest text and holding it back to
+   animate would delay the only thing a first-time reader came for. */
+html:not(.entered) .hero-grid { opacity: 0; }
+html:not(.entered) .hero-grid::before { transform: rotateX(81deg); }
+html:not(.entered) .hero::before { opacity: 0; }
+
+/* ── Leaving ───────────────────────────────────────────────────────────
+   Scrolling out of the hero eases the workspace back and down rather
+   than sliding it away flat, so the next section reads as somewhere
+   further in rather than the next block down. */
+.hero-stage {
+  transform:
+    scale(calc(1 - .06 * var(--exit, 0)))
+    translateY(calc(var(--exit, 0) * -26px));
+  opacity: calc(1 - .42 * var(--exit, 0));
+}
+
+/* ── Rooms, not bands ──────────────────────────────────────────────────
+   The tinted sections fade in and out of the bone instead of butting
+   against it, so the page reads as one continuous volume. */
+.scatter, .connect, .fold { position: relative; }
+.scatter::before, .connect::before,
+.scatter::after, .connect::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 150px;
+  pointer-events: none;
+  z-index: 0;
+}
+.scatter::before, .connect::before { top: 0;    background: linear-gradient(to bottom, var(--bone), rgba(241,237,229,0)); }
+.scatter::after,  .connect::after  { bottom: 0; background: linear-gradient(to top,    var(--bone), rgba(241,237,229,0)); }
+.scatter > *, .connect > * { position: relative; z-index: 1; }
+
+/* The fold gets its own pool of light, because it is the one section
+   whose whole job is depth. */
+.fold::before {
+  content: '';
+  position: absolute;
+  inset: 8% 0 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(58% 52% at 50% 52%, var(--surface), rgba(248,246,242,0) 72%);
+}
+.fold > * { position: relative; z-index: 1; }
+
+/* ═══ Shared: a small floating UI card ═══════════════════════════════
+   The building block of the hero and the final CTA. A page-with-a-
+   folded-corner like every other card on the site, one step smaller. */
+
+.ui-card {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-sm);
+  padding: 13px 15px;
+  text-align: left;
+  width: max-content;
+  max-width: 215px;
+}
+.ui-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.ui-card-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--c-blue);
+  flex-shrink: 0;
+}
+.ui-card-title {
+  margin-top: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--black);
+}
+.ui-card-sub {
+  margin-top: 3px;
+  font-size: 11.5px;
+  color: var(--slate);
+  line-height: 1.45;
+}
+/* The one number on a card, in the serif, at one weight. */
+.ui-card-stat {
+  margin-top: 5px;
+  font-family: var(--f-serif);
+  font-size: 27px;
+  line-height: 1;
+  color: var(--black);
+}
+
+/* ═══ The laptop ═════════════════════════════════════════════════════
+   The hero only. Everywhere else on the site a screenshot sits in the
+   browser frame (.device in styles.css) and should keep doing so: the
+   demo really is a browser embed, and the fold's whole payoff is the
+   word "window". Here the point is a machine on a desk, so it gets a
+   machine.
+
+   Built from two parts, the way one is: a lid whose bezel surrounds
+   the screen, and a base that is wider than the lid and curves under.
+   The bezel is what does most of the work — a screenshot with a thin
+   dark surround reads as a display, the same picture flush to its
+   edges reads as a picture. */
+
+.laptop { position: relative; z-index: 1; }
+
+/* The shadow the machine casts on the floor that is already drawn under
+   it. Nothing in the hero had one: every existing shadow had a >=24px
+   offset and >=32px blur, which is how you light a floating card, not a
+   resting object. left/right 4% keeps the pool NARROWER than the object
+   casting it, so it can never widen the composition. */
+.laptop::after {
+  content: '';
+  position: absolute;
+  left: 4%; right: 4%;
+  bottom: -2.5%;
+  height: 5%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 50% 50% at 51% 0%,
+    rgba(18,18,18,0.20) 0%,
+    rgba(18,18,18,0.085) 44%,
+    rgba(18,18,18,0) 76%);
+}
+
+/* Bezel as a share of the lid's WIDTH — percentage padding resolves
+   against the containing block's width on all four sides, which keeps
+   the proportions from drifting. The chin is the whole point: real
+   bottom bezels are 2.6x (Air) to 4.0x (MBP 14) the sides, and the old
+   13/13/17 was 1.31:1. A near-isotropic surround is exactly what makes
+   a screenshot read as a framed picture instead of a display. */
+.laptop-lid {
+  position: relative;
+  padding: max(1.58%, 7px) max(1.23%, 5.5px) max(3.33%, 14.5px);
+  /* Literal px because these are hardware radii, not UI radii — the
+     documented exception to the token rule. vw rather than %, because a
+     percentage radius resolves per-axis and would draw an ellipse on a
+     non-square box. Bottom corners go to 2px: the lid meets the hinge
+     in a straight line. */
+  border-radius: clamp(13px, 2.63vw, 30px) clamp(13px, 2.63vw, 30px) 2px 2px;
+  background: linear-gradient(163deg, #2b2724 0%, #171614 38%, #100f0e 100%);
+  box-shadow:
+    /* Ambient only. The old `0 50px 90px -42px` was cast straight DOWN
+       onto the base — which is behind the lid, not under it — and the
+       base then painted over most of it. Weight comes from the ground
+       pool above instead. */
+    0 26px 54px -34px rgba(18,18,18,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 0 0 1px rgba(255,255,255,0.045),
+    /* The bottom edge is not convex; it falls away into the hinge. */
+    inset 0 -3px 4px -2px rgba(0,0,0,0.55);
+}
+
+/* The camera, in the top bezel. Three pixels of detail that stop the
+   bezel reading as a plain border. */
+.laptop-lid::before {
+  content: '';
+  position: absolute;
+  /* vw, not %: a percentage `top` resolves against the containing
+     block's HEIGHT, which put the dot at 4.85px where 7px was wanted.
+     Width/height percentages DO resolve against width, so those stay. */
+  top: clamp(2.5px, 0.615vw, 7px);
+  left: 50%;
+  width:  clamp(3px, 0.35%, 4px);
+  height: clamp(3px, 0.35%, 4px);
+  margin-left: calc(clamp(3px, 0.35%, 4px) * -0.5);
+  border-radius: 50%;
+  background: #35302c;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14);
+}
+.laptop-screen {
+  position: relative;
+  /* Lid radius minus the side bezel: a display cut, not a card corner. */
+  border-radius: clamp(6px, 1.4vw, 16px);
+  overflow: hidden;
+  background: #0b0a09;
+}
+
+/* The browser inside the laptop. Proportioned against the screenshot, not
+   against the page: a real toolbar is ~42px on a 1440-wide window, and the
+   screenshot renders at ~0.55 of that, so ~23px is the honest height. It
+   also gives the dashboard's greeting somewhere to breathe instead of
+   running straight into the bezel. */
+.laptop-chrome {
+  display: flex;
+  align-items: center;
+  gap: max(2.2%, 6px);
+  padding: 0 max(2.4%, 10px);
+  /* `height: 4.6%` was deleted, not kept: a percentage height against
+     an auto-height parent resolves to auto, so it never applied and the
+     min-height was silently doing all the work. This clamp restores the
+     rule's own stated logic — a ~42px toolbar scaled by the
+     screenshot's own reduction — and needs no breakpoint. */
+  min-height: clamp(14px, 2.85vw - 2px, 32px);
+  background: var(--bone-dim);
+  border-bottom: 1px solid rgba(18,18,18,0.09);
+}
+.laptop-chrome-dots { display: flex; gap: clamp(3px, 0.52vw, 6px); flex: none; }
+.laptop-chrome-dots span {
+  width:  clamp(4px, 0.7vw, 8px);
+  height: clamp(4px, 0.7vw, 8px);
+  border-radius: 50%;
+  background: rgba(18,18,18,0.16);
+}
+.laptop-chrome-url {
+  flex: 1;
+  min-width: 0;
+  max-width: clamp(150px, 30vw, 340px);
+  margin: 0 auto;
+  padding: clamp(2px, 0.3vw, 4px) 0;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 1px solid rgba(18,18,18,0.07);
+  text-align: center;
+  font-size: clamp(7px, 0.92vw, 10.5px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--slate);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.laptop-screen img,
+.laptop-screen picture { display: block; width: 100%; height: auto; }
+/* Light across the display, matching the phone's. */
+.laptop-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(107deg,
+    rgba(255,255,255,0.07) 0%,
+    rgba(255,255,255,0.025) 14%,
+    rgba(255,255,255,0) 34%);
+}
+
+/* Three surfaces, not one. The two hard steps between them are what the
+   eye reads as a hinge; the old background was a single smooth ramp with
+   no discontinuity anywhere, which is what made it read as a painted
+   strip. Flush with the lid — a MacBook Air is the same width at lid and
+   base, and the dramatic overhang you picture comes from perspective in
+   a 3/4 shot, not from width in a head-on one. That also means nothing
+   here is ever wider than .hero-shot.
+
+   Height as padding-bottom, because percentage padding resolves against
+   .laptop's WIDTH and therefore scales with the lid. The front face
+   lands at ~4.4% of lid height against a MacBook Pro 14's 4.7%; the old
+   14px was 2.57% at hero size, thinner than anything in production. */
+.laptop-base {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 4.12%;
+  border-radius: 0 0 clamp(5px, 0.8vw, 9px) clamp(5px, 0.8vw, 9px)
+               / 0 0 clamp(12px, 1.95vw, 22px) clamp(12px, 1.95vw, 22px);
+  background:
+    linear-gradient(97deg,
+      rgba(255,255,255,0.055) 0%,
+      rgba(255,255,255,0.012) 34%,
+      rgba(255,255,255,0) 58%),
+    linear-gradient(180deg,
+      #070605 0    9%,    /* hinge recess — the darkest value in the machine */
+      #4a443e 9%,         /* the deck's top face, catching the key light */
+      #2a2723 26%,        /* deck, receding away from the camera */
+      #3a352f 26%,        /* front face — the step here IS the crease */
+      #1b1917 84%,
+      #2b2722 100%);      /* bounce off the desk, back up the front edge */
+  box-shadow:
+    /* Contact. Blur at a contact line wants a couple of px, not the
+       32px the old rule used. */
+    0 2px 3px rgba(18,18,18,0.42),
+    0 8px 14px -6px rgba(18,18,18,0.30);
+}
+
+/* The lip you open it by: a shallow concavity in the FRONT FACE that
+   darkens toward its middle and catches a little light on its lower
+   edge. The old one was a flat, square-topped slot sitting ON the seam. */
+.laptop-base::before {
+  content: '';
+  position: absolute;
+  top: 26%;            /* starts at the crease, not at the hinge */
+  left: 50%;
+  width: 23%;
+  height: 44%;
+  margin-left: -11.5%;
+  border-radius: 0 0 8px 8px / 0 0 5px 5px;
+  background: linear-gradient(180deg,
+    rgba(6,5,5,0.85) 0%,
+    rgba(10,9,8,0.55) 58%,
+    rgba(255,255,255,0.05) 100%);
+}
+
+/* THE MOST IMPORTANT RULE IN THIS FILE. This used to be a full-width
+   rgba(255,255,255,0.13) hairline at top:0 — the brightest row in the
+   whole machine, placed directly under the lid gradient's darkest stop,
+   at the one seam that has to read as a concave pocket. A hinge is the
+   darkest place on a laptop body and never carries a specular. That
+   value inversion, not the thickness, is why the base read as a strip
+   glued under a screenshot.
+
+   It moves down onto the deck's convex top edge, which does catch
+   light. Kept as a real 1px element rather than a gradient stop because
+   at this scale a proportional band would be sub-pixel and grey out. */
+.laptop-base::after {
+  content: '';
+  position: absolute;
+  top: 9%;             /* % of base height — lands exactly on the deck */
+  left: 2.2%; right: 2.2%;
+  height: 1px;
+  background: rgba(255,255,255,0.11);
+}
+
+}
+
+/* ═══ 1. Hero: the workspace ═════════════════════════════════════════
+   The dashboard leans toward the cursor and a few pieces of the
+   semester float around it at different depths. js/experience.js sets
+   --rx/--ry on the stage and --px/--py per card; with no JS, or with
+   reduced motion, every value stays 0 and this is the static hero
+   that shipped before. */
+
+.hero-stage {
+  position: relative;
+  perspective: 1500px;
+  perspective-origin: 50% 42%;
+}
+.hero-stage-inner {
+  position: relative;
+  transform: rotateX(calc(var(--rx, 0) * 1deg)) rotateY(calc(var(--ry, 0) * 1deg));
+  transform-style: preserve-3d;
+  /* No transition: js/experience.js already smooths toward the cursor
+     on its own frame loop, and a CSS transition on top of that reads
+     as lag rather than weight. */
+  will-change: transform;
+}
+
+/* The four floating cards were removed here along with the hero's
+   phone. Three separate problems, none of them fixable by restyling:
+   they named four courses (Study group, Statistics, Business Law,
+   Accounting) that appear nowhere in the screenshot's own four
+   (CHEM 210, PSY 101, MATH 152, MKT 300) — two different students in
+   one image; under prefers-reduced-motion the rule below used to zero
+   their --z, so the depth arrangement this file reasoned about had
+   never existed for anyone with that setting; and the
+   @media (min-width:1280px) rule that made room for them SHRANK the
+   LCP screenshot on wider screens.
+
+   .ui-card and .ui-card-* above are KEPT — .connect-node-label and
+   .week-chip still use them. */
+
+/* ═══ 2. Scatter → one HQ ════════════════════════════════════════════
+   Eight places a semester currently lives, pulled into the middle as
+   the section crosses the viewport. --p (0 scattered → 1 merged) is
+   set by js/experience.js; --away is just its inverse, so each card
+   interpolates in CSS with no per-frame style writes. */
+
+.scatter { background: var(--bone-dim); overflow: hidden; }
+.scatter-stage {
+  --p: 0;
+  --away: calc(1 - var(--p));
+  position: relative;
+  height: 520px;
+  margin-top: 56px;
+}
+.scatter-item {
+  position: absolute;
+  top: 50%; left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 16px 11px 13px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  white-space: nowrap;
+  transform:
+    translate(-50%, -50%)
+    translate(calc(var(--sx) * 1px * var(--away)), calc(var(--sy) * 1px * var(--away)))
+    rotate(calc(var(--sr) * 1deg * var(--away)))
+    scale(calc(1 - .32 * var(--p)));
+  /* Fades out as it arrives, so eight cards resolve into one mark
+     instead of piling up in the middle. */
+  opacity: calc(1 - .88 * var(--p));
+}
+.scatter-icon {
+  width: 24px; height: 24px;
+  border-radius: var(--r-tight);
+  background: var(--bone-dim);
+  border: 1px solid var(--line-soft);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  color: var(--slate);
+  flex-shrink: 0;
+}
+
+/* Where each one starts. Spread by hand rather than randomly so no two
+   overlap at --p: 0, which is the state a reader without JS sees. */
+.scatter-item:nth-child(1) { --sx: -400; --sy: -190; --sr: -7; }
+.scatter-item:nth-child(2) { --sx:  330; --sy: -205; --sr:  6; }
+.scatter-item:nth-child(3) { --sx: -470; --sy:  -30; --sr:  4; }
+.scatter-item:nth-child(4) { --sx:  420; --sy:  -55; --sr: -5; }
+.scatter-item:nth-child(5) { --sx: -370; --sy:  135; --sr:  6; }
+.scatter-item:nth-child(6) { --sx:  355; --sy:  120; --sr: -6; }
+.scatter-item:nth-child(7) { --sx:  -95; --sy:  215; --sr: -3; }
+.scatter-item:nth-child(8) { --sx:  150; --sy: -215; --sr:  7; }
+
+/* What they become. */
+.scatter-core {
+  position: absolute;
+  /* The glow below uses z-index:-1; isolate keeps it behind the mark
+     instead of behind the section's background. */
+  isolation: isolate;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(calc(.82 + .18 * var(--p)));
+  text-align: center;
+  opacity: var(--p);
+  width: min(94%, 440px);
+}
+.scatter-core-mark {
+  font-family: var(--f-serif);
+  font-size: clamp(34px, 5.6vw, 62px);
+  line-height: 1.02;
+  color: var(--black);
+}
+.scatter-core-mark .spark { color: var(--rose-deep); }
+.scatter-core-line {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--slate);
+}
+/* A soft ring so the mark reads as the thing everything landed in. */
+.scatter-core::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 340px; height: 340px;
+  margin: -170px 0 0 -170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(180,159,144,0.17), rgba(180,159,144,0) 68%);
+  z-index: -1;
+}
+
+@media (max-width: 900px) {
+  .scatter-stage { height: 430px; }
+  .scatter-item { font-size: 11.5px; padding: 9px 12px 9px 10px; }
+  /* Pulled in so the spread still fits a phone at --p: 0. */
+  .scatter-item:nth-child(1) { --sx: -118; --sy: -170; }
+  .scatter-item:nth-child(2) { --sx:  112; --sy: -180; }
+  .scatter-item:nth-child(3) { --sx: -128; --sy:  -62; }
+  .scatter-item:nth-child(4) { --sx:  124; --sy:  -14; }
+  .scatter-item:nth-child(5) { --sx: -112; --sy:  128; }
+  .scatter-item:nth-child(6) { --sx:  118; --sy:   74; }
+  .scatter-item:nth-child(7) { --sx:  -18; --sy:  182; }
+  .scatter-item:nth-child(8) { --sx:   24; --sy: -110; }
+  .scatter-core::before { width: 240px; height: 240px; margin: -120px 0 0 -120px; }
+}
+
+/* The list under the stage is the same eight names as plain text. It
+   carries the point on its own for anyone who never sees the motion. */
+.scatter-plain {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--slate);
+}
+
+/* ═══ 3. Six tabs, folded into one ═══════════════════════════════════
+   Where a semester lives now — six windows hanging at different depths
+   — rushing forward and folding into the one that replaces them. The
+   payoff is the real product screenshot, not the wordmark, which is
+   what keeps this from repeating the scatter above it.
+
+   Same technique as the scatter: one scroll-driven --p, and the
+   interpolation happens in CSS. --away is its inverse. */
+
+.fold {
+  position: relative;
+  overflow: hidden;
+  /* Set on the section, not the stage, so the closing line can ramp in
+     off the same number the windows fade out on. */
+  --p: 0;
+  --away: calc(1 - var(--p));
+}
+.fold-stage {
+  margin-top: 56px;
+  perspective: 1500px;
+  perspective-origin: 50% 46%;
+}
+.fold-depth {
+  position: relative;
+  height: 520px;
+  transform-style: preserve-3d;
+}
+
+/* A small browser window. Deliberately generic: a title bar, a label,
+   and a few blank lines. No other company's interface is drawn here. */
+.fold-win {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 290px;
+  margin: -96px 0 0 -145px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  box-shadow: 0 40px 80px -40px rgba(18,18,18,0.45);
+  overflow: hidden;
+  transform:
+    translate3d(
+      calc(var(--wx) * 1px * var(--away)),
+      calc(var(--wy) * 1px * var(--away)),
+      calc(var(--wz) * 1px * var(--away)))
+    rotateY(calc(var(--wry, 0) * 1deg * var(--away)))
+    rotate(calc(var(--wr, 0) * 1deg * var(--away)));
+  /* Gone by the time the dashboard is fully there, so the two never
+     fight for the same pixels. */
+  opacity: calc(1.18 - 1.18 * var(--p));
+}
+.fold-win-bar {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--bone);
+}
+.fold-win-dots { display: flex; gap: 4px; }
+.fold-win-dots span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--line);
+}
+.fold-win-name {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--slate);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fold-win-body { padding: 14px 14px 18px; }
+.fold-win-body i {
+  display: block;
+  height: 7px;
+  border-radius: var(--r-mark);
+  background: var(--bone-dim);
+  margin-bottom: 8px;
+}
+.fold-win-body i:nth-child(1) { width: 78%; }
+.fold-win-body i:nth-child(2) { width: 94%; }
+.fold-win-body i:nth-child(3) { width: 61%; }
+.fold-win-body i:nth-child(4) { width: 86%; background: var(--sandstone-dim); }
+
+/* Where each window hangs before it is pulled in. Negative Z is
+   further away, so 1 and 2 read as the back of the stack. */
+.fold-win:nth-child(1) { --wx: -430; --wy: -150; --wz: -620; --wry:  16; --wr: -4; }
+.fold-win:nth-child(2) { --wx:  410; --wy: -178; --wz: -540; --wry: -18; --wr:  5; }
+.fold-win:nth-child(3) { --wx: -510; --wy:  120; --wz: -300; --wry:  13; --wr:  3; }
+.fold-win:nth-child(4) { --wx:  470; --wy:   96; --wz: -220; --wry: -14; --wr: -3; }
+.fold-win:nth-child(5) { --wx: -260; --wy:  238; --wz:   60; --wry:   8; --wr:  4; }
+.fold-win:nth-child(6) { --wx:  245; --wy: -252; --wz:  120; --wry:  -9; --wr: -5; }
+
+/* Nothing replaces them on screen. The line underneath names the one
+   window they became, and the live demo sits directly below it — the
+   real thing, a scroll away, which a second copy of the dashboard
+   screenshot was only standing in for. */
+
+.fold-plain {
+  margin-top: 34px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--slate);
+  /* Arrives as the windows go, so the fold has somewhere to land
+     instead of dissolving into an empty stage. */
+  opacity: calc(var(--p) * 2.1 - 1.1);
+  transform: translateY(calc(var(--away) * 10px));
+}
+.fold-plain strong { color: var(--black); }
+
+@media (max-width: 900px) {
+  .fold-depth { height: 400px; }
+  .fold-win { width: 190px; margin: -70px 0 0 -95px; }
+  .fold-win-body i { height: 6px; margin-bottom: 6px; }
+  /* Pulled in so the spread still fits a phone at --p: 0. */
+  .fold-win:nth-child(1) { --wx: -108; --wy: -140; --wz: -520; }
+  .fold-win:nth-child(2) { --wx:  104; --wy: -164; --wz: -450; }
+  .fold-win:nth-child(3) { --wx: -120; --wy:   74; --wz: -260; }
+  .fold-win:nth-child(4) { --wx:  116; --wy:   52; --wz: -190; }
+  .fold-win:nth-child(5) { --wx:  -58; --wy:  186; --wz:   30; }
+  .fold-win:nth-child(6) { --wx:   62; --wy: -206; --wz:   70; }
+}
+
+/* ═══ 4. A week in the semester ══════════════════════════════════════
+   Three days down a line that draws itself as the section arrives. */
+
+.week-line { position: relative; margin-top: 56px; }
+.week-line::before {
+  content: '';
+  position: absolute;
+  left: 21px; top: 10px; bottom: 10px;
+  width: 1px;
+  background: var(--line);
+}
+/* The ink that fills over it. scaleY is cheap; height would relayout. */
+.week-line::after {
+  content: '';
+  position: absolute;
+  left: 21px; top: 10px; bottom: 10px;
+  width: 1px;
+  background: var(--rose);
+  transform-origin: top;
+  transform: scaleY(var(--p, 0));
+  transition: transform 1.5s var(--ease-settle);
+}
+.week-day {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 24px;
+  padding-bottom: 46px;
+}
+.week-day:last-child { padding-bottom: 0; }
+.week-dot {
+  position: relative;
+  z-index: 2;
+  width: 43px; height: 43px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--slate);
+  transition: background .5s ease, color .5s ease, border-color .5s ease;
+}
+.week-day.lit .week-dot {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--bone);
+}
+.week-name {
+  font-family: var(--f-serif);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.1;
+  color: var(--black);
+}
+.week-copy {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--slate);
+  max-width: 520px;
+}
+.week-detail {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.week-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--black);
+}
+.week-chip .ui-card-dot { width: 6px; height: 6px; }
+
+@media (max-width: 620px) {
+  .week-day { grid-template-columns: 34px 1fr; gap: 15px; }
+  .week-dot { width: 33px; height: 33px; font-size: 12px; }
+  .week-line::before, .week-line::after { left: 16px; }
+}
+
+/* ═══ 5. Everything connected ════════════════════════════════════════
+   One class, and the five places it shows up. The connectors are divs
+   that scale, not an SVG path, so the row reflows on a phone without
+   any geometry maths. */
+
+.connect { background: var(--bone-dim); }
+.connect-flow {
+  margin-top: 56px;
+  /* It is a list for structure, not for its markers. */
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+}
+.connect-node {
+  flex: 0 1 190px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-sm);
+  padding: 20px 18px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s var(--ease-settle), transform .6s var(--ease-settle);
+}
+.connect-flow.lit .connect-node { opacity: 1; transform: none; }
+.connect-node-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.connect-node-name {
+  margin-top: 9px;
+  font-family: var(--f-serif);
+  font-size: 21px;
+  line-height: 1.15;
+  color: var(--black);
+}
+.connect-node-sub {
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--slate);
+}
+.connect-node--first { border-color: var(--rose); }
+
+.connect-link {
+  flex: 0 1 46px;
+  align-self: center;
+  height: 1px;
+  background: var(--line);
+  position: relative;
+}
+.connect-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--rose);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform .55s var(--ease-settle);
+}
+.connect-flow.lit .connect-link::after { transform: scaleX(1); }
+/* The arrowhead lands with its line. */
+.connect-link::before {
+  content: '';
+  position: absolute;
+  right: -1px; top: 50%;
+  width: 5px; height: 5px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: var(--rose);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.connect-flow.lit .connect-link::before { opacity: 1; }
+
+/* Each node and its incoming line arrive in order. */
+.connect-flow.lit > *:nth-child(2)  { transition-delay: .10s; }
+.connect-flow.lit > *:nth-child(3)  { transition-delay: .18s; }
+.connect-flow.lit > *:nth-child(4)  { transition-delay: .30s; }
+.connect-flow.lit > *:nth-child(5)  { transition-delay: .38s; }
+.connect-flow.lit > *:nth-child(6)  { transition-delay: .50s; }
+.connect-flow.lit > *:nth-child(7)  { transition-delay: .58s; }
+.connect-flow.lit > *:nth-child(8)  { transition-delay: .70s; }
+.connect-flow.lit > *:nth-child(9)  { transition-delay: .78s; }
+.connect-flow.lit > *:nth-child(10) { transition-delay: .90s; }
+.connect-flow.lit > *:nth-child(11) { transition-delay: .98s; }
+
+@media (max-width: 1000px) {
+  .connect-flow { flex-direction: column; align-items: stretch; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .connect-node { flex: none; }
+  .connect-link {
+    flex: none;
+    align-self: center;
+    width: 1px;
+    height: 30px;
+    background: var(--line);
+  }
+  .connect-link::after { transform-origin: top; transform: scaleY(0); }
+  .connect-flow.lit .connect-link::after { transform: scaleY(1); }
+  .connect-link::before { right: 50%; top: auto; bottom: -1px; margin: 0 -2.5px 0 0; }
+}
+
+/* ═══ 6. The semester timeline ═══════════════════════════════════════
+   Five months and a line that fills to wherever the term actually is.
+   js/experience.js computes the percentage from the dates in the
+   markup, so it is right every day rather than right once. */
+
+.term { position: relative; }
+.term-track {
+  margin-top: 60px;
+  position: relative;
+  padding-top: 42px;
+}
+.term-rail {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--line);
+  border-radius: var(--r-pill);
+}
+.term-fill {
+  position: absolute;
+  top: 0; left: 0;
+  height: 2px;
+  width: var(--pct, 0%);
+  background: var(--black);
+  border-radius: var(--r-pill);
+  transition: width 1.6s var(--ease-settle);
+}
+/* Where the term is now. */
+.term-now {
+  position: absolute;
+  top: 1px;
+  left: var(--pct, 0%);
+  width: 12px; height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: var(--black);
+  box-shadow: 0 0 0 5px var(--bone);
+  transition: left 1.6s var(--ease-settle);
+}
+.term-now-label {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.term-months {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+.term-month { position: relative; text-align: left; }
+.term-month-tick {
+  position: absolute;
+  top: -42px;
+  width: 1px; height: 11px;
+  background: var(--line);
+}
+.term-month-name {
+  font-family: var(--f-serif);
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.term-month.past .term-month-name { color: var(--black); }
+.term-month-what {
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--slate);
+  max-width: 150px;
+}
+.term-foot {
+  margin-top: 40px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.term-pct {
+  font-family: var(--f-serif);
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 1;
+  color: var(--black);
+}
+.term-foot-text { font-size: 14px; color: var(--slate); max-width: 360px; text-align: left; }
+.term-note { margin-top: 14px; text-align: center; font-size: 11.5px; color: var(--slate); }
+
+@media (max-width: 760px) {
+  .term-months { grid-template-columns: 1fr 1fr; gap: 22px 14px; }
+  /* The ticks stop lining up once the months wrap to two rows. */
+  .term-month-tick { display: none; }
+  .term-track { padding-top: 30px; }
+  .term-foot { flex-direction: column; align-items: center; gap: 6px; }
+  .term-foot-text { text-align: center; }
+}
+
+/* ═══ 7. Microinteractions ═══════════════════════════════════════════ */
+
+/* Magnetic primary buttons: the hero and final CTA only. A nav button
+   that dodges the cursor is a nuisance, not a delight. */
+.magnetic {
+  transform: translate(calc(var(--mx, 0) * 1px), calc(var(--my, 0) * 1px));
+  transition: transform .4s var(--ease-settle), background .15s ease, box-shadow .15s ease;
+}
+
+/* A counter holds its own width while it runs, so the line beside it
+   does not jitter through four digits. */
+.counting { font-variant-numeric: tabular-nums; }
+
+/* ═══ Reduced motion ═════════════════════════════════════════════════
+   Not "animations off" — every effect jumps to its finished state, so
+   the meaning survives. The scatter shows the merged mark, the lines
+   are drawn, the timeline is filled. */
+
+@media (prefers-reduced-motion: reduce) {
+  /* The room is already built and already lit. The cursor light stops
+     following and rests where the hero wants it. */
+  .hero-grid, .hero::before { opacity: 1; transition: none; }
+  .hero-grid::before { transform: rotateX(70deg); transition: none; }
+  .hero-stage { transform: none; opacity: 1; }
+  /* Without the motion there is no folding to watch, so the windows
+     stop being a depth arrangement and become a plain grid of the six
+     places a semester is currently scattered across. */
+  .fold-depth {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .fold-win {
+    position: static;
+    transform: none;
+    opacity: 1;
+    width: 210px;
+    margin: 0;
+  }
+  .space-light { transition: none; }
+
+  .hero-stage-inner { transform: none; }
+  /* The finished state of an animation nobody watched is just an empty
+     box: eight cards stacked invisibly in the middle of 520px of
+     nothing. So the stage stops being a stage and becomes a plain
+     composition instead — the eight names, then what they become. */
+  .scatter-stage {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .scatter-item {
+    position: static;
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+  .scatter-core {
+    position: static;
+    flex: 0 0 100%;
+    transform: none;
+    opacity: 1;
+    width: auto;
+    margin-top: 34px;
+    isolation: auto;
+  }
+  .scatter-core::before { display: none; }
+  /* The chips above now say exactly what this paragraph says. */
+  .scatter-plain { display: none; }
+
+  /* Same problem, same fix: the perspective box exists for a depth
+     arrangement that is not being drawn. */
+  .fold-depth { height: auto; }
+  .fold-plain { opacity: 1; transform: none; }
+  .week-line::after { transform: scaleY(1); transition: none; }
+  .week-day .week-dot { background: var(--black); border-color: var(--black); color: var(--bone); transition: none; }
+  .connect-node { opacity: 1; transform: none; transition: none; }
+  .connect-link::after { transform: scaleX(1); transition: none; }
+  .connect-link::before { opacity: 1; transition: none; }
+  .term-fill, .term-now { transition: none; }
+  .magnetic { transform: none; transition: none; }
+}

@@ -59,6 +59,7 @@ Longer, step-by-step pages on the marketing site. Each one has a numbered how-to
 
 - Marketing site: https://semester-hq.com/
 - Live app: https://app.semester-hq.com/
+- Pricing: https://semester-hq.com/pricing.html
 - Group pricing: https://semester-hq.com/group-pricing.html
 - Contact: https://semester-hq.com/contact.html · hello@semester-hq.com
 - Sitemap: https://semester-hq.com/sitemap.xml

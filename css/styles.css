@@ -282,7 +282,11 @@ input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:fo
 /* ── Hero ─────────────────────────────────────────────────────── */
 
 .hero {
-  padding: 200px 0 0;
+  /* Was 200px. The machine is ~830px tall at 1140px wide and the copy
+     above it already runs ~757px, so taking 50px off the top puts more
+     of the product above the fold, not less. Not a new number either:
+     the <=980px block further down already uses 150px. */
+  padding: 150px 0 0;
   position: relative;
 }
 .hero-inner { text-align: center; max-width: 900px; margin: 0 auto; }
@@ -332,33 +336,103 @@ input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:fo
 }
 
 /* ── Hero image: the real dashboard, with the phone overlapping ─── */
+/* The device now sits in its own .wrap, a SIBLING of .hero-inner rather
+   than a child. .hero-inner's 900px cap exists to hold the headline to a
+   readable measure; a screenshot does not need it — and being inside it
+   is why the lid rendered at 820px at every viewport above 900px while
+   .hero-shot's own max-width never fired once. The 1280px rule that
+   narrowed it to 1040px was dead code on top of dead code.
+
+   1140px matches the nav's own content box, so the lid's edges land
+   under the logo and the Get started button.
+
+   TO REVERT THE SIZE: change 1140px back to 820px. Nothing else. */
+.hero-shot-wrap { position: relative; z-index: 1; }
+
 .hero-shot {
   position: relative;
-  max-width: 1120px;
-  margin: 64px auto 0;
+  max-width: 1140px;
+  /* The bottom margin clears the ground pool on .laptop::after, which
+     hangs ~21px below the base at desktop and ~7px at 408px. */
+  margin: 44px auto 24px;
   text-align: left;
 }
 .hero-shot .device-body { min-height: 0; display: block; }
 .hero-shot .device-body img { width: 100%; height: auto; display: block; }
-.hero-shot-phone {
-  display: none;
-  position: absolute;
-  right: -14px; bottom: -44px;
-  width: 21%;
-  max-width: 236px;
-}
+/* NOTE: .phone-frame below STAYS — student-planner.html and
+   .guide-figure render through it. Only the HERO's phone was removed:
+   it showed the same dashboard as the laptop behind it, at a size where
+   its body text rendered around 7px, and its left edge sliced the
+   screenshot's own text mid-glyph. */
 @media (min-width: 900px) {
   .hero-shot { margin-bottom: 44px; }
-  .hero-shot-phone { display: block; }
 }
-/* A phone silhouette, used for the phone captures. */
+/* A phone, used for the phone captures. Shared: the hero, the guide
+   figures and student-planner.html all render through this, so it is
+   one handset everywhere rather than a good one in the hero.
+
+   What makes it read as a real phone and not a rounded black rectangle
+   is the rail: the body gradient catches light on two opposite edges
+   the way a machined metal band does, the screen is inset inside it,
+   and the corner radii are nested properly (the screen's radius is the
+   body's minus the rail's thickness, which is how a real one is cut). */
 .phone-frame {
-  background: var(--black);
-  border-radius: 34px;
-  padding: 9px;
-  box-shadow: var(--shadow);
+  position: relative;
+  background:
+    linear-gradient(142deg,
+      #554e48 0%,
+      #22201d 20%,
+      #0d0c0b 48%,
+      #191715 72%,
+      #4a443e 100%);
+  border-radius: 42px;
+  padding: 6px;
+  box-shadow:
+    var(--shadow),
+    /* the hairline where the rail meets the glass */
+    inset 0 0 0 1px rgba(255,255,255,0.13);
 }
-.phone-frame .phone-screen { border-radius: 26px; overflow: hidden; background: var(--surface); }
+/* Volume rocker, left rail. */
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 23%;
+  width: 2px;
+  height: 13%;
+  border-radius: 2px 0 0 2px;
+  background: linear-gradient(180deg, #4b453f, #1b1917);
+}
+/* Side button, right rail, sitting lower than the rocker as it does. */
+.phone-frame::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 31%;
+  width: 2px;
+  height: 9%;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(180deg, #4b453f, #1b1917);
+}
+.phone-frame .phone-screen {
+  position: relative;
+  border-radius: 36px;
+  overflow: hidden;
+  background: var(--surface);
+}
+/* One soft diagonal across the glass. Kept under 8% so it reads as
+   light on a screen rather than as a shape drawn on top of one. */
+.phone-frame .phone-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(118deg,
+    rgba(255,255,255,0.075) 0%,
+    rgba(255,255,255,0.03) 16%,
+    rgba(255,255,255,0) 38%);
+}
 .phone-frame img { display: block; width: 100%; height: auto; }
 
 /* ── Device / browser frame ──────────────────────────────────── */
@@ -954,6 +1028,14 @@ section { position: relative; }
 @media (max-width: 560px) { .proof-grid, .testimonial-grid { grid-template-columns: 1fr; } }
 
 /* ── Pricing / Founding Access ────────────────────────────────── */
+
+/* A page header on paper, used where a dark section would otherwise be
+   the first thing under a transparent nav (pricing.html). */
+.page-head { padding: 190px 0 70px; }
+.page-head .section-head { max-width: 700px; margin: 0 auto; text-align: center; }
+.page-head h1 { font-size: clamp(38px, 5.4vw, 74px); line-height: 1.04; }
+.page-head .section-head p { margin-top: 22px; font-size: 17px; line-height: 1.7; color: var(--slate); }
+@media (max-width: 700px) { .page-head { padding: 140px 0 46px; } }
 
 .pricing { background: var(--black); color: var(--bone); }
 .pricing .eyebrow { color: var(--sandstone); justify-content: center; display: flex; }

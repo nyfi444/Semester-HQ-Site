@@ -25,6 +25,11 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://semester-hq.com/pricing.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://semester-hq.com/group-pricing.html</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
