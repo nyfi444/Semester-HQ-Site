@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <script>if (location.hostname.endsWith('.github.io')) { var p = location.pathname.split('/').slice(2).join('/'); location.replace('https://semester-hq.com/' + p + location.search + location.hash); }</script>
-<script>document.documentElement.classList.add('js');</script>
+<script>(function (d) { d.classList.add('js'); d.style.setProperty('--wt', (Date.now() / 1e3 % 1512).toFixed(1)); })(document.documentElement);</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Assignment Tracker for College Students | Semester HQ</title>
 <meta name="description" content="Track every assignment, reading, lab, and exam by class and due date, grouped into overdue, today, tomorrow, and this week. A five-step setup for college students.">
 
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#121212">
+<meta name="theme-color" content="#F8F6F2">
 
 <link rel="canonical" href="https://semester-hq.com/assignment-tracker.html">
 <meta property="og:type" content="article">
@@ -35,6 +35,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/world.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,21 +113,32 @@
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "78e77abf3a0d4bfbac8638a1ff1ffdd3"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
-<body>
+<body class="page-guide">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="world-field" aria-hidden="true">
+  <i class="wf-sand"></i><i class="wf-rose"></i><i class="wf-light"></i><i class="wf-floor"></i>
+  <div class="world-grain"></div>
+</div>
 
 <nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
-    <a href="index.html#top" class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
-    <div class="nav-links" id="nav-links">
-      <a href="index.html#features">Features</a>
-      <a href="index.html#try">Demo</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="index.html#faq">FAQ</a>
-    </div>
-    <div class="nav-cta">
-      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Log in</a>
-      <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary nav-start">Get started</a>
+    <div class="nav-bar">
+      <a class="wordmark" href="./">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
+      <div class="nav-links" id="nav-links">
+        <a href="features.html"><span class="ni" aria-hidden="true">01</span>Features</a>
+        <a href="how-it-works.html"><span class="ni" aria-hidden="true">02</span>How it works</a>
+        <a href="demo.html"><span class="ni" aria-hidden="true">03</span>Demo</a>
+        <a href="students.html"><span class="ni" aria-hidden="true">04</span>Students</a>
+        <a href="pricing.html"><span class="ni" aria-hidden="true">05</span>Pricing</a>
+        <a href="faq.html"><span class="ni" aria-hidden="true">06</span>FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost btn-sm nav-login">Log in</a>
+        <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary btn-sm nav-start">Get started</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
+      </div>
     </div>
   </div>
 </nav>
@@ -135,7 +147,7 @@
   <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started <span class="btn-arrow" aria-hidden="true">→</span></a>
 </div>
 
-<main id="top">
+<main id="main">
   <header class="guide-hero">
     <div class="wrap">
       <nav class="crumbs" aria-label="Breadcrumb">
@@ -291,7 +303,7 @@
       <div class="wrap">
         <div class="final-cta-inner">
           <h2>See everything you owe in one place.</h2>
-          <p>Sign up for Semester HQ Plus at $7.99 a month and keep every assignment synced, cancel anytime. Not ready? <a href="index.html#try">Try the live demo</a> first, no account needed.</p>
+          <p>Sign up for Semester HQ Plus at $7.99 a month and keep every assignment synced, cancel anytime. Not ready? <a href="demo.html">Try the live demo</a> first, no account needed.</p>
           <div class="final-cta-actions">
             <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started <span class="btn-arrow" aria-hidden="true">→</span></a>
             <a href="pricing.html" class="hero-link">See pricing</a>
@@ -320,18 +332,19 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></div>
+        <a class="wordmark" href="./">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
         <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h2 class="footer-heading">Product</h2>
-          <a href="index.html#features">Features</a>
-          <a href="index.html#try">Try the demo</a>
-          <a href="index.html#feat-clubs">Clubs &amp; Teams</a>
+          <a href="features.html">Features</a>
+          <a href="how-it-works.html">How it works</a>
+          <a href="demo.html">Demo</a>
+          <a href="students.html">Students</a>
           <a href="pricing.html">Pricing</a>
           <a href="group-pricing.html">Group pricing</a>
-          <a href="index.html#faq">FAQ</a>
+          <a href="faq.html">FAQ</a>
         </div>
         <div class="footer-col" id="guides">
           <h2 class="footer-heading">Guides</h2>
@@ -352,6 +365,7 @@
         </div>
       </div>
     </div>
+    <div class="footer-mark" aria-hidden="true">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></div>
     <div class="footer-bottom">
       <span>© 2026 Semester HQ. All rights reserved.</span>
       <span>Made for the semester you're actually having.</span>
@@ -363,5 +377,6 @@
 <script src="js/track.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/main.js"></script>
+<script src="js/world.js"></script>
 </body>
 </html>

@@ -747,6 +747,8 @@ html:not(.entered) .hero::before { opacity: 0; }
   transform: translateY(calc(var(--away) * 10px));
 }
 .fold-plain strong { color: var(--black); }
+/* No script means no --p: the closing line is the payoff, so show it. */
+html:not(.js) .fold-plain { opacity: 1; transform: none; }
 
 @media (max-width: 900px) {
   .fold-depth { height: 400px; }
@@ -878,6 +880,9 @@ html:not(.entered) .hero::before { opacity: 0; }
   transition: opacity .6s var(--ease-settle), transform .6s var(--ease-settle);
 }
 .connect-flow.lit .connect-node { opacity: 1; transform: none; }
+/* The hidden start state is a script's job: with JS off nothing will ever
+   light the flow, so the cards must simply be there. */
+html:not(.js) .connect-node { opacity: 1; transform: none; }
 .connect-node-label {
   font-size: 9.5px;
   font-weight: 700;

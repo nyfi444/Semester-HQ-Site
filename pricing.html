@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <script>if (location.hostname.endsWith('.github.io')) { var p = location.pathname.split('/').slice(2).join('/'); location.replace('https://semester-hq.com/' + p + location.search + location.hash); }</script>
-<script>document.documentElement.classList.add('js');</script>
+<script>(function (d) { d.classList.add('js'); d.style.setProperty('--wt', (Date.now() / 1e3 % 1512).toFixed(1)); })(document.documentElement);</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing | Semester HQ</title>
 <meta name="description" content="Semester HQ Plus is $7.99 a month: your whole semester saved and synced, syllabus upload, shared classes, study groups and club calendars. Cancel anytime, 14-day refund on your first charge.">
 <link rel="canonical" href="https://semester-hq.com/pricing.html">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#121212">
+<meta name="theme-color" content="#F8F6F2">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://semester-hq.com/pricing.html">
 <meta property="og:title" content="Pricing | Semester HQ">
@@ -32,6 +32,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/experience.css">
+<link rel="stylesheet" href="css/world.css">
+<style>
+  /* pricing.html only: the old black .pricing band (styles.css) re-lit
+     for the luminous world. Cards become glass panes on the light field. */
+  .page-pricing .pricing { background: transparent; color: var(--ink); }
+  .page-pricing .pricing.section-pad { padding: 0 0 clamp(64px, 8vw, 96px); }
+  .page-pricing .trust-strip-head { color: var(--ink); }
+  .page-pricing .trust-strip-points span { color: var(--slate); background: rgba(255,253,249,.62); border-color: var(--glass-line); }
+  .page-pricing .price-card {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+    border: 1px solid var(--glass-line);
+    box-shadow: var(--glass-edge), var(--lift);
+  }
+  .page-pricing .price-card--plus {
+    background: linear-gradient(155deg, rgba(255,255,255,.95) 0%, rgba(255,253,249,.72) 100%);
+    border-color: rgba(156,133,118,.42);
+    box-shadow: var(--glass-edge), var(--lift-hi);
+  }
+  .page-pricing .price-tag { color: var(--rose-ink); }
+  .page-pricing .price-amount .per, .page-pricing .price-note { color: var(--slate); }
+  .page-pricing .price-list .row { color: var(--ink); }
+  .page-pricing .pricing .btn-primary { background: var(--ink); color: var(--bone); }
+  .page-pricing .pricing .btn-primary:hover { background: #000; }
+  .page-pricing .pricing .btn-ghost { color: var(--ink); border-color: rgba(126,115,108,.35); background: rgba(255,253,249,.5); }
+  .page-pricing .pricing .btn-ghost:hover { border-color: var(--ink); }
+  .page-pricing .checkout-status.error { color: #9E3A2F; }
+  .page-pricing .price-guarantee, .page-pricing .price-guarantee--stripe { color: var(--slate); }
+  .page-pricing .price-guarantee .check { color: var(--rose-deep); }
+  .page-pricing .price-scarcity { color: var(--slate); }
+  .page-pricing .price-scarcity a { color: var(--ink); }
+  .page-pricing .price-scarcity--demo { color: var(--ink); border-bottom-color: var(--glass-line); }
+  .page-pricing .pricing a:focus-visible, .page-pricing .pricing button:focus-visible, .page-pricing .pricing summary:focus-visible { outline-color: var(--ink); }
+  /* The moved #proof section: on the field, not a flat band. */
+  .page-pricing .proof { background: transparent; }
+  .page-pricing .proof.section-pad { padding: clamp(24px, 3vw, 40px) 0 clamp(56px, 7vw, 88px); }
+  .page-pricing .proof-item {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+    border: 1px solid var(--glass-line);
+    box-shadow: var(--glass-edge), var(--lift);
+  }
+  .page-pricing .proof .fo-divider span { background: var(--bone); }
+</style>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "78e77abf3a0d4bfbac8638a1ff1ffdd3"}'></script><!-- End Cloudflare Web Analytics -->
 <script type="application/ld+json">
 {
@@ -62,23 +107,32 @@
 }
 </script>
 </head>
-<body>
+<body class="page-pricing">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="world-field" aria-hidden="true">
+  <i class="wf-sand"></i><i class="wf-rose"></i><i class="wf-light"></i><i class="wf-floor"></i>
+  <div class="world-grain"></div>
+</div>
 
 <nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
-    <a href="index.html#top" class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
-    <div class="nav-links" id="nav-links">
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#features">Features</a>
-      <a href="index.html#students">Students</a>
-      <a href="index.html#try">Demo</a>
-      <a href="pricing.html" aria-current="page">Pricing</a>
-      <a href="index.html#faq">FAQ</a>
-    </div>
-    <div class="nav-cta">
-      <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost nav-login">Log in</a>
-      <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary nav-start">Get started</a>
+    <div class="nav-bar">
+      <a class="wordmark" href="./">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
+      <div class="nav-links" id="nav-links">
+        <a href="features.html"><span class="ni" aria-hidden="true">01</span>Features</a>
+        <a href="how-it-works.html"><span class="ni" aria-hidden="true">02</span>How it works</a>
+        <a href="demo.html"><span class="ni" aria-hidden="true">03</span>Demo</a>
+        <a href="students.html"><span class="ni" aria-hidden="true">04</span>Students</a>
+        <a href="pricing.html" aria-current="page"><span class="ni" aria-hidden="true">05</span>Pricing</a>
+        <a href="faq.html"><span class="ni" aria-hidden="true">06</span>FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost btn-sm nav-login">Log in</a>
+        <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary btn-sm nav-start">Get started</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
+      </div>
     </div>
   </div>
 </nav>
@@ -87,11 +141,11 @@
   <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started <span class="btn-arrow" aria-hidden="true">→</span></a>
 </div>
 
-<main id="top">
+<main id="main">
 
-<!-- A light band before the black pricing block. Without it .pricing
-     (background: var(--black)) starts at y=0 and the nav's ink wordmark
-     renders black-on-black until the page is scrolled. -->
+<!-- The page opener. The .pricing band below used to be black; the
+     <style> in <head> re-lights it for the luminous world, so the glass
+     nav's ink wordmark always sits on light. -->
 <header class="page-head">
   <div class="wrap">
     <div class="section-head center reveal in">
@@ -166,7 +220,7 @@
       </div>
 
       <div class="price-footer reveal reveal-delay-2">
-        <div class="price-scarcity price-scarcity--demo">Want to see it before you pay? <a href="index.html#try" style="text-decoration:underline">Try the live demo</a> — the full interface, with a sample semester, study group, and club. No account, nothing saved.</div>
+        <div class="price-scarcity price-scarcity--demo">Want to see it before you pay? <a href="demo.html" style="text-decoration:underline">Try the live demo</a> — the full interface, with a sample semester, study group, and club. No account, nothing saved.</div>
         <div class="price-scarcity">Your syllabus helps build your Semester HQ. Your academic information stays private. See how in our <a href="privacy.html" style="text-decoration:underline">Privacy Policy</a>.</div>
         <div class="price-scarcity">More than 50 seats, or need an invoice, PO, or W-9? <a href="group-pricing.html" style="text-decoration:underline">Ask for a quote</a>.</div>
         <div class="price-scarcity">Already subscribed? <a href="https://app.semester-hq.com/login.html" style="text-decoration:underline">Log in</a></div>
@@ -174,10 +228,66 @@
     </div>
   </section>
 
+  <!-- Moved from the old one-page home (#proof): facts a visitor can check
+       before paying. Old links to semester-hq.com/#proof land here. -->
+  <section id="proof" class="proof section-pad">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow"><span class="dot"></span>Check it yourself</div>
+        <h2>Facts you can verify<br>before you pay.</h2>
+        <p>Semester HQ is new. Instead of quotes you cannot check, here is what you can.</p>
+      </div>
+      <div class="proof-grid reveal reveal-delay-1">
+        <div class="proof-item">
+          <div class="num" data-count>6</div>
+          <h3>Ways to hand over a syllabus</h3>
+          <p>PDF, Word, PowerPoint, Excel, a photo of a printed copy, or pasted text. Everything it reads is left editable, and the original file stays in the class page.</p>
+        </div>
+        <div class="proof-item">
+          <div class="num">Live</div>
+          <h3>The demo is the real app</h3>
+          <p>Not a video. The full interface with a sample semester, study group, and club, no account needed. Syllabus upload and anything with real classmates need Plus.</p>
+        </div>
+        <div class="proof-item">
+          <div class="num" data-count>14</div>
+          <h3>Days to change your mind</h3>
+          <p>A full refund on your first charge if you email within 14 days. After that, cancel anytime from Settings, and access runs to the end of the period you paid for.</p>
+        </div>
+        <div class="proof-item">
+          <div class="num">0</div>
+          <h3>Notifications, ever</h3>
+          <p>No push, no browser permission prompt, nothing on a lock screen. The Heads Up bell shows everything that needs you when you come to look.</p>
+        </div>
+        <div class="proof-item">
+          <div class="num">0</div>
+          <h3>Data sold or used for training</h3>
+          <p>Your planner data is never sold or used to train models. A syllabus you upload is sent to Anthropic’s Claude API to be read, nothing more. <a href="privacy.html">The full policy</a> is short.</p>
+        </div>
+        <div class="proof-item">
+          <div class="num">$7.99</div>
+          <h3>A month, and that is the whole price</h3>
+          <p>Semester HQ Plus, billed monthly, cancel anytime. Groups pay $5.99 per member per month, and an officer can set up 5 to 50 seats without talking to anyone.</p>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS: a placeholder, hidden until there are real, permissioned
+           quotes from the review form (contact.html?review=1). To publish:
+           remove the `hidden` attribute and replace each blockquote with a
+           real quote and first name. Never invent or paraphrase a quote here. -->
+      <div class="testimonials" id="testimonials" hidden>
+        <div class="fo-divider"><span>What students say</span></div>
+        <div class="testimonial-grid">
+          <blockquote class="testimonial"><p>Quote goes here.</p><footer>First name, school, year</footer></blockquote>
+          <blockquote class="testimonial"><p>Quote goes here.</p><footer>First name, school, year</footer></blockquote>
+          <blockquote class="testimonial"><p>Quote goes here.</p><footer>First name, school, year</footer></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- The questions people actually ask before paying. The full set lives
-       on the homepage; these are the money ones, repeated here so nobody
-       has to go back to find them. -->
+       on faq.html; these are the money ones, repeated here so nobody
+       has to go looking for them. -->
   <section class="section-pad-sm">
     <div class="wrap">
       <div class="section-head center reveal">
@@ -187,7 +297,7 @@
       <div class="faq-list reveal reveal-delay-1">
         <details class="faq-item">
           <summary>Can I try it before I pay?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq-a">Yes. The <a href="index.html#try">live demo</a> is the real app with a sample semester, study group and club loaded, and it needs no account. Nothing in it is saved, and it resets when the page reloads &mdash; Plus is what actually keeps your semester and syncs it across devices.</p>
+          <p class="faq-a">Yes. The <a href="demo.html">live demo</a> is the real app with a sample semester, study group and club loaded, and it needs no account. Nothing in it is saved, and it resets when the page reloads &mdash; Plus is what actually keeps your semester and syncs it across devices.</p>
         </details>
         <details class="faq-item">
           <summary>Can I cancel or get a refund?<span class="plus" aria-hidden="true"></span></summary>
@@ -206,7 +316,7 @@
           <p class="faq-a">Your planner data is never sold and never used to train models. A syllabus you upload is sent to Anthropic&rsquo;s Claude API to be read, and nothing more. <a href="privacy.html">The full policy</a> is short.</p>
         </details>
       </div>
-      <p class="price-scarcity" style="text-align:center;margin-top:26px">More questions? <a href="index.html#faq" style="text-decoration:underline">The full FAQ</a> is on the homepage, or <a href="contact.html" style="text-decoration:underline">email us</a>.</p>
+      <p class="price-scarcity" style="text-align:center;margin-top:26px">More questions? <a href="faq.html" style="text-decoration:underline">The full FAQ</a> has the rest, or <a href="contact.html" style="text-decoration:underline">email us</a>.</p>
     </div>
   </section>
 
@@ -216,18 +326,19 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo">Semester HQ <span class="spark" aria-hidden="true">✦</span></div>
+        <a class="wordmark" href="./">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
         <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h2 class="footer-heading">Product</h2>
-          <a href="index.html#features">Features</a>
-          <a href="index.html#try">Try the demo</a>
-          <a href="index.html#feat-clubs">Clubs &amp; Teams</a>
-          <a href="index.html#pricing">Pricing</a>
+          <a href="features.html">Features</a>
+          <a href="how-it-works.html">How it works</a>
+          <a href="demo.html">Demo</a>
+          <a href="students.html">Students</a>
+          <a href="pricing.html">Pricing</a>
           <a href="group-pricing.html">Group pricing</a>
-          <a href="index.html#faq">FAQ</a>
+          <a href="faq.html">FAQ</a>
         </div>
         <div class="footer-col" id="guides">
           <h2 class="footer-heading">Guides</h2>
@@ -248,6 +359,7 @@
         </div>
       </div>
     </div>
+    <div class="footer-mark" aria-hidden="true">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></div>
     <div class="footer-bottom">
       <span>© 2026 Semester HQ. All rights reserved.</span>
       <span>Made for the semester you're actually having.</span>
@@ -260,5 +372,7 @@
 <script src="js/checkout.js"></script>
 <script src="js/main.js"></script>
 <script src="js/pricing.js"></script>
+<script src="js/experience.js"></script>
+<script src="js/world.js"></script>
 </body>
 </html>

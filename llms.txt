@@ -4,7 +4,7 @@
 
 ## Pricing
 
-- Live demo: the full interface runs in the browser with no account, including a sample semester, study group, and club. Nothing is saved; it resets on reload.
+- Live demo (https://semester-hq.com/demo.html): the full interface runs in the browser with no account, including a sample semester, study group, and club. Nothing is saved; it resets on reload.
 - Semester HQ Plus: $7.99/month, billed monthly, cancel anytime, 14-day money-back guarantee on the first charge. Saves the semester and syncs across devices, and unlocks syllabus upload, shared classes, study groups, and club and team calendars.
 - Group plans for clubs, sports teams, sorority and fraternity chapters, and class sections: $5.99 per member per month. Self-serve for 5 to 50 seats, bought and managed at https://app.semester-hq.com/group-admin.html. Above 50 seats, or for anyone who needs an invoice, PO or W-9, or is buying for a department, campus or district, use the quote form at https://semester-hq.com/group-pricing.html.
 
@@ -59,6 +59,11 @@ Longer, step-by-step pages on the marketing site. Each one has a numbered how-to
 
 - Marketing site: https://semester-hq.com/
 - Live app: https://app.semester-hq.com/
+- Features: https://semester-hq.com/features.html · upload a syllabus and the semester is set up in a minute; then class pages, Canvas import, club calendars, shared classes, study groups and more.
+- How it works: https://semester-hq.com/how-it-works.html · three steps, starting from one document: upload the syllabus, see the whole semester on one calendar, and share it with your people.
+- Live demo: https://semester-hq.com/demo.html · the actual app with a sample semester, study group and club loaded; no account, nothing is saved, and it resets on reload.
+- For students: https://semester-hq.com/students.html · built for actual college life: a place that already knows what your week looks like, because your syllabi told it, and which week of the term you are in.
+- FAQ: https://semester-hq.com/faq.html · the price ($7.99 a month, cancel anytime), the live demo, privacy, syllabus upload, phones, Canvas and group pricing.
 - Pricing: https://semester-hq.com/pricing.html
 - Group pricing: https://semester-hq.com/group-pricing.html
 - Contact: https://semester-hq.com/contact.html · hello@semester-hq.com

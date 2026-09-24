@@ -50,7 +50,10 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  // threshold 0, not 0.1: a block taller than ten screens on a phone
+  // (a feature row, the FAQ) would otherwise sit blank until a tenth of it
+  // had scrolled past. The rootMargin still waits for it to be 40px in.
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
 

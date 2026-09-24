@@ -24,10 +24,12 @@ document.addEventListener('click', (e) => {
   // The primary CTA, in the nav, the hero, the sticky bar, and on the guide
   // pages: it now sends people to sign up rather than to the demo section.
   else if (link.matches('a[href*="login.html?signup"]')) trackEvent('get_started_click');
-  // What's left pointing at #try is the demo: the nav and footer links, and
-  // the "try the live demo" lines under the CTAs. The event keeps its
-  // original name so the counts stay comparable over time.
-  else if (link.matches('a[href$="#try"]')) trackEvent('try_it_free_click');
+  // The demo: it used to be the #try section of the one-page home and now
+  // has its own page, so this matches both the old #try links and any link
+  // to demo.html (nav, footer, the "try the live demo" lines under the
+  // CTAs). The event keeps its original name so the counts stay comparable
+  // over time, and the Worker only accepts names it already knows.
+  else if (link.matches('a[href$="#try"], a[href$="demo.html"], a[href*="demo.html#"], a[href*="demo.html?"]')) trackEvent('try_it_free_click');
   // "Start a group plan" (not "Manage it"): the top of the groups funnel.
   else if (link.matches('a[href*="group-admin.html"]:not(.gp-manage)')) trackEvent('group_start_click');
   else if (link.matches('.nav button.btn-primary')) trackEvent('nav_upgrade_click');

@@ -1,0 +1,298 @@
+/* ── Semester HQ: features.html only ────────────────────────────────
+   Loads last, after css/styles.css and css/world.css. Everything is
+   scoped under body.page-features, so nothing here reaches another page.
+
+   The #features section was the longest part of the old one-page home.
+   Its markup moved over verbatim (ids, classes, .reveal), and styles.css
+   still lays it out; this file only relights it for the world: the rows
+   sit on the light field instead of between grey rules, every mock and
+   capture becomes a lit glass object, and the index follows you down the
+   page as the dock (nav#feat-dock, shown by the inline script).
+
+   House rules: light only, Instrument Serif at 400 only, radii from the
+   tokens (--r-card, --r-pill, --r-tight, --r-mark) or 50%.
+────────────────────────────────────────────────────────────────── */
+
+/* The ✦, as a background image for the places markup can't carry one. */
+.page-features {
+  --star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'%3E%3Cpath fill='%239C8576' d='M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z'/%3E%3C/svg%3E");
+  --hair: rgba(126,115,108,.26);
+  --dock-top: 84px;
+}
+
+/* Anchors land below the nav AND the dock (76px + 54px, plus air). */
+.page-features .feature-row,
+.page-features .more,
+.page-features .more-tile,
+.page-features section[id] { scroll-margin-top: 150px; }
+
+/* ═══ The section ══════════════════════════════════════════════════ */
+.page-features #features {
+  padding: clamp(28px, 4vw, 56px) 0 clamp(40px, 6vw, 88px);
+  overflow-x: clip;   /* the light pools behind the visuals never widen the page */
+}
+
+/* Opener: the h2 on the left, the lede on the right (the home page's
+   showcase composition), sitting on the field under the header. */
+.page-features #features .section-head.center {
+  max-width: none; margin: 0; text-align: left;
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: 20px 56px; align-items: end;
+  padding-bottom: clamp(8px, 2vw, 24px);
+}
+.page-features #features .section-head h2 {
+  margin-top: 0;
+  font-size: clamp(2.5rem, 4.6vw, 4.5rem); line-height: .98; letter-spacing: -.02em;
+  text-wrap: balance;
+}
+.page-features #features .section-head p {
+  margin-top: 0; justify-self: end; max-width: 440px;
+  font-size: 1.02rem; line-height: 1.62;
+}
+
+/* ═══ Feature rows ═════════════════════════════════════════════════ */
+.page-features .feature-row {
+  position: relative;
+  gap: clamp(44px, 6.4vw, 92px);
+  padding: clamp(64px, 7.2vw, 104px) 0;
+  border-top: 0;
+}
+/* A hairline between rows that fades out at both ends, with the ✦ at
+   its centre, instead of a grey rule across the page. */
+.page-features .feature-row + .feature-row::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg, rgba(126,115,108,0), var(--hair) 22%, var(--hair) calc(50% - 22px), rgba(126,115,108,0) calc(50% - 22px), rgba(126,115,108,0) calc(50% + 22px), var(--hair) calc(50% + 22px), var(--hair) 78%, rgba(126,115,108,0));
+}
+.page-features .feature-row + .feature-row::after {
+  content: ""; position: absolute; left: 50%; top: 0; width: 11px; height: 11px;
+  translate: -50% -50%;
+  background: var(--star) center / contain no-repeat;
+}
+
+/* The number line becomes an instrument readout with the ✦ before it. */
+.page-features .feature-num {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 600 11px/1.35 var(--f-sans); font-style: normal;
+  letter-spacing: .18em; text-transform: uppercase; font-variant-numeric: tabular-nums;
+  color: var(--rose-ink);
+}
+.page-features .feature-num::before {
+  content: ""; width: 11px; height: 11px; flex: none;
+  background: var(--star) center / contain no-repeat;
+}
+.page-features .feature-copy h3 {
+  margin-top: 18px;
+  font-size: clamp(1.8rem, 2.75vw, 2.6rem); line-height: 1.04; letter-spacing: -.014em;
+  text-wrap: balance;
+}
+.page-features .feature-copy p { max-width: 460px; font-size: 15.5px; line-height: 1.72; }
+.page-features .feature-cta { margin-top: 22px; }
+
+/* Each visual stands in its own pool of light. */
+.page-features .feature-visual { isolation: isolate; }
+.page-features .feature-visual::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  inset: -16% -8%;
+  background: radial-gradient(closest-side, rgba(255,255,255,.92), rgba(255,255,255,0));
+}
+
+/* Mocks and captures: lit glass objects. */
+.page-features .feature-card {
+  padding: clamp(22px, 2.6vw, 32px);
+  background: linear-gradient(155deg, rgba(255,253,249,.94) 0%, rgba(255,253,249,.74) 100%);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), var(--lift-hi);
+}
+.page-features .feature-visual .device,
+.page-features .feature-shot {
+  border: 1px solid var(--glass-line);
+  box-shadow: 0 0 0 6px rgba(255,253,249,.55), 0 0 0 7px rgba(126,115,108,.12), var(--lift-hi);
+}
+.page-features .feature-visual .device-bar {
+  background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,253,249,.6));
+  border-bottom-color: var(--glass-line);
+}
+.page-features .feature-visual .device-url { background: rgba(241,237,229,.8); }
+
+/* ═══ The rest of the term (#also) ═════════════════════════════════ */
+.page-features .more { padding: 0; }
+
+/* The divider becomes a centred label with the ✦, hairlines fading out
+   either side (no solid patch behind the text on the moving field). */
+.page-features .fo-divider {
+  margin: 0;
+  display: flex; align-items: center; gap: 22px;
+}
+.page-features .fo-divider::before,
+.page-features .fo-divider::after {
+  content: ""; position: static; flex: 1 1 0; height: 1px;
+}
+.page-features .fo-divider::before { background: linear-gradient(90deg, rgba(126,115,108,0), var(--hair)); }
+.page-features .fo-divider::after  { background: linear-gradient(90deg, var(--hair), rgba(126,115,108,0)); }
+.page-features .fo-divider span {
+  flex: none; display: inline-flex; align-items: center; gap: 10px;
+  padding: 0; background: none;
+  font-size: 11px; letter-spacing: .2em;
+}
+.page-features .fo-divider span::before {
+  content: ""; width: 11px; height: 11px; flex: none;
+  background: var(--star) center / contain no-repeat;
+}
+
+.page-features .more-grid { gap: 20px; }
+.page-features .more-tile {
+  position: relative; isolation: isolate;
+  padding: 26px 26px 0;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), var(--lift);
+  transition: box-shadow .6s var(--ease), border-color .4s;
+}
+.page-features .more-tile::after {   /* light caught in the top corner */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at 14% 0%, rgba(255,255,255,.9), rgba(255,255,255,0) 62%);
+}
+.page-features .more-tile:hover { border-color: rgba(126,115,108,.34); box-shadow: var(--glass-edge), var(--lift-hi); }
+.page-features .more-tile h3 { font-size: clamp(1.45rem, 1.9vw, 1.7rem); letter-spacing: -.01em; }
+.page-features .more-tile p { flex: 1 0 auto; }
+.page-features .more-shot {
+  margin-top: 24px;
+  border-color: var(--glass-line);
+  box-shadow: 0 0 0 5px rgba(255,253,249,.6), 0 0 0 6px rgba(126,115,108,.1), 0 -8px 28px -12px rgba(74,58,46,.22);
+}
+
+/* Heads Up: the only dark phone left on the site. Relit as the app's
+   light panel so it sits with the five captures around it. */
+.page-features .more-tile .phone-mock {
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--glass-line); border-bottom: 0;
+  box-shadow: 0 0 0 5px rgba(255,253,249,.6), 0 0 0 6px rgba(126,115,108,.1), 0 -8px 28px -12px rgba(74,58,46,.22);
+}
+.page-features .more-tile .phone-group { opacity: 1; color: var(--slate); }
+.page-features .more-tile .phone-notif {
+  background: var(--bone-dim); border: 1px solid var(--line-soft);
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+.page-features .more-tile .phone-app { background: var(--ink); color: var(--bone); }
+.page-features .more-tile .phone-body { opacity: 1; color: var(--slate); }
+
+.page-features .also-grid { margin-top: 20px; gap: 16px; }
+.page-features .also-item {
+  padding: 22px 22px 24px;
+  background: linear-gradient(155deg, rgba(255,253,249,.62), rgba(255,253,249,.34));
+  -webkit-backdrop-filter: blur(16px) saturate(1.15); backdrop-filter: blur(16px) saturate(1.15);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge);
+}
+.page-features .also-item .fo-title { font-size: 1.24rem; font-style: normal; line-height: 1.15; padding-right: 0; }
+.page-features .also-item p { font-size: 13px; }
+
+/* ═══ The dock ═════════════════════════════════════════════════════
+   nav#feat-dock: the feature index pinned under the nav. Hidden until
+   the inline script adds .is-on; never shown with JS off. */
+.page-features .feat-dock { display: none; }
+html.js .page-features .feat-dock {
+  display: block;
+  position: fixed; z-index: 95; left: 0; right: 0; top: var(--dock-top);
+  pointer-events: none;
+  visibility: hidden; opacity: 0; translate: 0 -10px;
+  transition: opacity .3s var(--ease), translate .45s var(--ease), visibility 0s linear .45s;
+}
+html.js .page-features .feat-dock.is-on {
+  visibility: visible; opacity: 1; translate: 0 0;
+  transition: opacity .3s var(--ease), translate .45s var(--ease), visibility 0s;
+}
+.page-features .feat-dock .wrap { display: flex; justify-content: center; }
+.page-features .feat-dock-bar {
+  pointer-events: auto;
+  display: flex; min-width: 0; max-width: 100%;
+  padding: 5px;
+  border-radius: var(--r-pill);
+  background: rgba(255,253,249,.8);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), 0 16px 36px -22px rgba(74,58,46,.42);
+}
+/* The links scroll sideways inside the pill when it is narrower than
+   they are (always on a phone). The script fades whichever edge has more
+   links behind it (.fade-l / .fade-r on the dock). */
+.page-features .feat-dock-track {
+  --fl: 1; --fr: 1;
+  position: relative;   /* offsetLeft of the links is measured from here */
+  display: flex; min-width: 0;
+  overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none;
+  border-radius: var(--r-pill);
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,var(--fl)), #000 28px, #000 calc(100% - 28px), rgba(0,0,0,var(--fr)));
+          mask-image: linear-gradient(90deg, rgba(0,0,0,var(--fl)), #000 28px, #000 calc(100% - 28px), rgba(0,0,0,var(--fr)));
+}
+.page-features .feat-dock-track::-webkit-scrollbar { display: none; }
+.page-features .feat-dock.fade-l .feat-dock-track { --fl: 0; }
+.page-features .feat-dock.fade-r .feat-dock-track { --fr: 0; }
+.page-features .feat-dock a {
+  flex: none; display: inline-flex; align-items: center; gap: 6px;
+  height: 34px; padding: 0 11px;
+  border-radius: var(--r-pill);
+  font-size: 12px; font-weight: 600; color: var(--slate); white-space: nowrap;
+  transition: background-color .25s, color .25s;
+}
+.page-features .feat-dock a .readout { font-size: 9px; letter-spacing: .12em; }
+.page-features .feat-dock a:hover { color: var(--ink); background: rgba(255,255,255,.9); }
+.page-features .feat-dock a[aria-current="true"] { background: var(--ink); color: var(--bone); }
+.page-features .feat-dock a[aria-current="true"] .readout { color: var(--sand); }
+.page-features .feat-dock a:focus-visible { border-radius: var(--r-pill); outline-offset: -2px; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .page-features .feat-dock-bar, .page-features .more-tile, .page-features .feature-card { background: rgba(255,253,249,.96); }
+}
+
+/* The tall #also block is revealed as a whole by js/main.js once 10% of
+   it shows. Stacked on a tablet or phone it is 1,900-3,700px tall, so that
+   meant a blank stretch of up to ~370px before it faded in: there it simply
+   stays put. */
+@media (max-width: 980px) {
+  html.js .page-features .more.reveal { opacity: 1; transform: none; pointer-events: auto; transition: none; }
+}
+
+/* ═══ Header sub-nav: nine chips ═══════════════════════════════════
+   The ninth chip's index is the ✦ rather than a number. */
+.page-features .chip-star { display: block; width: 9px; height: 9px; fill: var(--rose-deep); }
+.page-features .subnav a[aria-current="true"] .chip-star,
+.page-features .feat-dock a[aria-current="true"] .chip-star { fill: var(--sand); }
+
+   The ninth ("The rest of the term") gets a full row of its own once the
+   chips wrap into a grid, instead of sitting alone in a half-empty row. */
+@media (max-width: 900px) {
+  .page-features .subnav a:last-child { grid-column: 1 / -1; }
+}
+/* Between 901px and 1180px nine chips in one pill squeeze "Import from
+   Canvas" onto three lines, so the grid starts earlier here: five across,
+   the ninth taking two cells. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .page-features .subnav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-radius: var(--r-card); }
+  .page-features .subnav a { border-radius: var(--r-tight); min-height: 52px; }
+  .page-features .subnav a:focus-visible { border-radius: var(--r-tight); }
+  .page-features .subnav a:last-child { grid-column: span 2; }
+}
+
+/* ═══ Responsive ═══════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .page-features #features .section-head.center { grid-template-columns: 1fr; }
+  .page-features #features .section-head p { justify-self: start; max-width: 600px; }
+}
+@media (max-width: 980px) {
+  .page-features .feature-row { gap: 36px; padding: 64px 0; }
+  .page-features .feature-visual::before { inset: -10% 0; }
+}
+@media (max-width: 560px) {
+  .page-features { --dock-top: 82px; }
+  .page-features .feature-row { padding: 56px 0; }
+  .page-features .feature-copy h3 { font-size: 1.75rem; }
+  .page-features .feat-dock a { height: 32px; padding: 0 12px; font-size: 12px; }
+  .page-features .more-tile { padding: 22px 22px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .page-features .feat-dock, html.js .page-features .feat-dock.is-on { transition: none; translate: none; }
+  .page-features .more-tile { transition: none; }
+}

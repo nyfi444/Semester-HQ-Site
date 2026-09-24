@@ -1,0 +1,212 @@
+/* ── Demo page (demo.html) ──────────────────────────────────────────
+   Loads last, after styles.css, experience.css and world.css. Scoped to
+   body.page-demo so nothing here reaches another page.
+
+   The two moved sections (#fold, then #try) keep their markup, ids and
+   data attributes: experience.js still drives [data-fold] and main.js
+   still swaps #demo-facade for the live app. This file only re-lights
+   them for the world: no tinted bands, glass instead of flat cards, the
+   browser frame as the same glass slab the home hero stands on.
+
+   House rules: light only, Instrument Serif at 400, radii from the
+   tokens (or 50%), a finished static state for reduced motion and JS off.
+────────────────────────────────────────────────────────────────── */
+
+/* ── Section rhythm: one continuous space under the page header ── */
+.page-demo .fold.section-pad-sm { padding: clamp(24px, 4vw, 56px) 0 clamp(20px, 3vw, 36px); }
+.page-demo .try-live.section-pad-sm { padding: clamp(64px, 7vw, 104px) 0 clamp(56px, 6vw, 88px); background: transparent; }
+
+/* ── Section heads, in the home page's voice ─────────────────────── */
+.page-demo .section-head.center { max-width: 760px; }
+.page-demo .section-head .eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 34px; padding: 6px 16px 6px 13px;
+  border-radius: var(--r-pill);
+  font: 600 11px/1.3 var(--f-sans); letter-spacing: .2em; color: var(--slate);
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), 0 10px 24px -18px rgba(74,58,46,.35);
+}
+/* The rose dot becomes the ✦, the site's emblem, drawn with a clip. */
+.page-demo .section-head .eyebrow .dot {
+  width: 11px; height: 11px; margin: 0; top: 0;
+  background: var(--rose-deep);
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+}
+.page-demo .section-head h2 {
+  margin-top: 22px;
+  font-size: clamp(2.5rem, 4.6vw, 4.5rem); line-height: .98; letter-spacing: -.02em;
+  text-wrap: balance;
+}
+.page-demo .section-head p { margin-top: 22px; font-size: clamp(1rem, 1.2vw, 1.06rem); line-height: 1.66; color: var(--slate); }
+
+/* Two chips, so the bar is sized to them rather than stretched across. */
+.page-demo .subnav { max-width: 560px; }
+
+/* ── #fold: the six windows as glass, and the one they become ───── */
+/* Space above the stage: at --p 0 the nearest window (6) hangs ~100px
+   above the stage's top edge, and would sit on the intro line. */
+.page-demo .fold-stage { margin-top: clamp(116px, 9vw, 124px); }
+.page-demo .fold::before { background: radial-gradient(58% 52% at 50% 52%, rgba(255,255,255,.9), rgba(255,255,255,0) 72%); }
+.page-demo .fold-win {
+  background: linear-gradient(160deg, rgba(255,253,249,.97), rgba(255,253,249,.86));
+  border-color: var(--glass-line);
+  box-shadow: var(--glass-edge), 0 40px 80px -40px rgba(74,58,46,.4);
+}
+.page-demo .fold-win-bar { background: rgba(241,237,229,.62); border-bottom-color: rgba(126,115,108,.12); }
+.page-demo .fold-win-dots span { background: var(--sand); }
+
+/* The payoff. The section's own comment says the windows "fold into the
+   dashboard that replaces them"; this is that one window, drawn in the
+   same generic hand (a bar, blank blocks, no real interface). It rises
+   on the same scroll-driven --p the six fade out on, so the stage never
+   ends empty. At --p 0 (JS off, reduced motion, before the scroll
+   reaches it) its opacity is below zero, i.e. not drawn at all. */
+.page-demo .fold-depth::after {
+  content: "app.semester-hq.com";
+  position: absolute; left: 50%; top: 50%; z-index: 10;
+  width: 460px; height: 292px;
+  box-sizing: border-box; padding-top: 9px;
+  text-align: center;
+  font: 500 10.5px/14px var(--f-sans); letter-spacing: .04em; color: var(--slate);
+  border-radius: var(--r-card);
+  border: 1px solid var(--glass-line);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 292'%3E%3Cg fill='%23D9CEC3'%3E%3Ccircle cx='18' cy='16' r='3.5'/%3E%3Ccircle cx='31' cy='16' r='3.5'/%3E%3Ccircle cx='44' cy='16' r='3.5'/%3E%3C/g%3E%3Crect x='155' y='7' width='150' height='18' rx='9' fill='%23F1EDE5'/%3E%3Crect x='12' y='38' width='96' height='242' rx='9' fill='%23F1EDE5' fill-opacity='.85'/%3E%3Cpath transform='translate(27 55) scale(.62)' fill='%239C8576' d='M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z'/%3E%3Crect x='38' y='52' width='52' height='6' rx='3' fill='%23D9CEC3'/%3E%3Crect x='18' y='74' width='84' height='14' rx='7' fill='%23121212'/%3E%3Crect x='26' y='79' width='40' height='4' rx='2' fill='%23F8F6F2'/%3E%3Cg fill='%23E6DFD8'%3E%3Crect x='26' y='98' width='52' height='4' rx='2'/%3E%3Crect x='26' y='111' width='44' height='4' rx='2'/%3E%3Crect x='26' y='132' width='58' height='4' rx='2'/%3E%3Crect x='26' y='145' width='40' height='4' rx='2'/%3E%3Crect x='26' y='158' width='50' height='4' rx='2'/%3E%3Crect x='26' y='171' width='36' height='4' rx='2'/%3E%3C/g%3E%3Crect x='124' y='44' width='132' height='12' rx='3' fill='%23D9CEC3'/%3E%3Crect x='124' y='62' width='84' height='5' rx='2.5' fill='%23E6DFD8'/%3E%3Cg fill='%23FFFDF9' stroke='%23121212' stroke-opacity='.07'%3E%3Crect x='124.5' y='80.5' width='152' height='96' rx='9'/%3E%3Crect x='284.5' y='80.5' width='163' height='96' rx='9'/%3E%3Crect x='124.5' y='184.5' width='323' height='96' rx='9'/%3E%3C/g%3E%3Crect x='136' y='94' width='3' height='50' rx='1.5' fill='%239C8576'/%3E%3Crect x='148' y='98' width='56' height='4' rx='2' fill='%23D9CEC3'/%3E%3Crect x='148' y='110' width='92' height='10' rx='3' fill='%23121212' fill-opacity='.72'/%3E%3Crect x='148' y='128' width='48' height='4' rx='2' fill='%23E6DFD8'/%3E%3Crect x='296' y='94' width='36' height='4' rx='2' fill='%23D9CEC3'/%3E%3Cg fill='%23E6DFD8'%3E%3Crect x='310' y='110' width='110' height='5' rx='2.5'/%3E%3Crect x='310' y='126' width='92' height='5' rx='2.5'/%3E%3Crect x='310' y='142' width='118' height='5' rx='2.5'/%3E%3Crect x='310' y='158' width='80' height='5' rx='2.5'/%3E%3C/g%3E%3Cg fill='%23B49F90'%3E%3Crect x='298' y='108' width='3' height='9' rx='1.5'/%3E%3Crect x='298' y='124' width='3' height='9' rx='1.5' fill='%23D9CEC3'/%3E%3Crect x='298' y='140' width='3' height='9' rx='1.5'/%3E%3Crect x='298' y='156' width='3' height='9' rx='1.5' fill='%23D9CEC3'/%3E%3C/g%3E%3Crect x='138' y='198' width='64' height='5' rx='2.5' fill='%23D9CEC3'/%3E%3Cg fill='none' stroke='%23D9CEC3' stroke-width='1.5'%3E%3Ccircle cx='144' cy='222' r='5'/%3E%3Ccircle cx='144' cy='242' r='5'/%3E%3Ccircle cx='144' cy='262' r='5'/%3E%3C/g%3E%3Cg fill='%23E6DFD8'%3E%3Crect x='158' y='219.5' width='150' height='5' rx='2.5'/%3E%3Crect x='158' y='239.5' width='190' height='5' rx='2.5'/%3E%3Crect x='158' y='259.5' width='124' height='5' rx='2.5'/%3E%3C/g%3E%3Cg fill='%23F1EDE5'%3E%3Crect x='392' y='216' width='42' height='12' rx='6'/%3E%3Crect x='392' y='236' width='42' height='12' rx='6'/%3E%3Crect x='392' y='256' width='42' height='12' rx='6'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat,
+    linear-gradient(160deg, rgba(255,253,249,.99), rgba(248,246,242,.95));
+  box-shadow: var(--glass-edge), 0 2px 4px rgba(74,58,46,.05), 0 30px 60px -30px rgba(74,58,46,.34), 0 90px 150px -70px rgba(74,58,46,.42);
+  pointer-events: none;
+  opacity: calc(var(--p) * 2.3 - 1.3);
+  transform: translate(-50%, -50%) scale(calc(.86 + .14 * var(--p)));
+}
+@media (max-width: 900px) {
+  /* Same drawing at 300 wide; the address is too small to set here, and
+     the closing line under the stage names it anyway. */
+  .page-demo .fold-depth::after { content: ""; width: 300px; height: 190px; padding: 0; }
+}
+/* Reduced motion draws the six as a plain grid (experience.css); the
+   one window has no fold to arrive from, so it stays out. */
+@media (prefers-reduced-motion: reduce) {
+  .page-demo .fold-depth::after { content: none; }
+}
+
+/* The closing line: a small glass readout, and always there without JS
+   (experience.css ramps it in off --p, which only JS ever moves). */
+.page-demo .fold-plain {
+  display: table; margin: 34px auto 0; max-width: 100%;
+  padding: 10px 18px; border-radius: var(--r-pill);
+  font-size: 13px; line-height: 1.5; color: var(--slate);
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), 0 10px 24px -18px rgba(74,58,46,.35);
+}
+.page-demo .fold-plain strong { color: var(--ink); font-weight: 600; }
+html:not(.js) .page-demo .fold-plain { opacity: 1; transform: none; }
+@media (max-width: 560px) { .page-demo .fold-plain { border-radius: var(--r-card); text-align: left; } }
+
+/* ── #try: glass note, glass prompts, the frame as a lit slab ───── */
+.page-demo .try-live-note {
+  margin-top: 28px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), 0 10px 24px -18px rgba(74,58,46,.35);
+}
+
+.page-demo .try-live-prompts { max-width: 1000px; gap: 16px; margin-top: clamp(36px, 4vw, 52px); }
+.page-demo .try-prompt {
+  align-items: flex-start;
+  padding: 18px 18px 20px;
+  font-size: 13.5px; line-height: 1.45; color: var(--ink);
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), var(--lift);
+}
+.page-demo .try-prompt-num {
+  width: 24px; height: 24px; margin-top: -2px;
+  background: var(--ink); color: var(--bone);
+  font: 600 11px/1 var(--f-sans); font-variant-numeric: tabular-nums;
+  box-shadow: 0 8px 16px -10px rgba(18,18,18,.6);
+}
+
+.page-demo .try-live-stage { position: relative; isolation: isolate; margin-top: clamp(36px, 4vw, 52px); }
+.page-demo .try-live-stage::before {   /* a pool of light the frame stands in */
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  left: 0; right: 0; top: -12%; bottom: -6%;
+  background:
+    radial-gradient(ellipse 46% 50% at 50% 46%, rgba(255,255,255,.95), rgba(255,255,255,0)),
+    radial-gradient(ellipse 30% 36% at 82% 70%, rgba(217,206,195,.4), rgba(217,206,195,0));
+}
+.page-demo .try-live-frame { position: relative; }
+.page-demo .try-live-frame::after {   /* contact shadow under the slab */
+  content: ""; position: absolute; left: 8%; right: 8%; top: 100%; height: 40px; margin-top: -20px; z-index: -1;
+  background: radial-gradient(closest-side, rgba(74,58,46,.2), rgba(74,58,46,0));
+  pointer-events: none;
+}
+.page-demo .try-live-frame .device {
+  position: relative;
+  padding: 9px;
+  border-radius: var(--r-card);
+  background: linear-gradient(170deg, rgba(255,255,255,.86), rgba(255,253,249,.5));
+  -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+  border: 1px solid rgba(126,115,108,.2);
+  box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(255,255,255,.6),
+              0 2px 4px rgba(74,58,46,.05), 0 30px 60px -30px rgba(74,58,46,.34), 0 90px 150px -70px rgba(74,58,46,.42);
+}
+.page-demo .try-live-frame .device-bar { position: relative; height: 30px; gap: 0; padding: 0 8px 0 6px; border-bottom: 0; }
+.page-demo .try-live-frame .device-dots { gap: 6px; }
+.page-demo .try-live-frame .device-dots span { width: 8px; height: 8px; background: var(--sand); }
+.page-demo .try-live-frame .device-url {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%; flex: none;
+  padding: 3px 14px; background: rgba(241,237,229,.8);
+  font: 500 10.5px/1.4 var(--f-sans); letter-spacing: .04em; color: var(--slate);
+}
+.page-demo .try-live-frame .device-body {
+  border-radius: var(--r-tight); overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px rgba(18,18,18,.06);
+}
+
+/* The facade: the demo is the secondary action, so its button is glass,
+   lifted off the screenshot, never the ink primary. */
+.page-demo .demo-facade-overlay {
+  padding: 0 16px;
+  background:
+    radial-gradient(ellipse 36% 32% at 50% 50%, rgba(248,246,242,.94) 35%, rgba(248,246,242,0)),
+    linear-gradient(180deg, rgba(248,246,242,0) 30%, rgba(248,246,242,.9) 100%);
+}
+.page-demo .demo-open {
+  background: linear-gradient(160deg, rgba(255,255,255,.96), rgba(255,253,249,.84));
+  box-shadow: var(--glass-edge), var(--lift-hi);
+}
+.page-demo .demo-facade:hover .demo-open { border-color: rgba(126,115,108,.45); }
+.page-demo .demo-facade-hint {
+  text-align: center;
+  background: rgba(255,253,249,.9);
+  border-color: var(--glass-line);
+  box-shadow: var(--glass-edge);
+}
+.page-demo .try-live-open { margin-top: 26px; }
+
+@media (max-width: 980px) {
+  .page-demo .try-live-prompts { padding: 0; }
+  .page-demo .try-live-stage { padding: 0; }
+}
+@media (max-width: 560px) {
+  .page-demo .try-live-prompts { grid-template-columns: 1fr; gap: 10px; }
+  .page-demo .try-prompt { padding: 14px 16px; }
+  .page-demo .demo-open { min-height: 48px; padding: 0 20px; font-size: 14px; }
+}
+
+/* Reduced motion on a phone: experience.css lays the six windows out as
+   210px tiles, which is one per row at this width. Two per row keeps the
+   grid a grid. */
+@media (prefers-reduced-motion: reduce) and (max-width: 560px) {
+  .page-demo .fold-depth { gap: 12px; }
+  .page-demo .fold-win { width: calc(50% - 6px); }
+  .page-demo .fold-win-bar { gap: 7px; padding: 8px 10px; }
+  .page-demo .fold-win-name { font-size: 10px; }
+}

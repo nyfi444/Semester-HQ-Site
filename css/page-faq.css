@@ -1,0 +1,116 @@
+/* ── FAQ page (faq.html only) ───────────────────────────────────────
+   Loads last, after styles.css and world.css. Everything is scoped under
+   body.page-faq, because styles.css's .faq-* rules are shared with the
+   guide pages (.guide-faq) and must stay as they are there.
+
+   The moved #faq section, re-lit for the world: each question is its
+   own frosted pane on the light field, numbered like the doorway panes
+   on the home page. Still native <details>/<summary>, so every answer
+   opens with JS off, and the open/close glide only exists under
+   prefers-reduced-motion: no-preference.
+────────────────────────────────────────────────────────────────── */
+
+.page-faq #faq { padding: clamp(4px, 1vw, 12px) 0 clamp(64px, 7vw, 104px); }
+
+/* The section keeps its own heading (eyebrow + h2) for the document
+   outline and screen readers, but the page header right above already
+   says it on screen: "FAQ" and "A few things worth knowing." */
+.page-faq #faq .section-head {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+.page-faq .faq-list {
+  --faq-x: clamp(18px, 2.6vw, 34px);    /* pane padding, left and right */
+  --faq-num: 46px;                      /* the numeral column */
+  --faq-gap: clamp(12px, 1.8vw, 22px);
+  max-width: none; margin: 0; border-top: 0;
+  display: grid; gap: 10px;
+  counter-reset: faq;
+}
+
+/* One pane per question. */
+.page-faq .faq-item {
+  counter-increment: faq;
+  position: relative;
+  padding: 0;
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-card);
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+  box-shadow: var(--glass-edge), var(--lift);
+}
+.page-faq .faq-item[open] {
+  background: linear-gradient(155deg, rgba(255,253,249,.97) 0%, rgba(255,253,249,.82) 100%);
+  box-shadow: var(--glass-edge), var(--lift-hi);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .page-faq .faq-item { background: rgba(255,253,249,.96); }
+}
+
+/* The question row: numeral · question · the round +. */
+.page-faq .faq-item summary {
+  display: grid; grid-template-columns: var(--faq-num) minmax(0, 1fr) auto; align-items: center;
+  column-gap: var(--faq-gap);
+  padding: clamp(20px, 2.2vw, 28px) var(--faq-x);
+  border-radius: var(--r-card);
+  font-size: clamp(19.5px, 1.95vw, 26px); line-height: 1.22; letter-spacing: -.008em;
+  text-wrap: balance;
+  color: var(--ink);
+}
+.page-faq .faq-item summary::before {
+  content: counter(faq, decimal-leading-zero);
+  content: counter(faq, decimal-leading-zero) / "";
+  font: 600 11px/1 var(--f-sans); letter-spacing: .16em;
+  font-variant-numeric: tabular-nums;
+  color: var(--slate-line);
+}
+.page-faq .faq-item[open] summary::before { color: var(--rose-ink); }
+.page-faq .faq-item summary:focus-visible { outline-offset: 4px; border-radius: var(--r-card); }
+
+.page-faq .faq-item summary .plus {
+  width: 40px; height: 40px;
+  border: 1px solid var(--glass-line);
+  background: rgba(255,255,255,.72);
+  box-shadow: var(--glass-edge), 0 8px 18px -12px rgba(74,58,46,.45);
+}
+.page-faq .faq-item summary .plus::before { width: 12px; height: 1.5px; }
+.page-faq .faq-item summary .plus::after { width: 1.5px; height: 12px; }
+.page-faq .faq-item summary:hover .plus { background: #fff; }
+.page-faq .faq-item[open] summary .plus { background: var(--ink); border-color: var(--ink); }
+
+/* The answer lines up under the question, not under the numeral. */
+.page-faq .faq-item .faq-a {
+  margin: 0;
+  max-width: calc(var(--faq-x) + var(--faq-num) + var(--faq-gap) + 66ch);
+  padding: 0 var(--faq-x) clamp(24px, 2.6vw, 32px) calc(var(--faq-x) + var(--faq-num) + var(--faq-gap));
+  font-size: 15.5px; line-height: 1.74;
+  color: var(--slate);
+}
+.page-faq .faq-a a { color: var(--ink); text-underline-offset: 3px; text-decoration-color: rgba(18,18,18,.4); }
+.page-faq .faq-a a:hover { text-decoration-color: var(--ink); }
+
+/* Motion, only when it is wanted: the pane brightens on hover, the +
+   turns, and the answer glides open where ::details-content exists.
+   Everywhere else (and under reduced motion) it simply opens. */
+@media (prefers-reduced-motion: no-preference) {
+  .page-faq .faq-item { transition: box-shadow .45s var(--ease); }
+  .page-faq .faq-item:hover { box-shadow: var(--glass-edge), var(--lift-hi); }
+  .page-faq .faq-item summary .plus { transition: transform .5s var(--ease), background-color .3s, border-color .3s; }
+  .page-faq .faq-item[open] summary .plus { transform: rotate(180deg); }
+  .page-faq .faq-item { interpolate-size: allow-keywords; }
+  .page-faq .faq-item::details-content {
+    block-size: 0; overflow-y: clip; opacity: 0;
+    transition: block-size .5s var(--ease), opacity .4s ease, content-visibility .5s allow-discrete;
+  }
+  .page-faq .faq-item[open]::details-content { block-size: auto; opacity: 1; }
+}
+
+/* Phones: a narrower numeral column, and the answer runs the full pane
+   width so the lines are not squeezed. */
+@media (max-width: 560px) {
+  .page-faq .faq-list { --faq-num: 24px; --faq-x: 18px; --faq-gap: 12px; gap: 8px; }
+  .page-faq .faq-item summary { padding-top: 18px; padding-bottom: 18px; line-height: 1.25; }
+  .page-faq .faq-item summary .plus { width: 34px; height: 34px; }
+  .page-faq .faq-item .faq-a { padding-left: var(--faq-x); font-size: 15px; }
+}

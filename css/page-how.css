@@ -1,0 +1,178 @@
+/* ── How it works page (how-it-works.html) ──────────────────────────
+   Loads LAST, after styles.css, experience.css and world.css. It only
+   re-lights the three sections moved here from the old home page
+   (.scatter#problem, #how, #connected) so they sit in the Luminous
+   world instead of reading as pasted bone-dim bands:
+   - no tinted bands: the sections sit straight on the light field,
+     separated by a hairline, like the home page's panes;
+   - section heads take the home page's split head (title left, lede
+     right) and the ✦ label;
+   - cards become glass panes.
+   The motion itself is untouched: js/experience.js still drives
+   [data-scatter] (--p) and [data-connect] (.lit), and experience.css's
+   reduced-motion block still draws their finished states.
+   Everything is scoped under body.page-how.
+────────────────────────────────────────────────────────────────── */
+
+/* ═══ Sections: on the field, not in bands ═══════════════════════ */
+.page-how .scatter,
+.page-how .how,
+.page-how .connect { background: transparent; }
+.page-how .scatter::before, .page-how .scatter::after,
+.page-how .connect::before, .page-how .connect::after { content: none; }
+.page-how .scatter.section-pad-sm,
+.page-how .how.section-pad-sm,
+.page-how .connect.section-pad-sm { padding: clamp(40px, 5vw, 64px) 0 clamp(56px, 7vw, 96px); }
+/* A drafting hairline where one section hands over to the next. */
+.page-how .how > .wrap::before,
+.page-how .connect > .wrap::before {
+  content: ""; display: block; height: 1px; margin-bottom: clamp(48px, 6vw, 80px);
+  background: linear-gradient(90deg, rgba(126,115,108,0), rgba(126,115,108,.32) 18%, rgba(126,115,108,.32) 82%, rgba(126,115,108,0));
+}
+
+/* ═══ Section heads: the home page's split head ══════════════════ */
+.page-how .section-head.center {
+  max-width: none; margin: 0; text-align: left;
+  display: grid; grid-template-columns: 1.15fr .85fr; column-gap: 40px; align-items: end;
+}
+.page-how .section-head .eyebrow { grid-column: 1; grid-row: 1; }
+.page-how .section-head h2 { grid-column: 1; grid-row: 2; }
+.page-how .section-head p { grid-column: 2; grid-row: 1 / span 2; align-self: end; justify-self: end; max-width: 440px; margin-top: 0; padding-bottom: 6px; font-size: 1.02rem; line-height: 1.62; }
+.page-how .section-head h2 {
+  margin-top: 16px;
+  font-size: clamp(2.5rem, 4.6vw, 4.5rem); line-height: .98; letter-spacing: -.02em;
+  text-wrap: balance;
+}
+
+/* The eyebrow becomes the ✦ label: the dot is cut into the four-point
+   star (the tips sit on the circle, so the 50% radius never shows). */
+.page-how .eyebrow {
+  display: inline-flex; align-items: center;
+  font: 600 11px/1 var(--f-sans); letter-spacing: .2em; text-transform: uppercase;
+  color: var(--slate);
+}
+.page-how .eyebrow .dot {
+  width: 11px; height: 11px; margin-right: 10px; top: 0; flex: none;
+  background: var(--rose-deep);
+  clip-path: polygon(50% 0, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0 50%, 42% 42%);
+}
+
+@media (max-width: 900px) {
+  .page-how .section-head.center { grid-template-columns: 1fr; }
+  .page-how .section-head p { grid-column: 1; grid-row: 3; justify-self: start; max-width: 600px; margin-top: 18px; padding-bottom: 0; }
+}
+
+/* ═══ The problem: the scatter ═══════════════════════════════════
+   Chips become small glass pills; the mark they resolve into sits in
+   a pool of light. No backdrop blur here: eight moving panes would
+   re-blur every scroll frame. */
+.page-how .scatter-stage { margin-top: clamp(28px, 4vw, 48px); }
+.page-how .scatter-item {
+  border-radius: var(--r-pill);
+  padding: 10px 18px 10px 10px;
+  background: linear-gradient(160deg, rgba(255,255,255,.96), rgba(255,253,249,.82));
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), 0 1px 2px rgba(74,58,46,.05), 0 14px 30px -16px rgba(74,58,46,.32);
+  color: var(--ink);
+}
+.page-how .scatter-icon {
+  border-radius: 50%;
+  background: var(--bone);
+  border-color: var(--glass-line);
+  color: var(--rose-ink);
+}
+.page-how .scatter-core-mark .spark { color: var(--rose-deep); }
+.page-how .scatter-core::before {
+  width: 520px; height: 520px; margin: -260px 0 0 -260px;
+  background:
+    radial-gradient(closest-side, rgba(255,255,255,.95), rgba(255,255,255,0) 72%),
+    radial-gradient(closest-side, rgba(217,206,195,.5), rgba(217,206,195,0));
+}
+.page-how .scatter-plain { max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+/* Between the phone spread (≤900px, experience.css) and a full-width
+   desktop the widest starting spread (±470px) runs off the stage, so
+   pull it in by about a fifth. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .page-how .scatter-item:nth-child(1) { --sx: -330; --sy: -185; }
+  .page-how .scatter-item:nth-child(2) { --sx:  270; --sy: -200; }
+  .page-how .scatter-item:nth-child(3) { --sx: -370; --sy:  -30; }
+  .page-how .scatter-item:nth-child(4) { --sx:  340; --sy:  -55; }
+  .page-how .scatter-item:nth-child(5) { --sx: -300; --sy:  135; }
+  .page-how .scatter-item:nth-child(6) { --sx:  290; --sy:  120; }
+  .page-how .scatter-item:nth-child(8) { --sx:  110; --sy: -215; }
+}
+
+/* Reduced motion: experience.css lays the chips out as one row and the
+   mark under them. Keep that, give the row a little more air. */
+@media (prefers-reduced-motion: reduce) {
+  .page-how .scatter-stage { gap: 12px; padding-top: 8px; }
+  .page-how .scatter-core { margin-top: 44px; }
+}
+
+/* ═══ Three steps: glass panes, a big outlined numeral in each ═══ */
+.page-how .steps { margin-top: clamp(32px, 4vw, 52px); gap: 20px; counter-reset: how-step; }
+.page-how .step {
+  position: relative; isolation: isolate; overflow: hidden;
+  counter-increment: how-step;
+  padding: 30px 28px 32px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), var(--lift);
+}
+.page-how .step::before {   /* decorative numeral, silent to screen readers */
+  content: counter(how-step, decimal-leading-zero);
+  content: counter(how-step, decimal-leading-zero) / "";
+  position: absolute; z-index: -1; right: 16px; top: -4px;
+  font: 400 96px/1 var(--f-serif); letter-spacing: -.04em;
+  color: transparent; -webkit-text-stroke: 1px rgba(126,115,108,.24);
+  pointer-events: none;
+}
+.page-how .step::after {    /* light pooled in the top corner, like the home cards */
+  content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background: radial-gradient(420px circle at 12% 0%, rgba(255,255,255,.85), rgba(255,255,255,0) 60%);
+}
+.page-how .step h3 { margin-top: 14px; font-size: clamp(1.55rem, 2.1vw, 1.9rem); line-height: 1.06; letter-spacing: -.012em; }
+.page-how .step p { font-size: 14.5px; line-height: 1.68; }
+.page-how .step-chips { gap: 8px; }
+.page-how .step .upload-chip {
+  background: rgba(255,253,249,.8);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge);
+  color: var(--ink); font-weight: 600;
+}
+
+/* ═══ Everything connected: glass nodes on a lit line ════════════ */
+.page-how .connect-flow { margin-top: clamp(32px, 4vw, 52px); }
+.page-how .connect-node {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: 20px 18px 22px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2); backdrop-filter: blur(22px) saturate(1.2);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-edge), var(--lift);
+}
+.page-how .connect-node::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(260px circle at 10% 0%, rgba(255,255,255,.85), rgba(255,255,255,0) 60%);
+}
+/* The class everything comes from is the lit one. */
+.page-how .connect-node--first {
+  border-color: rgba(156,133,118,.55);
+  box-shadow: var(--glass-edge), 0 0 0 5px rgba(180,159,144,.12), var(--lift-hi);
+}
+@media (min-width: 1001px) { .page-how .connect-node { flex-basis: 204px; } }   /* the row; ≤1000px it is a column and keeps flex: none */
+.page-how .connect-node-name { font-size: 22px; }
+.page-how .connect-node-sub { font-size: 12.5px; line-height: 1.55; }
+.page-how .connect-link { background: rgba(126,115,108,.28); }
+
+/* JS off: experience.css hides the nodes until js/experience.js adds
+   .lit, which never happens without scripts. The inline head script
+   sets html.js, so without it the finished state shows at once. */
+html:not(.js) .page-how .connect-node { opacity: 1; transform: none; }
+html:not(.js) .page-how .connect-link::after { transform: none; }
+html:not(.js) .page-how .connect-link::before { opacity: 1; }
+
+/* ═══ Header line ════════════════════════════════════════════════ */
+.page-how .inner-intro { text-wrap: pretty; }
