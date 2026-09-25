@@ -23,7 +23,7 @@ Listed with the two that matter most first: syllabus upload is why a student sta
 - Projects: templates (research paper, group presentation, lab report, case study, portfolio, capstone) with milestones spaced to the due date, tasks, team, links, notes, and a timeline.
 - Flashcards with spaced repetition.
 - Study timer with focus blocks, a session goal, and a weekly study goal.
-- Notebook with rich text, organized by class, with page layouts: a Cornell layout (cue column, ruled notes, summary band, and a cover-the-notes toggle for self-testing) and a lab report layout (eight numbered sections, a data table that grows, and a completion tracker). Notes export to PDF and can be turned into flashcards.
+- Notebook with rich text, organized by class, with seven page layouts: Cornell notes (cue column, ruled notes, summary band, and a cover-the-notes toggle for self-testing), lecture notes, reading notes, a lab report (eight numbered sections, a data table that grows, and a completion tracker), exam review, a weekly planner, and meeting notes. Any layout can be dropped into a page with a / command.
 - Study groups: find-a-time availability heatmap (which can be drafted from the student's class schedule in one tap), sessions that can repeat weekly, per-session RSVP detail showing who is going, maybe, can't, and hasn't answered, shared tasks with one-tap claiming of unassigned ones, shared notes and decks, and group chat.
 - Clubs & Teams: officers post events (including weekly repeats and required events) and announcements; members RSVP and get events on their own calendar. Officers also get an attendance grid across past and upcoming events, a CSV roster export including every RSVP, member search, and club quick links (group chat, social accounts, where dues are sent).
 - Applications tracker for internships, jobs, scholarships, and research positions, with deadlines on the calendar.
@@ -45,7 +45,7 @@ Listed with the two that matter most first: syllabus upload is why a student sta
 
 ## Guides
 
-Longer, step-by-step pages on the marketing site. Each one has a numbered how-to, a real product screenshot, a comparison with a paper planner, Google Calendar and Notion, and a short FAQ.
+Longer, step-by-step pages on the marketing site. Each one has a numbered how-to, a real product screenshot, and a short FAQ. The college planner guide also compares Semester HQ with a paper planner, Google Calendar and Notion.
 
 - College planner (https://semester-hq.com/college-planner.html): running a whole semester from one place; classes, deadlines, exams, office hours, notes, study groups and clubs; a five-step setup.
 - Student planner app (https://semester-hq.com/student-planner.html): a planner organized by class and due date that fits any major, program or schedule; setup in an afternoon.
@@ -54,6 +54,9 @@ Longer, step-by-step pages on the marketing site. Each one has a numbered how-to
 - College calendar (https://semester-hq.com/college-calendar.html): month, week, day and year views, one color per class, dragging work onto days and time slots, time blocks; the calendar does not sync with Google Calendar, though due dates can be imported from an LMS calendar feed.
 - Study group scheduler (https://semester-hq.com/study-group-scheduler.html): finding a time everyone is free with the availability grid, scheduling sessions with RSVPs, splitting tasks with owners and due dates, sharing notes, decks, files and chat.
 - Class schedule maker (https://semester-hq.com/class-schedule-maker.html): turning syllabi into a weekly schedule, where office hours live, the private absence tracker, and exam dates with countdowns and prep pages.
+- For educators (https://semester-hq.com/syllabus-for-educators.html): how instructors can format a syllabus so students, and the syllabus upload, read every date and policy correctly.
+- For groups and teams (https://semester-hq.com/groups-teams-getting-started.html): starting a club, team, or study group, inviting members, posting events, roles, attendance, and when a group plan makes sense.
+- Add to home screen (https://semester-hq.com/add-to-home-screen.html): installing the Semester HQ web app on iPhone, iPad, Android, and desktop.
 
 ## Links
 

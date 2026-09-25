@@ -35,6 +35,10 @@ QUALITY = 82
 # 2x is downsampled less (or not at all — the desktop source is exactly
 # 2880 wide), so it can afford a lower quality for the same perceived result.
 QUALITY_2X = 72
+# The hero is the first thing anyone sees and the one image read closely, so
+# it gets far less compression: at 72 its small text went soft (Sept 24).
+HERO_QUALITY = 90
+HERO = 'dashboard-desktop'
 
 # (output name, source file, target width, optional crop box in source pixels)
 EXPORTS = [
@@ -55,6 +59,13 @@ EXPORTS = [
     ('projects-phone',      'projects-phone.png',      PHONE_W, None),
     ('flashcards-phone',    'flashcards-phone.png',    PHONE_W, None),
     ('applications-phone',  'applications-phone.png',  PHONE_W, None),
+    ('assignments-phone',   'assignments-phone.png',   PHONE_W, None),
+    ('todos-phone',         'todos-phone.png',         PHONE_W, None),
+    ('timer-phone',         'timer-phone.png',         PHONE_W, None),
+    ('dashboard-dark-phone', 'dashboard-dark-phone.png', PHONE_W, None),
+    # Captured Sept 24 by Playwright at 390x844 @3x, demo chrome hidden.
+    ('capture-phone',       'capture-phone.png',       PHONE_W, None),
+    ('offline-phone',       'offline-phone.png',       PHONE_W, None),
 ]
 # The hero image is the largest contentful paint, so it also gets a JPEG.
 JPEG_FALLBACKS = ['dashboard-desktop']
@@ -78,23 +89,23 @@ def export(name, source, width, box):
 
     im = _scaled(src, width)
     webp = os.path.join(OUT, f'{name}.webp')
-    im.save(webp, 'WEBP', quality=QUALITY, method=6)
+    im.save(webp, 'WEBP', quality=HERO_QUALITY if name == HERO else QUALITY, method=6)
     sizes = [(webp, os.path.getsize(webp))]
 
     # 2x, capped at whatever the source actually has.
     two = _scaled(src, min(width * 2, src.width))
     if two.width > im.width:
         webp2 = os.path.join(OUT, f'{name}@2x.webp')
-        two.save(webp2, 'WEBP', quality=QUALITY_2X, method=6)
+        two.save(webp2, 'WEBP', quality=HERO_QUALITY if name == HERO else QUALITY_2X, method=6)
         sizes.append((webp2, os.path.getsize(webp2)))
 
     if name in JPEG_FALLBACKS:
         jpg = os.path.join(OUT, f'{name}.jpg')
-        im.save(jpg, 'JPEG', quality=80, optimize=True, progressive=True)
+        im.save(jpg, 'JPEG', quality=HERO_QUALITY if name == HERO else 80, optimize=True, progressive=True)
         sizes.append((jpg, os.path.getsize(jpg)))
         if two.width > im.width:
             jpg2 = os.path.join(OUT, f'{name}@2x.jpg')
-            two.save(jpg2, 'JPEG', quality=72, optimize=True, progressive=True)
+            two.save(jpg2, 'JPEG', quality=HERO_QUALITY if name == HERO else 72, optimize=True, progressive=True)
             sizes.append((jpg2, os.path.getsize(jpg2)))
 
     return im.size, sizes

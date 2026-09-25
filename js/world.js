@@ -36,7 +36,6 @@
      #top and #guides stay on the home page. */
   var LEGACY = {
     'try': 'demo.html',
-    'fold': 'demo.html#fold',
     'features': 'features.html',
     'also': 'features.html#also',
     'how': 'how-it-works.html',

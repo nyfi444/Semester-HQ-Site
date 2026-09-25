@@ -54,7 +54,7 @@
   column-gap: var(--faq-gap);
   padding: clamp(20px, 2.2vw, 28px) var(--faq-x);
   border-radius: var(--r-card);
-  font-size: clamp(19.5px, 1.95vw, 26px); line-height: 1.22; letter-spacing: -.008em;
+  font-size: clamp(17.5px, 1.6vw, 22px); line-height: 1.25; letter-spacing: -.008em;
   text-wrap: balance;
   color: var(--ink);
 }
@@ -84,7 +84,7 @@
   margin: 0;
   max-width: calc(var(--faq-x) + var(--faq-num) + var(--faq-gap) + 66ch);
   padding: 0 var(--faq-x) clamp(24px, 2.6vw, 32px) calc(var(--faq-x) + var(--faq-num) + var(--faq-gap));
-  font-size: 15.5px; line-height: 1.74;
+  font-size: 14.5px; line-height: 1.72;
   color: var(--slate);
 }
 .page-faq .faq-a a { color: var(--ink); text-underline-offset: 3px; text-decoration-color: rgba(18,18,18,.4); }
@@ -112,5 +112,5 @@
   .page-faq .faq-list { --faq-num: 24px; --faq-x: 18px; --faq-gap: 12px; gap: 8px; }
   .page-faq .faq-item summary { padding-top: 18px; padding-bottom: 18px; line-height: 1.25; }
   .page-faq .faq-item summary .plus { width: 34px; height: 34px; }
-  .page-faq .faq-item .faq-a { padding-left: var(--faq-x); font-size: 15px; }
+  .page-faq .faq-item .faq-a { padding-left: var(--faq-x); font-size: 14px; }
 }

@@ -60,6 +60,18 @@
   .page-pricing .pricing .btn-ghost { color: var(--ink); border-color: rgba(126,115,108,.35); background: rgba(255,253,249,.5); }
   .page-pricing .pricing .btn-ghost:hover { border-color: var(--ink); }
   .page-pricing .checkout-status.error { color: #9E3A2F; }
+  /* The prices are the reason anyone opens this page, so the cards sit
+     inside the first screen on a laptop and a phone: a short opener, and
+     the trust points moved under the cards. */
+  .page-pricing .page-head { padding: 128px 0 28px; }
+  .page-pricing .page-head h1 { font-size: clamp(34px, 4.4vw, 58px); }
+  .page-pricing .page-head .section-head p { margin-top: 14px; font-size: 16px; }
+  .page-pricing .trust-strip--after { margin: 32px 0 0; }
+  @media (max-width: 700px) {
+    .page-pricing .page-head { padding: 100px 0 18px; }
+    .page-pricing .page-head .section-head p { font-size: 15px; line-height: 1.55; }
+  }
+
   .page-pricing .price-guarantee, .page-pricing .price-guarantee--stripe { color: var(--slate); }
   .page-pricing .price-guarantee .check { color: var(--rose-deep); }
   .page-pricing .price-scarcity { color: var(--slate); }
@@ -151,24 +163,13 @@
     <div class="section-head center reveal in">
       <div class="eyebrow"><span class="dot"></span>Pricing</div>
       <h1>Straightforward pricing.</h1>
-      <p><strong data-price="plus.name">Semester HQ Plus</strong> is <span data-price="plus.monthly">$7.99</span> a month, and it is the whole thing: your semester saved and synced across devices, syllabus upload, shared classes, study groups, and club calendars. Cancel anytime, with a <span data-price="plus.refundDays">14</span>-day refund on your first charge.</p>
+      <p><strong data-price="plus.name">Semester HQ Plus</strong> is <span data-price="plus.monthly">$7.99</span> a month. Cancel anytime, with a <span data-price="plus.refundDays">14</span>-day refund on your first charge.</p>
     </div>
   </div>
 </header>
 
   <section id="pricing" class="pricing section-pad">
     <div class="wrap">
-      <div class="trust-strip reveal reveal-delay-1">
-        <div class="trust-strip-head">Priced for a student budget, not an office.</div>
-        <div class="trust-strip-points">
-          <span>Cancel anytime</span>
-          <span>14-day refund on your first charge</span>
-          <span>Secure checkout with Stripe</span>
-          <span>No school login or IT approval</span>
-          <span>Works for any college or major</span>
-        </div>
-      </div>
-
       <!-- Appears only if js/pricing.js has a real annual price to show. -->
       <div class="price-toggle" data-price-toggle hidden></div>
 
@@ -219,8 +220,19 @@
         </div>
       </div>
 
+      <div class="trust-strip trust-strip--after reveal reveal-delay-2">
+        <div class="trust-strip-head">Priced for a student budget, not an office.</div>
+        <div class="trust-strip-points">
+          <span>Cancel anytime</span>
+          <span>14-day refund on your first charge</span>
+          <span>Secure checkout with Stripe</span>
+          <span>No school login or IT approval</span>
+          <span>Works for any college or major</span>
+        </div>
+      </div>
+
       <div class="price-footer reveal reveal-delay-2">
-        <div class="price-scarcity price-scarcity--demo">Want to see it before you pay? <a href="demo.html" style="text-decoration:underline">Try the live demo</a> — the full interface, with a sample semester, study group, and club. No account, nothing saved.</div>
+        <div class="price-scarcity price-scarcity--demo">Want to see it before you pay? <a href="demo.html" style="text-decoration:underline">Try the live demo</a>: the full interface, with a sample semester, study group, and club. No account, nothing saved.</div>
         <div class="price-scarcity">Your syllabus helps build your Semester HQ. Your academic information stays private. See how in our <a href="privacy.html" style="text-decoration:underline">Privacy Policy</a>.</div>
         <div class="price-scarcity">More than 50 seats, or need an invoice, PO, or W-9? <a href="group-pricing.html" style="text-decoration:underline">Ask for a quote</a>.</div>
         <div class="price-scarcity">Already subscribed? <a href="https://app.semester-hq.com/login.html" style="text-decoration:underline">Log in</a></div>
@@ -349,6 +361,9 @@
           <a href="college-calendar.html">College calendar</a>
           <a href="study-group-scheduler.html">Study group scheduler</a>
           <a href="class-schedule-maker.html">Class schedule maker</a>
+          <a href="syllabus-for-educators.html">For educators</a>
+          <a href="groups-teams-getting-started.html">For groups and teams</a>
+          <a href="add-to-home-screen.html">Add to home screen</a>
         </div>
         <div class="footer-col">
           <h2 class="footer-heading">Company</h2>

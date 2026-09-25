@@ -397,7 +397,7 @@ body { background: transparent; }
 .door-cell { min-width: 0; perspective: 1200px; }
 .c-features { grid-column: span 5; }
 .c-how      { grid-column: span 4; }
-.c-demo     { grid-column: span 3; }
+.c-demo, .c-who { grid-column: span 3; }
 .c-students { grid-column: span 3; }
 .c-pricing  { grid-column: span 4; }
 .c-faq      { grid-column: span 5; }
@@ -435,7 +435,7 @@ body { background: transparent; }
 /* A shallow curve: outer panes turn a few degrees toward the centre. A
    static pose, so it holds under reduced motion too. */
 .c-features .pane, .c-students .pane { --ry: 4deg; }
-.c-demo .pane, .c-faq .pane { --ry: -4deg; }
+.c-demo .pane, .c-who .pane, .c-faq .pane { --ry: -4deg; }
 html.motion .pane {
   transform:
     translate3d(calc(var(--mx, 0) * var(--d, 1) * -6px), calc(var(--my, 0) * var(--d, 1) * -5px), 0)
@@ -728,7 +728,7 @@ body.home .w-note a:hover { text-decoration-color: var(--ink); }
 
 /* The slab: the dashboard as a lit glass object standing on a floor. */
 body.home .stage-wrap { margin-top: clamp(40px, 6vh, 64px); }
-body.home .stage { position: relative; max-width: 860px; margin-inline: auto; --tilt: 7deg; }
+body.home .stage { position: relative; max-width: 980px; margin-inline: auto; --tilt: 0deg; }
 body.home .rig { position: relative; perspective: 1800px; perspective-origin: 50% 0%; }
 body.home .slab, body.home .slab-reflect {
   padding: 9px;
@@ -738,13 +738,12 @@ body.home .slab, body.home .slab-reflect {
 }
 body.home .slab {
   position: relative; z-index: 2;
-  transform-origin: 50% 100%;
-  transform: rotateX(var(--tilt));
-  box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(255,255,255,.6),
-              0 2px 4px rgba(74,58,46,.05), 0 30px 60px -30px rgba(74,58,46,.34), 0 90px 150px -70px rgba(74,58,46,.42);
+  /* Flat and shadowless (Sept 24): a 3D tilt resamples the screenshot and
+     softens its small text, and the drop shadow read as heavy. */
+  box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(255,255,255,.6);
 }
 body.home .slab::after {   /* a band of reflected light across the glass */
-  content: ""; position: absolute; inset: 0; border-radius: var(--r-card); pointer-events: none;
+  content: none; position: absolute; inset: 0; border-radius: var(--r-card); pointer-events: none;
   background: linear-gradient(112deg, rgba(255,255,255,0) 34%, rgba(255,255,255,.28) 44%, rgba(255,255,255,0) 56%);
   mix-blend-mode: screen;
 }
@@ -762,7 +761,7 @@ body.home .slab-screen img { width: 100%; height: auto; }
 body.home .slab-reflect {
   position: absolute; inset: 0; z-index: 1;
   transform-origin: 50% 100%;
-  transform: rotateX(calc(var(--tilt) * -1)) scaleY(-1);
+  transform: scaleY(-1);
   opacity: .42; pointer-events: none;
   -webkit-mask-image: linear-gradient(to top, #000 0%, rgba(0,0,0,.35) 10%, transparent 30%);
   mask-image: linear-gradient(to top, #000 0%, rgba(0,0,0,.35) 10%, transparent 30%);
@@ -779,8 +778,8 @@ body.home .floor {
   mask-image: radial-gradient(ellipse 46% 80% at 50% 0%, #000 0%, transparent 100%);
   pointer-events: none;
 }
-body.home .stage::after {   /* contact shadow where the slab meets the floor */
-  content: ""; position: absolute; left: 8%; right: 8%; top: 100%; height: 40px; margin-top: -20px; z-index: -1;
+body.home .stage::after {   /* contact shadow: off with the drop shadow */
+  content: none; position: absolute; left: 8%; right: 8%; top: 100%; height: 40px; margin-top: -20px; z-index: -1;
   background: radial-gradient(closest-side, rgba(74,58,46,.22), rgba(74,58,46,0));
   pointer-events: none;
 }
@@ -825,6 +824,18 @@ body.home .show-side { justify-self: end; max-width: 440px; }
 body.home .show-lede { font-size: 1.02rem; line-height: 1.62; color: var(--slate); }
 body.home .show-side .btn { margin-top: 20px; }
 
+/* Explore: the fold and two feature cards sit under the panes. */
+body.home .explore-fold { margin-top: clamp(72px, 9vw, 128px); }
+body.home .explore-fold .fold-stage { margin-top: clamp(100px, 9vw, 124px); }
+body.home .explore-features { margin-top: clamp(64px, 7vw, 104px); }
+.explore-features-title { margin-top: 16px; font: 400 clamp(2rem, 3.4vw, 3.3rem)/1 var(--f-serif); letter-spacing: -.02em; text-wrap: balance; }
+.explore-features-title em { color: var(--rose-deep); }
+body.home .show-title { font-family: var(--f-serif); font-weight: 400; }
+/* Who it's for: three links in one pane. */
+.pane--who { cursor: default; }
+.pane--who .day { text-decoration: none; transition: border-color .25s, background-color .25s; }
+.pane--who .day:hover, .pane--who .day:focus-visible { border-color: var(--ink); background: #fff; }
+
 body.home .show-grid { list-style: none; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 20px; }
 body.home .show-card {
   position: relative; isolation: isolate; overflow: hidden;
@@ -864,9 +875,9 @@ body.home .wchip .w-dot { width: 6px; height: 6px; }
 /* ── Home responsive ───────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .panes { grid-auto-rows: 320px; }
-  .c-features, .c-how, .c-demo, .c-students, .c-pricing, .c-faq { grid-column: span 6; }
+  .c-features, .c-how, .c-demo, .c-who, .c-students, .c-pricing, .c-faq { grid-column: span 6; }
   .panes::before { background-size: calc((100% + 20px) / 6) 100%; }
-  .c-features .pane, .c-demo .pane, .c-pricing .pane { --ry: 3deg; }
+  .c-features .pane, .c-demo .pane, .c-who .pane, .c-pricing .pane { --ry: 3deg; }
   .c-how .pane, .c-students .pane, .c-faq .pane { --ry: -3deg; }
   .shot--phone { width: 44%; }
   body.home .s-upload, body.home .s-lms, body.home .s-class, body.home .s-groups { grid-column: span 6; }
@@ -899,7 +910,7 @@ body.home .wchip .w-dot { width: 6px; height: 6px; }
   html.motion body.home .orn { transform: none; }
 
   .panes { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 14px; }
-  .c-features, .c-how, .c-demo, .c-students, .c-pricing, .c-faq { grid-column: auto; }
+  .c-features, .c-how, .c-demo, .c-who, .c-students, .c-pricing, .c-faq { grid-column: auto; }
   .door-cell .pane { --ry: 0deg; }
   .panes::before { display: none; }
   .pane { padding: 18px 18px 0; }
