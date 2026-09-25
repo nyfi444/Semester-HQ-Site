@@ -23,6 +23,10 @@ const diag = (() => {
   function report(feature, message, err) {
     const errMessage = err?.message || '';
     const text = scrub(errMessage && errMessage !== message ? `${message}: ${errMessage}` : message || errMessage || 'Unknown error', 2000);
+    // Safari reports a page-to-page animation cut short by a quick tap or the
+    // back button as an error (css/world.css @view-transition). The visitor
+    // sees nothing wrong, so it isn't reported.
+    if (/Skipping view transition|view transition was (skipped|aborted)|Transition was (skipped|aborted)/i.test(text) || err?.name === 'AbortError' && /transition/i.test(text)) return;
     if (!navigator.onLine || /^Script error\.?$/.test(text) || /-extension:\/\//.test(err?.stack || '')) return;
     if (seen.has(text) || seen.size >= MAX_REPORTS) return;
     seen.add(text);
