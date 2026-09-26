@@ -36,7 +36,7 @@ serve exactly the way production does.
 
 | File | What it does |
 |---|---|
-| `wrangler.toml` | Worker name, `html_handling = "none"`, `not_found_handling = "404-page"`, and the production route |
+| `wrangler.toml` | Worker name, `html_handling = "none"`, `not_found_handling = "404-page"`. No route: see Rolling back |
 | `_headers` | Security headers: HSTS, nosniff, referrer and permissions policy, `X-Frame-Options: DENY`, and the Report-Only CSP |
 | `_redirects` | **Generated.** Rewrites (not redirects) for `/`, every `/page` short address, and every `@2x` image. Run `node tools/build-redirects.mjs` after adding, renaming or removing a page or image. The build also runs it |
 | `.assetsignore` | Keeps `tools/`, `build-preview.py`, the preview files and repo files off the site |
@@ -63,8 +63,10 @@ must answer 200 with no redirect and the same page as the reference.
 
 - **A bad deploy:** run `npx wrangler rollback`.
 - **The whole hosting move:** production is reached through a Worker route
-  (`semester-hq.com/*`). DNS was never changed. Removing the route puts
-  traffic back on GitHub Pages while Pages is still on. `www` is redirected
+  (`semester-hq.com/*`). DNS was never changed. In the app repo
+  (student-dashboard), `node tools/hosting-routes.mjs rollback` removes both
+  sites' routes in one step and confirms GitHub Pages is answering again,
+  while Pages is still on. `www` is redirected
   to the apex by a zone Redirect Rule, which works either way.
 
 ## Headers during the changeover
