@@ -1,0 +1,25 @@
+# Security headers for semester-hq.com.
+#
+# Until GitHub Pages is switched off, the zone's Transform Rule "Security
+# headers, site" also sets Referrer-Policy, X-Frame-Options,
+# Permissions-Policy and the report-only CSP, and it wins over this file.
+# Keep these values identical to that rule until it is deleted.
+#
+# The CSP is Report-Only on purpose: it logs to the browser console and
+# blocks nothing. Enforce it only after a clean run across every page.
+#
+# X-Frame-Options DENY is safe here: the site frames the app, nothing frames
+# the site.
+
+/*
+  Strict-Transport-Security: max-age=15552000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com; font-src https://fonts.gstatic.com https://cdn.fontshare.com; img-src 'self' data:; connect-src 'self' https://student-planner-ai-proxy.semesterhq.workers.dev https://cloudflareinsights.com; frame-src https://app.semester-hq.com https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'
+
+# Branch previews live on workers.dev. Keep them out of search results so
+# they never compete with semester-hq.com.
+https://:preview.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex

@@ -1,0 +1,29 @@
+# Serves semester-hq.com as a static-assets Worker (it moved off GitHub
+# Pages, whose terms don't allow hosting a commercial SaaS).
+#
+# There is no Worker script: every request is answered from the files in
+# this folder. _headers sets the security headers, _redirects serves the
+# extensionless addresses (/features) from their .html files without a
+# redirect, and .assetsignore keeps repo-only files off the site.
+#
+# html_handling = "none" on purpose. Cloudflare's default redirects
+# /features.html to /features, but every URL in sitemap.xml, every canonical
+# tag and every internal link ends in .html and has to answer 200 as it is.
+#
+# workers_dev = false: no public production copy on workers.dev. Previews
+# (one per branch) still get their own workers.dev address, and _headers
+# marks those noindex.
+#
+# Production is reached through Worker routes on the semester-hq.com zone,
+# not a custom domain, so the DNS records are never touched. Deploys and
+# previews: see DEPLOYING.md.
+
+name = "semester-hq-site"
+compatibility_date = "2026-09-01"
+workers_dev = false
+preview_urls = true
+
+[assets]
+directory = "./"
+html_handling = "none"
+not_found_handling = "404-page"

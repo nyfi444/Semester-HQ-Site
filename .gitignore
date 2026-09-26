@@ -6,3 +6,6 @@
 _preview-motion.html
 _preview-motion.css
 build-preview.py
+
+# Wrangler's local state (wrangler dev / deploy)
+.wrangler/
