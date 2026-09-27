@@ -7,7 +7,7 @@
 // in the Cloudflare dashboard). The Worker checks the token only once its
 // TURNSTILE_SECRET is set, so the two sides switch on together; until then
 // the forms work exactly as before, behind their rate limits.
-const TURNSTILE_SITEKEY = document.querySelector('meta[name="turnstile-sitekey"]')?.content || '';
+const TURNSTILE_SITEKEY = (IS_PRODUCTION ? document.querySelector('meta[name="turnstile-sitekey"]')?.content : TURNSTILE_TEST_SITEKEY) || '';
 let _turnstileWidget = null;
 function turnstileToken() {
   try { return TURNSTILE_SITEKEY && window.turnstile && _turnstileWidget !== null ? window.turnstile.getResponse(_turnstileWidget) : ''; }

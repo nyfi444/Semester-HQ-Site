@@ -10,7 +10,28 @@
    Emails and URL parameter values are stripped before sending; the page is
    sent as its path only. Capped per page view so a loop can't spam it.
 ──────────────────────────────────────────────────────────────── */
-const WORKER_URL = 'https://student-planner-ai-proxy.semesterhq.workers.dev';
+// Production is only the real hostnames. A branch Preview, a version URL or
+// localhost talks to the staging Worker instead: Stripe in test mode, its
+// own Firebase project, email only to the people testing. Same rule as the
+// app's js/config.js.
+const PRODUCTION_HOSTS = ['semester-hq.com', 'www.semester-hq.com', 'app.semester-hq.com'];
+const IS_PRODUCTION = PRODUCTION_HOSTS.includes(location.hostname);
+const WORKER_URL = IS_PRODUCTION
+  ? 'https://student-planner-ai-proxy.semesterhq.workers.dev'
+  : 'https://student-planner-ai-proxy-staging.semesterhq.workers.dev';
+// Cloudflare's published always-pass Turnstile key, for staging only.
+const TURNSTILE_TEST_SITEKEY = '1x00000000000000000000AA';
+// A small corner label on preview addresses, so a staging page is never
+// mistaken for the real site. Not on localhost, where screenshots are taken.
+if (!IS_PRODUCTION && /\.workers\.dev$/.test(location.hostname)) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const tag = document.createElement('div');
+    tag.textContent = 'Staging · test data only';
+    tag.setAttribute('aria-hidden', 'true');
+    tag.style.cssText = 'position:fixed;left:10px;bottom:10px;z-index:2147483647;pointer-events:none;font:600 11px/1 -apple-system,system-ui,sans-serif;letter-spacing:.02em;color:#F8F6F2;background:#121212;padding:6px 9px;border-radius:999px;opacity:.85';
+    document.body.appendChild(tag);
+  });
+}
 
 const diag = (() => {
   const MAX_REPORTS = 10;
