@@ -48,15 +48,16 @@
 
   --container: 1220px;
 
-  /* ── The signature shape ────────────────────────────────
-     One soft corner, three tight, a page with a folded corner. Defined
-     identically in the app (student-planner/css/styles.css) so the two
-     surfaces are recognisably the same product, not two nice ones. Every
-     rounded thing on this site uses one of these; pills stay pills and
-     circles stay circles, and those are the only exceptions. */
-  --r-soft: 26px;
+  /* ── Shape ──────────────────────────────────────────────
+     Every shape has the same radius on all four corners (Nyla, Sep 28
+     2026: the old folded corner, 26px top-left and 9px elsewhere, is
+     gone). Defined identically in the app (student-planner/css/styles.css)
+     so the two surfaces are recognisably the same product. Every rounded
+     thing on this site uses one of these; pills stay pills and circles
+     stay circles, and those are the only exceptions. */
+  --r-soft: 16px;   /* kept as a name for older rules; same as --r-card */
   --r-tight: 9px;
-  --r-card: var(--r-soft) var(--r-tight) var(--r-tight) var(--r-tight);
+  --r-card: var(--r-soft);
   --r-pill: 999px;
   --r-mark: 3px;
 }
