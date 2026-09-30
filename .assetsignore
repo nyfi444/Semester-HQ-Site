@@ -18,3 +18,5 @@ tools/**
 build-preview.py
 _preview-motion.html
 _preview-motion.css
+.githooks
+.githooks/**
