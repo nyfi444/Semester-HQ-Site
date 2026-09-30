@@ -57,8 +57,6 @@ JOBS = [
     ('t-apps', 'applications-phone.png', (0, 0, 390, 420), [390, 780]),
     ('t-todos', 'todos-phone.png', (0, 0, 390, 420), [390, 780]),
     ('t-notebook', 'notebook-desktop.png', (560, 72, 1080, 632), [390, 780]),
-    # The phone hero: the dashboard screen as a flat card, no handset.
-    ('p-dash-top', 'dashboard-phone.png', (0, 0, 390, 600), [390, 780, 1170]),
 ]
 
 

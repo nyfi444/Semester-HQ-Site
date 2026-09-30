@@ -176,7 +176,7 @@ html.js .rise-in.in { transform: none; opacity: 1; }
 .hero-act { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
 .actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-stage { position: relative; margin-top: 48px; padding-bottom: 40px; }
-.hero-stage .hero-card { display: none; }
+.hero-phones { display: none; }
 
 @media (max-width: 1000px) {
   .hero-row { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -191,12 +191,36 @@ html.js .rise-in.in { transform: none; opacity: 1; }
   .actions .btn { padding: 0 12px; }
   .hero-stage { margin-top: 36px; padding-bottom: 0; }
   .hero-stage .desk-only { display: none; }
-  /* Phones get the dashboard screen itself, flat like every other frame,
-     cut at a fade so the first screen stays headline and buttons first. */
-  .hero-stage .hero-card {
-    display: block; max-height: 460px;
-    -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%); mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
-  }
+  .hero-phones { display: block; }
+}
+
+/* Phone hero: two real handsets on a lit floor. The dashboard stands in
+   front, the week leans behind it, and the pair is cut off by the fold of
+   paper below so the first screen stays headline and buttons first. */
+.hero-phones {
+  position: relative; height: 468px; margin-inline: calc(var(--gutter) * -1); overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%); mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
+}
+.hero-phones::before {
+  content: ''; position: absolute; left: 50%; top: 40px; width: 420px; height: 420px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .95), rgba(255, 255, 255, 0)), radial-gradient(closest-side at 50% 70%, rgba(201, 184, 170, .35), rgba(201, 184, 170, 0));
+}
+.handset {
+  position: absolute; margin: 0; padding: 6px; border-radius: 42px;
+  background: linear-gradient(135deg, #3a3632 0%, #121212 38%, #121212 64%, #34302c 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), 0 2px 4px rgba(18, 18, 18, .08), 0 36px 60px -24px rgba(60, 44, 32, .42);
+}
+/* The screen: a status bar with the island in it, then the real capture. */
+.handset .screen { position: relative; overflow: hidden; border-radius: 36px; background: #F8F6F2; padding-top: 34px; }
+.handset .screen::before { content: '10:20'; position: absolute; top: 11px; left: 24px; font: 600 12px/1 var(--f-sans); color: var(--ink); letter-spacing: -.01em; }
+.handset .screen::after { content: ''; position: absolute; top: 9px; left: 50%; width: 30%; height: 17px; transform: translateX(-50%); border-radius: 12px; background: #121212; }
+.handset img { display: block; width: 100%; height: auto; }
+.handset-front { width: 226px; left: calc(50% - 168px); top: 16px; z-index: 2; }
+.handset-back { width: 184px; left: calc(50% + 12px); top: 70px; z-index: 1; transform: rotate(6deg); transform-origin: 0 0; }
+.handset-back .screen::before { font-size: 10px; top: 10px; left: 20px; }
+@media (max-width: 360px) {
+  .handset-front { width: 206px; left: calc(50% - 152px); }
+  .handset-back { width: 168px; }
 }
 
 /* ── Chapters ── */
