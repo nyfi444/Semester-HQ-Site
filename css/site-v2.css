@@ -115,6 +115,7 @@ body::before {
   .g-links a:hover, .g-links a[aria-current="page"] { background: none; }
   .g-links .g-menu-only { display: flex; }
   .g-links a.g-menu-cta { justify-content: center; margin-top: 24px; min-height: 52px; border: 0; border-radius: var(--g-r); background: var(--g-ink); color: var(--g-bg); font: 600 16px/1 var(--g-sans); }
+  .g-links a.g-menu-login { justify-content: center; margin-top: 10px; min-height: 52px; border: 1px solid var(--g-line-strong); border-radius: var(--g-r); color: var(--g-ink); font: 600 16px/1 var(--g-sans); }
 }
 @media (max-width: 380px) { .g-login { display: none; } }
 
@@ -203,6 +204,9 @@ main .btn { box-shadow: none; }
 
 /* Buttons: the app's shape, not a pill (same as home). */
 .btn { border-radius: 9px !important; }
+
+/* The demo window scrolls into view below the sticky header (js/main.js). */
+.try-live-frame { scroll-margin-top: 88px; }
 
 /* .nav-login stays on the new login link for js/track.js; styles.css
    gives that class a sandstone fill, which the new menu does not use. */

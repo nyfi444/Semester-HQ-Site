@@ -151,8 +151,9 @@ em { font-style: italic; }
   .nav-links a:hover { background: none; }
   .nav-links .menu-only { display: flex; }
   .nav-links a.menu-cta { justify-content: center; margin-top: 24px; min-height: 52px; border: 0; border-radius: var(--r-tight); background: var(--ink); color: var(--bg); font: 600 var(--fs-xl)/1 var(--f-sans); }
+  .nav-links a.menu-login { justify-content: center; margin-top: 10px; min-height: 52px; border: 1px solid var(--edge); border-radius: var(--r-tight); color: var(--ink); font: 600 var(--fs-xl)/1 var(--f-sans); }
 }
-@media (max-width: 380px) { .nav-login { display: none; } }
+@media (max-width: 380px) { .nav-cta .nav-login { display: none; } }
 
 /* ── Frames: the real app, flat, one soft corner ── */
 .frame { margin: 0; border-radius: var(--r-card); border: 1px solid var(--edge); background: var(--surface); overflow: hidden; }
