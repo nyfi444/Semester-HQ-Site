@@ -11,9 +11,7 @@
        (the app still uses /#pricing) point at fragments. They hop to
        their new pages here, before anything draws. Keep this map in step
        with the one in js/world.js, which is the fallback;
-     - the arrival: at most once per visit, and only when home is the
-       first page of it (world.js marks the visit on every page). With
-       JS off, or storage blocked, there is no arrival at all. -->
+     The arrival and the drifting light field are retired in design v2. -->
 <script>
 (function (d) {
   d.classList.add('js');
@@ -23,12 +21,6 @@
   if (Object.prototype.hasOwnProperty.call(m, h)) to = m[h];
   else if (/^feat-[a-z0-9-]+$/.test(h)) to = 'features.html#' + h;
   if (to) { location.replace(to); return; }
-  try {
-    if (!sessionStorage.getItem('shq-entered')) {
-      sessionStorage.setItem('shq-entered', '1');
-      d.classList.add('has-portal');
-    }
-  } catch (e) {}
 })(document.documentElement);
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,17 +51,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-<!-- imagesrcset must mirror the hero <picture> exactly, or the preload
-     fetches a density the page then never uses and the file is pure waste
-     (it was fetching the 1x, 47KB, on top of the 2x). -->
-<link rel="preload" as="image" href="assets/product/dashboard-desktop.webp" imagesrcset="assets/product/dashboard-desktop.webp 1x, assets/product/dashboard-desktop@2x.webp 2x" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/v2/dash-1100.webp" imagesrcset="assets/v2/dash-1100.webp 1100w, assets/v2/dash-2200.webp 2200w" imagesizes="(max-width: 1300px) 84vw, 1025px" media="(min-width: 701px)" type="image/webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/experience.css">
-<link rel="stylesheet" href="css/world.css">
-<!-- The fold and the live demo moved here from demo.html and keep its look. -->
-<link rel="stylesheet" href="css/page-demo.css">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/home-v2.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -147,377 +132,223 @@
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "78e77abf3a0d4bfbac8638a1ff1ffdd3"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
-<body class="home page-demo">
+<body class="home">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- One sprite for this page: the brand star (the ✦) and an arrow. -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="star" viewBox="-10 -10 20 20"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></symbol>
   <symbol id="arrow" viewBox="0 0 16 16"><path d="M2.5 8h10.5M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="check" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
-
-<!-- THE ARRIVAL. Decoration only: aria-hidden, never takes a click, and
-     only drawn when the <head> script set .has-portal. js/world.js runs it. -->
-<div class="arrival" id="arrival" aria-hidden="true">
-  <svg class="arrival-svg" viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid slice" focusable="false">
-    <defs>
-      <radialGradient id="arr-veil" cx="0" cy="0" r="72" gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#FFFDF9"/>
-        <stop offset=".42" stop-color="#F5F1EB"/>
-        <stop offset=".78" stop-color="#E9E1D9"/>
-        <stop offset="1" stop-color="#DDD0C6"/>
-      </radialGradient>
-      <radialGradient id="arr-core" cx=".5" cy=".5" r=".5">
-        <stop offset="0" stop-color="#FFFFFF"/>
-        <stop offset=".55" stop-color="#FFFDF9"/>
-        <stop offset="1" stop-color="#EFE6DD"/>
-      </radialGradient>
-      <radialGradient id="arr-halo" cx="0" cy="0" r="26" gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/>
-        <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <path class="arrival-veil" fill="url(#arr-veil)" fill-rule="evenodd" d="M-90 -90H90V90H-90Z"/>
-    <circle class="arrival-halo" r="26" fill="url(#arr-halo)"/>
-    <path class="arrival-glow" fill="none" stroke="#FFFFFF" stroke-width=".9" stroke-linejoin="round" d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/>
-    <path class="arrival-core" fill="url(#arr-core)" d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/>
-    <path class="arrival-rim" fill="none" stroke="#9C8576" stroke-opacity=".75" stroke-width=".13" stroke-linejoin="round" d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/>
-  </svg>
-  <div class="arrival-label">
-    <span class="arrival-word">Semester HQ</span>
-    <span class="readout" data-live-term="portal">Fall 2026</span>
-  </div>
-</div>
-
-<!-- The field: the light the whole site sits in. -->
-<div class="world-field" aria-hidden="true">
-  <i class="wf-sand"></i><i class="wf-rose"></i><i class="wf-light"></i><i class="wf-floor"></i>
-  <div class="world-grain"></div>
-</div>
 
 <nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
     <div class="nav-bar">
-      <a class="wordmark" href="./" aria-current="page">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
+      <a class="wordmark" href="./" aria-current="page">Semester HQ</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
       <div class="nav-links" id="nav-links">
-        <a href="features.html"><span class="ni" aria-hidden="true">01</span>Features</a>
-        <a href="how-it-works.html"><span class="ni" aria-hidden="true">02</span>How it works</a>
-        <a href="demo.html"><span class="ni" aria-hidden="true">03</span>Demo</a>
-        <a href="students.html"><span class="ni" aria-hidden="true">04</span>Students</a>
-        <a href="pricing.html"><span class="ni" aria-hidden="true">05</span>Pricing</a>
-        <a href="faq.html"><span class="ni" aria-hidden="true">06</span>FAQ</a>
+        <a href="features.html">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="group-pricing.html">Clubs &amp; teams</a>
+        <a href="demo.html">Demo</a>
+        <a href="pricing.html">Pricing</a>
+        <a class="menu-only" href="faq.html">FAQ</a>
+        <a class="menu-only menu-cta" href="https://app.semester-hq.com/login.html?signup=1">Get started</a>
       </div>
       <div class="nav-cta">
         <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost btn-sm nav-login">Log in</a>
         <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary btn-sm nav-start">Get started</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
       </div>
     </div>
   </div>
 </nav>
 
 <div class="sticky-cta">
-  <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started <span class="btn-arrow" aria-hidden="true">→</span></a>
+  <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started</a>
 </div>
 
 <main id="main">
 
-  <!-- HERO: one promise, one button, the real product. -->
-  <section class="w-hero" aria-labelledby="hero-title" data-hero>
-    <div class="wrap w-hero-copy">
-      <p class="w-eyebrow glass rise" style="--i:0"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#star"/></svg>Everything your semester needs. One HQ.</p>
-      <h1 id="hero-title"><span class="ln"><span style="--i:0">Your entire semester,</span></span> <span class="ln"><span style="--i:1"><em>finally</em> in one place.</span></span></h1>
-      <p class="w-sub rise" style="--i:3">Upload a syllabus and your class times, every deadline, exam dates, and office hours land in one connected place, with your study group and your club’s calendar right beside them.</p>
-      <div class="w-actions rise" style="--i:4">
-        <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary btn-lg">Get started <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
-        <a href="pricing.html" class="btn btn-glass btn-lg">See pricing</a>
+  <!-- HERO: the promise, then the real app. -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <h1 id="hero-title"><span class="ln">Your entire semester,</span> <span class="ln"><em>finally</em> in one place.</span></h1>
+      <div class="hero-row">
+        <p class="lede">Upload a syllabus. Every deadline, exam, and office hour lands on one calendar, next to your study group and your club.</p>
+        <div class="hero-act" data-hero-actions>
+          <div class="actions">
+            <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started</a>
+            <a href="demo.html" class="btn">Try the live demo</a>
+          </div>
+          <p class="note"><span data-price="plus.monthly">$7.99</span> a month. Cancel anytime. <span data-price="plus.refundDays">14</span>-day refund. <a href="group-pricing.html">Clubs from <span data-price="groups.perMember">$5.99</span> a member.</a></p>
+        </div>
       </div>
-      <p class="w-note rise" style="--i:5"><span data-price="plus.monthly">$7.99</span> a month, cancel anytime, with a <span data-price="plus.refundDays">14</span>-day refund on your first charge. Want to look around first? <a href="#demo">Try the live demo</a>, no account needed.</p>
     </div>
 
-    <div class="wrap stage-wrap rise" style="--i:6">
-      <div class="stage" data-stage>
-        <div class="floor" aria-hidden="true"></div>
-        <div class="rig">
-          <div class="slab">
-            <div class="slab-bar" aria-hidden="true"><span class="slab-dots"><i></i><i></i><i></i></span><span class="slab-url">app.semester-hq.com</span></div>
-            <div class="slab-screen">
-              <picture>
-                <source srcset="assets/product/dashboard-desktop.webp 1x, assets/product/dashboard-desktop@2x.webp 2x" type="image/webp">
-                <img src="assets/product/dashboard-desktop.jpg" srcset="assets/product/dashboard-desktop.jpg 1x, assets/product/dashboard-desktop@2x.jpg 2x" width="1440" height="900" alt="The Semester HQ dashboard: Saturday of week 4 of 16, Webwork 6 up next at 10 PM, today’s schedule, a due-this-week list grouped into overdue, today, and tomorrow, three upcoming exams with day counts, and a weekly focus goal." fetchpriority="high" decoding="async">
-              </picture>
-            </div>
-          </div>
-          <div class="slab-reflect" aria-hidden="true">
-            <div class="slab-bar"><span class="slab-dots"><i></i><i></i><i></i></span></div>
-            <div class="slab-screen"><img src="assets/product/dashboard-desktop.webp" srcset="assets/product/dashboard-desktop.webp 1x, assets/product/dashboard-desktop@2x.webp 2x" width="1440" height="900" alt="" decoding="async"></div>
-          </div>
-        </div>
-
-        <div class="orns" aria-hidden="true">
-          <div class="orn orn--term glass">
-            <p class="readout">Example term · live</p>
-            <p class="orn-big"><span data-live-term="week">Fall 2026</span><small data-live-term="of"></small></p>
-            <div class="meter"><i data-live-term="bar"></i></div>
-            <div class="meter-ticks"><i></i><i></i><i></i><i></i><i></i></div>
-            <p class="readout" data-live-term="span">Aug 24 – Dec 11</p>
-          </div>
-          <div class="orn orn--next glass">
-            <p class="readout"><span class="w-dot" style="--c:#4f8a5b"></span>Up next · 10:00 PM</p>
-            <p class="orn-title">Webwork 6</p>
-            <p class="orn-sub">Due · MATH 152</p>
-          </div>
-          <div class="orn orn--exam glass">
-            <div><span class="orn-num">9</span><span class="readout">days</span></div>
-            <div>
-              <p class="orn-title" style="margin-top:0;font-size:22px">Midterm 1</p>
-              <p class="orn-sub"><span class="w-dot" style="--c:#3b6ea5"></span>CHEM 210 · Mon, Sep 28</p>
-            </div>
-          </div>
+    <div class="wrap">
+      <div class="hero-stage">
+        <figure class="frame frame-lift rise-in desk-only">
+          <img src="assets/v2/dash-1100.webp" srcset="assets/v2/dash-1100.webp 1100w, assets/v2/dash-2200.webp 2200w" sizes="(max-width: 1300px) 84vw, 1025px" width="1440" height="900" alt="The Semester HQ dashboard on a Tuesday in week 4 of 16: Intro to Psychology up next in 40 minutes, what is due this week, today's classes, three exams with day counts, and this week's focus time." fetchpriority="high">
+        </figure>
+        <figure class="phone desk-only rise-in" data-drift="-36">
+          <img src="assets/v2/p-week-330.webp" srcset="assets/v2/p-week-330.webp 330w, assets/v2/p-week-660.webp 660w, assets/v2/p-week-990.webp 990w" sizes="256px" width="390" height="844" alt="The week view of the calendar on a phone, with CHEM 210, PSY 101, MATH 152 and MKT 300 classes as blocks." loading="lazy" decoding="async">
+        </figure>
+        <!-- Phones only: two handsets, the dashboard in front and the week behind it. -->
+        <div class="hero-phones" aria-hidden="false">
+          <figure class="handset handset-back">
+            <div class="screen"><img src="assets/v2/p-week-330.webp" srcset="assets/v2/p-week-330.webp 330w, assets/v2/p-week-660.webp 660w, assets/v2/p-week-990.webp 990w" sizes="190px" width="390" height="844" alt="The week view of the calendar on a phone." loading="lazy" decoding="async"></div>
+          </figure>
+          <figure class="handset handset-front">
+            <div class="screen"><img src="assets/v2/p-dash-390.webp" srcset="assets/v2/p-dash-390.webp 390w, assets/v2/p-dash-780.webp 780w, assets/v2/p-dash-1170.webp 1170w" sizes="240px" width="390" height="844" alt="The Semester HQ dashboard on a phone: Intro to Psychology up next, 6 due this week, 1 overdue, 5 cards to review, and today's classes." loading="lazy" decoding="async"></div>
+          </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPLORE: the doorway to every page of the site. -->
-  <section class="doorway" aria-labelledby="doorway-title">
-    <div class="doorway-glow" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="doorway-head">
-        <div>
-          <p class="label"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#star"/></svg>The way in</p>
-          <h2 id="doorway-title">Explore <em>Semester HQ</em>.</h2>
-        </div>
-        <p class="doorway-lede">Everything your semester needs has a page of its own. Pick one and step inside.</p>
+  <!-- CHAPTER 1: semester setup. The strongest argument goes first. -->
+  <section class="chapter ch-setup" aria-labelledby="setup-title">
+    <div class="wrap split">
+      <div class="split-copy">
+        <p class="label"><span class="dot" style="--c:#3b6ea5"></span>Semester setup</p>
+        <h2 id="setup-title">Your semester is built in the first minute.</h2>
+        <p class="lede">Hand over each syllabus and your class times. Semester HQ finds every due date, exam, and office hour and puts them on one calendar.</p>
+        <ol class="steps">
+          <li><span>1</span><div><strong>Upload a syllabus</strong><p>A PDF, Word, PowerPoint or Excel file, a photo, or pasted text.</p></div></li>
+          <li><span>2</span><div><strong>Add your Canvas feed</strong><p>Paste the calendar link and Canvas deadlines come in too. Moved dates follow.</p></div></li>
+          <li><span>3</span><div><strong>Check it and go</strong><p>Everything lands in the month view, by class and by color.</p></div></li>
+        </ol>
+        <a class="link" href="how-it-works.html">How setup works <svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
       </div>
-
-      <ul class="panes" data-panes>
-        <li class="door-cell c-features" style="--i:0">
-          <a class="pane" href="features.html" style="--d:1.6">
-            <span class="pane-top"><span class="pane-idx">01</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">7 features</span><span class="pane-go" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><use href="#arrow"/></svg></span></span>
-            <h3 class="pane-title">Features</h3>
-            <span class="pane-line">The syllabus starts it. The rest is why you stay.</span>
-            <span class="pane-window" aria-hidden="true">
-              <span class="fan">
-                <span class="shot shot--fan"><img src="assets/product/exams-phone.webp" srcset="assets/product/exams-phone.webp 1x, assets/product/exams-phone@2x.webp 2x" width="600" height="1298" alt="" loading="lazy" decoding="async"></span>
-                <span class="shot shot--fan"><img src="assets/product/calendar-phone.webp" srcset="assets/product/calendar-phone.webp 1x, assets/product/calendar-phone@2x.webp 2x" width="600" height="1298" alt="" loading="lazy" decoding="async"></span>
-                <span class="shot shot--fan"><img src="assets/product/flashcards-phone.webp" srcset="assets/product/flashcards-phone.webp 1x, assets/product/flashcards-phone@2x.webp 2x" width="600" height="1298" alt="" loading="lazy" decoding="async"></span>
-              </span>
-            </span>
-          </a>
-        </li>
-        <li class="door-cell c-how" style="--i:1">
-          <a class="pane" href="how-it-works.html" style="--d:1.1">
-            <span class="pane-top"><span class="pane-idx">02</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">3 steps</span><span class="pane-go" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><use href="#arrow"/></svg></span></span>
-            <h3 class="pane-title">How it works</h3>
-            <span class="pane-line">Three steps to a semester that is already set up.</span>
-            <span class="pane-window" aria-hidden="true">
-              <span class="steps-track">
-                <span class="st"><span class="st-n">1</span><span class="st-txt"><span class="readout">Step one</span>Upload the syllabus</span></span>
-                <span class="st"><span class="st-n">2</span><span class="st-txt"><span class="readout">Step two</span>See the semester</span></span>
-                <span class="st"><span class="st-n">3</span><span class="st-txt"><span class="readout">Step three</span>Share it with your people</span></span>
-              </span>
-            </span>
-          </a>
-        </li>
-        <li class="door-cell c-who" style="--i:2">
-          <div class="pane pane--who" style="--d:2">
-            <span class="pane-top"><span class="pane-idx">03</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">3 audiences</span></span>
-            <h3 class="pane-title">Who it’s for</h3>
-            <span class="pane-window">
-              <span class="days">
-                <a class="day" href="students.html"><span class="day-disc" aria-hidden="true">S</span><span class="day-txt"><span class="readout">Students</span>Every class, one plan</span></a>
-                <a class="day" href="groups-teams-getting-started.html"><span class="day-disc" aria-hidden="true">C</span><span class="day-txt"><span class="readout">Clubs and teams</span>One shared calendar</span></a>
-                <a class="day" href="syllabus-for-educators.html"><span class="day-disc" aria-hidden="true">E</span><span class="day-txt"><span class="readout">Educators</span>A syllabus that reads well</span></a>
-              </span>
-            </span>
-          </div>
-        </li>
-        <li class="door-cell c-students" style="--i:3">
-          <a class="pane" href="students.html" style="--d:1.8">
-            <span class="pane-top"><span class="pane-idx">04</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">Your week</span><span class="pane-go" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><use href="#arrow"/></svg></span></span>
-            <h3 class="pane-title">Students</h3>
-            <span class="pane-line">A place that already knows what your week looks like.</span>
-            <span class="pane-window" aria-hidden="true">
-              <span class="days">
-                <span class="day"><span class="day-disc">M</span><span class="day-txt"><span class="readout">Monday</span>Case brief · due 11:59 PM</span></span>
-                <span class="day"><span class="day-disc">W</span><span class="day-txt"><span class="readout">Wednesday</span>Deadline moved · Friday</span></span>
-                <span class="day"><span class="day-disc">S</span><span class="day-txt"><span class="readout">Sunday</span>Next week · 6 deadlines</span></span>
-              </span>
-            </span>
-          </a>
-        </li>
-        <li class="door-cell c-pricing" style="--i:4">
-          <a class="pane" href="pricing.html" style="--d:1.2">
-            <span class="pane-top"><span class="pane-idx">05</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">Monthly</span><span class="pane-go" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><use href="#arrow"/></svg></span></span>
-            <h3 class="pane-title">Pricing</h3>
-            <span class="pane-line"><span data-price="plus.monthly">$7.99</span> a month, and that is the whole price.</span>
-            <span class="pane-window" aria-hidden="true">
-              <span class="pw">
-                <span class="pw-price"><sup>$</sup><span data-price="plus.monthly.num">7.99</span></span>
-                <span class="pw-meta"><span class="readout">A month · cancel anytime</span><span class="readout"><span data-price="plus.refundDays">14</span>-day refund</span></span>
-              </span>
-            </span>
-          </a>
-        </li>
-        <li class="door-cell c-faq" style="--i:5">
-          <a class="pane" href="faq.html" style="--d:1.5">
-            <span class="pane-top"><span class="pane-idx">06</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">12 answers</span><span class="pane-go" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><use href="#arrow"/></svg></span></span>
-            <h3 class="pane-title">FAQ</h3>
-            <span class="pane-line">A few things worth knowing before you start.</span>
-            <span class="pane-window" aria-hidden="true">
-              <span class="qs">
-                <span class="q" style="--i:0"><span>Is my data private?</span><i class="q-plus"></i></span>
-                <span class="q" style="--i:1"><span>Does it work on my phone?</span><i class="q-plus"></i></span>
-                <span class="q" style="--i:2"><span>Does it work with Canvas or my school’s LMS?</span><i class="q-plus"></i></span>
-              </span>
-            </span>
-          </a>
-        </li>
-      </ul>
-
-      <!-- SIX TABS, FOLDED INTO ONE (moved from demo.html). The windows are
-           deliberately generic, a title bar, a label and blank lines, so no
-           other company's interface is reproduced here. -->
-      <div id="fold" class="fold explore-fold">
-        <div class="section-head center reveal">
-          <div class="eyebrow"><span class="dot"></span>In one place</div>
-          <h2>Six tabs, folded into one.</h2>
-          <p>Everything you had open, in one window, with the connections already made.</p>
-        </div>
-        <div class="fold-stage" data-fold>
-          <div class="fold-depth" aria-hidden="true">
-          <div class="fold-win"><div class="fold-win-bar"><span class="fold-win-dots"><span></span><span></span><span></span></span><span class="fold-win-name">Canvas · Dashboard</span></div><div class="fold-win-body"><i></i><i></i><i></i><i></i></div></div>
-          <div class="fold-win"><div class="fold-win-bar"><span class="fold-win-dots"><span></span><span></span><span></span></span><span class="fold-win-name">Calendar · September</span></div><div class="fold-win-body"><i></i><i></i><i></i><i></i></div></div>
-          <div class="fold-win"><div class="fold-win-bar"><span class="fold-win-dots"><span></span><span></span><span></span></span><span class="fold-win-name">Notes · Untitled</span></div><div class="fold-win-body"><i></i><i></i><i></i><i></i></div></div>
-          <div class="fold-win"><div class="fold-win-bar"><span class="fold-win-dots"><span></span><span></span><span></span></span><span class="fold-win-name">syllabus_CHEM210.pdf</span></div><div class="fold-win-body"><i></i><i></i><i></i><i></i></div></div>
-          <div class="fold-win"><div class="fold-win-bar"><span class="fold-win-dots"><span></span><span></span><span></span></span><span class="fold-win-name">Group chat · CHEM 210</span></div><div class="fold-win-body"><i></i><i></i><i></i><i></i></div></div>
-          <div class="fold-win"><div class="fold-win-bar"><span class="fold-win-dots"><span></span><span></span><span></span></span><span class="fold-win-name">Reminders · Today</span></div><div class="fold-win-body"><i></i><i></i><i></i><i></i></div></div>
-          </div>
-        </div>
-        <p class="fold-plain">Canvas, your calendar, your notes, the syllabus PDF, the group chat, and your reminders. One window, at <strong>app.semester-hq.com</strong>.</p>
-      </div>
-
-      <!-- Two of the seven features, up close. The rest live on features.html. -->
-      <div class="show-head explore-features">
-        <div>
-          <p class="label"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#star"/></svg>Features</p>
-          <h3 class="explore-features-title">After setup, this is where the term <em>happens</em>.</h3>
-        </div>
-        <div class="show-side">
-          <a class="btn btn-glass" href="features.html">See every feature <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
-        </div>
-      </div>
-      <ul class="show-grid">
-        <li class="show-card s-class">
-          <p class="show-top"><span class="pane-idx">01</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">Class Pages</span></p>
-          <h4 class="show-title">Office hours, the TA, the attendance rule. One page per class.</h4>
-          <p class="show-links"><a class="link-arrow" href="features.html#feat-classpage">More on Class Pages <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a></p>
-          <div class="pane-window show-window">
-            <span class="shot shot--class"><img src="assets/product/class-page-desktop.webp" srcset="assets/product/class-page-desktop.webp 1x, assets/product/class-page-desktop@2x.webp 2x" width="1440" height="900" alt="The Organic Chemistry class page in Semester HQ: a ring showing 44% finished, five open assignments, a coming-up list with Homework 2, Lab report 3, and Midterm 1, a next-exam card counting 9 days, and the syllabus panel with the professor, office hours, TA, and attendance." loading="lazy" decoding="async"></span>
-          </div>
-        </li>
-        <li class="show-card s-groups">
-          <p class="show-top"><span class="pane-idx">02</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">Study Groups · Clubs &amp; Teams</span></p>
-          <h4 class="show-title">Your study group and your club, on the same calendar as class.</h4>
-          <p class="show-links">
-            <a class="link-arrow" href="features.html#feat-groups">Study Groups <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
-            <a class="link-arrow" href="features.html#feat-clubs">Clubs &amp; Teams <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
-          </p>
-          <div class="pane-window show-window">
-            <span class="shot shot--groups"><img src="assets/product/studygroups-desktop.webp" srcset="assets/product/studygroups-desktop.webp 1x, assets/product/studygroups-desktop@2x.webp 2x" width="1440" height="900" alt="The Study Groups page in Semester HQ before any group exists: the heading Study better, together, buttons to start a group, join with a code, or explore a sample group first, and a link to group pricing for a whole class, club, or team." loading="lazy" decoding="async"></span>
-          </div>
-        </li>
-      </ul>
+      <figure class="lit rise-in">
+        <picture>
+          <source media="(max-width: 700px)" srcset="assets/v2/p-month-390.webp 390w, assets/v2/p-month-780.webp 780w, assets/v2/p-month-1170.webp 1170w" sizes="72vw" width="390" height="844">
+          <img src="assets/v2/cal-month-1196.webp" srcset="assets/v2/cal-month-1196.webp 1196w, assets/v2/cal-month-2392.webp 2392w" sizes="(max-width: 1300px) 64vw, 760px" width="1196" height="900" alt="September 2026 in the month view: classes, homework, quizzes and lab reports for CHEM 210, PSY 101, MATH 152 and MKT 300, with today, the 29th, circled." loading="lazy" decoding="async">
+        </picture>
+      </figure>
     </div>
   </section>
 
-  <!-- THE LIVE DEMO (the same embed as demo.html). main.js swaps the
-       facade for the real app on click; under 700px it opens a new tab. -->
-  <section id="demo" class="try-live section-pad-sm">
+  <!-- CHAPTER 2: study. -->
+  <section class="chapter ch-study" aria-labelledby="study-title">
     <div class="wrap">
-      <div class="section-head center reveal">
-        <div class="eyebrow"><span class="dot"></span>Live demo</div>
-        <h2>Click around the real app.</h2>
-        <p>A sample semester, study group, and club are loaded. Nothing is saved, and it resets when the page reloads.</p>
-      </div>
-      <div class="try-live-stage">
-        <div class="try-live-frame reveal reveal-delay-1">
-          <div class="device">
-            <div class="device-bar" aria-hidden="true">
-              <div class="device-dots"><span></span><span></span><span></span></div>
-              <div class="device-url">app.semester-hq.com</div>
-            </div>
-            <div class="device-body">
-              <div class="demo-facade" id="demo-facade" data-demo-url="https://app.semester-hq.com/">
-                <picture>
-                  <source srcset="assets/product/calendar-desktop.webp 1x, assets/product/calendar-desktop@2x.webp 2x" type="image/webp">
-                  <img src="assets/product/calendar-desktop.webp" width="1440" height="900" alt="The Semester HQ calendar, standing in for the live demo until you open it." loading="lazy" decoding="async">
-                </picture>
-                <div class="demo-facade-overlay">
-                  <button type="button" class="btn btn-glass btn-lg demo-open" id="demo-open">Open the live demo <span class="btn-arrow" aria-hidden="true">→</span></button>
-                  <span class="demo-facade-hint">Loads the real app right here. No account needed.</span>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="study-grid">
+        <div>
+          <p class="label"><span class="dot" style="--c:#4f8a5b"></span>Study</p>
+          <h2 id="study-title">Study time, planned like class time.</h2>
+          <p class="lede">Make flashcards from your notes or a file. Run focus blocks with the timer. See where the week's hours went, class by class.</p>
+          <a class="link" href="features.html">Everything in Semester HQ <svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
         </div>
-        <div class="try-live-open reveal reveal-delay-2">
-          <a href="demo.html" class="hero-link">Guided tour on the demo page →</a>
+        <div class="study-stage">
+          <figure class="frame rise-in">
+            <img src="assets/v2/timer-1000.webp" srcset="assets/v2/timer-1000.webp 1000w, assets/v2/timer-2000.webp 2000w" sizes="(max-width: 700px) 100vw, 640px" width="1000" height="635" alt="The study timer: a 25 minute focus block next to this week's 2 hours 30 minutes of focus time and the recent sessions, class by class." loading="lazy" decoding="async">
+          </figure>
+          <figure class="phone rise-in" data-drift="-24">
+            <img src="assets/v2/p-flash-330.webp" srcset="assets/v2/p-flash-330.webp 330w, assets/v2/p-flash-660.webp 660w, assets/v2/p-flash-990.webp 990w" sizes="220px" width="390" height="844" alt="Flashcards on a phone: 5 cards to review today and a Functional groups deck for CHEM 210." loading="lazy" decoding="async">
+          </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SETUP: the two ways a semester gets built in the first minute. -->
-  <section class="showcase" aria-labelledby="showcase-title">
+  <!-- CHAPTER 3: clubs and teams. The real club page stays on screen while
+       four short steps scroll past; a ring moves to what each one is about.
+       Ring positions come from assets/v2/club-spots.json (tools/export-home-images.py). -->
+  <section class="chapter clubs" id="groups" aria-labelledby="groups-title">
+    <div class="wrap clubs-head">
+      <p class="label"><span class="dot" style="--c:#7a2e3b"></span>For clubs, teams and chapters</p>
+      <h2 id="groups-title">Your club, on every member's calendar.</h2>
+      <p class="lede">Officers post it once. Meetings, practices and dues deadlines show up next to each member's classes, so nobody says they didn't know.</p>
+    </div>
+
+    <div class="wrap spot">
+      <div class="spot-steps">
+        <article class="spot-step is-on" data-spot="calendar">
+          <p class="step-n">1</p>
+          <h3>Post it once. It's on every calendar.</h3>
+          <p>A meeting you add lands on each member's own calendar, beside CHEM 210 and the rest of their week.</p>
+        </article>
+        <article class="spot-step" data-spot="answer">
+          <p class="step-n">2</p>
+          <h3>Required events get a real answer.</h3>
+          <p>Going or Can't, right on the event. You see who's coming before the meeting, not after it.</p>
+        </article>
+        <article class="spot-step" data-spot="pinned">
+          <p class="step-n">3</p>
+          <h3>The pinned note everyone sees.</h3>
+          <p>Announcements, files, chat, and your GroupMe, Instagram and dues links live under the club's name.</p>
+        </article>
+        <article class="spot-step" data-spot="officers">
+          <p class="step-n">4</p>
+          <h3>Officers run it. Members show up.</h3>
+          <p>An answer rate for every event, attendance you can export, and forms for sign-ups and applications.</p>
+        </article>
+      </div>
+      <div class="spot-view">
+        <figure class="frame spot-window">
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/v2/p-club-390.webp 390w, assets/v2/p-club-780.webp 780w, assets/v2/p-club-1170.webp 1170w" sizes="264px" width="390" height="844">
+            <img src="assets/v2/club-1100.webp" srcset="assets/v2/club-1100.webp 1100w, assets/v2/club-2200.webp 2200w" sizes="(max-width: 1100px) 62vw, 780px" width="1144" height="1025" alt="The Women in Business club page: a pinned note about dues, the next general meeting marked Required with Going and Can't, the officer view with an 84 percent answer rate, announcements, and the week ahead." loading="lazy" decoding="async">
+          </picture>
+          <span class="spot-ring" aria-hidden="true"></span>
+        </figure>
+      </div>
+    </div>
+
+    <div class="wrap clubs-foot">
+      <a class="link" href="groups-teams-getting-started.html">How clubs set it up <svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+    </div>
+  </section>
+
+  <!-- PRICING: both plans, plain facts, who made it. -->
+  <section class="pricing" id="pricing" aria-labelledby="pricing-title">
     <div class="wrap">
-      <div class="show-head">
-        <div>
-          <p class="label"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><use href="#star"/></svg>Setup</p>
-          <h2 id="showcase-title">Your semester is built in the <em>first minute</em>.</h2>
+      <h2 id="pricing-title" class="pricing-title">One price. Everything in it.</h2>
+      <div class="plans">
+        <div class="plan-card">
+          <p class="plan-name">Semester HQ Plus</p>
+          <p class="plan-price"><span class="num" data-price="plus.monthly">$7.99</span> a month</p>
+          <p class="plan-for">For one student. The whole semester: classes, deadlines, exams, notes, and groups.</p>
+          <ul>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg>Syllabus upload and Canvas import</li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg>Calendar, class pages, assignments, and exams</li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg>Notebook, flashcards, and the study timer</li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg>On your phone and your laptop</li>
+          </ul>
+          <div class="plan-act">
+            <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started</a>
+            <a class="link" href="pricing.html">See pricing <svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+          </div>
         </div>
-        <div class="show-side">
-          <p class="show-lede">Upload your syllabus, or paste your Canvas calendar link. Either way, class times, deadlines, and exam dates land in the right place, ready to check.</p>
-          <a class="btn btn-glass" href="how-it-works.html">How it works <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+        <div class="plan-card">
+          <p class="plan-name">Group plans</p>
+          <p class="plan-price"><span class="num" data-price="groups.perMember">$5.99</span> a member each month</p>
+          <p class="plan-for">For clubs, teams and chapters. 5 to 50 seats, bought by an officer in a few minutes. Every member gets everything in Plus.</p>
+          <ul>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg>Events on every member's calendar</li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg>Required events with Going or Can't</li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg>Announcements, files, chat, and forms</li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg>A 30-member club is $179.70 a month</li>
+          </ul>
+          <div class="plan-act">
+            <a href="group-pricing.html" class="btn">Start a group plan</a>
+            <a class="link link-quiet" href="group-pricing.html#group-contact-form">More than 50? Ask for a quote</a>
+          </div>
         </div>
       </div>
-
-      <ul class="show-grid">
-        <li class="show-card s-upload">
-          <p class="show-top"><span class="pane-idx">01</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">Syllabus Upload</span></p>
-          <h3 class="show-title">Drop in the syllabus. Dates, rooms, and office hours fill in.</h3>
-          <p class="show-links"><a class="link-arrow" href="features.html#feat-upload">More on Syllabus Upload <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a></p>
-          <div class="pane-window show-window">
-            <span class="shot shot--syl"><img src="assets/product/syllabus-panel.webp" srcset="assets/product/syllabus-panel.webp 1x, assets/product/syllabus-panel@2x.webp 2x" width="600" height="792" alt="The syllabus panel of a class page in Semester HQ, filled in from an uploaded syllabus: Dr. Patel’s email with a one-tap Email button, office hours on Tuesday and Thursday with the next one highlighted, the TA’s hours, and an attendance tracker reading 1 of 3 allowed absences used." loading="lazy" decoding="async"></span>
-            <span class="wchips" aria-hidden="true"><span class="wchip">14 deadlines</span><span class="wchip">2 exams</span><span class="wchip">Office hours</span><span class="wchip">3 absences allowed</span></span>
-          </div>
-        </li>
-        <li class="show-card s-lms">
-          <p class="show-top"><span class="pane-idx">02</span><span class="pane-rule" aria-hidden="true"></span><span class="readout">Import from Canvas</span></p>
-          <h3 class="show-title">Paste your Canvas link once. Moved deadlines follow.</h3>
-          <p class="show-links"><a class="link-arrow" href="features.html#feat-lms">More on Import from Canvas <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a></p>
-          <div class="pane-window show-window">
-            <span class="shot shot--cal"><img src="assets/product/calendar-desktop.webp" srcset="assets/product/calendar-desktop.webp 1x, assets/product/calendar-desktop@2x.webp 2x" width="1440" height="900" alt="The Semester HQ calendar in month view for September 2026, with year, month, week, and day toggles, class meetings for Organic Chemistry, Intro to Psychology, Calculus II, and Marketing Strategy color-coded across the weeks, and deadlines such as Lab report 1, Webwork 4, Quiz 1, and Midterm 1 on their due dates." loading="lazy" decoding="async"></span>
-            <span class="wchips" aria-hidden="true"><span class="wchip">14 deadlines found</span></span>
-            <span class="wchip wchip--foot" aria-hidden="true"><span class="w-dot" style="--c:#4f8a5b"></span>Problem Set 3 moved to Oct 9. Your copy followed.</span>
-          </div>
-        </li>
-      </ul>
+      <p class="note plans-note">Cancel anytime. <span data-price="plus.refundDays">14</span>-day refund on your first charge.</p>
+      <p class="founder">Built by a college student who was tired of running one semester across six apps. <a href="students.html#founder">Read why</a></p>
     </div>
   </section>
 
   <!-- FINAL CTA -->
-  <section class="final-cta" aria-labelledby="final-cta-title">
+  <section class="final" aria-labelledby="final-title" data-final>
     <div class="wrap">
-      <div class="final-cta-inner">
-        <h2 id="final-cta-title">Stop managing your semester across a dozen tabs.</h2>
-        <p>Sign up and put the whole thing in one place for <span data-price="plus.monthly">$7.99</span> a month, cancel anytime. Not ready? <a href="#demo">Try the live demo</a> first, no account, no card.</p>
-        <div class="final-cta-actions">
-          <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary btn-lg">Get started <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
-          <a href="pricing.html" class="btn btn-glass btn-lg">See pricing</a>
-        </div>
+      <h2 id="final-title">Stop running your semester across a dozen tabs.</h2>
+      <p class="lede">Put the whole thing in one place tonight. Or click around a sample semester first, no account needed.</p>
+      <div class="actions">
+        <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started</a>
+        <a href="demo.html" class="btn">Try the live demo</a>
       </div>
     </div>
   </section>
@@ -528,8 +359,8 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <a class="wordmark" href="./">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
-        <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
+        <a class="wordmark" href="./">Semester HQ</a>
+        <p>Everything your semester needs. One HQ.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -539,7 +370,7 @@
           <a href="demo.html">Demo</a>
           <a href="students.html">Students</a>
           <a href="pricing.html">Pricing</a>
-          <a href="group-pricing.html">Group pricing</a>
+          <a href="group-pricing.html">Clubs and teams</a>
           <a href="faq.html">FAQ</a>
         </div>
         <div class="footer-col" id="guides">
@@ -564,7 +395,6 @@
         </div>
       </div>
     </div>
-    <div class="footer-mark" aria-hidden="true">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></div>
     <div class="footer-bottom">
       <span>© 2026 Semester HQ. All rights reserved.</span>
       <span>Made for the semester you're actually having.</span>
@@ -576,7 +406,6 @@
 <script src="js/track.js"></script>
 <script src="js/main.js"></script>
 <script src="js/pricing.js"></script>
-<script src="js/experience.js"></script>
-<script src="js/world.js"></script>
+<script src="js/home-v2.js"></script>
 </body>
 </html>
