@@ -188,19 +188,45 @@
     <div class="wrap">
       <div class="hero-stage">
         <figure class="frame frame-lift rise-in desk-only">
-          <img src="assets/v2/dash-1100.webp" srcset="assets/v2/dash-1100.webp 1100w, assets/v2/dash-2200.webp 2200w" sizes="(max-width: 1300px) 84vw, 1025px" width="1440" height="900" alt="The Semester HQ dashboard on a Tuesday in week 4 of 16: Intro to Psychology up next in 40 minutes, what is due this week, today's classes, three exams with day counts, and this week's focus time." fetchpriority="high">
+          <img src="assets/v2/dash-1100.webp" srcset="assets/v2/dash-1100.webp 1100w, assets/v2/dash-2200.webp 2200w" sizes="(max-width: 1300px) 92vw, 1220px" width="1440" height="900" alt="The Semester HQ dashboard on a Tuesday in week 4 of 16: Intro to Psychology up next in 40 minutes, what is due this week, today's classes, three exams with day counts, and this week's focus time." fetchpriority="high">
         </figure>
-        <figure class="phone desk-only rise-in" data-drift="-36">
-          <img src="assets/v2/p-week-330.webp" srcset="assets/v2/p-week-330.webp 330w, assets/v2/p-week-660.webp 660w, assets/v2/p-week-990.webp 990w" sizes="256px" width="390" height="844" alt="The week view of the calendar on a phone, with CHEM 210, PSY 101, MATH 152 and MKT 300 classes as blocks." loading="lazy" decoding="async">
+        <figure class="frame frame-lift hero-card">
+          <img src="assets/v2/p-dash-top-390.webp" srcset="assets/v2/p-dash-top-390.webp 390w, assets/v2/p-dash-top-780.webp 780w, assets/v2/p-dash-top-1170.webp 1170w" sizes="calc(100vw - 32px)" width="390" height="600" alt="The Semester HQ dashboard: good morning, Ashley, Intro to Psychology up next in 40 minutes, 6 due this week, 1 overdue, 5 cards to review, and today's classes." loading="lazy" decoding="async">
         </figure>
-        <!-- Phones only: two handsets, the dashboard in front and the week behind it. -->
-        <div class="hero-phones" aria-hidden="false">
-          <figure class="handset handset-back">
-            <div class="screen"><img src="assets/v2/p-week-330.webp" srcset="assets/v2/p-week-330.webp 330w, assets/v2/p-week-660.webp 660w, assets/v2/p-week-990.webp 990w" sizes="190px" width="390" height="844" alt="The week view of the calendar on a phone." loading="lazy" decoding="async"></div>
-          </figure>
-          <figure class="handset handset-front">
-            <div class="screen"><img src="assets/v2/p-dash-390.webp" srcset="assets/v2/p-dash-390.webp 390w, assets/v2/p-dash-780.webp 780w, assets/v2/p-dash-1170.webp 1170w" sizes="240px" width="390" height="844" alt="The Semester HQ dashboard on a phone: Intro to Psychology up next, 6 due this week, 1 overdue, 5 cards to review, and today's classes." loading="lazy" decoding="async"></div>
-          </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM AND SOLUTION: why this exists, before how it works. -->
+  <section class="chapter ch-problem" aria-labelledby="problem-title">
+    <div class="wrap">
+      <div class="problem-head">
+        <p class="label"><span class="dot" style="--c:#b5534a"></span>The problem</p>
+        <h2 id="problem-title">Your semester lives in six places. None of them talk to each other.</h2>
+      </div>
+      <div class="ps">
+        <div class="ps-card ps-before">
+          <p class="ps-tag">Without Semester HQ</p>
+          <ul>
+            <li><strong>The syllabus PDF</strong><span>Deadlines on page four, office hours on page nine</span></li>
+            <li><strong>Canvas</strong><span>Due dates that move without telling you</span></li>
+            <li><strong>Google Calendar</strong><span>Classes, but not what's due in them</span></li>
+            <li><strong>The group chat</strong><span>Club meetings buried under 200 messages</span></li>
+            <li><strong>A notes app</strong><span>Lecture notes filed under nothing</span></li>
+            <li><strong>Sticky notes</strong><span>The to-do list that falls off the desk</span></li>
+          </ul>
+        </div>
+        <div class="ps-arrow" aria-hidden="true"><svg><use href="#arrow"/></svg></div>
+        <div class="ps-card ps-after">
+          <p class="ps-tag">With Semester HQ</p>
+          <ul>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg><div><strong>Every syllabus, read for you</strong><span>Deadlines, exams and office hours on one calendar</span></div></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg><div><strong>Canvas stays in sync</strong><span>A moved date moves on your calendar too</span></div></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg><div><strong>Classes and deadlines together</strong><span>One week view with both</span></div></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg><div><strong>Clubs next to class</strong><span>Meetings land on your calendar with a Going button</span></div></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg><div><strong>Notes filed by class</strong><span>Cornell, lecture and lab report layouts</span></div></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#check"/></svg><div><strong>One list of what's due</strong><span>By day, on your phone and your laptop</span></div></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -229,31 +255,67 @@
     </div>
   </section>
 
-  <!-- CHAPTER 2: study. -->
-  <section class="chapter ch-study" aria-labelledby="study-title">
+  <!-- FEATURES: the rest of what is in the app, each with its real screen. -->
+  <section class="chapter ch-features" aria-labelledby="features-title">
     <div class="wrap">
-      <div class="study-grid">
+      <div class="ch-head">
         <div>
-          <p class="label"><span class="dot" style="--c:#4f8a5b"></span>Study</p>
-          <h2 id="study-title">Study time, planned like class time.</h2>
-          <p class="lede">Make flashcards from your notes or a file. Run focus blocks with the timer. See where the week's hours went, class by class.</p>
-          <a class="link" href="features.html">Everything in Semester HQ <svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+          <p class="label"><span class="dot" style="--c:#4f8a5b"></span>Features</p>
+          <h2 id="features-title">Everything else your semester needs.</h2>
         </div>
-        <div class="study-stage">
-          <figure class="frame rise-in">
-            <img src="assets/v2/timer-1000.webp" srcset="assets/v2/timer-1000.webp 1000w, assets/v2/timer-2000.webp 2000w" sizes="(max-width: 700px) 100vw, 640px" width="1000" height="635" alt="The study timer: a 25 minute focus block next to this week's 2 hours 30 minutes of focus time and the recent sessions, class by class." loading="lazy" decoding="async">
-          </figure>
-          <figure class="phone rise-in" data-drift="-24">
-            <img src="assets/v2/p-flash-330.webp" srcset="assets/v2/p-flash-330.webp 330w, assets/v2/p-flash-660.webp 660w, assets/v2/p-flash-990.webp 990w" sizes="220px" width="390" height="844" alt="Flashcards on a phone: 5 cards to review today and a Functional groups deck for CHEM 210." loading="lazy" decoding="async">
-          </figure>
+        <div class="ch-body">
+          <p class="lede">Once the calendar is built, the rest of the term runs from the same place. One account, one app, on your phone and your laptop.</p>
+          <a class="link" href="features.html">See every feature <svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
         </div>
+      </div>
+      <div class="tiles">
+        <article class="tile rise-in">
+          <figure class="tile-shot"><img src="assets/v2/t-course-390.webp" srcset="assets/v2/t-course-390.webp 390w, assets/v2/t-course-780.webp 780w" sizes="(max-width: 700px) 78vw, (max-width: 1100px) 45vw, 290px" width="390" height="420" alt="The Organic Chemistry class page on a phone: 44 percent finished, the next class, and what is coming up." loading="lazy" decoding="async"></figure>
+          <h3>Class pages</h3>
+          <p>Office hours, the TA, the attendance rule and what is due next, for every class.</p>
+        </article>
+        <article class="tile rise-in">
+          <figure class="tile-shot"><img src="assets/v2/t-exams-390.webp" srcset="assets/v2/t-exams-390.webp 390w, assets/v2/t-exams-780.webp 780w" sizes="(max-width: 700px) 78vw, (max-width: 1100px) 45vw, 290px" width="390" height="420" alt="Exams on a phone: Midterm 1 for CHEM 210 in 9 days, 50 percent prepped, with a topic checklist." loading="lazy" decoding="async"></figure>
+          <h3>Exam prep</h3>
+          <p>A countdown for every exam, a checklist of topics, and study sessions planned before the date.</p>
+        </article>
+        <article class="tile rise-in">
+          <figure class="tile-shot"><img src="assets/v2/t-flash-390.webp" srcset="assets/v2/t-flash-390.webp 390w, assets/v2/t-flash-780.webp 780w" sizes="(max-width: 700px) 78vw, (max-width: 1100px) 45vw, 290px" width="390" height="420" alt="Flashcards on a phone: 5 cards to review today and a Functional groups deck for CHEM 210." loading="lazy" decoding="async"></figure>
+          <h3>Flashcards</h3>
+          <p>Make a deck from your notes or a file. Review what is due each day.</p>
+        </article>
+        <article class="tile rise-in">
+          <figure class="tile-shot"><img src="assets/v2/t-timer-390.webp" srcset="assets/v2/t-timer-390.webp 390w, assets/v2/t-timer-780.webp 780w" sizes="(max-width: 700px) 78vw, (max-width: 1100px) 45vw, 290px" width="390" height="420" alt="The study timer on a phone: a 25 minute focus block with short and long breaks." loading="lazy" decoding="async"></figure>
+          <h3>Study timer</h3>
+          <p>Focus blocks with real breaks, logged against the class you studied.</p>
+        </article>
+        <article class="tile rise-in">
+          <figure class="tile-shot"><img src="assets/v2/t-notebook-390.webp" srcset="assets/v2/t-notebook-390.webp 390w, assets/v2/t-notebook-780.webp 780w" sizes="(max-width: 700px) 78vw, (max-width: 1100px) 45vw, 290px" width="390" height="420" alt="A Cornell notes page for Organic Chemistry: cues and questions beside notes on SN1 and SN2 reactions." loading="lazy" decoding="async"></figure>
+          <h3>Notebook</h3>
+          <p>Notes filed by class, with Cornell, lecture and lab report layouts.</p>
+        </article>
+        <article class="tile rise-in">
+          <figure class="tile-shot"><img src="assets/v2/t-todos-390.webp" srcset="assets/v2/t-todos-390.webp 390w, assets/v2/t-todos-780.webp 780w" sizes="(max-width: 700px) 78vw, (max-width: 1100px) 45vw, 290px" width="390" height="420" alt="The to-do list on a phone, sorted by today, tomorrow and the next 7 days." loading="lazy" decoding="async"></figure>
+          <h3>Quick add and to-dos</h3>
+          <p>Type "lab fri 5pm" and it lands on the right day, with the right class.</p>
+        </article>
+        <article class="tile rise-in">
+          <figure class="tile-shot"><img src="assets/v2/t-projects-390.webp" srcset="assets/v2/t-projects-390.webp 390w, assets/v2/t-projects-780.webp 780w" sizes="(max-width: 700px) 78vw, (max-width: 1100px) 45vw, 290px" width="390" height="420" alt="Projects on a phone: a timeline of milestones for a case study and a group project." loading="lazy" decoding="async"></figure>
+          <h3>Group projects</h3>
+          <p>Milestones on a timeline, split between the people doing them.</p>
+        </article>
+        <article class="tile rise-in">
+          <figure class="tile-shot"><img src="assets/v2/t-apps-390.webp" srcset="assets/v2/t-apps-390.webp 390w, assets/v2/t-apps-780.webp 780w" sizes="(max-width: 700px) 78vw, (max-width: 1100px) 45vw, 290px" width="390" height="420" alt="Applications on a phone: 2 applied, a final interview on Friday, and a scholarship deadline." loading="lazy" decoding="async"></figure>
+          <h3>Applications</h3>
+          <p>Internships, jobs and scholarships on one board, with every deadline.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- CHAPTER 3: clubs and teams. The real club page stays on screen while
-       four short steps scroll past; a ring moves to what each one is about.
-       Ring positions come from assets/v2/club-spots.json (tools/export-home-images.py). -->
+  <!-- CHAPTER 3: clubs and teams. The real club page, then what it does
+       underneath it. Hovering a feature rings its part of the page; ring
+       positions come from assets/v2/club-spots.json (tools/export-home-images.py). -->
   <section class="chapter clubs" id="groups" aria-labelledby="groups-title">
     <div class="wrap clubs-head">
       <p class="label"><span class="dot" style="--c:#7a2e3b"></span>For clubs, teams and chapters</p>
@@ -261,42 +323,27 @@
       <p class="lede">Officers post it once. Meetings, practices and dues deadlines show up next to each member's classes, so nobody says they didn't know.</p>
     </div>
 
-    <div class="wrap spot">
-      <div class="spot-steps">
-        <article class="spot-step is-on" data-spot="calendar">
-          <p class="step-n">1</p>
-          <h3>Post it once. It's on every calendar.</h3>
-          <p>A meeting you add lands on each member's own calendar, beside CHEM 210 and the rest of their week.</p>
-        </article>
-        <article class="spot-step" data-spot="answer">
-          <p class="step-n">2</p>
-          <h3>Required events get a real answer.</h3>
-          <p>Going or Can't, right on the event. You see who's coming before the meeting, not after it.</p>
-        </article>
-        <article class="spot-step" data-spot="pinned">
-          <p class="step-n">3</p>
-          <h3>The pinned note everyone sees.</h3>
-          <p>Announcements, files, chat, and your GroupMe, Instagram and dues links live under the club's name.</p>
-        </article>
-        <article class="spot-step" data-spot="officers">
-          <p class="step-n">4</p>
-          <h3>Officers run it. Members show up.</h3>
-          <p>An answer rate for every event, attendance you can export, and forms for sign-ups and applications.</p>
-        </article>
+    <div class="wrap">
+      <figure class="frame club-shot rise-in">
+        <picture>
+          <source media="(max-width: 700px)" srcset="assets/v2/p-club-390.webp 390w, assets/v2/p-club-780.webp 780w, assets/v2/p-club-1170.webp 1170w" sizes="calc(100vw - 32px)" width="390" height="844">
+          <img src="assets/v2/club-1100.webp" srcset="assets/v2/club-1100.webp 1100w, assets/v2/club-2200.webp 2200w" sizes="(max-width: 1300px) 92vw, 1100px" width="1144" height="1025" alt="The Women in Business club page: a pinned note about dues, the next general meeting marked Required with Going and Can't, the officer view with an 84 percent answer rate, announcements, and the week ahead." loading="lazy" decoding="async">
+        </picture>
+        <span class="spot-ring" aria-hidden="true"></span>
+      </figure>
+      <ul class="club-feats">
+        <li data-spot="calendar"><h3>Post it once, it's on every calendar</h3><p>Meetings, practices and dues deadlines land beside each member's classes. Weekly events repeat on their own.</p></li>
+        <li data-spot="answer"><h3>Required events get a real answer</h3><p>Going or Can't, right on the event, so you know who's coming before the meeting.</p></li>
+        <li data-spot="pinned"><h3>Pinned notes and announcements</h3><p>The note everyone needs sits at the top of the club, with your GroupMe, Instagram and dues links.</p></li>
+        <li data-spot="officers"><h3>An officer view</h3><p>The answer rate for every event and who answered every required one, at a glance.</p></li>
+        <li><h3>Forms for sign-ups and applications</h3><p>Accept, waitlist or decline applicants. Take files as answers, or keep feedback anonymous.</p></li>
+        <li><h3>Files and chat</h3><p>Slides, the budget and the constitution in one place, and a chat that isn't the group chat.</p></li>
+        <li><h3>Invite with a link or a QR code</h3><p>New members join in one tap and get a short welcome to the club.</p></li>
+        <li><h3>Your term, wrapped</h3><p>At the end of the term, the club gets its story in cards: events, RSVPs and who joined.</p></li>
+      </ul>
+      <div class="clubs-foot">
+        <a class="link" href="groups-teams-getting-started.html">How clubs set it up <svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
       </div>
-      <div class="spot-view">
-        <figure class="frame spot-window">
-          <picture>
-            <source media="(max-width: 760px)" srcset="assets/v2/p-club-390.webp 390w, assets/v2/p-club-780.webp 780w, assets/v2/p-club-1170.webp 1170w" sizes="264px" width="390" height="844">
-            <img src="assets/v2/club-1100.webp" srcset="assets/v2/club-1100.webp 1100w, assets/v2/club-2200.webp 2200w" sizes="(max-width: 1100px) 62vw, 780px" width="1144" height="1025" alt="The Women in Business club page: a pinned note about dues, the next general meeting marked Required with Going and Can't, the officer view with an 84 percent answer rate, announcements, and the week ahead." loading="lazy" decoding="async">
-          </picture>
-          <span class="spot-ring" aria-hidden="true"></span>
-        </figure>
-      </div>
-    </div>
-
-    <div class="wrap clubs-foot">
-      <a class="link" href="groups-teams-getting-started.html">How clubs set it up <svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
     </div>
   </section>
 
@@ -338,6 +385,30 @@
       </div>
       <p class="note plans-note">Cancel anytime. <span data-price="plus.refundDays">14</span>-day refund on your first charge.</p>
       <p class="founder">Built by a college student who was tired of running one semester across six apps. <a href="students.html#founder">Read why</a></p>
+    </div>
+  </section>
+
+  <!-- FAQ: three from faq.html, word for word. The rest live there. -->
+  <section class="chapter home-faq" aria-labelledby="faq-title">
+    <div class="wrap faq-wrap">
+      <div>
+        <h2 id="faq-title">Questions, answered.</h2>
+        <a class="link" href="faq.html">All questions <svg aria-hidden="true" focusable="false"><use href="#arrow"/></svg></a>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Does it work with Canvas or my school's LMS?</summary>
+          <p>Yes, one direction: Semester HQ reads your due dates out of it. Canvas, Blackboard, Brightspace, and Moodle all give you a private calendar feed link, and pasting it in brings every deadline across, sorted into your classes. It stays connected, so when a professor moves a date, your copy moves the next time you open the app. Semester HQ does not write anything back to your LMS, and it is not affiliated with any of them.</p>
+        </details>
+        <details>
+          <summary>Does it work on my phone?</summary>
+          <p>Yes. Semester HQ runs in your phone's browser, no app store download needed. For the best experience, add it to your home screen: on iPhone, tap Share, then Add to Home Screen; on Android, tap the menu, then Add to Home screen or Install app. It opens like an app and works offline. Semester HQ never sends notifications, so nothing from it will ever show up on your lock screen.</p>
+        </details>
+        <details>
+          <summary>Can I cancel or get a refund?</summary>
+          <p>Cancel anytime from Settings, and you will keep access until the end of the billing period you already paid for, then it stops automatically with no further charges. If you are within <span data-price="plus.refundDays">14</span> days of your first charge and it is not for you, email us for a full refund instead.</p>
+        </details>
+      </div>
     </div>
   </section>
 

@@ -34,24 +34,24 @@
     run();
   }
 
-  // Clubs: as each step reaches the middle of the screen, the ring on the
-  // club page moves to the part it talks about. Positions are measured from
-  // the real page by tools/export-home-images.py.
+  // Clubs: hovering a feature under the club page rings the
+  // part of the page it talks about. Positions are measured from the real
+  // page by tools/export-home-images.py.
   const ring = document.querySelector('.spot-ring');
-  const steps = [...document.querySelectorAll('.spot-step')];
-  if (ring && steps.length && 'IntersectionObserver' in window) {
+  const feats = [...document.querySelectorAll('.club-feats li[data-spot]')];
+  if (ring && feats.length) {
     let spots = null;
-    const aim = (step) => {
-      steps.forEach(s => s.classList.toggle('is-on', s === step));
-      const r = spots && spots[step.dataset.spot];
+    const aim = (li) => {
+      feats.forEach(f => f.classList.toggle('is-on', f === li));
+      const r = li && spots && spots[li.dataset.spot];
+      ring.classList.toggle('on', !!r);
       if (r) ['x', 'y', 'w', 'h'].forEach(k => ring.style.setProperty('--' + k, r[k]));
     };
-    fetch('assets/v2/club-spots.json').then(r => r.json()).then(j => {
-      spots = j;
-      aim(steps.find(s => s.classList.contains('is-on')) || steps[0]);
-    }).catch(() => { ring.hidden = true; });
-    const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) aim(e.target); }), { rootMargin: '-45% 0px -45% 0px' });
-    steps.forEach(s => so.observe(s));
+    fetch('assets/v2/club-spots.json').then(r => r.json()).then(j => { spots = j; }).catch(() => {});
+    feats.forEach(li => {
+      li.addEventListener('mouseenter', () => aim(li));
+      li.addEventListener('mouseleave', () => aim(null));
+    });
   }
 
   // Sticky CTA (phone): visible only when neither the hero actions nor the final CTA is on screen.

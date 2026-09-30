@@ -48,6 +48,17 @@ JOBS = [
     ('p-flash', 'flashcards-phone.png', None, [330, 660, 990]),
     ('p-club', 'clubs-phone.png', None, [390, 780, 1170]),
     ('p-group', 'studygroups-phone.png', None, [330, 660, 990]),
+    # Feature tiles: the top of each screen, where its point is.
+    ('t-course', 'course-phone.png', (0, 0, 390, 420), [390, 780]),
+    ('t-exams', 'exams-phone.png', (0, 0, 390, 420), [390, 780]),
+    ('t-flash', 'flashcards-phone.png', (0, 0, 390, 420), [390, 780]),
+    ('t-timer', 'timer-phone.png', (0, 0, 390, 420), [390, 780]),
+    ('t-projects', 'projects-phone.png', (0, 0, 390, 420), [390, 780]),
+    ('t-apps', 'applications-phone.png', (0, 0, 390, 420), [390, 780]),
+    ('t-todos', 'todos-phone.png', (0, 0, 390, 420), [390, 780]),
+    ('t-notebook', 'notebook-desktop.png', (560, 72, 1080, 632), [390, 780]),
+    # The phone hero: the dashboard screen as a flat card, no handset.
+    ('p-dash-top', 'dashboard-phone.png', (0, 0, 390, 600), [390, 780, 1170]),
 ]
 
 

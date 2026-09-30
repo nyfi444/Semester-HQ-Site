@@ -25,7 +25,11 @@ const { chromium } = require('playwright');
 const APP = process.env.APP_URL || 'http://localhost:7448';
 const OUT = join(HERE, '..', '..', 'marketing-assets', 'after');
 const AT = new Date('2026-09-29T10:20:00');
-const NAME = 'Sam Rivera';
+// The demo student is Ashley in every picture (Nyla, Sep 30 2026).
+const NAME = 'Ashley';
+// Pastel class colors. Any class can be any color in the app (semester
+// setup's spectrum), so this is a real choice a student can make.
+const PASTELS = [[/CHEM/, '#9FBDE0'], [/PSY/, '#EDB0AC'], [/MATH/, '#A9D3B6'], [/MKT/, '#C7B4E6']];
 mkdirSync(OUT, { recursive: true });
 
 const errs = [];
@@ -43,12 +47,21 @@ async function boot(dev, { dark = false } = {}) {
   await pg.clock.setFixedTime(AT);
   await pg.goto(`${APP}/index.html?v=${Date.now()}`);
   await pg.waitForTimeout(1500);
-  await pg.evaluate(([name, dark]) => {
+  await pg.evaluate(([name, dark, pastels]) => {
     state.settings.displayName = name;
     state.settings.dark = dark;
     loadSampleSemester();
+    const swap = {};
+    for (const c of state.courses) {
+      const hit = pastels.find(([re]) => new RegExp(re).test(c.code || ''));
+      if (hit) { swap[(c.color || '').toLowerCase()] = hit[1]; c.color = hit[1]; }
+    }
+    // Events and blocks that carry a copy of a class color follow it.
+    for (const list of Object.values(state)) {
+      if (Array.isArray(list)) list.forEach(it => { if (it && typeof it.color === 'string' && swap[it.color.toLowerCase()]) it.color = swap[it.color.toLowerCase()]; });
+    }
     if (typeof applyTheme === 'function') applyTheme();
-  }, [NAME, dark]);
+  }, [NAME, dark, PASTELS.map(([re, hex]) => [re.source, hex])]);
   await pg.waitForTimeout(800);
   return { ctx, pg };
 }

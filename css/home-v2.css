@@ -176,9 +176,7 @@ html.js .rise-in.in { transform: none; opacity: 1; }
 .hero-act { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
 .actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-stage { position: relative; margin-top: 48px; padding-bottom: 40px; }
-.hero-stage .frame { width: 84%; }
-.hero-stage .phone { position: absolute; right: 0; top: 72px; width: 21%; min-width: 220px; }
-.hero-phones { display: none; }
+.hero-stage .hero-card { display: none; }
 
 @media (max-width: 1000px) {
   .hero-row { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -193,38 +191,13 @@ html.js .rise-in.in { transform: none; opacity: 1; }
   .actions .btn { padding: 0 12px; }
   .hero-stage { margin-top: 36px; padding-bottom: 0; }
   .hero-stage .desk-only { display: none; }
-  .hero-phones { display: block; }
+  /* Phones get the dashboard screen itself, flat like every other frame,
+     cut at a fade so the first screen stays headline and buttons first. */
+  .hero-stage .hero-card {
+    display: block; max-height: 460px;
+    -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%); mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
+  }
 }
-
-/* Phone hero: two real handsets on a lit floor. The dashboard stands in
-   front, the week leans behind it, and the pair is cut off by the fold of
-   paper below so the first screen stays headline and buttons first. */
-.hero-phones {
-  position: relative; height: 468px; margin-inline: calc(var(--gutter) * -1); overflow: hidden;
-  -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%); mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
-}
-.hero-phones::before {
-  content: ''; position: absolute; left: 50%; top: 40px; width: 420px; height: 420px; transform: translateX(-50%); border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(255, 255, 255, .95), rgba(255, 255, 255, 0)), radial-gradient(closest-side at 50% 70%, rgba(201, 184, 170, .35), rgba(201, 184, 170, 0));
-}
-.handset {
-  position: absolute; margin: 0; padding: 6px; border-radius: 42px;
-  background: linear-gradient(135deg, #3a3632 0%, #121212 38%, #121212 64%, #34302c 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), 0 2px 4px rgba(18, 18, 18, .08), 0 36px 60px -24px rgba(60, 44, 32, .42);
-}
-/* The screen: a status bar with the island in it, then the real capture. */
-.handset .screen { position: relative; overflow: hidden; border-radius: 36px; background: #F8F6F2; padding-top: 34px; }
-.handset .screen::before { content: '10:20'; position: absolute; top: 11px; left: 24px; font: 600 12px/1 var(--f-sans); color: var(--ink); letter-spacing: -.01em; }
-.handset .screen::after { content: ''; position: absolute; top: 9px; left: 50%; width: 30%; height: 17px; transform: translateX(-50%); border-radius: 12px; background: #121212; }
-.handset img { display: block; width: 100%; height: auto; }
-.handset-front { width: 226px; left: calc(50% - 168px); top: 16px; z-index: 2; }
-.handset-back { width: 184px; left: calc(50% + 12px); top: 70px; z-index: 1; transform: rotate(6deg); transform-origin: 0 0; }
-.handset-back .screen::before { font-size: 10px; top: 10px; left: 20px; }
-@media (max-width: 360px) {
-  .handset-front { width: 206px; left: calc(50% - 152px); }
-  .handset-back { width: 168px; }
-}
-
 
 /* ── Chapters ── */
 .chapter { padding: 112px 0 0; }
@@ -233,25 +206,12 @@ html.js .rise-in.in { transform: none; opacity: 1; }
 .ch-body .lede { margin-bottom: 8px; }
 .stage { position: relative; }
 
-.study-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 56px; align-items: center; }
-.study-grid h2 { font-size: clamp(38px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -.022em; margin-bottom: 24px; }
-.study-grid .lede { margin-bottom: 16px; }
-.study-stage { position: relative; padding-bottom: 56px; }
-.study-stage .frame { width: 80%; }
-.study-stage .phone { position: absolute; right: 0; bottom: 0; width: 31%; min-width: 180px; }
-
 @media (max-width: 900px) {
   .chapter { padding-top: 88px; }
   .ch-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
-  .study-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 700px) {
-  .ch-head h2, .study-grid h2 { font-size: 38px; }
-  .study-stage .frame { width: 100%; }
-  .study-stage .phone {
-    position: relative; left: auto; right: auto; bottom: auto; width: 62%; min-width: 0; margin: -72px auto 0;
-  }
-  .study-stage { padding-bottom: 0; }
+  .ch-head h2 { font-size: 38px; }
 }
 
 /* ── Semester setup (from version C): copy and steps beside the month ── */
@@ -279,26 +239,67 @@ html.js .rise-in.in { transform: none; opacity: 1; }
 .clubs-head { text-align: center; display: flex; flex-direction: column; align-items: center; }
 .clubs-head h2 { font-size: clamp(38px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -.022em; max-width: 12em; }
 .clubs-head .lede { margin-top: 20px; max-width: 32em; }
-.spot { display: grid; grid-template-columns: minmax(0, 3.6fr) minmax(0, 8.4fr); gap: 56px; margin-top: 64px; }
-.spot-steps { padding: 12vh 0 16vh; }
-.spot-step { padding: 20px 0 20px 20px; border-left: 2px solid var(--edge); margin-bottom: 16vh; transition: border-color .3s; }
-.spot-step:last-child { margin-bottom: 0; }
-.spot-step h3 { font-size: 30px; line-height: 1.08; letter-spacing: -.01em; color: var(--ink-faint); transition: color .3s; }
-.spot-step p { margin: 10px 0 0; font-size: var(--fs-xl); line-height: 1.55; color: var(--ink-faint); transition: color .3s; }
-.step-n { font-size: var(--fs-md) !important; margin: 0 0 8px !important; color: var(--ink-dim) !important; }
-.spot-step.is-on { border-left-color: var(--ink); }
-.spot-step.is-on h3 { color: var(--ink); }
-.spot-step.is-on p { color: var(--ink-dim); }
-.spot-view { position: relative; }
-.spot-window { position: sticky; top: max(88px, calc(50vh - 340px)); overflow: visible; box-shadow: var(--shadow-float); }
-.spot-window img { border-radius: calc(var(--r-card) - 1px); }
+.club-shot { position: relative; max-width: 1100px; margin: 56px auto 0; overflow: visible; box-shadow: var(--shadow-float); }
+.club-shot img { display: block; border-radius: calc(var(--r-card) - 1px); }
+/* Text under the image: what the club gets, four across. Hovering one
+   rings its part of the page above (js/home-v2.js). */
+.club-feats { list-style: none; margin: 40px auto 0; padding: 0; max-width: 1100px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 32px; }
+.club-feats li { padding: 20px 0 22px; border-top: 1px solid var(--edge); outline-offset: 4px; }
+.club-feats li[data-spot] { cursor: default; }
+.club-feats li.is-on { border-top-color: var(--ink); }
+.club-feats h3 { font: 600 var(--fs-xl)/1.3 var(--f-sans); letter-spacing: -.01em; margin-bottom: 6px; }
+.club-feats p { margin: 0; font-size: var(--fs-lg); line-height: 1.55; color: var(--ink-dim); }
 .spot-ring {
-  position: absolute; pointer-events: none; border-radius: var(--r-mid);
+  position: absolute; pointer-events: none; border-radius: var(--r-mid); opacity: 0;
   left: calc(var(--x, 1.2) * 1%); top: calc(var(--y, 71.9) * 1%); width: calc(var(--w, 58.9) * 1%); height: calc(var(--h, 28.1) * 1%);
   box-shadow: 0 0 0 2px var(--ink), 0 0 0 7px rgba(18, 18, 18, .08);
-  transition: left .55s var(--ease-out), top .55s var(--ease-out), width .55s var(--ease-out), height .55s var(--ease-out);
+  transition: opacity .25s, left .45s var(--ease-out), top .45s var(--ease-out), width .45s var(--ease-out), height .45s var(--ease-out);
 }
-.clubs-foot { display: flex; justify-content: center; margin-top: 40px; }
+.spot-ring.on { opacity: 1; }
+
+/* ── Problem and solution ── */
+.problem-head { max-width: 860px; margin-bottom: 48px; }
+.problem-head h2 { font-size: clamp(38px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -.022em; }
+.ps { display: grid; grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr); align-items: stretch; }
+.ps-card { padding: 32px; border-radius: var(--r-card); border: 1px solid var(--edge); }
+.ps-before { background: transparent; border-style: dashed; border-color: var(--line-strong); }
+.ps-after { background: var(--surface); box-shadow: var(--shadow-float); }
+.ps-tag { margin: 0 0 16px; font: 600 var(--fs-md)/1.2 var(--f-sans); color: var(--ink-dim); }
+.ps ul { list-style: none; margin: 0; padding: 0; }
+.ps li { padding: 13px 0; border-top: 1px solid var(--hairline); font-size: var(--fs-lg); line-height: 1.45; }
+.ps li strong { display: block; font-weight: 600; font-size: var(--fs-xl); }
+.ps li span { color: var(--ink-dim); }
+.ps-before li strong { color: var(--ink-dim); text-decoration: line-through; text-decoration-color: rgba(181, 83, 74, .55); text-decoration-thickness: 1.5px; }
+.ps-before li span { color: var(--ink-faint); }
+.ps-after li { display: flex; gap: 12px; }
+.ps-after li svg { flex: none; width: 16px; height: 16px; margin-top: 4px; color: #4f8a5b; }
+.ps-arrow { display: flex; align-items: center; justify-content: center; color: var(--ink-dim); }
+.ps-arrow svg { width: 22px; height: 22px; }
+
+/* ── Features: eight real screens ── */
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 24px; }
+.tile-shot {
+  margin: 0 0 18px; padding: 20px 20px 0; overflow: hidden; border: 1px solid var(--edge); border-radius: var(--r-card);
+  background: radial-gradient(90% 70% at 30% 0%, #fff 0%, rgba(255, 255, 255, 0) 70%), linear-gradient(180deg, #FBF9F5 0%, var(--bg-2) 100%);
+}
+.tile-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--edge); border-bottom: 0; border-radius: var(--r-mid) var(--r-mid) 0 0; background: var(--surface); }
+.tile h3 { font: 600 var(--fs-xl)/1.3 var(--f-sans); letter-spacing: -.01em; margin-bottom: 6px; }
+.tile p { margin: 0; font-size: var(--fs-lg); line-height: 1.55; color: var(--ink-dim); }
+
+/* ── FAQ ── */
+.faq-wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 56px; align-items: start; }
+.faq-wrap h2 { font-size: clamp(38px, 4.6vw, 56px); line-height: 1.02; letter-spacing: -.022em; margin-bottom: 12px; }
+.faq-list { border-top: 1px solid var(--edge); }
+.faq-list details { border-bottom: 1px solid var(--edge); }
+.faq-list summary {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding: 16px 0; cursor: pointer; list-style: none;
+  font: 600 var(--fs-xl)/1.35 var(--f-sans);
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: '+'; flex: none; font: 400 24px/1 var(--f-sans); color: var(--ink-dim); transition: transform .2s var(--ease-out); }
+.faq-list details[open] summary::after { transform: rotate(45deg); }
+.faq-list p { margin: 0 0 20px; max-width: 44em; font-size: var(--fs-lg); line-height: 1.6; color: var(--ink-dim); }
+.clubs-foot { display: flex; justify-content: center; margin-top: 24px; }
 
 /* ── Pricing (from version C): both plans, side by side ── */
 .pricing { padding: 136px 0 0; }
@@ -319,11 +320,13 @@ html.js .rise-in.in { transform: none; opacity: 1; }
 .founder a { color: var(--ink); text-underline-offset: 3px; }
 
 @media (max-width: 1100px) {
-  .spot { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 36px; }
-  .spot-step h3 { font-size: 26px; }
+  .club-feats, .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 900px) {
   .split { grid-template-columns: 1fr; gap: 40px; }
+  .ps { grid-template-columns: 1fr; gap: 12px; }
+  .ps-arrow { transform: rotate(90deg); height: 32px; }
+  .faq-wrap { grid-template-columns: 1fr; gap: 24px; }
 }
 @media (max-width: 760px) {
   .split-copy h2, .clubs-head h2, .pricing-title { font-size: 38px; }
@@ -332,17 +335,19 @@ html.js .rise-in.in { transform: none; opacity: 1; }
 
   .clubs { margin-top: 96px; padding: 80px 0 72px; }
   .clubs-head { text-align: left; align-items: flex-start; }
-  .spot { grid-template-columns: 1fr; margin-top: 36px; gap: 0; }
-  .spot-view { order: -1; display: flex; justify-content: center; }
-  .spot-window { position: relative; top: auto; width: 264px; padding: 6px; border: 0; border-radius: 40px; background: #121212; box-shadow: 0 30px 50px -24px rgba(60, 44, 32, .4); }
-  .spot-window img { border-radius: 34px; }
+  .club-shot { margin-top: 32px; max-height: 560px; overflow: hidden; -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent 100%); mask-image: linear-gradient(180deg, #000 85%, transparent 100%); }
   .spot-ring { display: none; }
-  .spot-steps { padding: 32px 0 0; }
-  .spot-step { margin-bottom: 4px; padding: 14px 0 14px 16px; border-left-color: var(--edge); }
-  .spot-step h3 { font-size: 24px; color: var(--ink); }
-  .spot-step p { color: var(--ink-dim); font-size: var(--fs-lg); }
-  .spot-step.is-on { border-left-color: var(--edge); }
+  .club-feats { grid-template-columns: 1fr; margin-top: 24px; }
+  .club-feats li { padding: 16px 0; }
   .clubs-foot { justify-content: flex-start; margin-top: 16px; }
+
+  .problem-head { margin-bottom: 28px; }
+  .problem-head h2, .faq-wrap h2 { font-size: 36px; }
+  .ps-card { padding: 22px 20px; }
+  /* Features scroll sideways inside their own row on phones. */
+  .tiles { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding: 0 var(--gutter) 8px; scrollbar-width: none; }
+  .tiles::-webkit-scrollbar { display: none; }
+  .tile { flex: 0 0 76%; scroll-snap-align: start; }
 
   .pricing { padding-top: 88px; }
   .plans { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
@@ -392,6 +397,6 @@ html.js .rise-in.in { transform: none; opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   html.js .rise-in { transform: none; opacity: 1; transition: none; }
   [data-drift] { transform: none !important; }
-  .spot-ring, .spot-step, .spot-step h3, .spot-step p { transition: none; }
+  .spot-ring, .faq-list summary::after { transition: none; }
   .sticky-cta { transition: none; }
 }
