@@ -1,0 +1,7 @@
+#!/bin/sh
+# Refuses a push when a site script or tool has a syntax error, since the
+# Workers build runs tools/build-redirects.mjs on every push. Skip once with
+# --no-verify.
+cd "$(git rev-parse --show-toplevel)" || exit 1
+for f in js/*.js tools/*.mjs; do [ -f "$f" ] && { node --check "$f" || { echo "pre-push: syntax error in $f"; exit 1; }; }; done
+echo "pre-push: site checks passed"
