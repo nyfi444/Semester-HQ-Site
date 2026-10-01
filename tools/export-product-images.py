@@ -48,9 +48,11 @@ def _syllabus_box():
     one panel rather than a long column."""
     try:
         r = json.load(open(os.path.join(SRC, 'rects.json')))['syllabusPanel']
+        x, y, w = r['x'], r['y'], r['w']
     except (OSError, KeyError, TypeError):
+        # Not measured (since r48 the panel spans both columns, which the
+        # shooter's narrow-card test misses): the long-standing crop.
         return (1900, 612, 2748, 1732)
-    x, y, w = r['x'], r['y'], r['w']
     h = min(r['h'], 570)
     return (round(x * 2), round(y * 2), round((x + w) * 2), round((y + h) * 2))
 
@@ -69,6 +71,9 @@ EXPORTS = [
     ('clubs-desktop',       'clubs-desktop.png',       DESKTOP_W, (0, 0, 2880, 1800)),
     ('studygroups-availability-desktop', 'studygroups-availability-desktop.png', DESKTOP_W, None),
     ('notebook-desktop',    'notebook-desktop.png',    DESKTOP_W, None),
+    # A note written together: who's here, their cursors, a wrapped picture, a table.
+    ('notebook-shared-desktop', 'notebook-shared-desktop.png', DESKTOP_W, None),
+    ('notebook-shared-phone',   'notebook-shared-phone.png',   PHONE_W, None),
     ('clubs-phone',         'clubs-phone.png',         PHONE_W, None),
     ('clubs-forms-phone',   'clubs-forms-phone.png',   PHONE_W, None),
     ('dashboard-phone',     'dashboard-phone.png',     PHONE_W, None),
@@ -136,7 +141,11 @@ if __name__ == '__main__':
         sys.exit(f'Expected the screenshots at {SRC}')
     os.makedirs(OUT, exist_ok=True)
     total = 0
+    # Names on the command line export just those (e.g. notebook-shared-desktop).
+    only = set(sys.argv[1:])
     for name, source, width, box in EXPORTS:
+        if only and name not in only:
+            continue
         (w, h), sizes = export(name, source, width, box)
         for path, size in sizes:
             total += size

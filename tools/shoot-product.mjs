@@ -87,7 +87,11 @@ const tidy = (pg) => pg.evaluate((name) => {
   window.scrollTo(0, 0);
 }, NAME);
 
+// ONLY=name,name re-takes just those pictures (the rest of the run still
+// walks the pages, it just doesn't save them).
+const ONLY = (process.env.ONLY || '').split(',').filter(Boolean);
 async function shot(pg, name, { full = false } = {}) {
+  if (ONLY.length && !ONLY.includes(name)) return;
   await pg.waitForTimeout(700);
   await tidy(pg);
   await pg.waitForTimeout(200);
@@ -162,6 +166,11 @@ for (const dev of ['desk', 'phone']) {
     await shot(pg, 'notebook-desktop');
   }
 
+  // The sample semester's shared study guide: Maya and Priya are in it, a
+  // picture wraps beside the text, and a table splits up the topics.
+  await go(pg, () => { nbShowNoteOnPhone(); setState({ route: 'notebook', subRoute: null, notebookSelected: 'shared:sampleStudyGuide01' }); });
+  await shot(pg, `notebook-shared-${dev === 'desk' ? 'desktop' : 'phone'}`);
+
   await go(pg, () => { navTo('studygroups'); createSampleGroup(); });
   await pg.waitForTimeout(600);
   const g = await pg.evaluate(() => state.subRoute);
@@ -228,6 +237,7 @@ for (const dev of ['desk', 'phone']) {
   await ctx.close();
 }
 
-writeFileSync(join(OUT, 'rects.json'), JSON.stringify(rects, null, 2));
+// A partial run (ONLY) leaves the measured boxes from the last full run alone.
+if (!ONLY.length) writeFileSync(join(OUT, 'rects.json'), JSON.stringify(rects, null, 2));
 console.log(JSON.stringify({ errors: errs.slice(0, 10), rects }, null, 1));
 await b.close();
