@@ -37,6 +37,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/world.css">
 <link rel="stylesheet" href="css/page-features.css">
+<link rel="stylesheet" href="css/site-v2.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,34 +64,31 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="world-field" aria-hidden="true">
-  <i class="wf-sand"></i><i class="wf-rose"></i><i class="wf-light"></i><i class="wf-floor"></i>
-  <div class="world-grain"></div>
-</div>
-
-<nav class="nav" id="nav" aria-label="Main">
-  <div class="wrap">
-    <div class="nav-bar">
-      <a class="wordmark" href="./">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
-      <div class="nav-links" id="nav-links">
-        <a href="features.html" aria-current="page"><span class="ni" aria-hidden="true">01</span>Features</a>
-        <a href="how-it-works.html"><span class="ni" aria-hidden="true">02</span>How it works</a>
-        <a href="demo.html"><span class="ni" aria-hidden="true">03</span>Demo</a>
-        <a href="students.html"><span class="ni" aria-hidden="true">04</span>Students</a>
-        <a href="pricing.html"><span class="ni" aria-hidden="true">05</span>Pricing</a>
-        <a href="faq.html"><span class="ni" aria-hidden="true">06</span>FAQ</a>
-      </div>
-      <div class="nav-cta">
-        <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost btn-sm nav-login">Log in</a>
-        <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary btn-sm nav-start">Get started</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
+<header class="g-nav" id="nav">
+  <div class="g-wrap">
+    <div class="g-bar">
+      <a class="g-word" href="./">Semester HQ</a>
+      <button class="g-toggle" type="button" aria-expanded="false" aria-controls="g-links" aria-label="Menu"><span class="g-toggle-bar" aria-hidden="true"></span></button>
+      <nav class="g-links" id="g-links" aria-label="Main">
+        <a href="features.html" aria-current="page">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="group-pricing.html">Clubs &amp; teams</a>
+        <a href="demo.html">Demo</a>
+        <a href="pricing.html">Pricing</a>
+        <a class="g-menu-only" href="faq.html">FAQ</a>
+        <a class="g-menu-only g-menu-cta" href="https://app.semester-hq.com/login.html?signup=1">Get started</a>
+        <a class="g-menu-only g-menu-login nav-login" href="https://app.semester-hq.com/login.html">Log in</a>
+      </nav>
+      <div class="g-cta">
+        <a href="https://app.semester-hq.com/login.html" class="g-btn g-btn-ghost g-sm g-login nav-login">Log in</a>
+        <a href="https://app.semester-hq.com/login.html?signup=1" class="g-btn g-btn-primary g-sm g-start">Get started</a>
       </div>
     </div>
   </div>
-</nav>
+</header>
 
-<div class="sticky-cta">
-  <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started <span class="btn-arrow" aria-hidden="true">→</span></a>
+<div class="g-sticky">
+  <a href="https://app.semester-hq.com/login.html?signup=1" class="g-btn g-btn-primary">Get started</a>
 </div>
 
 <main id="main">
@@ -160,7 +158,7 @@
         </div>
         <div class="feature-visual">
           <div class="feature-shot feature-shot--tall">
-            <img src="assets/product/syllabus-panel.webp" srcset="assets/product/syllabus-panel.webp 1x, assets/product/syllabus-panel@2x.webp 2x" width="600" height="792" alt="The syllabus panel of a class page in Semester HQ, filled in from an uploaded syllabus: Dr. Patel’s email with a one-tap Email button, office hours on Tuesday and Thursday with the next one highlighted, the TA’s hours, and an attendance tracker reading 1 of 3 allowed absences used." loading="lazy" decoding="async">
+            <img src="assets/product/syllabus-panel.webp" srcset="assets/product/syllabus-panel.webp 1x, assets/product/syllabus-panel@2x.webp 2x" width="600" height="802" alt="The syllabus panel of a class page in Semester HQ, filled in from an uploaded syllabus: Dr. Patel’s email with a one-tap Email button, office hours on Tuesday and Thursday with the next one highlighted, the TA’s hours, and an attendance tracker reading 1 of 3 allowed absences used." loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -214,14 +212,15 @@
           <h3>One calendar the officers run. Every member gets it.</h3>
           <p>Built for clubs, sports teams, chapters, and campus organizations. Members join with a six-character code or a link. Officers post meetings, practices, games, socials, service events, and dues deadlines, once or every week, and each one lands on every member’s calendar next to their classes.</p>
           <p>Mark an event required and see who is going, who can’t make it, and who hasn’t answered. Pin an announcement and it sits on every member’s dashboard. The club gets its own chat and a Files tab for the budget, the constitution, or the practice plan. Everyone shows their title, like Treasurer or Captain, and only officers can post. After each event, an attendance grid shows who keeps showing up, and the roster exports as a spreadsheet. Up to six quick links, like the GroupMe, the Instagram, or the Venmo for dues, sit under the club’s name.</p>
+          <p>Officers also get forms for sign-ups, applications, and feedback. Answers come back to whoever runs the form, you can accept, waitlist, or decline an application, and a form can take files or stay anonymous.</p>
           <a href="group-pricing.html" class="hero-link feature-cta">Bringing your whole team or chapter? See group pricing →</a>
         </div>
         <div class="feature-visual">
-          <div class="feature-card org-mock">
-            <div class="org-top"><span class="org-crest">WB</span><div><div class="org-name">Women in Business</div><div class="org-meta">Club · 48 members</div></div></div>
-            <div class="org-ann"><div class="org-ann-by"><strong>Noah</strong> · Treasurer · Pinned</div><div class="org-ann-text">Dues are due Friday. $40 for the semester.</div></div>
-            <div class="org-event"><div class="group-date"><span>Tue</span><strong>15</strong></div><div class="org-ev-copy"><div class="org-ev-title">General meeting <span class="org-req">Required</span></div><div class="group-next-meta">7:00–8:00 PM · Student Union 210</div></div><div class="group-rsvp"><span class="on">Going</span><span>Can’t</span></div></div>
-            <div class="org-event"><div class="group-date light"><span>Wed</span><strong>23</strong></div><div class="org-ev-copy"><div class="org-ev-title">Networking night with alumni</div><div class="group-next-meta">6:30 PM · Business School atrium</div></div><div class="org-counts">31 going</div></div>
+          <div class="device device--shot">
+            <div class="device-bar" aria-hidden="true"><div class="device-dots"><span></span><span></span><span></span></div><div class="device-url">app.semester-hq.com</div></div>
+            <div class="device-body">
+              <img src="assets/product/clubs-desktop.webp" srcset="assets/product/clubs-desktop.webp 1x, assets/product/clubs-desktop@2x.webp 2x" width="1440" height="900" alt="The Women in Business club in Semester HQ: GroupMe, Instagram and dues links under the club's name, a pinned note about dues, the next general meeting marked Required with Going and Can't, the officer view with an 84 percent answer rate, and the week ahead." loading="lazy" decoding="async">
+            </div>
           </div>
         </div>
       </div>
@@ -233,37 +232,10 @@
           <p>Everyone drags to mark when they are free, and Semester HQ shows the time that works for the most people. It can draft your side for you: one tap fills in every hour you are not in class. Schedule it in one click and it lands on everyone’s calendar, or make it weekly and book the rest of the term at once. Open a session to see who is going, who is a maybe, and who has not answered yet. Split tasks with owners and due dates, grab an unclaimed one with a single tap, share notes and flashcard decks, and keep the conversation in the group’s own chat.</p>
         </div>
         <div class="feature-visual">
-          <div class="feature-card group-mock">
-            <div class="group-head-row">
-              <div class="group-head">BIO 201 Group</div>
-              <div class="group-size">4 members</div>
-            </div>
-            <div class="group-next">
-              <div class="group-date"><span>Wed</span><strong>16</strong></div>
-              <div class="group-next-copy">
-                <div class="group-next-title">Midterm 2 review</div>
-                <div class="group-next-meta">5:00–7:00 PM · Main library, room 204</div>
-              </div>
-              <div class="group-rsvp"><span class="on">Going</span><span>Maybe</span><span>Can’t</span></div>
-            </div>
-            <div class="group-draft" aria-hidden="true"><span class="group-draft-btn">Start from my class schedule</span><span>Free 9–9, minus your classes</span></div>
-            <div class="group-heat-label">Find a time <span>Darker = more people free</span></div>
-            <div class="group-heat" aria-hidden="true">
-              <span></span><span class="hm-day">Mon</span><span class="hm-day">Tue</span><span class="hm-day">Wed</span><span class="hm-day">Thu</span><span class="hm-day">Fri</span>
-              <span class="hm-time">3p</span><span class="hm-cell h1"></span><span class="hm-cell h0"></span><span class="hm-cell h1"></span><span class="hm-cell h0"></span><span class="hm-cell h0"></span>
-              <span class="hm-time"></span><span class="hm-cell h1"></span><span class="hm-cell h1"></span><span class="hm-cell h2"></span><span class="hm-cell h1"></span><span class="hm-cell h0"></span>
-              <span class="hm-time">4p</span><span class="hm-cell h2"></span><span class="hm-cell h1"></span><span class="hm-cell h2"></span><span class="hm-cell h2"></span><span class="hm-cell h0"></span>
-              <span class="hm-time"></span><span class="hm-cell h2"></span><span class="hm-cell h1"></span><span class="hm-cell h3"></span><span class="hm-cell h2"></span><span class="hm-cell h1"></span>
-              <span class="hm-time">5p</span><span class="hm-cell h3"></span><span class="hm-cell h2"></span><span class="hm-cell h4 best"></span><span class="hm-cell h3"></span><span class="hm-cell h1"></span>
-              <span class="hm-time"></span><span class="hm-cell h3"></span><span class="hm-cell h2"></span><span class="hm-cell h4 best"></span><span class="hm-cell h3"></span><span class="hm-cell h1"></span>
-              <span class="hm-time">6p</span><span class="hm-cell h3"></span><span class="hm-cell h3"></span><span class="hm-cell h4 best"></span><span class="hm-cell h4"></span><span class="hm-cell h1"></span>
-              <span class="hm-time"></span><span class="hm-cell h2"></span><span class="hm-cell h3"></span><span class="hm-cell h4 best"></span><span class="hm-cell h3"></span><span class="hm-cell h0"></span>
-              <span class="hm-time">7p</span><span class="hm-cell h1"></span><span class="hm-cell h2"></span><span class="hm-cell h2"></span><span class="hm-cell h2"></span><span class="hm-cell h0"></span>
-            </div>
-            <div class="group-best">
-              <span class="group-best-dot" aria-hidden="true"></span>
-              <div><strong>Wednesdays, 5:00–7:00 PM</strong><div class="group-next-meta">Everyone’s free: Maya, Jordan, Priya, you</div></div>
-              <span class="group-best-btn">Schedule</span>
+          <div class="device device--shot">
+            <div class="device-bar" aria-hidden="true"><div class="device-dots"><span></span><span></span><span></span></div><div class="device-url">app.semester-hq.com</div></div>
+            <div class="device-body">
+              <img src="assets/product/studygroups-availability-desktop.webp" srcset="assets/product/studygroups-availability-desktop.webp 1x, assets/product/studygroups-availability-desktop@2x.webp 2x" width="1440" height="900" alt="A BIO 201 study group finding a time in Semester HQ: seven members' free hours side by side, and the best time, Wednesdays 5:00 to 7:30 PM, ready to schedule." loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -292,26 +264,11 @@
           <p>Notes are filed by class, with highlights, checklists, PDF export, and search across everything you have written. Pick a layout and the page takes its shape: Cornell notes, lecture notes, reading notes, a lab report, exam review, a weekly planner, or meeting notes. Cornell splits into cues, notes, and a summary, and one tap covers the notes so you can quiz yourself. The lab report gives you the eight sections your TA grades, a data table that grows a row at a time, and a tracker of what is still empty. Type <code>/</code> to drop any layout into a page you have already started.</p>
         </div>
         <div class="feature-visual">
-          <div class="feature-card nb-mock">
-            <div class="nb-mock-head"><span class="nb-mock-name">Lecture 14 · Cell signaling</span><span class="nb-mock-btn">Cover notes</span></div>
-            <div class="nb-mock-grid" aria-hidden="true">
-              <div class="nb-mock-cues">
-                <div class="nb-mock-label">Cues &amp; questions</div>
-                <div class="nb-mock-cue">What is a second messenger?</div>
-                <div class="nb-mock-cue">Three stages of signaling?</div>
-                <div class="nb-mock-cue">Why does one ligand do so much?</div>
-              </div>
-              <div class="nb-mock-notes">
-                <div class="nb-mock-label">Notes</div>
-                <div class="nb-mock-rule w90"></div>
-                <div class="nb-mock-rule w75"></div>
-                <div class="nb-mock-rule w85"></div>
-                <div class="nb-mock-rule w60"></div>
-                <div class="nb-mock-rule w80"></div>
-                <div class="nb-mock-rule w45"></div>
-              </div>
+          <div class="device device--shot">
+            <div class="device-bar" aria-hidden="true"><div class="device-dots"><span></span><span></span><span></span></div><div class="device-url">app.semester-hq.com</div></div>
+            <div class="device-body">
+              <img src="assets/product/notebook-desktop.webp" srcset="assets/product/notebook-desktop.webp 1x, assets/product/notebook-desktop@2x.webp 2x" width="1440" height="900" alt="A Cornell notes page in the Semester HQ notebook, filed under Organic Chemistry: cues and questions on the left, notes on SN1 and SN2 reactions on the right, and a two-sentence summary at the bottom." loading="lazy" decoding="async">
             </div>
-            <div class="nb-mock-summary"><div class="nb-mock-label">Summary</div><div class="nb-mock-rule w95"></div><div class="nb-mock-rule w70"></div></div>
           </div>
         </div>
       </div>
@@ -336,7 +293,7 @@
           </div>
           <div class="more-tile" id="feat-flashcards">
             <h3>Flashcards</h3>
-            <p>Build decks by class or turn a note into cards. Spaced repetition brings each card back right before you would forget it, so ten minutes a day beats a three-hour cram.</p>
+            <p>Build decks by class, or turn a note or a file into cards. Spaced repetition brings each card back right before you would forget it, so ten minutes a day beats a three-hour cram.</p>
             <div class="more-shot"><img src="assets/product/flashcards-phone.webp" srcset="assets/product/flashcards-phone.webp 1x, assets/product/flashcards-phone@2x.webp 2x" width="600" height="1298" alt="The Flashcards page on a phone: 5 cards to review today in about a minute, and a Functional groups deck for CHEM 210 with 5 cards due." loading="lazy" decoding="async"></div>
           </div>
           <div class="more-tile" id="feat-headsup">
@@ -407,26 +364,26 @@
 
 </main>
 
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a class="wordmark" href="./">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
-        <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
+<footer class="g-foot">
+  <div class="g-wrap">
+    <div class="g-foot-top">
+      <div class="g-foot-brand">
+        <a class="g-word" href="./">Semester HQ</a>
+        <p>Everything your semester needs. One HQ.</p>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h2 class="footer-heading">Product</h2>
+      <div class="g-foot-links">
+        <div class="g-foot-col">
+          <h2 class="g-foot-heading">Product</h2>
           <a href="features.html">Features</a>
           <a href="how-it-works.html">How it works</a>
           <a href="demo.html">Demo</a>
           <a href="students.html">Students</a>
           <a href="pricing.html">Pricing</a>
-          <a href="group-pricing.html">Group pricing</a>
+          <a href="group-pricing.html">Clubs and teams</a>
           <a href="faq.html">FAQ</a>
         </div>
-        <div class="footer-col" id="guides">
-          <h2 class="footer-heading">Guides</h2>
+        <div class="g-foot-col" id="guides">
+          <h2 class="g-foot-heading">Guides</h2>
           <a href="college-planner.html">College planner</a>
           <a href="student-planner.html">Student planner app</a>
           <a href="syllabus-planner.html">Syllabus planner</a>
@@ -438,8 +395,8 @@
           <a href="groups-teams-getting-started.html">For groups and teams</a>
           <a href="add-to-home-screen.html">Add to home screen</a>
         </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Company</h2>
+        <div class="g-foot-col">
+          <h2 class="g-foot-heading">Company</h2>
           <a href="contact.html">Contact</a>
           <a href="contact.html?review=1">Leave a review</a>
           <a href="privacy.html">Privacy Policy</a>
@@ -447,8 +404,7 @@
         </div>
       </div>
     </div>
-    <div class="footer-mark" aria-hidden="true">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></div>
-    <div class="footer-bottom">
+    <div class="g-foot-bottom">
       <span>© 2026 Semester HQ. All rights reserved.</span>
       <span>Made for the semester you're actually having.</span>
     </div>
@@ -458,6 +414,7 @@
 <script src="js/diagnostics.js"></script>
 <script src="js/track.js"></script>
 <script src="js/main.js"></script>
+<script src="js/site-v2.js"></script>
 <script src="js/pricing.js"></script>
 <script src="js/world.js"></script>
 <script>

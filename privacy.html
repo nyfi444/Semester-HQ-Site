@@ -33,47 +33,45 @@
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/world.css">
+<link rel="stylesheet" href="css/site-v2.css">
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "78e77abf3a0d4bfbac8638a1ff1ffdd3"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body class="page-legal">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="world-field" aria-hidden="true">
-  <i class="wf-sand"></i><i class="wf-rose"></i><i class="wf-light"></i><i class="wf-floor"></i>
-  <div class="world-grain"></div>
-</div>
-
-<nav class="nav" id="nav" aria-label="Main">
-  <div class="wrap">
-    <div class="nav-bar">
-      <a class="wordmark" href="./">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
-      <div class="nav-links" id="nav-links">
-        <a href="features.html"><span class="ni" aria-hidden="true">01</span>Features</a>
-        <a href="how-it-works.html"><span class="ni" aria-hidden="true">02</span>How it works</a>
-        <a href="demo.html"><span class="ni" aria-hidden="true">03</span>Demo</a>
-        <a href="students.html"><span class="ni" aria-hidden="true">04</span>Students</a>
-        <a href="pricing.html"><span class="ni" aria-hidden="true">05</span>Pricing</a>
-        <a href="faq.html"><span class="ni" aria-hidden="true">06</span>FAQ</a>
-      </div>
-      <div class="nav-cta">
-        <a href="https://app.semester-hq.com/login.html" class="btn btn-ghost btn-sm nav-login">Log in</a>
-        <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary btn-sm nav-start">Get started</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span class="nav-toggle-bar" aria-hidden="true"></span></button>
+<header class="g-nav" id="nav">
+  <div class="g-wrap">
+    <div class="g-bar">
+      <a class="g-word" href="./">Semester HQ</a>
+      <button class="g-toggle" type="button" aria-expanded="false" aria-controls="g-links" aria-label="Menu"><span class="g-toggle-bar" aria-hidden="true"></span></button>
+      <nav class="g-links" id="g-links" aria-label="Main">
+        <a href="features.html">Features</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="group-pricing.html">Clubs &amp; teams</a>
+        <a href="demo.html">Demo</a>
+        <a href="pricing.html">Pricing</a>
+        <a class="g-menu-only" href="faq.html">FAQ</a>
+        <a class="g-menu-only g-menu-cta" href="https://app.semester-hq.com/login.html?signup=1">Get started</a>
+        <a class="g-menu-only g-menu-login nav-login" href="https://app.semester-hq.com/login.html">Log in</a>
+      </nav>
+      <div class="g-cta">
+        <a href="https://app.semester-hq.com/login.html" class="g-btn g-btn-ghost g-sm g-login nav-login">Log in</a>
+        <a href="https://app.semester-hq.com/login.html?signup=1" class="g-btn g-btn-primary g-sm g-start">Get started</a>
       </div>
     </div>
   </div>
-</nav>
+</header>
 
-<div class="sticky-cta">
-  <a href="https://app.semester-hq.com/login.html?signup=1" class="btn btn-primary">Get started <span class="btn-arrow" aria-hidden="true">→</span></a>
+<div class="g-sticky">
+  <a href="https://app.semester-hq.com/login.html?signup=1" class="g-btn g-btn-primary">Get started</a>
 </div>
 
 <!-- DRAFT FOR ATTORNEY REVIEW. Prepared 2026-09-19. Placeholders in square brackets need the LLC name, mailing address and county. -->
 <main id="main" class="legal">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="updated">Effective September 24, 2026</p>
+    <p class="updated">Effective September 29, 2026</p>
 
     <p>This policy covers the Semester HQ planner at app.semester-hq.com and this website. It explains what we collect, how we use it, who we share it with, and the choices you have. "We" and "us" mean Semester HQ.</p>
 
@@ -81,6 +79,8 @@
     <p><strong>Account info.</strong> Your email address and the password you choose, or, if you use Google, your name, email address, and profile photo. Firebase Authentication (Google) handles sign-in. We never see your password.</p>
     <p><strong>Your planner.</strong> What you put in Semester HQ: classes and meeting times, assignments, to-dos, notes, files you attach, flashcards, study sessions, projects, exam topics, applications you track, syllabus details, the absences you log, any calendar feed link you connect, and your settings. The demo, used without an account, saves nothing.</p>
     <p><strong>What you share with others.</strong> People join a study group, shared class, or club with a 6-character code or an invite link. Members can see what is shared there and your display name. In a study group, that is the availability you add, sessions and RSVPs, tasks, chat, and anything members share in. In a shared class, it is the class details, meeting times, and deadline titles and dates. In a club or team, it is the member list with titles, events, announcements, chat, files, and RSVPs; officers can export the roster and RSVPs. If a group plan pays for you, its admins see your name, email, and when you took a seat. Your progress, notes, and absences are never shared.</p>
+    <p><strong>Forms you answer.</strong> Clubs and study groups can ask their own questions with a form, and a form can be opened to people who are not members through a link. When you answer one, your answers and your display name go to the people who run that form: a club’s officers, or in a study group whoever made the form and the group’s owner. Your email address goes with them only when the form includes it, and the form tells you before you send. Other members never see your answers. Answering a form does not make you a member. The questions are written by the club or group, not by us.</p>
+    <p><strong>Files, anonymous forms, and decisions on applications.</strong> If a form asks for a file, such as a résumé, the file is stored with your answer and can be opened only by you and the people who run that form. If a form is marked anonymous, your answer is stored without your name, email, or account, with the day it was sent and not the time, and the people who run the form cannot see who sent it. We keep a private record on your account that you answered, so that each person gets one answer and so that deleting your account erases it; the people who run the form cannot read that record. What you write is still shown to them, so leave out anything that would identify you. On a form used for applications, the people who run it can mark an answer accepted, waitlisted, or declined. That is their own note: it is not shown to you in Semester HQ and we do not send it to you, so they will tell you themselves.</p>
     <p><strong>Documents and text you ask us to read.</strong> Syllabus upload, quick capture, pasting a job or scholarship posting, and making exam topics or flashcards from your notes send that content through our server to Anthropic’s Claude API, which pulls out the details for you to review. Anthropic does not train on it. A syllabus you upload stays in your class page until you delete it or your account.</p>
     <p><strong>Calendar feeds.</strong> If you paste a Canvas, Blackboard, Brightspace, Moodle, or other calendar link, we store the link with your planner and our server fetches it to read your due dates. We never write back to your school’s system, and we do not keep a copy of the calendar.</p>
     <p><strong>Payment info.</strong> Stripe collects your card details directly. We receive your email and whether your subscription is active.</p>
@@ -119,6 +119,7 @@
         <tr><td>Your account and planner</td><td>Until you delete your account. Deleted items stay in Recently Deleted for 30 days.</td></tr>
         <tr><td>Files you upload</td><td>Until you delete the file or your account.</td></tr>
         <tr><td>Things you shared into a group, class, or club</td><td>Until you, the owner, or officers remove them. They stay after you leave, shown as “Deleted account” if you delete yours. Email us to remove them.</td></tr>
+        <tr><td>Answers you send to a form</td><td>Until you remove your answer, the people running the form delete it or the form, or you delete your account, which erases every answer you sent, anonymous ones included, along with any files you sent with them and any decision recorded about them. A spreadsheet or file an officer already downloaded stays with them.</td></tr>
         <tr><td>Subscription records</td><td>For the life of your subscription, then as long as tax law requires.</td></tr>
         <tr><td>Error reports</td><td>30 days.</td></tr>
         <tr><td>Anonymous click counts</td><td>90 days.</td></tr>
@@ -150,26 +151,26 @@
   </div>
 </main>
 
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a class="wordmark" href="./">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" aria-hidden="true" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></a>
-        <p>Everything your semester needs. One HQ. Built for students who'd rather run their semester than be run by it.</p>
+<footer class="g-foot">
+  <div class="g-wrap">
+    <div class="g-foot-top">
+      <div class="g-foot-brand">
+        <a class="g-word" href="./">Semester HQ</a>
+        <p>Everything your semester needs. One HQ.</p>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h2 class="footer-heading">Product</h2>
+      <div class="g-foot-links">
+        <div class="g-foot-col">
+          <h2 class="g-foot-heading">Product</h2>
           <a href="features.html">Features</a>
           <a href="how-it-works.html">How it works</a>
           <a href="demo.html">Demo</a>
           <a href="students.html">Students</a>
           <a href="pricing.html">Pricing</a>
-          <a href="group-pricing.html">Group pricing</a>
+          <a href="group-pricing.html">Clubs and teams</a>
           <a href="faq.html">FAQ</a>
         </div>
-        <div class="footer-col" id="guides">
-          <h2 class="footer-heading">Guides</h2>
+        <div class="g-foot-col" id="guides">
+          <h2 class="g-foot-heading">Guides</h2>
           <a href="college-planner.html">College planner</a>
           <a href="student-planner.html">Student planner app</a>
           <a href="syllabus-planner.html">Syllabus planner</a>
@@ -181,8 +182,8 @@
           <a href="groups-teams-getting-started.html">For groups and teams</a>
           <a href="add-to-home-screen.html">Add to home screen</a>
         </div>
-        <div class="footer-col">
-          <h2 class="footer-heading">Company</h2>
+        <div class="g-foot-col">
+          <h2 class="g-foot-heading">Company</h2>
           <a href="contact.html">Contact</a>
           <a href="contact.html?review=1">Leave a review</a>
           <a href="privacy.html">Privacy Policy</a>
@@ -190,8 +191,7 @@
         </div>
       </div>
     </div>
-    <div class="footer-mark" aria-hidden="true">Semester HQ<svg class="wm-star" viewBox="-10 -10 20 20" focusable="false"><path d="M0 -10C0.6 -3.2 3.2 -0.6 10 0C3.2 0.6 0.6 3.2 0 10C-0.6 3.2 -3.2 0.6 -10 0C-3.2 -0.6 -0.6 -3.2 0 -10Z"/></svg></div>
-    <div class="footer-bottom">
+    <div class="g-foot-bottom">
       <span>© 2026 Semester HQ. All rights reserved.</span>
       <span>Made for the semester you're actually having.</span>
     </div>
@@ -202,6 +202,7 @@
 <script src="js/track.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/main.js"></script>
+<script src="js/site-v2.js"></script>
 <script src="js/world.js"></script>
 </body>
 </html>

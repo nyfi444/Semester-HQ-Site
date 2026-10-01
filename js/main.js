@@ -81,8 +81,13 @@ if (demoFacade) {
     frame.src = demoUrl;
     frame.title = 'Semester HQ: live app';
     frame.loading = 'lazy';
+    // Bring the whole window into view below the sticky header (the frame's
+    // scroll-margin-top in site-v2.css); a bare focus() scrolled the iframe
+    // to the very top of the viewport, where the header covered it.
+    const shell = demoFacade.closest('.try-live-frame') || frame;
     demoFacade.replaceWith(frame);
-    frame.focus();
+    frame.focus({ preventScroll: true });
+    shell.scrollIntoView({ block: 'start', behavior: reduceMotion ? 'auto' : 'smooth' });
   };
   demoFacade.addEventListener('click', (e) => { e.preventDefault(); openDemo(); });
 }

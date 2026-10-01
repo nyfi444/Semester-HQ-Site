@@ -2,7 +2,7 @@
 """Exports the product screenshots the marketing site uses.
 
 Source: the full-size captures in ../marketing-assets/after (2880x1800
-desktop, 1170x2532 phone). Output: assets/product/, as WebP at the width the
+desktop, 1170x2532 phone), made by tools/shoot-product.mjs. Output: assets/product/, as WebP at the width the
 page actually needs (desktop 1440 wide, phone and crops 600 wide, quality 82),
 plus a JPEG copy of the hero image for browsers without WebP.
 
@@ -19,6 +19,7 @@ Re-run after the screenshots are re-captured:
 
 Needs Pillow. Nothing else.
 """
+import json
 import os
 import sys
 
@@ -40,6 +41,20 @@ QUALITY_2X = 72
 HERO_QUALITY = 90
 HERO = 'dashboard-desktop'
 
+
+def _syllabus_box():
+    """The class page's syllabus card, from the boxes tools/shoot-product.mjs
+    measured (CSS px at 2x), cut off after the attendance rule so it reads as
+    one panel rather than a long column."""
+    try:
+        r = json.load(open(os.path.join(SRC, 'rects.json')))['syllabusPanel']
+    except (OSError, KeyError, TypeError):
+        return (1900, 612, 2748, 1732)
+    x, y, w = r['x'], r['y'], r['w']
+    h = min(r['h'], 570)
+    return (round(x * 2), round(y * 2), round((x + w) * 2), round((y + h) * 2))
+
+
 # (output name, source file, target width, optional crop box in source pixels)
 EXPORTS = [
     ('dashboard-desktop',   'dashboard-desktop.png',   DESKTOP_W, None),
@@ -50,7 +65,12 @@ EXPORTS = [
     ('studygroups-desktop', 'studygroups-desktop.png', DESKTOP_W, None),
     # The syllabus panel of the class page: professor, office hours, TA,
     # attendance. This is what an uploaded syllabus turns into.
-    ('syllabus-panel',      'class-page-desktop.png',  PHONE_W, (1900, 612, 2748, 1732)),
+    ('syllabus-panel',      'class-page-desktop.png',  PHONE_W, _syllabus_box()),
+    ('clubs-desktop',       'clubs-desktop.png',       DESKTOP_W, (0, 0, 2880, 1800)),
+    ('studygroups-availability-desktop', 'studygroups-availability-desktop.png', DESKTOP_W, None),
+    ('notebook-desktop',    'notebook-desktop.png',    DESKTOP_W, None),
+    ('clubs-phone',         'clubs-phone.png',         PHONE_W, None),
+    ('clubs-forms-phone',   'clubs-forms-phone.png',   PHONE_W, None),
     ('dashboard-phone',     'dashboard-phone.png',     PHONE_W, None),
     # The phone capture filed as class-page-phone is the Courses list.
     ('courses-phone',       'class-page-phone.png',    PHONE_W, None),
@@ -63,7 +83,7 @@ EXPORTS = [
     ('todos-phone',         'todos-phone.png',         PHONE_W, None),
     ('timer-phone',         'timer-phone.png',         PHONE_W, None),
     ('dashboard-dark-phone', 'dashboard-dark-phone.png', PHONE_W, None),
-    # Captured Sept 24 by Playwright at 390x844 @3x, demo chrome hidden.
+    # Both captured by tools/shoot-product.mjs (390x844 @3x, demo chrome hidden).
     ('capture-phone',       'capture-phone.png',       PHONE_W, None),
     ('offline-phone',       'offline-phone.png',       PHONE_W, None),
 ]
