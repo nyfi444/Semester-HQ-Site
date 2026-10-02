@@ -355,7 +355,7 @@ html.js .rise-in.in { transform: none; opacity: 1; }
 }
 @media (max-width: 760px) {
   .split-copy h2, .clubs-head h2, .pricing-title { font-size: 38px; }
-  .lit { padding: 24px 0 0; aspect-ratio: auto; height: 440px; display: flex; justify-content: center; }
+  .lit { padding: 24px 0 0; aspect-ratio: auto; height: 440px; display: flex; justify-content: center; align-items: flex-start; }
   .lit img { width: 78%; border-radius: 22px 22px 0 0; border-bottom: 0; }
 
   .clubs { margin-top: 96px; padding: 80px 0 72px; }
